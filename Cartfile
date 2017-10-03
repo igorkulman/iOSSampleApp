@@ -1,0 +1,5 @@
+github "ReactiveX/RxSwift" ~> 3.0
+github "Swinject/Swinject" ~> 2.0.0
+github "Swinject/SwinjectStoryboard" ~> 1.0.0
+github "emaloney/CleanroomLogger" ~> 5.1.0
+github "Swinject/SwinjectAutoregistration" "swift4"

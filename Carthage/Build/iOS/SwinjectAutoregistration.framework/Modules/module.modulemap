@@ -1,0 +1,11 @@
+framework module SwinjectAutoregistration {
+  umbrella header "SwinjectAutoregistration.h"
+
+  export *
+  module * { export * }
+}
+
+module SwinjectAutoregistration.Swift {
+    header "SwinjectAutoregistration-Swift.h"
+    requires objc
+}
