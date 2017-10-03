@@ -59,7 +59,7 @@ class AppCoordinator: Coordinator {
     }
 }
 
-extension AppCoordinator: SetupCoordinatorProtocol {
+extension AppCoordinator: SetupCoordinatorDelegate {
     func setupCoordinatorDidFinish() {
         showDashborad()
     }

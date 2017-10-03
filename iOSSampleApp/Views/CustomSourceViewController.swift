@@ -10,9 +10,19 @@ import UIKit
 
 class CustomSourceViewController: UIViewController, SetupStoryboardLodable {
 
+    // MARK: - Properties
+    
+    var viewModel: CustomSourceViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupUI()
+    }
+    
+    // MARK: - Setup
+    
+    private func setupUI() {
+        title = "add_custom_source".localized
     }
 }

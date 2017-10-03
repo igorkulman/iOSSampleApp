@@ -53,4 +53,8 @@ class SourceSelectionViewModel {
         
         source.isSelected.value = !source.isSelected.value
     }
+    
+    func saveSelectedSource() {
+        
+    }
 }

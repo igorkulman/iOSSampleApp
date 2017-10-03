@@ -11,7 +11,7 @@ import UIKit
 import CleanroomLogger
 import Swinject
 
-protocol SetupCoordinatorProtocol: class {
+protocol SetupCoordinatorDelegate: class {
     func setupCoordinatorDidFinish()
 }
 
@@ -21,7 +21,7 @@ class SetupCoordinator: NavigationCoordinator {
     
     let navigationController: UINavigationController
     let container: Container
-    weak var delegate: SetupCoordinatorProtocol?
+    weak var delegate: SetupCoordinatorDelegate?
     
     // MARK: - Fields
     
@@ -44,11 +44,23 @@ class SetupCoordinator: NavigationCoordinator {
     
     private func showSourceSelection() {
         let vc = container.resolveViewController(SourceSelectionViewController.self)
-        //vc.delegate = self
+        vc.delegate = self
         navigationController.pushViewController(vc, animated: true)
     }
     
     private func showAddSourceForm() {
-        
+        let vc = container.resolveViewController(CustomSourceViewController.self)
+        //vc.delegate = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+}
+
+extension SetupCoordinator: SourceSelectionViewControllerDelegate {
+    func sourceSelectionViewControllerDidFinish() {
+        delegate?.setupCoordinatorDidFinish()
+    }
+    
+    func userDidRequestCustomSource() {
+        showAddSourceForm()
     }
 }

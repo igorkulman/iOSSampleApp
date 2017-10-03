@@ -16,6 +16,7 @@
 		F38CD22B1F83A1FE0050056C /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38CD22A1F83A1FE0050056C /* Nuke.framework */; };
 		F38CD22F1F83A2B90050056C /* CustomSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD22E1F83A2B90050056C /* CustomSourceViewController.swift */; };
 		F38CD2311F83A2F40050056C /* RxNuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38CD2301F83A2F40050056C /* RxNuke.framework */; };
+		F38CD2331F83A6040050056C /* CustomSourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD2321F83A6030050056C /* CustomSourceViewModel.swift */; };
 		F3A812B81F83740E00A09AAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A812B71F83740E00A09AAB /* AppDelegate.swift */; };
 		F3A812BF1F83740E00A09AAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3A812BE1F83740E00A09AAB /* Assets.xcassets */; };
 		F3A812C21F83740E00A09AAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A812C01F83740E00A09AAB /* LaunchScreen.storyboard */; };
@@ -55,6 +56,7 @@
 		F38CD22A1F83A1FE0050056C /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
 		F38CD22E1F83A2B90050056C /* CustomSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSourceViewController.swift; sourceTree = "<group>"; };
 		F38CD2301F83A2F40050056C /* RxNuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxNuke.framework; path = Carthage/Build/iOS/RxNuke.framework; sourceTree = "<group>"; };
+		F38CD2321F83A6030050056C /* CustomSourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSourceViewModel.swift; sourceTree = "<group>"; };
 		F3A812B41F83740E00A09AAB /* iOSSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A812B71F83740E00A09AAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3A812BE1F83740E00A09AAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			children = (
 				F3A813101F837DC900A09AAB /* SourceSelectionViewModel.swift */,
 				F38CD1BC1F8382950050056C /* RssSourceViewModel.swift */,
+				F38CD2321F83A6030050056C /* CustomSourceViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				F3A813091F837AF400A09AAB /* RssSource.swift in Sources */,
 				F3A813001F837A6500A09AAB /* DashboardViewController.swift in Sources */,
 				F3A812E11F83766400A09AAB /* StoryboardLodable.swift in Sources */,
+				F38CD2331F83A6040050056C /* CustomSourceViewModel.swift in Sources */,
 				F3A812FE1F83791C00A09AAB /* SettingsService.swift in Sources */,
 				F3A812B81F83740E00A09AAB /* AppDelegate.swift in Sources */,
 				F38CD22F1F83A2B90050056C /* CustomSourceViewController.swift in Sources */,

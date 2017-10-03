@@ -55,10 +55,14 @@ extension AppDelegate {
         
         //viewmodels
         container.autoregister(SourceSelectionViewModel.self, initializer: SourceSelectionViewModel.init)
+        container.autoregister(CustomSourceViewModel.self, initializer: CustomSourceViewModel.init)
         
         //view controllers
         container.storyboardInitCompleted(SourceSelectionViewController.self) {
             r, c in c.viewModel = r.resolve(SourceSelectionViewModel.self)
+        }
+        container.storyboardInitCompleted(CustomSourceViewController.self) {
+            r, c in c.viewModel = r.resolve(CustomSourceViewModel.self)
         }
     }
 }

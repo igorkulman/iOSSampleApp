@@ -8,3 +8,5 @@
 
 "select_source" = "Select source"; 
 "done" = "Done";
+"add_custom" = "Add custom";
+"add_custom_source" = "Add custom source";
