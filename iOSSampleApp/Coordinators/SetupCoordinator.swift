@@ -12,6 +12,9 @@ import CleanroomLogger
 import Swinject
 
 class SetupCoordinator: NavigationCoordinator {
+    
+    // MARK: - Properties
+    
     let navigationController: UINavigationController
     let container: Container
     private let window: UIWindow
@@ -24,6 +27,8 @@ class SetupCoordinator: NavigationCoordinator {
         
         self.window.rootViewController = navigationController
     }
+    
+    // MARK: - Coordinator core
     
     func start() {
         showSourceSelection()

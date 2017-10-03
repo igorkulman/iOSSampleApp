@@ -8,6 +8,8 @@
 
 import Foundation
 
-struct RssSource {
-    
+struct RssSource: Codable {
+    let title: String
+    let url: String
+    let rss: String
 }

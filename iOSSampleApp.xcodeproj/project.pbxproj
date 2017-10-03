@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F38CD1BD1F8382950050056C /* RssSourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD1BC1F8382950050056C /* RssSourceViewModel.swift */; };
+		F38CD1C01F8384490050056C /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD1BF1F8384490050056C /* Bundle+Extensions.swift */; };
+		F38CD1C21F8385450050056C /* sources.json in Resources */ = {isa = PBXBuildFile; fileRef = F38CD1C11F8385350050056C /* sources.json */; };
+		F38CD1C61F83860E0050056C /* Reusable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38CD1C51F83860E0050056C /* Reusable.framework */; };
+		F38CD1CD1F8386A00050056C /* RssSourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD1CB1F8386A00050056C /* RssSourceCell.swift */; };
+		F38CD1CE1F8386A00050056C /* RssSourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F38CD1CC1F8386A00050056C /* RssSourceCell.xib */; };
 		F3A812B81F83740E00A09AAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A812B71F83740E00A09AAB /* AppDelegate.swift */; };
 		F3A812BF1F83740E00A09AAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3A812BE1F83740E00A09AAB /* Assets.xcassets */; };
 		F3A812C21F83740E00A09AAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A812C01F83740E00A09AAB /* LaunchScreen.storyboard */; };
@@ -37,6 +43,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F38CD1BC1F8382950050056C /* RssSourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssSourceViewModel.swift; sourceTree = "<group>"; };
+		F38CD1BF1F8384490050056C /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
+		F38CD1C11F8385350050056C /* sources.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sources.json; sourceTree = "<group>"; };
+		F38CD1C51F83860E0050056C /* Reusable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reusable.framework; path = Carthage/Build/iOS/Reusable.framework; sourceTree = "<group>"; };
+		F38CD1CB1F8386A00050056C /* RssSourceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssSourceCell.swift; sourceTree = "<group>"; };
+		F38CD1CC1F8386A00050056C /* RssSourceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RssSourceCell.xib; sourceTree = "<group>"; };
 		F3A812B41F83740E00A09AAB /* iOSSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A812B71F83740E00A09AAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3A812BE1F83740E00A09AAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -79,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F38CD1C61F83860E0050056C /* Reusable.framework in Frameworks */,
 				F3A812F61F83780800A09AAB /* RxCocoa.framework in Frameworks */,
 				F3A812F71F83780800A09AAB /* SwinjectStoryboard.framework in Frameworks */,
 				F3A812F81F83780800A09AAB /* SwinjectAutoregistration.framework in Frameworks */,
@@ -91,6 +104,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F38CD1C31F8385530050056C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F38CD1C11F8385350050056C /* sources.json */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		F38CD1C41F8385A10050056C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F38CD1CB1F8386A00050056C /* RssSourceCell.swift */,
+				F38CD1CC1F8386A00050056C /* RssSourceCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		F3A812AB1F83740E00A09AAB = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +141,7 @@
 		F3A812B61F83740E00A09AAB /* iOSSampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				F38CD1C31F8385530050056C /* Data */,
 				F3A813071F837ADF00A09AAB /* Models */,
 				F3A812CD1F83749900A09AAB /* Coordinators */,
 				F3A812CA1F83748100A09AAB /* ViewModels */,
@@ -128,6 +159,7 @@
 		F3A812C91F83747C00A09AAB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F38CD1C41F8385A10050056C /* Cells */,
 				F3A812CC1F83749200A09AAB /* Storyboards */,
 				F3A812FF1F837A6500A09AAB /* DashboardViewController.swift */,
 				F3A813011F837A8200A09AAB /* SourceSelectionViewController.swift */,
@@ -139,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				F3A813101F837DC900A09AAB /* SourceSelectionViewModel.swift */,
+				F38CD1BC1F8382950050056C /* RssSourceViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -189,6 +222,7 @@
 				F3A813121F837ECF00A09AAB /* String+Extensions.swift */,
 				F3A812DE1F83762A00A09AAB /* Swinject+Extensions.swift */,
 				F3A8130C1F837BCC00A09AAB /* UINavigationController+Extensions.swift */,
+				F38CD1BF1F8384490050056C /* Bundle+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -196,6 +230,7 @@
 		F3A812E21F8376A900A09AAB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F38CD1C51F83860E0050056C /* Reusable.framework */,
 				F3A812F51F83780800A09AAB /* CleanroomLogger.framework */,
 				F3A812F01F83780700A09AAB /* RxCocoa.framework */,
 				F3A812F41F83780700A09AAB /* RxSwift.framework */,
@@ -307,7 +342,9 @@
 				F3A813171F837F0D00A09AAB /* Localizable.strings in Resources */,
 				F3A813061F837AA400A09AAB /* Setup.storyboard in Resources */,
 				F3A812C21F83740E00A09AAB /* LaunchScreen.storyboard in Resources */,
+				F38CD1CE1F8386A00050056C /* RssSourceCell.xib in Resources */,
 				F3A813041F837A8F00A09AAB /* Dashboard.storyboard in Resources */,
+				F38CD1C21F8385450050056C /* sources.json in Resources */,
 				F3A812BF1F83740E00A09AAB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,6 +364,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SwinjectStoryboard.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/CleanroomLogger.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwinjectAutoregistration.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Reusable.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -342,8 +380,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F38CD1BD1F8382950050056C /* RssSourceViewModel.swift in Sources */,
 				F3A8130D1F837BCC00A09AAB /* UINavigationController+Extensions.swift in Sources */,
 				F3A813021F837A8200A09AAB /* SourceSelectionViewController.swift in Sources */,
+				F38CD1C01F8384490050056C /* Bundle+Extensions.swift in Sources */,
 				F3A812D51F83754100A09AAB /* AppDelegate+Setup.swift in Sources */,
 				F3A813111F837DC900A09AAB /* SourceSelectionViewModel.swift in Sources */,
 				F3A813131F837ECF00A09AAB /* String+Extensions.swift in Sources */,
@@ -352,6 +392,7 @@
 				F3A812E11F83766400A09AAB /* StoryboardLodable.swift in Sources */,
 				F3A812FE1F83791C00A09AAB /* SettingsService.swift in Sources */,
 				F3A812B81F83740E00A09AAB /* AppDelegate.swift in Sources */,
+				F38CD1CD1F8386A00050056C /* RssSourceCell.swift in Sources */,
 				F3A812DF1F83762A00A09AAB /* Swinject+Extensions.swift in Sources */,
 				F3A812DC1F8375DF00A09AAB /* AppCoordinator.swift in Sources */,
 				F3A812DA1F8375BB00A09AAB /* NavigationCoordinator.swift in Sources */,
@@ -494,7 +535,6 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = iOSSampleApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sk.kulman.iOSSampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -515,7 +555,6 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = iOSSampleApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sk.kulman.iOSSampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

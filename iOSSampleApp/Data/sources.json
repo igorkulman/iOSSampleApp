@@ -1,0 +1,12 @@
+ [
+  {
+  "title": "Coding Journal",
+  "url": "https://blog.kulman.sk",
+  "rss": "https://blog.kulman.sk/index.xml",
+  },
+  {
+  "title": "Ars Technica",
+  "url": "https://arstechnica.com",
+  "rss": "http://feeds.arstechnica.com/arstechnica/index",
+  }
+]

@@ -12,18 +12,22 @@ import CleanroomLogger
 import Swinject
 
 class DashboardCoordinator: NavigationCoordinator {
+    
+    // MARK: - Properties
+    
     let navigationController: UINavigationController
     let container: Container
     
-    init(container: Container){
+    init(container: Container) {
         self.container = container
         navigationController = UINavigationController()
         navigationController.adjust()
     }
     
+    // MARK: - Coordinator core
+    
     func start() {
         
     }
-    
     
 }

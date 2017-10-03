@@ -7,18 +7,51 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class SourceSelectionViewController: UIViewController, SetupStoryboardLodable {
-
+    
+    // MARK: - Outlets
+    
+    @IBOutlet private weak var tableView: UITableView!
+    
+    // MARK: - Properties
+    
     var viewModel: SourceSelectionViewModel!
+    
+    // MARK: - Fields
+    
+    private var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupUI()
+        setupBinding()
+        setupData()
     }
     
     private func setupUI() {
         title = "select_source".localized
+    }
+    
+    // MARK: - Setup
+    
+    private func setupBinding() {
+        tableView.rx.modelSelected(RssSourceViewModel.self).subscribe(onNext: { [weak self] source in self?.viewModel.toggleSource(source: source) }).disposed(by: disposeBag)
+        tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in self?.tableView.deselectRow(at: indexPath, animated: true) }).disposed(by: disposeBag)
+    }
+    
+    private func setupData() {
+        tableView.register(cellType: RssSourceCell.self)
+        
+        viewModel.sources
+            .bind(to: tableView.rx.items(cellIdentifier: RssSourceCell.reuseIdentifier, cellType: UITableViewCell.self)) { _, element, cell in
+                if let cell = cell as? RssSourceCell {
+                    cell.viewModel = element
+                }
+            }
+            .disposed(by: disposeBag)
     }
 }

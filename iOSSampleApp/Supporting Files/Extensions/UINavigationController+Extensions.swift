@@ -11,9 +11,7 @@ import UIKit
 
 extension UINavigationController {
     func adjust() {
-        if #available(iOS 11.0, *) {
-            self.navigationBar.prefersLargeTitles = true
-            self.view.backgroundColor = UIColor.white
-        }
+        self.navigationBar.prefersLargeTitles = true
+        self.view.backgroundColor = UIColor.white
     }
 }
