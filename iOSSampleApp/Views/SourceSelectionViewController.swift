@@ -23,6 +23,7 @@ class SourceSelectionViewController: UIViewController, SetupStoryboardLodable {
     // MARK: - Fields
     
     private var disposeBag = DisposeBag()
+    private let doneButton = UIBarButtonItem(title: "done".localized, style: .plain, target: nil, action: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,7 @@ class SourceSelectionViewController: UIViewController, SetupStoryboardLodable {
     
     private func setupUI() {
         title = "select_source".localized
+        navigationItem.rightBarButtonItem = doneButton
     }
     
     // MARK: - Setup
@@ -41,6 +43,7 @@ class SourceSelectionViewController: UIViewController, SetupStoryboardLodable {
     private func setupBinding() {
         tableView.rx.modelSelected(RssSourceViewModel.self).subscribe(onNext: { [weak self] source in self?.viewModel.toggleSource(source: source) }).disposed(by: disposeBag)
         tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in self?.tableView.deselectRow(at: indexPath, animated: true) }).disposed(by: disposeBag)
+        viewModel.isValid.bind(to: doneButton.rx.isEnabled).disposed(by: disposeBag)
     }
     
     private func setupData() {

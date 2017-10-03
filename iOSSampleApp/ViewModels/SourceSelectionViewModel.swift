@@ -16,6 +16,7 @@ class SourceSelectionViewModel {
     
     let sources: Observable<[RssSourceViewModel]>
     let filter = Variable<String?>(nil)
+    let isValid: Observable<Bool>
     
     // MARK: - Fields
     
@@ -37,6 +38,8 @@ class SourceSelectionViewModel {
                 return all
             }
         }
+        
+        isValid = sources.asObservable().flatMap { Observable.combineLatest($0.map { $0.isSelected.asObservable() }) }.map({$0.filter({$0}).count == 1})
         
         allSources = all
     }
