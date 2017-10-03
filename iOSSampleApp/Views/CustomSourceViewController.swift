@@ -10,6 +10,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+protocol CustomSourceViewControllerDelegate: class {
+    func userDidAddCustomSource()
+}
+
 class CustomSourceViewController: UIViewController, SetupStoryboardLodable {
     
     // MARK: - Outlets
@@ -27,6 +31,7 @@ class CustomSourceViewController: UIViewController, SetupStoryboardLodable {
     // MARK: - Properties
     
     var viewModel: CustomSourceViewModel!
+    weak var delegate: CustomSourceViewControllerDelegate?
     
     // MARK: - Fields
     
@@ -64,6 +69,12 @@ class CustomSourceViewController: UIViewController, SetupStoryboardLodable {
         viewModel.logoUrlIsValid.map(validityToColor).bind(to: logoUrlTextField.rx.textColor).disposed(by: disposeBag)
         
         NotificationCenter.default.rx.keyboardHeightChanged().subscribe(onNext: { [weak self] height in self?.scrollview.setBottomInset(height: height) }).disposed(by: disposeBag)
+        
+        doneButton.rx.tap.subscribe(onNext: {[weak self] in
+            if self?.viewModel.submit() == true {
+                self?.delegate?.userDidAddCustomSource()
+            }
+        }).disposed(by: disposeBag)
     }
     
     private func validityToColor(_ isValid: Bool) -> UIColor {

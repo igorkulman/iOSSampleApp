@@ -50,7 +50,7 @@ class SetupCoordinator: NavigationCoordinator {
     
     private func showAddSourceForm() {
         let vc = container.resolveViewController(CustomSourceViewController.self)
-        //vc.delegate = self
+        vc.delegate = self
         navigationController.pushViewController(vc, animated: true)
     }
 }
@@ -62,5 +62,11 @@ extension SetupCoordinator: SourceSelectionViewControllerDelegate {
     
     func userDidRequestCustomSource() {
         showAddSourceForm()
+    }
+}
+
+extension SetupCoordinator: CustomSourceViewControllerDelegate {
+    func userDidAddCustomSource() {        
+        navigationController.popViewController(animated: true)
     }
 }

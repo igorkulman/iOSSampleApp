@@ -46,6 +46,7 @@
 		F3A813111F837DC900A09AAB /* SourceSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A813101F837DC900A09AAB /* SourceSelectionViewModel.swift */; };
 		F3A813131F837ECF00A09AAB /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A813121F837ECF00A09AAB /* String+Extensions.swift */; };
 		F3A813171F837F0D00A09AAB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F3A813161F837F0D00A09AAB /* Localizable.strings */; };
+		F3C91DD91F83B38C0024917B /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C91DD81F83B38C0024917B /* NotificationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,7 @@
 		F3A813101F837DC900A09AAB /* SourceSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceSelectionViewModel.swift; sourceTree = "<group>"; };
 		F3A813121F837ECF00A09AAB /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		F3A813161F837F0D00A09AAB /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		F3C91DD81F83B38C0024917B /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				F3A812FD1F83791C00A09AAB /* SettingsService.swift */,
+				F3C91DD81F83B38C0024917B /* NotificationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				F3A8130D1F837BCC00A09AAB /* UINavigationController+Extensions.swift in Sources */,
 				F3A813021F837A8200A09AAB /* SourceSelectionViewController.swift in Sources */,
 				F38CD1C01F8384490050056C /* Bundle+Extensions.swift in Sources */,
+				F3C91DD91F83B38C0024917B /* NotificationService.swift in Sources */,
 				F3A812D51F83754100A09AAB /* AppDelegate+Setup.swift in Sources */,
 				F3A813111F837DC900A09AAB /* SourceSelectionViewModel.swift in Sources */,
 				F3A813131F837ECF00A09AAB /* String+Extensions.swift in Sources */,

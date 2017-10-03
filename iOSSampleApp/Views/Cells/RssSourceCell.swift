@@ -24,6 +24,8 @@ class RssSourceCell: UITableViewCell, NibReusable {
     var viewModel: RssSourceViewModel? {
         didSet {
             if let vm = viewModel {
+                disposeBag = DisposeBag()
+                
                 titleLabel.text = vm.source.title
                 urlLabel.text = vm.source.url
                 vm.isSelected.asObservable().subscribe(onNext: {[weak self] selected in

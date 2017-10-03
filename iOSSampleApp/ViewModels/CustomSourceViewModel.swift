@@ -23,7 +23,13 @@ class CustomSourceViewModel {
     let logoUrlIsValid: Observable<Bool>
     let urlIsValid: Observable<Bool>
     
-    init() {
+    // MARK: - Fields
+    
+    private let notificationService: NotificationService
+    
+    init(notificationService: NotificationService) {
+        self.notificationService = notificationService
+        
         rssUrlIsValid = rssUrl.asObservable().map({ !($0 ?? "").isEmpty && URL(string: $0!) != nil })
         logoUrlIsValid = logoUrl.asObservable().map({ !($0 ?? "").isEmpty && URL(string: $0!) != nil })
         urlIsValid = url.asObservable().map({ !($0 ?? "").isEmpty && URL(string: $0!) != nil })
@@ -33,5 +39,16 @@ class CustomSourceViewModel {
             
             return isTitleValid && $1 && $2
         }
+    }
+    
+     // MARK: - Actions
+    
+    func submit() -> Bool {
+        guard let title = title.value, let url = url.value, URL(string: url) != nil, let rss = rssUrl.value, URL(string: rss) != nil else {
+            return false
+        }
+        
+        notificationService.announceSourceAdded(source: RssSource(title: title, url: url, rss: rss, icon: logoUrl.value))
+        return true
     }
 }
