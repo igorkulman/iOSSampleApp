@@ -10,3 +10,8 @@
 "done" = "Done";
 "add_custom" = "Add custom";
 "add_custom_source" = "Add custom source";
+"url" = "Url";
+"title" = "Title";
+"logo_url" = "Logo URL";
+"rss_url" = "RSS URL";
+"optional" = "Optional";
