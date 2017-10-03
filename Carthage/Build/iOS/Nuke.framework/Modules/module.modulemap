@@ -1,0 +1,11 @@
+framework module Nuke {
+  umbrella header "Nuke.h"
+
+  export *
+  module * { export * }
+}
+
+module Nuke.Swift {
+    header "Nuke-Swift.h"
+    requires objc
+}

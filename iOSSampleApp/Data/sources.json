@@ -3,10 +3,24 @@
   "title": "Coding Journal",
   "url": "https://blog.kulman.sk",
   "rss": "https://blog.kulman.sk/index.xml",
+  "icon": "https://blog.kulman.sk/apple-icon-114x114.png"
   },
   {
   "title": "Ars Technica",
   "url": "https://arstechnica.com",
   "rss": "http://feeds.arstechnica.com/arstechnica/index",
+  "icon": "https://cdn.arstechnica.net/wp-content/themes/ars/assets/img/material-ars-db41652381.png"
+  },
+  {
+  "title": "The Verge",
+  "url": "https://www.theverge.com",
+  "rss": "https://www.theverge.com/rss/index.xml",
+  "icon": "https://cdn0.vox-cdn.com/uploads/chorus_asset/file/7395351/android-chrome-192x192.0.png"
+  },
+  {
+  "title": "Wired",
+  "url": "https://www.wired.com",
+  "rss": "https://www.wired.com/feed/rss",
+  "icon": "https://www.wired.com/images/logos/wired.png"
   }
 ]

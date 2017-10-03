@@ -9,6 +9,8 @@
 import UIKit
 import Reusable
 import RxSwift
+import RxNuke
+import Nuke
 
 class RssSourceCell: UITableViewCell, NibReusable {
 
@@ -27,6 +29,13 @@ class RssSourceCell: UITableViewCell, NibReusable {
                 vm.isSelected.asObservable().subscribe(onNext: {[weak self] selected in
                     self?.accessoryType = selected ? .checkmark : .none
                 }).disposed(by: disposeBag)
+                logoImage.image = nil
+                if let icon = vm.source.icon, let iconUrl = URL(string: icon) {
+                    Nuke.Manager.shared.loadImage(with: iconUrl)
+                        .observeOn(MainScheduler.instance)
+                        .subscribe(onSuccess: { [weak self] in self?.logoImage.image = $0 })
+                        .disposed(by: disposeBag)
+                }
             }
         }
     }

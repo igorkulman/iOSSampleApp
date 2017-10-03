@@ -11,12 +11,20 @@ import UIKit
 import CleanroomLogger
 import Swinject
 
+protocol SetupCoordinatorProtocol: class {
+    func setupCoordinatorDidFinish()
+}
+
 class SetupCoordinator: NavigationCoordinator {
     
     // MARK: - Properties
     
     let navigationController: UINavigationController
     let container: Container
+    weak var delegate: SetupCoordinatorProtocol?
+    
+    // MARK: - Fields
+    
     private let window: UIWindow
     
     init(container: Container, window: UIWindow){

@@ -12,4 +12,5 @@ struct RssSource: Codable {
     let title: String
     let url: String
     let rss: String
+    let icon: String?
 }

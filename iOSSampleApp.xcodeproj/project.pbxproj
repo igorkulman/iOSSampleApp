@@ -13,6 +13,9 @@
 		F38CD1C61F83860E0050056C /* Reusable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38CD1C51F83860E0050056C /* Reusable.framework */; };
 		F38CD1CD1F8386A00050056C /* RssSourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD1CB1F8386A00050056C /* RssSourceCell.swift */; };
 		F38CD1CE1F8386A00050056C /* RssSourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F38CD1CC1F8386A00050056C /* RssSourceCell.xib */; };
+		F38CD22B1F83A1FE0050056C /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38CD22A1F83A1FE0050056C /* Nuke.framework */; };
+		F38CD22F1F83A2B90050056C /* CustomSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD22E1F83A2B90050056C /* CustomSourceViewController.swift */; };
+		F38CD2311F83A2F40050056C /* RxNuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38CD2301F83A2F40050056C /* RxNuke.framework */; };
 		F3A812B81F83740E00A09AAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A812B71F83740E00A09AAB /* AppDelegate.swift */; };
 		F3A812BF1F83740E00A09AAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3A812BE1F83740E00A09AAB /* Assets.xcassets */; };
 		F3A812C21F83740E00A09AAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A812C01F83740E00A09AAB /* LaunchScreen.storyboard */; };
@@ -49,6 +52,9 @@
 		F38CD1C51F83860E0050056C /* Reusable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reusable.framework; path = Carthage/Build/iOS/Reusable.framework; sourceTree = "<group>"; };
 		F38CD1CB1F8386A00050056C /* RssSourceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssSourceCell.swift; sourceTree = "<group>"; };
 		F38CD1CC1F8386A00050056C /* RssSourceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RssSourceCell.xib; sourceTree = "<group>"; };
+		F38CD22A1F83A1FE0050056C /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
+		F38CD22E1F83A2B90050056C /* CustomSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSourceViewController.swift; sourceTree = "<group>"; };
+		F38CD2301F83A2F40050056C /* RxNuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxNuke.framework; path = Carthage/Build/iOS/RxNuke.framework; sourceTree = "<group>"; };
 		F3A812B41F83740E00A09AAB /* iOSSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A812B71F83740E00A09AAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3A812BE1F83740E00A09AAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,6 +97,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F38CD2311F83A2F40050056C /* RxNuke.framework in Frameworks */,
+				F38CD22B1F83A1FE0050056C /* Nuke.framework in Frameworks */,
 				F38CD1C61F83860E0050056C /* Reusable.framework in Frameworks */,
 				F3A812F61F83780800A09AAB /* RxCocoa.framework in Frameworks */,
 				F3A812F71F83780800A09AAB /* SwinjectStoryboard.framework in Frameworks */,
@@ -161,6 +169,7 @@
 			children = (
 				F38CD1C41F8385A10050056C /* Cells */,
 				F3A812CC1F83749200A09AAB /* Storyboards */,
+				F38CD22E1F83A2B90050056C /* CustomSourceViewController.swift */,
 				F3A812FF1F837A6500A09AAB /* DashboardViewController.swift */,
 				F3A813011F837A8200A09AAB /* SourceSelectionViewController.swift */,
 			);
@@ -230,6 +239,8 @@
 		F3A812E21F8376A900A09AAB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F38CD2301F83A2F40050056C /* RxNuke.framework */,
+				F38CD22A1F83A1FE0050056C /* Nuke.framework */,
 				F38CD1C51F83860E0050056C /* Reusable.framework */,
 				F3A812F51F83780800A09AAB /* CleanroomLogger.framework */,
 				F3A812F01F83780700A09AAB /* RxCocoa.framework */,
@@ -365,6 +376,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/CleanroomLogger.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwinjectAutoregistration.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Reusable.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxNuke.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -392,6 +405,7 @@
 				F3A812E11F83766400A09AAB /* StoryboardLodable.swift in Sources */,
 				F3A812FE1F83791C00A09AAB /* SettingsService.swift in Sources */,
 				F3A812B81F83740E00A09AAB /* AppDelegate.swift in Sources */,
+				F38CD22F1F83A2B90050056C /* CustomSourceViewController.swift in Sources */,
 				F38CD1CD1F8386A00050056C /* RssSourceCell.swift in Sources */,
 				F3A812DF1F83762A00A09AAB /* Swinject+Extensions.swift in Sources */,
 				F3A812DC1F8375DF00A09AAB /* AppCoordinator.swift in Sources */,

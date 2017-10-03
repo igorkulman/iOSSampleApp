@@ -31,9 +31,9 @@ class AppCoordinator: Coordinator {
         self.window = window
         self.container = container
         
-        self.settingsService = self.container.resolve(SettingsService.self)!
+        settingsService = self.container.resolve(SettingsService.self)!
     }
-
+    
     func start() {
         if settingsService.isSetupComplete {
             Log.debug?.message("Setup complete, starting dahsboard")
@@ -54,7 +54,13 @@ class AppCoordinator: Coordinator {
     private func showSetup() {
         let setupCoordinator = SetupCoordinator(container: container, window: window)
         childCoordinators[SETUP_KEY] = setupCoordinator
-//        setupCoordinator.delegate = self
+        setupCoordinator.delegate = self
         setupCoordinator.start()
+    }
+}
+
+extension AppCoordinator: SetupCoordinatorProtocol {
+    func setupCoordinatorDidFinish() {
+        showDashborad()
     }
 }
