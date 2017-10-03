@@ -22,6 +22,7 @@ class CustomSourceViewController: UIViewController, SetupStoryboardLodable {
     @IBOutlet private weak var rssUrlTextField: UITextField!
     @IBOutlet private weak var logoUrlLabel: UILabel!
     @IBOutlet private weak var logoUrlTextField: UITextField!
+    @IBOutlet private weak var scrollview: UIScrollView!
     
     // MARK: - Properties
     
@@ -61,6 +62,8 @@ class CustomSourceViewController: UIViewController, SetupStoryboardLodable {
         viewModel.rssUrlIsValid.map(validityToColor).bind(to: rssUrlTextField.rx.textColor).disposed(by: disposeBag)
         viewModel.urlIsValid.map(validityToColor).bind(to: urlTextField.rx.textColor).disposed(by: disposeBag)
         viewModel.logoUrlIsValid.map(validityToColor).bind(to: logoUrlTextField.rx.textColor).disposed(by: disposeBag)
+        
+        NotificationCenter.default.rx.keyboardHeightChanged().subscribe(onNext: { [weak self] height in self?.scrollview.setBottomInset(height: height) }).disposed(by: disposeBag)
     }
     
     private func validityToColor(_ isValid: Bool) -> UIColor {

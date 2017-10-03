@@ -18,6 +18,7 @@
 		F38CD2311F83A2F40050056C /* RxNuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38CD2301F83A2F40050056C /* RxNuke.framework */; };
 		F38CD2331F83A6040050056C /* CustomSourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD2321F83A6030050056C /* CustomSourceViewModel.swift */; };
 		F38CD2351F83AB9E0050056C /* RxSwift+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD2341F83AB9E0050056C /* RxSwift+Extensions.swift */; };
+		F38CD2371F83AEC70050056C /* UIScrollView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD2361F83AEC70050056C /* UIScrollView+Extensions.swift */; };
 		F3A812B81F83740E00A09AAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A812B71F83740E00A09AAB /* AppDelegate.swift */; };
 		F3A812BF1F83740E00A09AAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3A812BE1F83740E00A09AAB /* Assets.xcassets */; };
 		F3A812C21F83740E00A09AAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A812C01F83740E00A09AAB /* LaunchScreen.storyboard */; };
@@ -59,6 +60,7 @@
 		F38CD2301F83A2F40050056C /* RxNuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxNuke.framework; path = Carthage/Build/iOS/RxNuke.framework; sourceTree = "<group>"; };
 		F38CD2321F83A6030050056C /* CustomSourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSourceViewModel.swift; sourceTree = "<group>"; };
 		F38CD2341F83AB9E0050056C /* RxSwift+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxSwift+Extensions.swift"; sourceTree = "<group>"; };
+		F38CD2361F83AEC70050056C /* UIScrollView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extensions.swift"; sourceTree = "<group>"; };
 		F3A812B41F83740E00A09AAB /* iOSSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A812B71F83740E00A09AAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3A812BE1F83740E00A09AAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -232,12 +234,13 @@
 		F3A812DD1F83761E00A09AAB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F38CD1BF1F8384490050056C /* Bundle+Extensions.swift */,
+				F38CD2341F83AB9E0050056C /* RxSwift+Extensions.swift */,
 				F3A812E01F83766400A09AAB /* StoryboardLodable.swift */,
 				F3A813121F837ECF00A09AAB /* String+Extensions.swift */,
 				F3A812DE1F83762A00A09AAB /* Swinject+Extensions.swift */,
 				F3A8130C1F837BCC00A09AAB /* UINavigationController+Extensions.swift */,
-				F38CD1BF1F8384490050056C /* Bundle+Extensions.swift */,
-				F38CD2341F83AB9E0050056C /* RxSwift+Extensions.swift */,
+				F38CD2361F83AEC70050056C /* UIScrollView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				F38CD2331F83A6040050056C /* CustomSourceViewModel.swift in Sources */,
 				F3A812FE1F83791C00A09AAB /* SettingsService.swift in Sources */,
 				F3A812B81F83740E00A09AAB /* AppDelegate.swift in Sources */,
+				F38CD2371F83AEC70050056C /* UIScrollView+Extensions.swift in Sources */,
 				F38CD22F1F83A2B90050056C /* CustomSourceViewController.swift in Sources */,
 				F38CD1CD1F8386A00050056C /* RssSourceCell.swift in Sources */,
 				F3A812DF1F83762A00A09AAB /* Swinject+Extensions.swift in Sources */,

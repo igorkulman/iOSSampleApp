@@ -18,3 +18,18 @@ extension Reactive where Base: UITextField {
         }
     }
 }
+
+extension Reactive where Base: NotificationCenter {
+    func keyboardHeightChanged() -> ControlEvent<CGFloat> {
+        let showSource = notification(NSNotification.Name.UIKeyboardDidShow).map({ (value: Notification) -> CGFloat in
+            let userInfo: NSDictionary = value.userInfo! as NSDictionary
+            let keyboardInfo = userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue
+            let keyboardSize = keyboardInfo.cgRectValue.size
+            return keyboardSize.height
+        })
+        let hideSource = NotificationCenter.default.rx.notification(NSNotification.Name.UIKeyboardWillHide).map({ _ in CGFloat(0) })
+        
+        let source = Observable.of(showSource, hideSource).merge()
+        return ControlEvent(events: source)
+    }
+}
