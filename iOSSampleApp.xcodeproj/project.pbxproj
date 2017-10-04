@@ -19,6 +19,7 @@
 		F38CD2331F83A6040050056C /* CustomSourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD2321F83A6030050056C /* CustomSourceViewModel.swift */; };
 		F38CD2351F83AB9E0050056C /* RxSwift+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD2341F83AB9E0050056C /* RxSwift+Extensions.swift */; };
 		F38CD2371F83AEC70050056C /* UIScrollView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD2361F83AEC70050056C /* UIScrollView+Extensions.swift */; };
+		F39064951F84D4D8003C0C12 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39064941F84D4D8003C0C12 /* DashboardViewModel.swift */; };
 		F3A812B81F83740E00A09AAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A812B71F83740E00A09AAB /* AppDelegate.swift */; };
 		F3A812BF1F83740E00A09AAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3A812BE1F83740E00A09AAB /* Assets.xcassets */; };
 		F3A812C21F83740E00A09AAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A812C01F83740E00A09AAB /* LaunchScreen.storyboard */; };
@@ -41,7 +42,6 @@
 		F3A813061F837AA400A09AAB /* Setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A813051F837AA400A09AAB /* Setup.storyboard */; };
 		F3A813091F837AF400A09AAB /* RssSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A813081F837AF400A09AAB /* RssSource.swift */; };
 		F3A8130B1F837B0E00A09AAB /* SetupCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A8130A1F837B0E00A09AAB /* SetupCoordinator.swift */; };
-		F3A8130D1F837BCC00A09AAB /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A8130C1F837BCC00A09AAB /* UINavigationController+Extensions.swift */; };
 		F3A8130F1F837C0800A09AAB /* DashboardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A8130E1F837C0800A09AAB /* DashboardCoordinator.swift */; };
 		F3A813111F837DC900A09AAB /* SourceSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A813101F837DC900A09AAB /* SourceSelectionViewModel.swift */; };
 		F3A813131F837ECF00A09AAB /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A813121F837ECF00A09AAB /* String+Extensions.swift */; };
@@ -62,6 +62,7 @@
 		F38CD2321F83A6030050056C /* CustomSourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSourceViewModel.swift; sourceTree = "<group>"; };
 		F38CD2341F83AB9E0050056C /* RxSwift+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxSwift+Extensions.swift"; sourceTree = "<group>"; };
 		F38CD2361F83AEC70050056C /* UIScrollView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extensions.swift"; sourceTree = "<group>"; };
+		F39064941F84D4D8003C0C12 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		F3A812B41F83740E00A09AAB /* iOSSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A812B71F83740E00A09AAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3A812BE1F83740E00A09AAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -92,7 +93,6 @@
 		F3A813051F837AA400A09AAB /* Setup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setup.storyboard; sourceTree = "<group>"; };
 		F3A813081F837AF400A09AAB /* RssSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssSource.swift; sourceTree = "<group>"; };
 		F3A8130A1F837B0E00A09AAB /* SetupCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCoordinator.swift; sourceTree = "<group>"; };
-		F3A8130C1F837BCC00A09AAB /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
 		F3A8130E1F837C0800A09AAB /* DashboardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCoordinator.swift; sourceTree = "<group>"; };
 		F3A813101F837DC900A09AAB /* SourceSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceSelectionViewModel.swift; sourceTree = "<group>"; };
 		F3A813121F837ECF00A09AAB /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
@@ -187,9 +187,10 @@
 		F3A812CA1F83748100A09AAB /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				F3A813101F837DC900A09AAB /* SourceSelectionViewModel.swift */,
-				F38CD1BC1F8382950050056C /* RssSourceViewModel.swift */,
 				F38CD2321F83A6030050056C /* CustomSourceViewModel.swift */,
+				F39064941F84D4D8003C0C12 /* DashboardViewModel.swift */,
+				F38CD1BC1F8382950050056C /* RssSourceViewModel.swift */,
+				F3A813101F837DC900A09AAB /* SourceSelectionViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -241,7 +242,6 @@
 				F3A812E01F83766400A09AAB /* StoryboardLodable.swift */,
 				F3A813121F837ECF00A09AAB /* String+Extensions.swift */,
 				F3A812DE1F83762A00A09AAB /* Swinject+Extensions.swift */,
-				F3A8130C1F837BCC00A09AAB /* UINavigationController+Extensions.swift */,
 				F38CD2361F83AEC70050056C /* UIScrollView+Extensions.swift */,
 			);
 			path = Extensions;
@@ -406,7 +406,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F38CD1BD1F8382950050056C /* RssSourceViewModel.swift in Sources */,
-				F3A8130D1F837BCC00A09AAB /* UINavigationController+Extensions.swift in Sources */,
 				F3A813021F837A8200A09AAB /* SourceSelectionViewController.swift in Sources */,
 				F38CD1C01F8384490050056C /* Bundle+Extensions.swift in Sources */,
 				F3C91DD91F83B38C0024917B /* NotificationService.swift in Sources */,
@@ -421,6 +420,7 @@
 				F3A812B81F83740E00A09AAB /* AppDelegate.swift in Sources */,
 				F38CD2371F83AEC70050056C /* UIScrollView+Extensions.swift in Sources */,
 				F38CD22F1F83A2B90050056C /* CustomSourceViewController.swift in Sources */,
+				F39064951F84D4D8003C0C12 /* DashboardViewModel.swift in Sources */,
 				F38CD1CD1F8386A00050056C /* RssSourceCell.swift in Sources */,
 				F3A812DF1F83762A00A09AAB /* Swinject+Extensions.swift in Sources */,
 				F3A812DC1F8375DF00A09AAB /* AppCoordinator.swift in Sources */,

@@ -22,10 +22,12 @@ class SourceSelectionViewModel {
     
     private let allSources = Variable<[RssSourceViewModel]>([])
     private let notificationService: NotificationService
+    private let settingsService: SettingsService
     private var disposeBag = DisposeBag()
     
-    init(notificationService: NotificationService) {
+    init(notificationService: NotificationService, settingsService: SettingsService) {
         self.notificationService = notificationService
+        self.settingsService = settingsService
         
         Log.debug?.message("Loading sources")
         
@@ -68,7 +70,13 @@ class SourceSelectionViewModel {
         source.isSelected.value = !selected
     }
     
-    func saveSelectedSource() {
+    func saveSelectedSource() -> Bool {
+        guard let selected = allSources.value.first(where: {$0.isSelected.value}) else {
+            Log.error?.message("Cannot save, no source selected")
+            return false
+        }
         
+        settingsService.selectedSource = selected.source
+        return true
     }
 }

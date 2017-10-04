@@ -9,17 +9,20 @@
 import Foundation
 
 class SettingsService {
-    
-    init() {
-        UserDefaults.standard.register(defaults: ["isSetupComplete" : false])
-    }
-    
-    var isSetupComplete: Bool {
+
+    var selectedSource: RssSource? {
         get {
-            return UserDefaults.standard.bool(forKey: "isSetupComplete")
+            let jsonDecoder = JSONDecoder()
+            if let serialized = UserDefaults.standard.data(forKey: "source"), let source = try? jsonDecoder.decode(RssSource.self, from: serialized) {
+                return source
+
+            }
+            return nil
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "isSetupComplete")
+            let jsonEncoder = JSONEncoder()
+            let serialized = try! jsonEncoder.encode(newValue)
+            UserDefaults.standard.set(serialized, forKey: "source")
         }
-    }    
+    }
 }

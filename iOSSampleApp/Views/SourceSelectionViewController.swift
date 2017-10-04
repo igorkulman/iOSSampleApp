@@ -50,6 +50,8 @@ class SourceSelectionViewController: UIViewController, SetupStoryboardLodable {
         setupData()
     }
     
+    // MARK: - Setup
+    
     private func setupUI() {
         title = "select_source".localized
         navigationItem.rightBarButtonItem = doneButton
@@ -60,15 +62,14 @@ class SourceSelectionViewController: UIViewController, SetupStoryboardLodable {
         definesPresentationContext = true
     }
     
-    // MARK: - Setup
-    
     private func setupBinding() {
         tableView.rx.modelSelected(RssSourceViewModel.self).subscribe(onNext: { [weak self] source in self?.viewModel.toggleSource(source: source) }).disposed(by: disposeBag)
         tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in self?.tableView.deselectRow(at: indexPath, animated: true) }).disposed(by: disposeBag)
         viewModel.isValid.bind(to: doneButton.rx.isEnabled).disposed(by: disposeBag)
         doneButton.rx.tap.subscribe(onNext: { [weak self] in
-            self?.viewModel.saveSelectedSource()
-            self?.delegate?.sourceSelectionViewControllerDidFinish()
+            if self?.viewModel.saveSelectedSource() == true {
+                self?.delegate?.sourceSelectionViewControllerDidFinish()
+            }
             
         }).disposed(by: disposeBag)
         addCustomButton.rx.tap.subscribe(onNext: { [weak self] in self?.delegate?.userDidRequestCustomSource() }).disposed(by: disposeBag)

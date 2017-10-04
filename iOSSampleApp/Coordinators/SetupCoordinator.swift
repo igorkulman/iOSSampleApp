@@ -21,19 +21,11 @@ class SetupCoordinator: NavigationCoordinator {
     
     let navigationController: UINavigationController
     let container: Container
-    weak var delegate: SetupCoordinatorDelegate?
+    weak var delegate: SetupCoordinatorDelegate?        
     
-    // MARK: - Fields
-    
-    private let window: UIWindow
-    
-    init(container: Container, window: UIWindow){
+    init(container: Container, navigationController: UINavigationController){
         self.container = container
-        self.window = window
-        navigationController = UINavigationController()
-        navigationController.adjust()
-        
-        self.window.rootViewController = navigationController
+        self.navigationController = navigationController
     }
     
     // MARK: - Coordinator core

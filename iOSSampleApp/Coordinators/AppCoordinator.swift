@@ -24,18 +24,25 @@ class AppCoordinator: Coordinator {
     let container: Container
     private var childCoordinators = [String: Coordinator]()
     private let settingsService: SettingsService
+    private let navigationController: UINavigationController
     
     // MARK: - Coordinator core
     
     init(window: UIWindow, container: Container) {
         self.window = window
         self.container = container
+        self.navigationController = UINavigationController()
         
-        settingsService = self.container.resolve(SettingsService.self)!
+        self.settingsService = self.container.resolve(SettingsService.self)!
+        
+        self.navigationController.navigationBar.prefersLargeTitles = true
+        self.navigationController.view.backgroundColor = UIColor.white
+        
+        self.window.rootViewController = self.navigationController
     }
     
     func start() {
-        if settingsService.isSetupComplete {
+        if settingsService.selectedSource != nil {
             Log.debug?.message("Setup complete, starting dahsboard")
             showDashborad()
         } else {
@@ -45,14 +52,13 @@ class AppCoordinator: Coordinator {
     }
     
     private func showDashborad() {
-        let dashboardCoordinator = DashboardCoordinator(container: container)
+        let dashboardCoordinator = DashboardCoordinator(container: container, navigationController: navigationController)
         childCoordinators[DASHBOARD_KEY] = dashboardCoordinator
-        //        dashboardCoordinator.delegate = self
         dashboardCoordinator.start()
     }
     
     private func showSetup() {
-        let setupCoordinator = SetupCoordinator(container: container, window: window)
+        let setupCoordinator = SetupCoordinator(container: container, navigationController: navigationController)
         childCoordinators[SETUP_KEY] = setupCoordinator
         setupCoordinator.delegate = self
         setupCoordinator.start()

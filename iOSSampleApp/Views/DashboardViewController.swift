@@ -8,11 +8,21 @@
 
 import UIKit
 
-class DashboardViewController: UIViewController, DahsboardStoryboardLodable {
+class DashboardViewController: UIViewController, DashboardStoryboardLodable {
 
+    // MARK: - Properties
+    
+    var viewModel: DashboardViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupUI()
+    }
+    
+    // MARK: - Setup
+    
+    private func setupUI() {
+        title = "feed".localized
     }
 }

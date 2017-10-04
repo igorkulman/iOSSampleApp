@@ -18,16 +18,21 @@ class DashboardCoordinator: NavigationCoordinator {
     let navigationController: UINavigationController
     let container: Container
     
-    init(container: Container) {
+    init(container: Container, navigationController: UINavigationController) {
         self.container = container
-        navigationController = UINavigationController()
-        navigationController.adjust()
+        self.navigationController = navigationController
     }
     
     // MARK: - Coordinator core
     
     func start() {
-        
+        let isTransitionFromSetup = navigationController.viewControllers.count > 0
+        let vc = container.resolveViewController(DashboardViewController.self)
+        vc.navigationItem.hidesBackButton = true
+        navigationController.pushViewController(vc, animated: true)
+        if isTransitionFromSetup {
+            navigationController.viewControllers.remove(at: 0)
+        }
     }
     
 }
