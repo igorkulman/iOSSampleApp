@@ -8,11 +8,11 @@
 
 import UIKit
 
-class DashboardViewController: UIViewController, DashboardStoryboardLodable {
+class FeedViewController: UIViewController, FeedStoryboardLodable {
 
     // MARK: - Properties
     
-    var viewModel: DashboardViewModel!
+    var viewModel: FeedViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

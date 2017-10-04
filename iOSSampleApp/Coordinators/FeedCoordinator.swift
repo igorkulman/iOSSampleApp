@@ -11,7 +11,7 @@ import UIKit
 import CleanroomLogger
 import Swinject
 
-class DashboardCoordinator: NavigationCoordinator {
+class FeedCoordinator: NavigationCoordinator {
     
     // MARK: - Properties
     
@@ -27,7 +27,7 @@ class DashboardCoordinator: NavigationCoordinator {
     
     func start() {
         let isTransitionFromSetup = navigationController.viewControllers.count > 0
-        let vc = container.resolveViewController(DashboardViewController.self)
+        let vc = container.resolveViewController(FeedViewController.self)
         vc.navigationItem.hidesBackButton = true
         navigationController.pushViewController(vc, animated: true)
         if isTransitionFromSetup {

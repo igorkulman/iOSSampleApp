@@ -57,7 +57,7 @@ extension AppDelegate {
         //viewmodels
         container.autoregister(SourceSelectionViewModel.self, initializer: SourceSelectionViewModel.init)
         container.autoregister(CustomSourceViewModel.self, initializer: CustomSourceViewModel.init)
-        container.autoregister(DashboardViewModel.self, initializer: DashboardViewModel.init)
+        container.autoregister(FeedViewModel.self, initializer: FeedViewModel.init)
         
         //view controllers
         container.storyboardInitCompleted(SourceSelectionViewController.self) {
@@ -66,8 +66,8 @@ extension AppDelegate {
         container.storyboardInitCompleted(CustomSourceViewController.self) {
             r, c in c.viewModel = r.resolve(CustomSourceViewModel.self)
         }
-        container.storyboardInitCompleted(DashboardViewController.self) {
-            r, c in c.viewModel = r.resolve(DashboardViewModel.self)
+        container.storyboardInitCompleted(FeedViewController.self) {
+            r, c in c.viewModel = r.resolve(FeedViewModel.self)
         }
     }
 }

@@ -16,7 +16,7 @@ class AppCoordinator: Coordinator {
     // MARK: - Coordinator keys
     
     private let SETUP_KEY: String = "Setup"
-    private let DASHBOARD_KEY: String = "Dashboard"
+    private let FEED_KEY: String = "Feed"
     
     // MARK: - Properties
     
@@ -44,17 +44,17 @@ class AppCoordinator: Coordinator {
     func start() {
         if settingsService.selectedSource != nil {
             Log.debug?.message("Setup complete, starting dahsboard")
-            showDashborad()
+            showFeed()
         } else {
             Log.debug?.message("Startipng setup")
             showSetup()
         }
     }
     
-    private func showDashborad() {
-        let dashboardCoordinator = DashboardCoordinator(container: container, navigationController: navigationController)
-        childCoordinators[DASHBOARD_KEY] = dashboardCoordinator
-        dashboardCoordinator.start()
+    private func showFeed() {
+        let feedCoordinator = FeedCoordinator(container: container, navigationController: navigationController)
+        childCoordinators[FEED_KEY] = feedCoordinator
+        feedCoordinator.start()
     }
     
     private func showSetup() {
@@ -67,6 +67,6 @@ class AppCoordinator: Coordinator {
 
 extension AppCoordinator: SetupCoordinatorDelegate {
     func setupCoordinatorDidFinish() {
-        showDashborad()
+        showFeed()
     }
 }

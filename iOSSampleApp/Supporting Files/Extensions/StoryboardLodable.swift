@@ -16,7 +16,7 @@ protocol StoryboardLodable: class {
 protocol SetupStoryboardLodable: StoryboardLodable {
 }
 
-protocol DashboardStoryboardLodable: StoryboardLodable {
+protocol FeedStoryboardLodable: StoryboardLodable {
 }
 
 extension SetupStoryboardLodable where Self: UIViewController {
@@ -25,8 +25,8 @@ extension SetupStoryboardLodable where Self: UIViewController {
     }
 }
 
-extension DashboardStoryboardLodable where Self: UIViewController {
+extension FeedStoryboardLodable where Self: UIViewController {
     @nonobjc static var storyboardName: String {
-        return "Dashboard"
+        return "Feed"
     }
 }
