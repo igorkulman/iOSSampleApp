@@ -20,5 +20,5 @@ protocol NotificationService: class {
 }
 
 protocol SettingsService: class {
-    var selectedSource: RssSource? {get set}
+    var selectedSource: RssSource? { get set }
 }

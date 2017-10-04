@@ -11,31 +11,31 @@ import RxSwift
 import CleanroomLogger
 
 class SourceSelectionViewModel {
-    
+
     // MARK: - Properties
-    
+
     let sources: Observable<[RssSourceViewModel]>
     let filter = Variable<String?>(nil)
     let isValid: Observable<Bool>
-    
+
     // MARK: - Fields
-    
+
     private let allSources = Variable<[RssSourceViewModel]>([])
     private let notificationService: NotificationService
     private let settingsService: SettingsService
     private var disposeBag = DisposeBag()
-    
+
     init(notificationService: NotificationService, settingsService: SettingsService) {
         self.notificationService = notificationService
         self.settingsService = settingsService
-        
+
         Log.debug?.message("Loading sources")
-        
+
         let jsonData = Bundle.loadFile(filename: "sources.json")!
-        
+
         let jsonDecoder = JSONDecoder()
         let all = (try! jsonDecoder.decode(Array<RssSource>.self, from: jsonData)).map({ RssSourceViewModel(source: $0) })
-        
+
         sources = Observable.combineLatest(allSources.asObservable(), filter.asObservable()) {
             (all: [RssSourceViewModel], filter: String?) -> [RssSourceViewModel] in
             if let filter = filter, !filter.isEmpty {
@@ -44,11 +44,11 @@ class SourceSelectionViewModel {
                 return all
             }
         }
-        
+
         isValid = sources.asObservable().flatMap { Observable.combineLatest($0.map { $0.isSelected.asObservable() }) }.map({ $0.filter({ $0 }).count == 1 })
-        
+
         allSources.value.append(contentsOf: all)
-        
+
         self.notificationService.sourceAdded().subscribe(onNext: { [weak self] source in
             DispatchQueue.main.async {
                 let vm = RssSourceViewModel(source: source)
@@ -57,25 +57,25 @@ class SourceSelectionViewModel {
             }
         }).disposed(by: disposeBag)
     }
-    
+
     // MARK: - Actions
-    
+
     func toggleSource(source: RssSourceViewModel) {
         let selected = source.isSelected.value
-        
+
         for s in allSources.value {
             s.isSelected.value = false
         }
-        
+
         source.isSelected.value = !selected
     }
-    
+
     func saveSelectedSource() -> Bool {
         guard let selected = allSources.value.first(where: { $0.isSelected.value }) else {
             Log.error?.message("Cannot save, no source selected")
             return false
         }
-        
+
         settingsService.selectedSource = selected.source
         return true
     }

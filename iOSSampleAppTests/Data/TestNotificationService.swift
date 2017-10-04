@@ -12,10 +12,9 @@ import RxSwift
 @testable import iOSSampleApp
 
 class TestNotificationService: NotificationService {
-    func announceSourceAdded(source: RssSource) {
-        
+    func announceSourceAdded(source _: RssSource) {
     }
-    
+
     func sourceAdded() -> ControlEvent<RssSource> {
         return ControlEvent(events: Observable.empty())
     }

@@ -15,21 +15,21 @@ import Nuke
 class RssSourceCell: UITableViewCell, NibReusable {
 
     // MARK: - Outlets
-    
+
     @IBOutlet private weak var logoImage: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var urlLabel: UILabel!
-    
+
     // MARK: - Properties
-    
+
     var viewModel: RssSourceViewModel? {
         didSet {
             if let vm = viewModel {
                 disposeBag = DisposeBag()
-                
+
                 titleLabel.text = vm.source.title
                 urlLabel.text = vm.source.url
-                vm.isSelected.asObservable().subscribe(onNext: {[weak self] selected in
+                vm.isSelected.asObservable().subscribe(onNext: { [weak self] selected in
                     self?.accessoryType = selected ? .checkmark : .none
                 }).disposed(by: disposeBag)
                 logoImage.image = nil
@@ -42,9 +42,8 @@ class RssSourceCell: UITableViewCell, NibReusable {
             }
         }
     }
-    
+
     // MARK: - Fields
-    
+
     private var disposeBag = DisposeBag()
-    
 }

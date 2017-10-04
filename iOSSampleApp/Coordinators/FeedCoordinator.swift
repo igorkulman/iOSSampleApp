@@ -12,19 +12,19 @@ import CleanroomLogger
 import Swinject
 
 class FeedCoordinator: NavigationCoordinator {
-    
+
     // MARK: - Properties
-    
+
     let navigationController: UINavigationController
     let container: Container
-    
+
     init(container: Container, navigationController: UINavigationController) {
         self.container = container
         self.navigationController = navigationController
     }
-    
+
     // MARK: - Coordinator core
-    
+
     func start() {
         let isTransitionFromSetup = navigationController.viewControllers.count > 0
         let vc = container.resolveViewController(FeedViewController.self)
@@ -34,5 +34,4 @@ class FeedCoordinator: NavigationCoordinator {
             navigationController.viewControllers.remove(at: 0)
         }
     }
-    
 }

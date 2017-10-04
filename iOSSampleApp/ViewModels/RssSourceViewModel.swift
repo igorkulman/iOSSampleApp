@@ -12,7 +12,7 @@ import RxSwift
 class RssSourceViewModel {
     let source: RssSource
     let isSelected = Variable<Bool>(false)
-    
+
     init(source: RssSource) {
         self.source = source
     }

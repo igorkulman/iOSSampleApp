@@ -16,23 +16,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let container = Container()
 
     private var appCoordinator: AppCoordinator!
-    
+
     func application(_: UIApplication, willFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
         setupLogging()
         setupDependencies()
-        
+
         return true
     }
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+    func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow()
-        
+
         appCoordinator = AppCoordinator(window: window!, container: container)
         appCoordinator.start()
-        
+
         window?.makeKeyAndVisible()
-        
+
         return true
     }
 }
-

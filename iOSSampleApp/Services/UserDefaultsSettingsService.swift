@@ -15,7 +15,6 @@ class UserDefaultsSettingsService: SettingsService {
             let jsonDecoder = JSONDecoder()
             if let serialized = UserDefaults.standard.data(forKey: "source"), let source = try? jsonDecoder.decode(RssSource.self, from: serialized) {
                 return source
-
             }
             return nil
         }

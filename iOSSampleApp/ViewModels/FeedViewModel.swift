@@ -12,21 +12,21 @@ import CleanroomLogger
 import UIKit
 
 class FeedViewModel {
-    
+
     // MARK: - Properties
-    
+
     let feed: Observable<[RssItem]>
     let load = PublishSubject<Void>()
-    
+
     init(dataService: DataService, settingsService: SettingsService) {
-        
+
         if let source = settingsService.selectedSource {
             let loadFeed: Observable<[RssItem]> = Observable.create { observer in
                 dataService.getFeed(source: source) { items in
                     observer.onNext(items)
                     observer.onCompleted()
                 }
-                
+
                 return Disposables.create {
                 }
             }

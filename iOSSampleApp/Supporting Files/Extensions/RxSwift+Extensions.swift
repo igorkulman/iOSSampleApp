@@ -28,7 +28,7 @@ extension Reactive where Base: NotificationCenter {
             return keyboardSize.height
         })
         let hideSource = NotificationCenter.default.rx.notification(NSNotification.Name.UIKeyboardWillHide).map({ _ in CGFloat(0) })
-        
+
         let source = Observable.of(showSource, hideSource).merge()
         return ControlEvent(events: source)
     }

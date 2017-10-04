@@ -12,9 +12,9 @@ import Nimble
 @testable import iOSSampleApp
 
 class DataServiceTests: XCTestCase {
-    
+
     private let service = RssDataService()
-    
+
     func testParsingValidFeed() {
         let source = RssSource(title: "Coding Journal", url: "https://blog.kulman.sk", rss: "https://blog.kulman.sk/index.xml", icon: nil)
         waitUntil(timeout: 5) { done in
@@ -24,7 +24,7 @@ class DataServiceTests: XCTestCase {
             }
         }
     }
-    
+
     func testParsingInvalidValidFeed() {
         let source = RssSource(title: "Fake", url: "", rss: "", icon: nil)
         waitUntil(timeout: 5) { done in
@@ -34,5 +34,4 @@ class DataServiceTests: XCTestCase {
             }
         }
     }
-    
 }

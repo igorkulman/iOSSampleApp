@@ -16,30 +16,30 @@ protocol SetupCoordinatorDelegate: class {
 }
 
 class SetupCoordinator: NavigationCoordinator {
-    
+
     // MARK: - Properties
-    
+
     let navigationController: UINavigationController
     let container: Container
-    weak var delegate: SetupCoordinatorDelegate?        
-    
-    init(container: Container, navigationController: UINavigationController){
+    weak var delegate: SetupCoordinatorDelegate?
+
+    init(container: Container, navigationController: UINavigationController) {
         self.container = container
         self.navigationController = navigationController
     }
-    
+
     // MARK: - Coordinator core
-    
+
     func start() {
         showSourceSelection()
     }
-    
+
     private func showSourceSelection() {
         let vc = container.resolveViewController(SourceSelectionViewController.self)
         vc.delegate = self
         navigationController.pushViewController(vc, animated: true)
     }
-    
+
     private func showAddSourceForm() {
         let vc = container.resolveViewController(CustomSourceViewController.self)
         vc.delegate = self
@@ -51,14 +51,14 @@ extension SetupCoordinator: SourceSelectionViewControllerDelegate {
     func sourceSelectionViewControllerDidFinish() {
         delegate?.setupCoordinatorDidFinish()
     }
-    
+
     func userDidRequestCustomSource() {
         showAddSourceForm()
     }
 }
 
 extension SetupCoordinator: CustomSourceViewControllerDelegate {
-    func userDidAddCustomSource() {        
+    func userDidAddCustomSource() {
         navigationController.popViewController(animated: true)
     }
 }

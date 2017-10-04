@@ -12,12 +12,12 @@ import Reusable
 class FeedCell: UITableViewCell, NibReusable {
 
     // MARK: - Outlets
-    
+
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
-    
+
     // MARK: - Properties
-    
+
     var model: RssItem? {
         didSet {
             if let model = model {
@@ -26,5 +26,4 @@ class FeedCell: UITableViewCell, NibReusable {
             }
         }
     }
-    
 }

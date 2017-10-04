@@ -15,7 +15,7 @@ class RxNotificationService: NotificationService {
     func announceSourceAdded(source: RssSource) {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "sourceAdded"), object: source)
     }
-    
+
     func sourceAdded() -> ControlEvent<RssSource> {
         let source = NotificationCenter.default.rx.notification(Notification.Name(rawValue: "sourceAdded")).map({ $0.object as! RssSource })
         return ControlEvent(events: source)
