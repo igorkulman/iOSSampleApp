@@ -15,6 +15,7 @@ import Nuke
 class RssSourceCell: UITableViewCell, NibReusable {
 
     // MARK: - Outlets
+    
     @IBOutlet private weak var logoImage: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var urlLabel: UILabel!
@@ -45,16 +46,5 @@ class RssSourceCell: UITableViewCell, NibReusable {
     // MARK: - Fields
     
     private var disposeBag = DisposeBag()
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
 }

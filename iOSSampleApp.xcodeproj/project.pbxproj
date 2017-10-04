@@ -20,6 +20,11 @@
 		F38CD2351F83AB9E0050056C /* RxSwift+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD2341F83AB9E0050056C /* RxSwift+Extensions.swift */; };
 		F38CD2371F83AEC70050056C /* UIScrollView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD2361F83AEC70050056C /* UIScrollView+Extensions.swift */; };
 		F39064951F84D4D8003C0C12 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39064941F84D4D8003C0C12 /* FeedViewModel.swift */; };
+		F39064971F84DB8D003C0C12 /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F39064961F84DB8D003C0C12 /* FeedKit.framework */; };
+		F39064991F84DBA7003C0C12 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39064981F84DBA7003C0C12 /* DataService.swift */; };
+		F390649B1F84DC7A003C0C12 /* RssItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F390649A1F84DC7A003C0C12 /* RssItem.swift */; };
+		F390649E1F84DF6B003C0C12 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F390649C1F84DF6B003C0C12 /* FeedCell.swift */; };
+		F390649F1F84DF6B003C0C12 /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F390649D1F84DF6B003C0C12 /* FeedCell.xib */; };
 		F3A812B81F83740E00A09AAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A812B71F83740E00A09AAB /* AppDelegate.swift */; };
 		F3A812BF1F83740E00A09AAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3A812BE1F83740E00A09AAB /* Assets.xcassets */; };
 		F3A812C21F83740E00A09AAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A812C01F83740E00A09AAB /* LaunchScreen.storyboard */; };
@@ -63,6 +68,11 @@
 		F38CD2341F83AB9E0050056C /* RxSwift+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxSwift+Extensions.swift"; sourceTree = "<group>"; };
 		F38CD2361F83AEC70050056C /* UIScrollView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extensions.swift"; sourceTree = "<group>"; };
 		F39064941F84D4D8003C0C12 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		F39064961F84DB8D003C0C12 /* FeedKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FeedKit.framework; path = Carthage/Build/iOS/FeedKit.framework; sourceTree = "<group>"; };
+		F39064981F84DBA7003C0C12 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		F390649A1F84DC7A003C0C12 /* RssItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssItem.swift; sourceTree = "<group>"; };
+		F390649C1F84DF6B003C0C12 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		F390649D1F84DF6B003C0C12 /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
 		F3A812B41F83740E00A09AAB /* iOSSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A812B71F83740E00A09AAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3A812BE1F83740E00A09AAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -105,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F39064971F84DB8D003C0C12 /* FeedKit.framework in Frameworks */,
 				F38CD2311F83A2F40050056C /* RxNuke.framework in Frameworks */,
 				F38CD22B1F83A1FE0050056C /* Nuke.framework in Frameworks */,
 				F38CD1C61F83860E0050056C /* Reusable.framework in Frameworks */,
@@ -131,6 +142,8 @@
 		F38CD1C41F8385A10050056C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				F390649C1F84DF6B003C0C12 /* FeedCell.swift */,
+				F390649D1F84DF6B003C0C12 /* FeedCell.xib */,
 				F38CD1CB1F8386A00050056C /* RssSourceCell.swift */,
 				F38CD1CC1F8386A00050056C /* RssSourceCell.xib */,
 			);
@@ -250,6 +263,7 @@
 		F3A812E21F8376A900A09AAB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F39064961F84DB8D003C0C12 /* FeedKit.framework */,
 				F38CD2301F83A2F40050056C /* RxNuke.framework */,
 				F38CD22A1F83A1FE0050056C /* Nuke.framework */,
 				F38CD1C51F83860E0050056C /* Reusable.framework */,
@@ -272,8 +286,9 @@
 		F3A812FC1F83790700A09AAB /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				F3A812FD1F83791C00A09AAB /* SettingsService.swift */,
+				F39064981F84DBA7003C0C12 /* DataService.swift */,
 				F3C91DD81F83B38C0024917B /* NotificationService.swift */,
+				F3A812FD1F83791C00A09AAB /* SettingsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -281,6 +296,7 @@
 		F3A813071F837ADF00A09AAB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F390649A1F84DC7A003C0C12 /* RssItem.swift */,
 				F3A813081F837AF400A09AAB /* RssSource.swift */,
 			);
 			path = Models;
@@ -363,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3A813171F837F0D00A09AAB /* Localizable.strings in Resources */,
+				F390649F1F84DF6B003C0C12 /* FeedCell.xib in Resources */,
 				F3A813061F837AA400A09AAB /* Setup.storyboard in Resources */,
 				F3A812C21F83740E00A09AAB /* LaunchScreen.storyboard in Resources */,
 				F38CD1CE1F8386A00050056C /* RssSourceCell.xib in Resources */,
@@ -390,6 +407,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Reusable.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxNuke.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/FeedKit.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -409,9 +427,11 @@
 				F3A813021F837A8200A09AAB /* SourceSelectionViewController.swift in Sources */,
 				F38CD1C01F8384490050056C /* Bundle+Extensions.swift in Sources */,
 				F3C91DD91F83B38C0024917B /* NotificationService.swift in Sources */,
+				F39064991F84DBA7003C0C12 /* DataService.swift in Sources */,
 				F3A812D51F83754100A09AAB /* AppDelegate+Setup.swift in Sources */,
 				F3A813111F837DC900A09AAB /* SourceSelectionViewModel.swift in Sources */,
 				F3A813131F837ECF00A09AAB /* String+Extensions.swift in Sources */,
+				F390649E1F84DF6B003C0C12 /* FeedCell.swift in Sources */,
 				F3A813091F837AF400A09AAB /* RssSource.swift in Sources */,
 				F3A813001F837A6500A09AAB /* FeedViewController.swift in Sources */,
 				F3A812E11F83766400A09AAB /* StoryboardLodable.swift in Sources */,
@@ -423,6 +443,7 @@
 				F39064951F84D4D8003C0C12 /* FeedViewModel.swift in Sources */,
 				F38CD1CD1F8386A00050056C /* RssSourceCell.swift in Sources */,
 				F3A812DF1F83762A00A09AAB /* Swinject+Extensions.swift in Sources */,
+				F390649B1F84DC7A003C0C12 /* RssItem.swift in Sources */,
 				F3A812DC1F8375DF00A09AAB /* AppCoordinator.swift in Sources */,
 				F3A812DA1F8375BB00A09AAB /* NavigationCoordinator.swift in Sources */,
 				F3A8130B1F837B0E00A09AAB /* SetupCoordinator.swift in Sources */,

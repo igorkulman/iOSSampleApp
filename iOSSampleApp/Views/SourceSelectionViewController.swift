@@ -60,6 +60,8 @@ class SourceSelectionViewController: UIViewController, SetupStoryboardLodable {
         searchController.dimsBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        
+        tableView.estimatedRowHeight = 0
     }
     
     private func setupBinding() {
@@ -82,6 +84,9 @@ class SourceSelectionViewController: UIViewController, SetupStoryboardLodable {
             self?.viewModel.filter.value = nil
             self?.searchController.searchBar.text = nil
         }).disposed(by: disposeBag)
+        
+        tableView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
     }
     
     private func setupData() {
@@ -94,5 +99,11 @@ class SourceSelectionViewController: UIViewController, SetupStoryboardLodable {
                 }
             }
             .disposed(by: disposeBag)
+    }
+}
+
+extension SourceSelectionViewController: UITableViewDelegate {
+    func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
+        return 60
     }
 }

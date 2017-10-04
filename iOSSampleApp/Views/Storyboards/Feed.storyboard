@@ -16,9 +16,29 @@
                     <view key="view" contentMode="scaleToFill" id="zdm-Fd-oqH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hgh-S3-chJ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="wyC-Ol-nEs">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hgh-S3-chJ" firstAttribute="leading" secondItem="ao3-NJ-c7R" secondAttribute="leading" id="Jec-Cn-AQR"/>
+                            <constraint firstItem="ao3-NJ-c7R" firstAttribute="trailing" secondItem="hgh-S3-chJ" secondAttribute="trailing" id="ewm-83-Znw"/>
+                            <constraint firstItem="hgh-S3-chJ" firstAttribute="top" secondItem="ao3-NJ-c7R" secondAttribute="top" id="oLb-cM-pA4"/>
+                            <constraint firstItem="ao3-NJ-c7R" firstAttribute="bottom" secondItem="hgh-S3-chJ" secondAttribute="bottom" id="pZW-YO-Mrp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ao3-NJ-c7R"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="hgh-S3-chJ" id="7FA-2Y-oXC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v56-Ia-odG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
