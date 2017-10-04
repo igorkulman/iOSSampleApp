@@ -16,3 +16,6 @@
 "rss_url" = "RSS URL";
 "optional" = "Optional";
 "feed" = "Feed";
+"pull_to_refresh" = "Pull to refresh";
+"bad_url" = "Invalid RSS feed URL";
+"network_problem" = "Network problem has occured";

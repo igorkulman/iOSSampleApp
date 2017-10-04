@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import CRToast
 
 class FeedViewController: UIViewController, FeedStoryboardLodable {
 
@@ -45,14 +46,19 @@ class FeedViewController: UIViewController, FeedStoryboardLodable {
         title = "feed".localized
         tableView.estimatedRowHeight = 0
         tableView.refreshControl = refreshControl
-        refreshControl.attributedTitle = NSAttributedString(string: "x")
+        refreshControl.attributedTitle = NSAttributedString(string: "pull_to_refresh".localized)
     }
 
     private func setupBinding() {
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
 
         refreshControl.rx.controlEvent(.valueChanged).bind(to: viewModel.load).disposed(by: disposeBag)
-        viewModel.feed.observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] _ in self?.refreshControl.endRefreshing() }).disposed(by: disposeBag)
+        viewModel.feed.observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] items in
+            self?.refreshControl.endRefreshing()
+            if items.count == 0 {
+                CRToastManager.showErrorNotification(title: "network_problem".localized)
+            }
+        }).disposed(by: disposeBag)
     }
 
     private func setupData() {

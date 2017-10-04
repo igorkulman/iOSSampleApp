@@ -1,0 +1,6 @@
+framework module CRToast {
+  umbrella header "CRToast.h"
+
+  export *
+  module * { export * }
+}
