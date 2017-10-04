@@ -11,6 +11,10 @@
 		F3208A8B1F84E8B300B57B0E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3208A841F84E5D300B57B0E /* Nimble.framework */; };
 		F3208A8C1F84E8B300B57B0E /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3A812F01F83780700A09AAB /* RxCocoa.framework */; };
 		F3208A8D1F84E8B300B57B0E /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3A812F41F83780700A09AAB /* RxSwift.framework */; };
+		F3208A921F84EAF400B57B0E /* CustomSourceViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3208A911F84EAF400B57B0E /* CustomSourceViewModelTest.swift */; };
+		F3208A951F84EB3200B57B0E /* TestNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3208A941F84EB3200B57B0E /* TestNotificationService.swift */; };
+		F3208A991F84EB7C00B57B0E /* ServiceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3208A981F84EB7C00B57B0E /* ServiceProtocols.swift */; };
+		F3208A9A1F84EC8E00B57B0E /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3208A8E1F84E8B400B57B0E /* RxBlocking.framework */; };
 		F38CD1BD1F8382950050056C /* RssSourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD1BC1F8382950050056C /* RssSourceViewModel.swift */; };
 		F38CD1C01F8384490050056C /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD1BF1F8384490050056C /* Bundle+Extensions.swift */; };
 		F38CD1C21F8385450050056C /* sources.json in Resources */ = {isa = PBXBuildFile; fileRef = F38CD1C11F8385350050056C /* sources.json */; };
@@ -25,7 +29,7 @@
 		F38CD2371F83AEC70050056C /* UIScrollView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD2361F83AEC70050056C /* UIScrollView+Extensions.swift */; };
 		F39064951F84D4D8003C0C12 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39064941F84D4D8003C0C12 /* FeedViewModel.swift */; };
 		F39064971F84DB8D003C0C12 /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F39064961F84DB8D003C0C12 /* FeedKit.framework */; };
-		F39064991F84DBA7003C0C12 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39064981F84DBA7003C0C12 /* DataService.swift */; };
+		F39064991F84DBA7003C0C12 /* RssDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39064981F84DBA7003C0C12 /* RssDataService.swift */; };
 		F390649B1F84DC7A003C0C12 /* RssItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F390649A1F84DC7A003C0C12 /* RssItem.swift */; };
 		F390649E1F84DF6B003C0C12 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F390649C1F84DF6B003C0C12 /* FeedCell.swift */; };
 		F390649F1F84DF6B003C0C12 /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F390649D1F84DF6B003C0C12 /* FeedCell.xib */; };
@@ -44,7 +48,7 @@
 		F3A812F91F83780800A09AAB /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3A812F31F83780700A09AAB /* Swinject.framework */; };
 		F3A812FA1F83780800A09AAB /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3A812F41F83780700A09AAB /* RxSwift.framework */; };
 		F3A812FB1F83780800A09AAB /* CleanroomLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3A812F51F83780800A09AAB /* CleanroomLogger.framework */; };
-		F3A812FE1F83791C00A09AAB /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A812FD1F83791C00A09AAB /* SettingsService.swift */; };
+		F3A812FE1F83791C00A09AAB /* UserDefaultsSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A812FD1F83791C00A09AAB /* UserDefaultsSettingsService.swift */; };
 		F3A813001F837A6500A09AAB /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A812FF1F837A6500A09AAB /* FeedViewController.swift */; };
 		F3A813021F837A8200A09AAB /* SourceSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A813011F837A8200A09AAB /* SourceSelectionViewController.swift */; };
 		F3A813041F837A8F00A09AAB /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A813031F837A8F00A09AAB /* Feed.storyboard */; };
@@ -55,7 +59,7 @@
 		F3A813111F837DC900A09AAB /* SourceSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A813101F837DC900A09AAB /* SourceSelectionViewModel.swift */; };
 		F3A813131F837ECF00A09AAB /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A813121F837ECF00A09AAB /* String+Extensions.swift */; };
 		F3A813171F837F0D00A09AAB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F3A813161F837F0D00A09AAB /* Localizable.strings */; };
-		F3C91DD91F83B38C0024917B /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C91DD81F83B38C0024917B /* NotificationService.swift */; };
+		F3C91DD91F83B38C0024917B /* RxNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C91DD81F83B38C0024917B /* RxNotificationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +78,9 @@
 		F3208A841F84E5D300B57B0E /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		F3208A881F84E83900B57B0E /* DataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceTests.swift; sourceTree = "<group>"; };
 		F3208A8E1F84E8B400B57B0E /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		F3208A911F84EAF400B57B0E /* CustomSourceViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSourceViewModelTest.swift; sourceTree = "<group>"; };
+		F3208A941F84EB3200B57B0E /* TestNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNotificationService.swift; sourceTree = "<group>"; };
+		F3208A981F84EB7C00B57B0E /* ServiceProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocols.swift; sourceTree = "<group>"; };
 		F38CD1BC1F8382950050056C /* RssSourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssSourceViewModel.swift; sourceTree = "<group>"; };
 		F38CD1BF1F8384490050056C /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		F38CD1C11F8385350050056C /* sources.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sources.json; sourceTree = "<group>"; };
@@ -88,7 +95,7 @@
 		F38CD2361F83AEC70050056C /* UIScrollView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extensions.swift"; sourceTree = "<group>"; };
 		F39064941F84D4D8003C0C12 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		F39064961F84DB8D003C0C12 /* FeedKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FeedKit.framework; path = Carthage/Build/iOS/FeedKit.framework; sourceTree = "<group>"; };
-		F39064981F84DBA7003C0C12 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		F39064981F84DBA7003C0C12 /* RssDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssDataService.swift; sourceTree = "<group>"; };
 		F390649A1F84DC7A003C0C12 /* RssItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssItem.swift; sourceTree = "<group>"; };
 		F390649C1F84DF6B003C0C12 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		F390649D1F84DF6B003C0C12 /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
@@ -115,7 +122,7 @@
 		F3A812F31F83780700A09AAB /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = "<group>"; };
 		F3A812F41F83780700A09AAB /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		F3A812F51F83780800A09AAB /* CleanroomLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CleanroomLogger.framework; path = Carthage/Build/iOS/CleanroomLogger.framework; sourceTree = "<group>"; };
-		F3A812FD1F83791C00A09AAB /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
+		F3A812FD1F83791C00A09AAB /* UserDefaultsSettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsSettingsService.swift; sourceTree = "<group>"; };
 		F3A812FF1F837A6500A09AAB /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		F3A813011F837A8200A09AAB /* SourceSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceSelectionViewController.swift; sourceTree = "<group>"; };
 		F3A813031F837A8F00A09AAB /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
@@ -126,7 +133,7 @@
 		F3A813101F837DC900A09AAB /* SourceSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceSelectionViewModel.swift; sourceTree = "<group>"; };
 		F3A813121F837ECF00A09AAB /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		F3A813161F837F0D00A09AAB /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		F3C91DD81F83B38C0024917B /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		F3C91DD81F83B38C0024917B /* RxNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxNotificationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3208A9A1F84EC8E00B57B0E /* RxBlocking.framework in Frameworks */,
 				F3208A8B1F84E8B300B57B0E /* Nimble.framework in Frameworks */,
 				F3208A8C1F84E8B300B57B0E /* RxCocoa.framework in Frameworks */,
 				F3208A8D1F84E8B300B57B0E /* RxSwift.framework in Frameworks */,
@@ -163,10 +171,28 @@
 		F3208A7B1F84E48100B57B0E /* iOSSampleAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				F3208A931F84EB2600B57B0E /* Data */,
 				F3208A7E1F84E48100B57B0E /* Info.plist */,
 				F3208A881F84E83900B57B0E /* DataServiceTests.swift */,
+				F3208A911F84EAF400B57B0E /* CustomSourceViewModelTest.swift */,
 			);
 			path = iOSSampleAppTests;
+			sourceTree = "<group>";
+		};
+		F3208A931F84EB2600B57B0E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F3208A941F84EB3200B57B0E /* TestNotificationService.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		F3208A971F84EB6F00B57B0E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F3208A981F84EB7C00B57B0E /* ServiceProtocols.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		F38CD1C31F8385530050056C /* Data */ = {
@@ -328,9 +354,10 @@
 		F3A812FC1F83790700A09AAB /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				F39064981F84DBA7003C0C12 /* DataService.swift */,
-				F3C91DD81F83B38C0024917B /* NotificationService.swift */,
-				F3A812FD1F83791C00A09AAB /* SettingsService.swift */,
+				F3208A971F84EB6F00B57B0E /* Protocols */,
+				F39064981F84DBA7003C0C12 /* RssDataService.swift */,
+				F3C91DD81F83B38C0024917B /* RxNotificationService.swift */,
+				F3A812FD1F83791C00A09AAB /* UserDefaultsSettingsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -476,6 +503,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -515,7 +543,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3208A921F84EAF400B57B0E /* CustomSourceViewModelTest.swift in Sources */,
 				F3208A891F84E83900B57B0E /* DataServiceTests.swift in Sources */,
+				F3208A951F84EB3200B57B0E /* TestNotificationService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,8 +556,8 @@
 				F38CD1BD1F8382950050056C /* RssSourceViewModel.swift in Sources */,
 				F3A813021F837A8200A09AAB /* SourceSelectionViewController.swift in Sources */,
 				F38CD1C01F8384490050056C /* Bundle+Extensions.swift in Sources */,
-				F3C91DD91F83B38C0024917B /* NotificationService.swift in Sources */,
-				F39064991F84DBA7003C0C12 /* DataService.swift in Sources */,
+				F3C91DD91F83B38C0024917B /* RxNotificationService.swift in Sources */,
+				F39064991F84DBA7003C0C12 /* RssDataService.swift in Sources */,
 				F3A812D51F83754100A09AAB /* AppDelegate+Setup.swift in Sources */,
 				F3A813111F837DC900A09AAB /* SourceSelectionViewModel.swift in Sources */,
 				F3A813131F837ECF00A09AAB /* String+Extensions.swift in Sources */,
@@ -536,7 +566,7 @@
 				F3A813001F837A6500A09AAB /* FeedViewController.swift in Sources */,
 				F3A812E11F83766400A09AAB /* StoryboardLodable.swift in Sources */,
 				F38CD2331F83A6040050056C /* CustomSourceViewModel.swift in Sources */,
-				F3A812FE1F83791C00A09AAB /* SettingsService.swift in Sources */,
+				F3A812FE1F83791C00A09AAB /* UserDefaultsSettingsService.swift in Sources */,
 				F3A812B81F83740E00A09AAB /* AppDelegate.swift in Sources */,
 				F38CD2371F83AEC70050056C /* UIScrollView+Extensions.swift in Sources */,
 				F38CD22F1F83A2B90050056C /* CustomSourceViewController.swift in Sources */,
@@ -550,6 +580,7 @@
 				F3A812D81F8375A100A09AAB /* Coordinator.swift in Sources */,
 				F3A8130F1F837C0800A09AAB /* FeedCoordinator.swift in Sources */,
 				F38CD2351F83AB9E0050056C /* RxSwift+Extensions.swift in Sources */,
+				F3208A991F84EB7C00B57B0E /* ServiceProtocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

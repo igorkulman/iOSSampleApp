@@ -51,9 +51,9 @@ extension AppDelegate {
         Log.debug?.message("Registering dependencies")
         
         // services
-        container.autoregister(SettingsService.self, initializer: SettingsService.init).inObjectScope(ObjectScope.container)
-        container.autoregister(NotificationService.self, initializer: NotificationService.init).inObjectScope(ObjectScope.container)
-        container.autoregister(DataService.self, initializer: DataService.init).inObjectScope(ObjectScope.container)
+        container.autoregister(SettingsService.self, initializer: UserDefaultsSettingsService.init).inObjectScope(ObjectScope.container)
+        container.autoregister(NotificationService.self, initializer: RxNotificationService.init).inObjectScope(ObjectScope.container)
+        container.autoregister(DataService.self, initializer: RssDataService.init).inObjectScope(ObjectScope.container)
         
         //viewmodels
         container.autoregister(SourceSelectionViewModel.self, initializer: SourceSelectionViewModel.init)

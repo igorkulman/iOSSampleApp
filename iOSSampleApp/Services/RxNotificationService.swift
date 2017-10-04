@@ -1,5 +1,5 @@
 //
-//  NotificationService.swift
+//  RxNotificationService.swift
 //  iOSSampleApp
 //
 //  Created by Igor Kulman on 03/10/2017.
@@ -11,7 +11,7 @@ import RxSwift
 import UIKit
 import RxCocoa
 
-class NotificationService {
+class RxNotificationService: NotificationService {
     func announceSourceAdded(source: RssSource) {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "sourceAdded"), object: source)
     }

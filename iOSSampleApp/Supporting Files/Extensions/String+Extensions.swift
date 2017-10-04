@@ -14,6 +14,16 @@ extension String {
     }
     
     var isValidURL: Bool {
-        return !self.isEmpty && URL(string: self) != nil
+        return isStringLink(string: self)
+    }
+    
+    private func isStringLink(string: String) -> Bool {
+        let types: NSTextCheckingResult.CheckingType = [.link]
+        let detector = try? NSDataDetector(types: types.rawValue)
+        guard (detector != nil && string.characters.count > 0) else { return false }
+        if detector!.numberOfMatches(in: string, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, string.characters.count)) > 0 {
+            return true
+        }
+        return false
     }
 }

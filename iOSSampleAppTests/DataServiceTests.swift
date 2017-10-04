@@ -13,7 +13,7 @@ import Nimble
 
 class DataServiceTests: XCTestCase {
     
-    private let service = DataService()
+    private let service = RssDataService()
     
     func testParsingValidFeed() {
         let source = RssSource(title: "Coding Journal", url: "https://blog.kulman.sk", rss: "https://blog.kulman.sk/index.xml", icon: nil)

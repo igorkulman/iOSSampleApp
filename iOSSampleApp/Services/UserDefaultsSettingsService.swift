@@ -1,5 +1,5 @@
 //
-//  SettingsService.swift
+//  UserDefaultsSettingsService
 //  iOSSampleApp
 //
 //  Created by Igor Kulman on 03/10/2017.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SettingsService {
+class UserDefaultsSettingsService: SettingsService {
 
     var selectedSource: RssSource? {
         get {

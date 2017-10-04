@@ -1,5 +1,5 @@
 //
-//  DataService.swift
+//  RssDataService.swift
 //  iOSSampleApp
 //
 //  Created by Igor Kulman on 04/10/2017.
@@ -9,7 +9,7 @@
 import Foundation
 import FeedKit
 
-class DataService {
+class RssDataService: DataService {
     func getFeed(source: RssSource, onCompletion: @escaping ([RssItem]) -> Void) {
         if let feedURL = URL(string: source.rss), let parser = FeedParser(URL: feedURL) {
             parser.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { result in
