@@ -1,7 +1,5 @@
 # iOS Sample App
 
-**[Work in Progress]**
-
 ### Description
 
 Sample iOS app written the way I write iOS apps because I cannot share the app I currently work on.
