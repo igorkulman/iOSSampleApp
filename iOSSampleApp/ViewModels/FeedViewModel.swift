@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 import CleanroomLogger
+import UIKit
 
 class FeedViewModel {
     
@@ -20,9 +21,14 @@ class FeedViewModel {
         
         if let source = settingsService.selectedSource {
             feed = Observable.create { observer in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = true
                 dataService.getFeed(source: source) { items in
                     observer.onNext(items)
                     observer.onCompleted()
+                    
+                    DispatchQueue.main.async {
+                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    }
                 }
                 
                 return Disposables.create {
