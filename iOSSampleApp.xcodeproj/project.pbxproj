@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F3208A891F84E83900B57B0E /* DataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3208A881F84E83900B57B0E /* DataServiceTests.swift */; };
+		F3208A8B1F84E8B300B57B0E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3208A841F84E5D300B57B0E /* Nimble.framework */; };
+		F3208A8C1F84E8B300B57B0E /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3A812F01F83780700A09AAB /* RxCocoa.framework */; };
+		F3208A8D1F84E8B300B57B0E /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3A812F41F83780700A09AAB /* RxSwift.framework */; };
 		F38CD1BD1F8382950050056C /* RssSourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD1BC1F8382950050056C /* RssSourceViewModel.swift */; };
 		F38CD1C01F8384490050056C /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD1BF1F8384490050056C /* Bundle+Extensions.swift */; };
 		F38CD1C21F8385450050056C /* sources.json in Resources */ = {isa = PBXBuildFile; fileRef = F38CD1C11F8385350050056C /* sources.json */; };
@@ -54,7 +58,22 @@
 		F3C91DD91F83B38C0024917B /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C91DD81F83B38C0024917B /* NotificationService.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		F3208A7F1F84E48100B57B0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F3A812AC1F83740E00A09AAB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F3A812B31F83740E00A09AAB;
+			remoteInfo = iOSSampleApp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		F3208A7A1F84E48100B57B0E /* iOSSampleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSSampleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3208A7E1F84E48100B57B0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3208A841F84E5D300B57B0E /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		F3208A881F84E83900B57B0E /* DataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceTests.swift; sourceTree = "<group>"; };
+		F3208A8E1F84E8B400B57B0E /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		F38CD1BC1F8382950050056C /* RssSourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssSourceViewModel.swift; sourceTree = "<group>"; };
 		F38CD1BF1F8384490050056C /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		F38CD1C11F8385350050056C /* sources.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sources.json; sourceTree = "<group>"; };
@@ -111,6 +130,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F3208A771F84E48100B57B0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3208A8B1F84E8B300B57B0E /* Nimble.framework in Frameworks */,
+				F3208A8C1F84E8B300B57B0E /* RxCocoa.framework in Frameworks */,
+				F3208A8D1F84E8B300B57B0E /* RxSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F3A812B11F83740E00A09AAB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -131,6 +160,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F3208A7B1F84E48100B57B0E /* iOSSampleAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				F3208A7E1F84E48100B57B0E /* Info.plist */,
+				F3208A881F84E83900B57B0E /* DataServiceTests.swift */,
+			);
+			path = iOSSampleAppTests;
+			sourceTree = "<group>";
+		};
 		F38CD1C31F8385530050056C /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				F3A812B61F83740E00A09AAB /* iOSSampleApp */,
+				F3208A7B1F84E48100B57B0E /* iOSSampleAppTests */,
 				F3A812B51F83740E00A09AAB /* Products */,
 				F3A812E21F8376A900A09AAB /* Frameworks */,
 			);
@@ -163,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				F3A812B41F83740E00A09AAB /* iOSSampleApp.app */,
+				F3208A7A1F84E48100B57B0E /* iOSSampleAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -263,6 +303,8 @@
 		F3A812E21F8376A900A09AAB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F3208A8E1F84E8B400B57B0E /* RxBlocking.framework */,
+				F3208A841F84E5D300B57B0E /* Nimble.framework */,
 				F39064961F84DB8D003C0C12 /* FeedKit.framework */,
 				F38CD2301F83A2F40050056C /* RxNuke.framework */,
 				F38CD22A1F83A1FE0050056C /* Nuke.framework */,
@@ -321,6 +363,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F3208A791F84E48100B57B0E /* iOSSampleAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3208A831F84E48100B57B0E /* Build configuration list for PBXNativeTarget "iOSSampleAppTests" */;
+			buildPhases = (
+				F3208A761F84E48100B57B0E /* Sources */,
+				F3208A771F84E48100B57B0E /* Frameworks */,
+				F3208A781F84E48100B57B0E /* Resources */,
+				F3208A901F84E97C00B57B0E /* Carthage */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F3208A801F84E48100B57B0E /* PBXTargetDependency */,
+			);
+			name = iOSSampleAppTests;
+			productName = iOSSampleAppTests;
+			productReference = F3208A7A1F84E48100B57B0E /* iOSSampleAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		F3A812B31F83740E00A09AAB /* iOSSampleApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F3A812C61F83740E00A09AAB /* Build configuration list for PBXNativeTarget "iOSSampleApp" */;
@@ -349,6 +410,12 @@
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Igor Kulman";
 				TargetAttributes = {
+					F3208A791F84E48100B57B0E = {
+						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F3A812B31F83740E00A09AAB;
+					};
 					F3A812B31F83740E00A09AAB = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
@@ -369,11 +436,19 @@
 			projectRoot = "";
 			targets = (
 				F3A812B31F83740E00A09AAB /* iOSSampleApp */,
+				F3208A791F84E48100B57B0E /* iOSSampleAppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F3208A781F84E48100B57B0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F3A812B21F83740E00A09AAB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -392,6 +467,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		F3208A901F84E97C00B57B0E /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
 		F3A812EF1F8376BD00A09AAB /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -419,6 +511,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F3208A761F84E48100B57B0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3208A891F84E83900B57B0E /* DataServiceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F3A812B01F83740E00A09AAB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -455,6 +555,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		F3208A801F84E48100B57B0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F3A812B31F83740E00A09AAB /* iOSSampleApp */;
+			targetProxy = F3208A7F1F84E48100B57B0E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		F3A812C01F83740E00A09AAB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -467,6 +575,49 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F3208A811F84E48100B57B0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S6EJ3ZVM4G;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = iOSSampleAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sk.kulman.iOSSampleAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSSampleApp.app/iOSSampleApp";
+			};
+			name = Debug;
+		};
+		F3208A821F84E48100B57B0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S6EJ3ZVM4G;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = iOSSampleAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = sk.kulman.iOSSampleAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSSampleApp.app/iOSSampleApp";
+			};
+			name = Release;
+		};
 		F3A812C41F83740E00A09AAB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -617,6 +768,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F3208A831F84E48100B57B0E /* Build configuration list for PBXNativeTarget "iOSSampleAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3208A811F84E48100B57B0E /* Debug */,
+				F3208A821F84E48100B57B0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F3A812AF1F83740E00A09AAB /* Build configuration list for PBXProject "iOSSampleApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
