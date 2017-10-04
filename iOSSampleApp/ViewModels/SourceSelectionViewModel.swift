@@ -54,7 +54,7 @@ class SourceSelectionViewModel {
                 let vm = RssSourceViewModel(source: source)
                 self?.allSources.value.insert(vm, at: 0)
                 self?.toggleSource(source: vm)
-            }            
+            }
         }).disposed(by: disposeBag)
     }
     
@@ -71,7 +71,7 @@ class SourceSelectionViewModel {
     }
     
     func saveSelectedSource() -> Bool {
-        guard let selected = allSources.value.first(where: {$0.isSelected.value}) else {
+        guard let selected = allSources.value.first(where: { $0.isSelected.value }) else {
             Log.error?.message("Cannot save, no source selected")
             return false
         }

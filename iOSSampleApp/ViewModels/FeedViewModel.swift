@@ -16,24 +16,21 @@ class FeedViewModel {
     // MARK: - Properties
     
     let feed: Observable<[RssItem]>
+    let load = PublishSubject<Void>()
     
     init(dataService: DataService, settingsService: SettingsService) {
         
         if let source = settingsService.selectedSource {
-            feed = Observable.create { observer in
-                UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            let loadFeed: Observable<[RssItem]> = Observable.create { observer in
                 dataService.getFeed(source: source) { items in
                     observer.onNext(items)
                     observer.onCompleted()
-                    
-                    DispatchQueue.main.async {
-                        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                    }
                 }
                 
                 return Disposables.create {
                 }
             }
+            feed = load.startWith(()).flatMapLatest { _ in return loadFeed }.share()
         } else {
             Log.error?.message("Source not selected, nothing to show in feed")
             feed = Observable.just([])

@@ -23,6 +23,13 @@ class FeedViewController: UIViewController, FeedStoryboardLodable {
     // MARK: - Fields
     
     private var disposeBag = DisposeBag()
+    private let refreshControl: UIRefreshControl
+    
+    required init?(coder aDecoder: NSCoder) {
+        refreshControl = UIRefreshControl()
+        
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +44,15 @@ class FeedViewController: UIViewController, FeedStoryboardLodable {
     private func setupUI() {
         title = "feed".localized
         tableView.estimatedRowHeight = 0
+        tableView.refreshControl = refreshControl
+        refreshControl.attributedTitle = NSAttributedString(string: "x")
     }
     
     private func setupBinding() {
-        tableView.rx.setDelegate(self)
-            .disposed(by: disposeBag)
+        tableView.rx.setDelegate(self).disposed(by: disposeBag)
+        
+        refreshControl.rx.controlEvent(.valueChanged).bind(to: viewModel.load).disposed(by: disposeBag)
+        viewModel.feed.observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] _ in self?.refreshControl.endRefreshing() }).disposed(by: disposeBag)
     }
     
     private func setupData() {
