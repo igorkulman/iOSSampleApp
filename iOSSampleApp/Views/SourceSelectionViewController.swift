@@ -29,8 +29,18 @@ class SourceSelectionViewController: UIViewController, SetupStoryboardLodable {
     // MARK: - Fields
     
     private var disposeBag = DisposeBag()
-    private let doneButton = UIBarButtonItem(title: "done".localized, style: .plain, target: nil, action: nil)
-    private let addCustomButton = UIBarButtonItem(title: "add_custom".localized, style: .plain, target: nil, action: nil)
+    
+    private let doneButton: UIBarButtonItem
+    private let addCustomButton: UIBarButtonItem
+    private let searchController: UISearchController
+    
+    required init?(coder aDecoder: NSCoder) {
+        doneButton = UIBarButtonItem(title: "done".localized, style: .plain, target: nil, action: nil)
+        addCustomButton = UIBarButtonItem(title: "add_custom".localized, style: .plain, target: nil, action: nil)
+        searchController = UISearchController(searchResultsController: nil)
+        
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +54,10 @@ class SourceSelectionViewController: UIViewController, SetupStoryboardLodable {
         title = "select_source".localized
         navigationItem.rightBarButtonItem = doneButton
         navigationItem.leftBarButtonItem = addCustomButton
+        
+        searchController.dimsBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
     
     // MARK: - Setup
@@ -58,6 +72,15 @@ class SourceSelectionViewController: UIViewController, SetupStoryboardLodable {
             
         }).disposed(by: disposeBag)
         addCustomButton.rx.tap.subscribe(onNext: { [weak self] in self?.delegate?.userDidRequestCustomSource() }).disposed(by: disposeBag)
+        
+        searchController.searchBar.rx.text.throttle(0.1, scheduler: MainScheduler.instance).bind(to: viewModel.filter).disposed(by: disposeBag)
+        searchController.searchBar.rx.textDidBeginEditing.subscribe(onNext: { [weak self] in self?.searchController.searchBar.setShowsCancelButton(true, animated: true) }).disposed(by: disposeBag)
+        searchController.searchBar.rx.cancelButtonClicked.subscribe(onNext: { [weak self] in
+            self?.searchController.searchBar.resignFirstResponder()
+            self?.searchController.searchBar.setShowsCancelButton(false, animated: true)
+            self?.viewModel.filter.value = nil
+            self?.searchController.searchBar.text = nil
+        }).disposed(by: disposeBag)
     }
     
     private func setupData() {
