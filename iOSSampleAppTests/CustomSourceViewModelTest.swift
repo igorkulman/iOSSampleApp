@@ -14,7 +14,7 @@ import RxBlocking
 
 class CustomSourceViewModelTests: XCTestCase {
     func testOkValidation() {
-        let vm = CustomSourceViewModel(notificationService: TestNotificationService())
+        let vm = CustomSourceViewModel()
         expect(try! vm.isValid.toBlocking().first()!).to(beFalse())
 
         vm.title.value = "Coding Journal"
@@ -24,7 +24,7 @@ class CustomSourceViewModelTests: XCTestCase {
     }
 
     func testInvalidUrlValidation() {
-        let vm = CustomSourceViewModel(notificationService: TestNotificationService())
+        let vm = CustomSourceViewModel()
         expect(try! vm.isValid.toBlocking().first()!).to(beFalse())
 
         vm.title.value = "Coding Journal"
@@ -34,7 +34,7 @@ class CustomSourceViewModelTests: XCTestCase {
     }
 
     func testInvalidRssUrlValidation() {
-        let vm = CustomSourceViewModel(notificationService: TestNotificationService())
+        let vm = CustomSourceViewModel()
         expect(try! vm.isValid.toBlocking().first()!).to(beFalse())
 
         vm.title.value = "Coding Journal"
@@ -44,7 +44,7 @@ class CustomSourceViewModelTests: XCTestCase {
     }
 
     func testInvalidTitleValidation() {
-        let vm = CustomSourceViewModel(notificationService: TestNotificationService())
+        let vm = CustomSourceViewModel()
         expect(try! vm.isValid.toBlocking().first()!).to(beFalse())
 
         vm.title.value = nil

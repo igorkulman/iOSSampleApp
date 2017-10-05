@@ -58,7 +58,11 @@ extension SetupCoordinator: SourceSelectionViewControllerDelegate {
 }
 
 extension SetupCoordinator: CustomSourceViewControllerDelegate {
-    func userDidAddCustomSource() {
+    func userDidAddCustomSource(source: RssSource) {
+        if navigationController.viewControllers.count > 1, let sourceSelectionViewController = navigationController.viewControllers[navigationController.viewControllers.count - 2] as? SourceSelectionViewController {
+            sourceSelectionViewController.viewModel.addNewSource(source: source)
+        }
+
         navigationController.popViewController(animated: true)
     }
 }

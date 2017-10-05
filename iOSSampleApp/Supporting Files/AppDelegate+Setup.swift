@@ -52,7 +52,6 @@ extension AppDelegate {
 
         // services
         container.autoregister(SettingsService.self, initializer: UserDefaultsSettingsService.init).inObjectScope(ObjectScope.container)
-        container.autoregister(NotificationService.self, initializer: RxNotificationService.init).inObjectScope(ObjectScope.container)
         container.autoregister(DataService.self, initializer: RssDataService.init).inObjectScope(ObjectScope.container)
 
         // viewmodels

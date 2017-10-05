@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import CleanroomLogger
 
 class CustomSourceViewModel {
 
@@ -20,13 +21,7 @@ class CustomSourceViewModel {
 
     let isValid: Observable<Bool>
 
-    // MARK: - Fields
-
-    private let notificationService: NotificationService
-
-    init(notificationService: NotificationService) {
-        self.notificationService = notificationService
-
+    init() {
         isValid = Observable.combineLatest(title.asObservable(), url.asObservable(), rssUrl.asObservable()) {
             let isTitleValid = !($0 ?? "").isEmpty
             let isUrlValid = $1?.isValidURL == true
@@ -38,11 +33,12 @@ class CustomSourceViewModel {
 
     // MARK: - Actions
 
-    func submit() {
+    func getCreatedSource() -> RssSource {
         guard let title = title.value, let url = url.value, URL(string: url) != nil, let rss = rssUrl.value, URL(string: rss) != nil else {
-            fatalError("Cannot submit invalid form, validation is broken")
+            Log.error?.message("Cannot process invalid form, validation is broken")
+            fatalError("Cannot process invalid form, validation is broken")
         }
 
-        notificationService.announceSourceAdded(source: RssSource(title: title, url: url, rss: rss, icon: logoUrl.value))
+        return RssSource(title: title, url: url, rss: rss, icon: logoUrl.value)
     }
 }

@@ -21,12 +21,10 @@ class SourceSelectionViewModel {
     // MARK: - Fields
 
     private let allSources = Variable<[RssSourceViewModel]>([])
-    private let notificationService: NotificationService
     private let settingsService: SettingsService
     private var disposeBag = DisposeBag()
 
-    init(notificationService: NotificationService, settingsService: SettingsService) {
-        self.notificationService = notificationService
+    init(settingsService: SettingsService) {
         self.settingsService = settingsService
 
         Log.debug?.message("Loading sources")
@@ -48,14 +46,6 @@ class SourceSelectionViewModel {
         isValid = sources.asObservable().flatMap { Observable.combineLatest($0.map { $0.isSelected.asObservable() }) }.map({ $0.filter({ $0 }).count == 1 })
 
         allSources.value.append(contentsOf: all)
-
-        self.notificationService.sourceAdded().subscribe(onNext: { [weak self] source in
-            DispatchQueue.main.async {
-                let vm = RssSourceViewModel(source: source)
-                self?.allSources.value.insert(vm, at: 0)
-                self?.toggleSource(source: vm)
-            }
-        }).disposed(by: disposeBag)
     }
 
     // MARK: - Actions
@@ -70,6 +60,12 @@ class SourceSelectionViewModel {
         source.isSelected.value = !selected
     }
 
+    func addNewSource(source: RssSource) {
+        let vm = RssSourceViewModel(source: source)
+        allSources.value.insert(vm, at: 0)
+        toggleSource(source: vm)
+    }
+    
     func saveSelectedSource() -> Bool {
         guard let selected = allSources.value.first(where: { $0.isSelected.value }) else {
             Log.error?.message("Cannot save, no source selected")
