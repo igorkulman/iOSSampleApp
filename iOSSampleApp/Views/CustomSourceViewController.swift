@@ -71,9 +71,8 @@ class CustomSourceViewController: UIViewController, SetupStoryboardLodable {
         NotificationCenter.default.rx.keyboardHeightChanged().subscribe(onNext: { [weak self] height in self?.scrollview.setBottomInset(height: height) }).disposed(by: disposeBag)
 
         doneButton.rx.tap.subscribe(onNext: { [weak self] in
-            if self?.viewModel.submit() == true {
-                self?.delegate?.userDidAddCustomSource()
-            }
+            self?.viewModel.submit()
+            self?.delegate?.userDidAddCustomSource()
         }).disposed(by: disposeBag)
     }
 

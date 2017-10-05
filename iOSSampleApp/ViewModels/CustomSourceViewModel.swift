@@ -38,12 +38,11 @@ class CustomSourceViewModel {
 
     // MARK: - Actions
 
-    func submit() -> Bool {
+    func submit() {
         guard let title = title.value, let url = url.value, URL(string: url) != nil, let rss = rssUrl.value, URL(string: rss) != nil else {
-            return false
+            fatalError("Cannot submit invalid form, validation is broken")
         }
 
         notificationService.announceSourceAdded(source: RssSource(title: title, url: url, rss: rss, icon: logoUrl.value))
-        return true
     }
 }
