@@ -19,3 +19,4 @@
 "pull_to_refresh" = "Pull to refresh";
 "bad_url" = "Invalid RSS feed URL";
 "network_problem" = "Network problem has occured";
+"back" = "Back";

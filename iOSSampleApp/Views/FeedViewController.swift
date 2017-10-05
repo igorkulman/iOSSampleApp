@@ -11,6 +11,10 @@ import RxSwift
 import RxCocoa
 import CRToast
 
+protocol FeedViewControllerDelegeate: class {
+    func userDidRequestItemDetail(item: RssItem)
+}
+
 class FeedViewController: UIViewController, FeedStoryboardLodable {
 
     // MARK: - Outlets
@@ -20,6 +24,7 @@ class FeedViewController: UIViewController, FeedStoryboardLodable {
     // MARK: - Properties
 
     var viewModel: FeedViewModel!
+    weak var delegate: FeedViewControllerDelegeate?
 
     // MARK: - Fields
 
@@ -43,7 +48,7 @@ class FeedViewController: UIViewController, FeedStoryboardLodable {
     // MARK: - Setup
 
     private func setupUI() {
-        title = "feed".localized
+        title = viewModel.title
         tableView.estimatedRowHeight = 0
         tableView.refreshControl = refreshControl
         refreshControl.attributedTitle = NSAttributedString(string: "pull_to_refresh".localized)
@@ -51,6 +56,9 @@ class FeedViewController: UIViewController, FeedStoryboardLodable {
 
     private func setupBinding() {
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
+
+        tableView.rx.modelSelected(RssItem.self).subscribe(onNext: { [weak self] item in self?.delegate?.userDidRequestItemDetail(item: item) }).disposed(by: disposeBag)
+        tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in self?.tableView.deselectRow(at: indexPath, animated: true) }).disposed(by: disposeBag)
 
         refreshControl.rx.controlEvent(.valueChanged).bind(to: viewModel.load).disposed(by: disposeBag)
         viewModel.feed.observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] items in

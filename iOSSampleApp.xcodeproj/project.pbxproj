@@ -61,6 +61,9 @@
 		F3A813111F837DC900A09AAB /* SourceSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A813101F837DC900A09AAB /* SourceSelectionViewModel.swift */; };
 		F3A813131F837ECF00A09AAB /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A813121F837ECF00A09AAB /* String+Extensions.swift */; };
 		F3A813171F837F0D00A09AAB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F3A813161F837F0D00A09AAB /* Localizable.strings */; };
+		F3AAA6221F860E55009653B7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AAA6211F860E55009653B7 /* DetailViewController.swift */; };
+		F3AAA6241F861018009653B7 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AAA6231F861018009653B7 /* DetailViewModel.swift */; };
+		F3AAA6261F86113A009653B7 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AAA6251F86113A009653B7 /* UINavigationController+Extensions.swift */; };
 		F3C91DD91F83B38C0024917B /* RxNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C91DD81F83B38C0024917B /* RxNotificationService.swift */; };
 /* End PBXBuildFile section */
 
@@ -137,6 +140,9 @@
 		F3A813101F837DC900A09AAB /* SourceSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceSelectionViewModel.swift; sourceTree = "<group>"; };
 		F3A813121F837ECF00A09AAB /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		F3A813161F837F0D00A09AAB /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		F3AAA6211F860E55009653B7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		F3AAA6231F861018009653B7 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		F3AAA6251F86113A009653B7 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
 		F3C91DD81F83B38C0024917B /* RxNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxNotificationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -262,6 +268,7 @@
 				F38CD1C41F8385A10050056C /* Cells */,
 				F3A812CC1F83749200A09AAB /* Storyboards */,
 				F38CD22E1F83A2B90050056C /* CustomSourceViewController.swift */,
+				F3AAA6211F860E55009653B7 /* DetailViewController.swift */,
 				F3A812FF1F837A6500A09AAB /* FeedViewController.swift */,
 				F3A813011F837A8200A09AAB /* SourceSelectionViewController.swift */,
 			);
@@ -272,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				F38CD2321F83A6030050056C /* CustomSourceViewModel.swift */,
+				F3AAA6231F861018009653B7 /* DetailViewModel.swift */,
 				F39064941F84D4D8003C0C12 /* FeedViewModel.swift */,
 				F38CD1BC1F8382950050056C /* RssSourceViewModel.swift */,
 				F3A813101F837DC900A09AAB /* SourceSelectionViewModel.swift */,
@@ -328,6 +336,7 @@
 				F3A812DE1F83762A00A09AAB /* Swinject+Extensions.swift */,
 				F38CD2361F83AEC70050056C /* UIScrollView+Extensions.swift */,
 				F38AF5791F851D1C00C82EC7 /* CRToastManager+Extensions.swift */,
+				F3AAA6251F86113A009653B7 /* UINavigationController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -574,7 +583,9 @@
 				F3A813091F837AF400A09AAB /* RssSource.swift in Sources */,
 				F3A813001F837A6500A09AAB /* FeedViewController.swift in Sources */,
 				F3A812E11F83766400A09AAB /* StoryboardLodable.swift in Sources */,
+				F3AAA6241F861018009653B7 /* DetailViewModel.swift in Sources */,
 				F38CD2331F83A6040050056C /* CustomSourceViewModel.swift in Sources */,
+				F3AAA6261F86113A009653B7 /* UINavigationController+Extensions.swift in Sources */,
 				F3A812FE1F83791C00A09AAB /* UserDefaultsSettingsService.swift in Sources */,
 				F3A812B81F83740E00A09AAB /* AppDelegate.swift in Sources */,
 				F38CD2371F83AEC70050056C /* UIScrollView+Extensions.swift in Sources */,
@@ -588,6 +599,7 @@
 				F3A8130B1F837B0E00A09AAB /* SetupCoordinator.swift in Sources */,
 				F3A812D81F8375A100A09AAB /* Coordinator.swift in Sources */,
 				F3A8130F1F837C0800A09AAB /* FeedCoordinator.swift in Sources */,
+				F3AAA6221F860E55009653B7 /* DetailViewController.swift in Sources */,
 				F38CD2351F83AB9E0050056C /* RxSwift+Extensions.swift in Sources */,
 				F3208A991F84EB7C00B57B0E /* ServiceProtocols.swift in Sources */,
 			);

@@ -17,9 +17,9 @@ class FeedViewModel {
 
     let feed: Observable<[RssItem]>
     let load = PublishSubject<Void>()
+    let title: String
 
     init(dataService: DataService, settingsService: SettingsService) {
-
         if let source = settingsService.selectedSource {
             let loadFeed: Observable<[RssItem]> = Observable.create { observer in
                 dataService.getFeed(source: source) { items in
@@ -31,9 +31,10 @@ class FeedViewModel {
                 }
             }
             feed = load.startWith(()).flatMapLatest { _ in return loadFeed }.share()
+            title = source.title
         } else {
             Log.error?.message("Source not selected, nothing to show in feed")
-            feed = Observable.just([])
+            fatalError("Source not selected, nothing to show in feed")
         }
     }
 }
