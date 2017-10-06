@@ -22,7 +22,7 @@ class FeedCell: UITableViewCell, NibReusable {
         didSet {
             if let model = model {
                 titleLabel.text = model.title
-                descriptionLabel.text = model.description
+                descriptionLabel.text = model.description?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
             }
         }
     }
