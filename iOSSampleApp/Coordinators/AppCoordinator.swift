@@ -54,6 +54,7 @@ class AppCoordinator: Coordinator {
     private func showFeed() {
         let feedCoordinator = FeedCoordinator(container: container, navigationController: navigationController)
         childCoordinators[FEED_KEY] = feedCoordinator
+        feedCoordinator.delegate = self
         feedCoordinator.start()
     }
 
@@ -68,5 +69,11 @@ class AppCoordinator: Coordinator {
 extension AppCoordinator: SetupCoordinatorDelegate {
     func setupCoordinatorDidFinish() {
         showFeed()
+    }
+}
+
+extension AppCoordinator: FeedCoordinatorDelegate {
+    func feedCoordinatorDidFinish() {
+        showSetup()
     }
 }

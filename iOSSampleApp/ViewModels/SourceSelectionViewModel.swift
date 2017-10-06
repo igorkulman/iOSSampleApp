@@ -46,6 +46,17 @@ class SourceSelectionViewModel {
         isValid = sources.asObservable().flatMap { Observable.combineLatest($0.map { $0.isSelected.asObservable() }) }.map({ $0.filter({ $0 }).count == 1 })
 
         allSources.value.append(contentsOf: all)
+
+        // selecting again from feed
+        if let selected = settingsService.selectedSource {
+            if let index = allSources.value.index(where: { $0.source == selected }) { // pre-selecting the current source
+                allSources.value[index].isSelected.value = true
+            } else { // using a custom source
+                let vm = RssSourceViewModel(source: selected)
+                vm.isSelected.value = true
+                allSources.value.insert(vm, at: 0)
+            }
+        }
     }
 
     // MARK: - Actions
@@ -65,7 +76,7 @@ class SourceSelectionViewModel {
         allSources.value.insert(vm, at: 0)
         toggleSource(source: vm)
     }
-    
+
     func saveSelectedSource() -> Bool {
         guard let selected = allSources.value.first(where: { $0.isSelected.value }) else {
             Log.error?.message("Cannot save, no source selected")

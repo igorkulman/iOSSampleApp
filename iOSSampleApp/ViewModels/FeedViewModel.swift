@@ -16,25 +16,25 @@ class FeedViewModel {
     // MARK: - Properties
 
     let feed: Observable<[RssItem]>
-    let load = PublishSubject<Void>()
+    let load = PublishSubject<Void>() // signal that starts feed loading
     let title: String
 
     init(dataService: DataService, settingsService: SettingsService) {
-        if let source = settingsService.selectedSource {
-            let loadFeed: Observable<[RssItem]> = Observable.create { observer in
-                dataService.getFeed(source: source) { items in
-                    observer.onNext(items)
-                    observer.onCompleted()
-                }
-
-                return Disposables.create {
-                }
-            }
-            feed = load.startWith(()).flatMapLatest { _ in return loadFeed }.share()
-            title = source.title
-        } else {
+        guard let source = settingsService.selectedSource else {
             Log.error?.message("Source not selected, nothing to show in feed")
             fatalError("Source not selected, nothing to show in feed")
         }
+
+        let loadFeed: Observable<[RssItem]> = Observable.create { observer in
+            dataService.getFeed(source: source) { items in
+                observer.onNext(items)
+                observer.onCompleted()
+            }
+
+            return Disposables.create {
+            }
+        }
+        feed = load.startWith(()).flatMapLatest { _ in return loadFeed }.share()
+        title = source.title
     }
 }

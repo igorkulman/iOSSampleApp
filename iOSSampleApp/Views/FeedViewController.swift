@@ -13,6 +13,7 @@ import CRToast
 
 protocol FeedViewControllerDelegeate: class {
     func userDidRequestItemDetail(item: RssItem)
+    func userDidRequesrtSetup()
 }
 
 class FeedViewController: UIViewController, FeedStoryboardLodable {
@@ -30,9 +31,11 @@ class FeedViewController: UIViewController, FeedStoryboardLodable {
 
     private var disposeBag = DisposeBag()
     private let refreshControl: UIRefreshControl
+    private let setupButton: UIBarButtonItem
 
     required init?(coder aDecoder: NSCoder) {
         refreshControl = UIRefreshControl()
+        setupButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Settings"), style: UIBarButtonItemStyle.plain, target: nil, action: nil)
 
         super.init(coder: aDecoder)
     }
@@ -52,6 +55,7 @@ class FeedViewController: UIViewController, FeedStoryboardLodable {
         tableView.estimatedRowHeight = 0
         tableView.refreshControl = refreshControl
         refreshControl.attributedTitle = NSAttributedString(string: "pull_to_refresh".localized)
+        navigationItem.rightBarButtonItem = setupButton
     }
 
     private func setupBinding() {
@@ -67,6 +71,7 @@ class FeedViewController: UIViewController, FeedStoryboardLodable {
                 CRToastManager.showErrorNotification(title: "network_problem".localized)
             }
         }).disposed(by: disposeBag)
+        setupButton.rx.tap.subscribe(onNext: { [weak self] in self?.delegate?.userDidRequesrtSetup() }).disposed(by: disposeBag)
     }
 
     private func setupData() {

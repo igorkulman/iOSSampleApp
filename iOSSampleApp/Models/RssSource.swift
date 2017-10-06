@@ -14,3 +14,9 @@ struct RssSource: Codable {
     let rss: String
     let icon: String?
 }
+
+extension RssSource: Equatable {
+    static func ==(lhs: RssSource, rhs: RssSource) -> Bool {
+        return lhs.rss == rhs.rss
+    }
+}

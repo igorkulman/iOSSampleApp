@@ -11,12 +11,17 @@ import UIKit
 import CleanroomLogger
 import Swinject
 
+protocol FeedCoordinatorDelegate: class {
+    func feedCoordinatorDidFinish()
+}
+
 class FeedCoordinator: NavigationCoordinator {
 
     // MARK: - Properties
 
     let navigationController: UINavigationController
     let container: Container
+    weak var delegate: FeedCoordinatorDelegate?
 
     init(container: Container, navigationController: UINavigationController) {
         self.container = container
@@ -47,6 +52,10 @@ class FeedCoordinator: NavigationCoordinator {
 // MARK: - Delegate
 
 extension FeedCoordinator: FeedViewControllerDelegeate {
+    func userDidRequesrtSetup() {
+        delegate?.feedCoordinatorDidFinish()
+    }
+
     func userDidRequestItemDetail(item: RssItem) {
         showDetail(item: item)
     }
