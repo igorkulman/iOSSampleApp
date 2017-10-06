@@ -6,10 +6,10 @@
   "icon": "https://blog.kulman.sk/apple-icon-114x114.png"
   },
   {
-  "title": "Ars Technica",
-  "url": "https://arstechnica.com",
-  "rss": "https://feeds.arstechnica.com/arstechnica/index",
-  "icon": "https://cdn.arstechnica.net/wp-content/themes/ars/assets/img/material-ars-db41652381.png"
+  "title": "Hacker News",
+  "url": "https://news.ycombinator.com",
+  "rss": "https://news.ycombinator.com/rss",
+  "icon": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Y_Combinator_Logo_400.gif"
   },
   {
   "title": "The Verge",
