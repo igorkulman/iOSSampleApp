@@ -20,6 +20,7 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 
 * Dependencies management (using [Carthage](https://github.com/Carthage/Carthage))
 * Continuous integration (using [Travis](https://travis-ci.org/igorkulman/iOSSampleApp))
+* Unit testing
 
 ### Requirements
 
