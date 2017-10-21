@@ -778,7 +778,6 @@
 				DEVELOPMENT_TEAM = S6EJ3ZVM4G;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/iOSSampleApp/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = iOSSampleApp/Info.plist;
