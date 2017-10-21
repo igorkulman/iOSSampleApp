@@ -14,6 +14,7 @@
 		F3208A921F84EAF400B57B0E /* CustomSourceViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3208A911F84EAF400B57B0E /* CustomSourceViewModelTest.swift */; };
 		F3208A991F84EB7C00B57B0E /* ServiceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3208A981F84EB7C00B57B0E /* ServiceProtocols.swift */; };
 		F3208A9A1F84EC8E00B57B0E /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3208A8E1F84E8B400B57B0E /* RxBlocking.framework */; };
+		F365964F1F9B41880002BAC8 /* RxSwiftExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F365964E1F9B41880002BAC8 /* RxSwiftExt.framework */; };
 		F38AF5781F851D0000C82EC7 /* CRToast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38AF5771F851D0000C82EC7 /* CRToast.framework */; };
 		F38AF57A1F851D1C00C82EC7 /* CRToastManager+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38AF5791F851D1C00C82EC7 /* CRToastManager+Extensions.swift */; };
 		F38CD1BD1F8382950050056C /* RssSourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD1BC1F8382950050056C /* RssSourceViewModel.swift */; };
@@ -63,6 +64,7 @@
 		F3AAA6221F860E55009653B7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AAA6211F860E55009653B7 /* DetailViewController.swift */; };
 		F3AAA6241F861018009653B7 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AAA6231F861018009653B7 /* DetailViewModel.swift */; };
 		F3AAA6261F86113A009653B7 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AAA6251F86113A009653B7 /* UINavigationController+Extensions.swift */; };
+		F3D6865C1F9B761E00879154 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6865B1F9B761E00879154 /* TestExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,7 @@
 		F3208A8E1F84E8B400B57B0E /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		F3208A911F84EAF400B57B0E /* CustomSourceViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSourceViewModelTest.swift; sourceTree = "<group>"; };
 		F3208A981F84EB7C00B57B0E /* ServiceProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocols.swift; sourceTree = "<group>"; };
+		F365964E1F9B41880002BAC8 /* RxSwiftExt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwiftExt.framework; path = Carthage/Build/iOS/RxSwiftExt.framework; sourceTree = "<group>"; };
 		F38AF5771F851D0000C82EC7 /* CRToast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CRToast.framework; path = Carthage/Build/iOS/CRToast.framework; sourceTree = "<group>"; };
 		F38AF5791F851D1C00C82EC7 /* CRToastManager+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CRToastManager+Extensions.swift"; sourceTree = "<group>"; };
 		F38CD1BC1F8382950050056C /* RssSourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssSourceViewModel.swift; sourceTree = "<group>"; };
@@ -140,6 +143,7 @@
 		F3AAA6211F860E55009653B7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F3AAA6231F861018009653B7 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		F3AAA6251F86113A009653B7 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
+		F3D6865B1F9B761E00879154 /* TestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F365964F1F9B41880002BAC8 /* RxSwiftExt.framework in Frameworks */,
 				F38AF5781F851D0000C82EC7 /* CRToast.framework in Frameworks */,
 				F39064971F84DB8D003C0C12 /* FeedKit.framework in Frameworks */,
 				F38CD2311F83A2F40050056C /* RxNuke.framework in Frameworks */,
@@ -179,8 +184,9 @@
 			isa = PBXGroup;
 			children = (
 				F3208A7E1F84E48100B57B0E /* Info.plist */,
-				F3208A881F84E83900B57B0E /* DataServiceTests.swift */,
 				F3208A911F84EAF400B57B0E /* CustomSourceViewModelTest.swift */,
+				F3208A881F84E83900B57B0E /* DataServiceTests.swift */,
+				F3D6865B1F9B761E00879154 /* TestExtensions.swift */,
 			);
 			path = iOSSampleAppTests;
 			sourceTree = "<group>";
@@ -331,6 +337,7 @@
 		F3A812E21F8376A900A09AAB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F365964E1F9B41880002BAC8 /* RxSwiftExt.framework */,
 				F38AF5771F851D0000C82EC7 /* CRToast.framework */,
 				F3208A8E1F84E8B400B57B0E /* RxBlocking.framework */,
 				F3208A841F84E5D300B57B0E /* Nimble.framework */,
@@ -531,6 +538,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxNuke.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/FeedKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/CRToast.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwiftExt.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -547,6 +555,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3208A921F84EAF400B57B0E /* CustomSourceViewModelTest.swift in Sources */,
+				F3D6865C1F9B761E00879154 /* TestExtensions.swift in Sources */,
 				F3208A891F84E83900B57B0E /* DataServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

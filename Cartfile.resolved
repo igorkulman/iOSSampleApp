@@ -1,6 +1,7 @@
 github "AliSoftware/Reusable" "4.0.1"
 github "Quick/Nimble" "v7.0.1"
 github "ReactiveX/RxSwift" "3.6.1"
+github "RxSwiftCommunity/RxSwiftExt" "3.0.0"
 github "Swinject/Swinject" "2.1.1"
 github "Swinject/SwinjectAutoregistration" "ef8574264926117c62d92c4cb2872649496f6c21"
 github "Swinject/SwinjectStoryboard" "1.1.2"
