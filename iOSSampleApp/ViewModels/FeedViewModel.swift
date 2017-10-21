@@ -26,9 +26,16 @@ class FeedViewModel {
         }
 
         let loadFeed: Observable<[RssItem]> = Observable.create { observer in
-            dataService.getFeed(source: source) { items in
-                observer.onNext(items)
-                observer.onCompleted()
+            dataService.getFeed(source: source) { result in
+                switch result {
+                case let .failure(error):
+                    observer.onError(error)
+                    break
+                case let .success(items):
+                    observer.onNext(items)
+                    observer.onCompleted()
+                    break
+                }
             }
 
             return Disposables.create {

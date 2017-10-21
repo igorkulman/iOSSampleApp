@@ -52,7 +52,7 @@ class FeedCoordinator: NavigationCoordinator {
 // MARK: - Delegate
 
 extension FeedCoordinator: FeedViewControllerDelegeate {
-    func userDidRequesrtSetup() {
+    func userDidRequestSetup() {
         delegate?.feedCoordinatorDidFinish()
     }
 

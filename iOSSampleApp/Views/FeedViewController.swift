@@ -10,10 +10,11 @@ import UIKit
 import RxSwift
 import RxCocoa
 import CRToast
+import RxSwiftExt
 
 protocol FeedViewControllerDelegeate: class {
     func userDidRequestItemDetail(item: RssItem)
-    func userDidRequesrtSetup()
+    func userDidRequestSetup()
 }
 
 class FeedViewController: UIViewController, FeedStoryboardLodable {
@@ -65,19 +66,27 @@ class FeedViewController: UIViewController, FeedStoryboardLodable {
         tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in self?.tableView.deselectRow(at: indexPath, animated: true) }).disposed(by: disposeBag)
 
         refreshControl.rx.controlEvent(.valueChanged).bind(to: viewModel.load).disposed(by: disposeBag)
-        viewModel.feed.observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] items in
-            self?.refreshControl.endRefreshing()
-            if items.count == 0 {
-                CRToastManager.showErrorNotification(title: "network_problem".localized)
-            }
-        }).disposed(by: disposeBag)
-        setupButton.rx.tap.subscribe(onNext: { [weak self] in self?.delegate?.userDidRequesrtSetup() }).disposed(by: disposeBag)
+
+        setupButton.rx.tap.subscribe(onNext: { [weak self] in self?.delegate?.userDidRequestSetup() }).disposed(by: disposeBag)
     }
 
     private func setupData() {
         tableView.register(cellType: FeedCell.self)
 
-        viewModel.feed
+        let feed = viewModel.feed.materialize()
+        feed.observeOn(MainScheduler.instance).errors().subscribe(onNext: { error in
+            switch error {
+            case let rssError as RssError:
+                CRToastManager.showErrorNotification(title: rssError.description)
+                break
+            default:
+                CRToastManager.showErrorNotification(title: "network_problem".localized)
+                break
+            }
+        }).disposed(by: disposeBag)
+        feed.observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] _ in self?.refreshControl.endRefreshing() }).disposed(by: disposeBag)
+
+        feed.elements()
             .bind(to: tableView.rx.items(cellIdentifier: FeedCell.reuseIdentifier, cellType: FeedCell.self)) { _, element, cell in
                 cell.model = element
             }
