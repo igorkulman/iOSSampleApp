@@ -10,8 +10,24 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+enum RssError: Error, CustomStringConvertible {
+    case badUrl
+
+    var description: String {
+        switch self {
+        case .badUrl:
+            return "bad_url".localized
+        }
+    }
+}
+
+enum RssResult {
+    case failure(Error)
+    case success([RssItem])
+}
+
 protocol DataService: class {
-    func getFeed(source: RssSource, onCompletion: @escaping ([RssItem]) -> Void)
+    func getFeed(source: RssSource, onCompletion: @escaping (RssResult) -> Void)
 }
 
 protocol SettingsService: class {

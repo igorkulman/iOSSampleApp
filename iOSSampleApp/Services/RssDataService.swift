@@ -12,9 +12,9 @@ import CleanroomLogger
 import UIKit
 
 class RssDataService: DataService {
-    func getFeed(source: RssSource, onCompletion: @escaping ([RssItem]) -> Void) {
+    func getFeed(source: RssSource, onCompletion: @escaping (RssResult) -> Void) {
         guard let feedURL = URL(string: source.rss), let parser = FeedParser(URL: feedURL) else {
-            onCompletion([])
+            onCompletion(.failure(RssError.badUrl))
             return
         }
 
@@ -22,10 +22,12 @@ class RssDataService: DataService {
         Log.debug?.message("Loading \(feedURL)")
 
         parser.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { result in
-            if let rss = result.rssFeed, let items = rss.items {
-                onCompletion(items.map({ RssItem(title: $0.title, description: $0.description, link: $0.link, pubDate: $0.pubDate) }))
+            if let error = result.error {
+                onCompletion(.failure(error))
+            } else if let rss = result.rssFeed, let items = rss.items {
+                onCompletion(.success(items.map({ RssItem(title: $0.title, description: $0.description, link: $0.link, pubDate: $0.pubDate) })))
             } else {
-                onCompletion([])
+                onCompletion(.success([]))
             }
             DispatchQueue.main.async {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
