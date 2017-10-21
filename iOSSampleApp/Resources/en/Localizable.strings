@@ -20,3 +20,4 @@
 "bad_url" = "Invalid RSS feed URL";
 "network_problem" = "Network problem has occured";
 "back" = "Back";
+"bad_url" = "Invalid RSS Url";
