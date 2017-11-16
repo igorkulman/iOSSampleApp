@@ -1,0 +1,537 @@
+BCSymbolMap Version: 2.0
++[CRToastManager setDefaultOptions:]
++[CRToastManager showNotificationWithMessage:completionBlock:]
++[CRToastManager showNotificationWithOptions:completionBlock:]
++[CRToastManager showNotificationWithOptions:apperanceBlock:completionBlock:]
++[CRToastManager dismissNotification:]
++[CRToastManager dismissAllNotifications:]
++[CRToastManager dismissAllNotificationsWithIdentifier:animated:]
++[CRToastManager notificationIdentifiersInQueue]
++[CRToastManager isShowingNotification]
++[CRToastManager manager]
+___25+[CRToastManager manager]_block_invoke
+___copy_helper_block_
+___destroy_helper_block_
+-[CRToastManager init]
+___CRToastInwardAnimationsBlock_block_invoke
+___copy_helper_block_.77
+___destroy_helper_block_.78
+___CRToastInwardAnimationsCompletionBlock_block_invoke
+___CRToastInwardAnimationsCompletionBlock_block_invoke_2
+___copy_helper_block_.98
+___destroy_helper_block_.99
+___copy_helper_block_.101
+___destroy_helper_block_.102
+___CRToastOutwardAnimationsCompletionBlock_block_invoke
+___copy_helper_block_.129
+___destroy_helper_block_.130
+___CRToastOutwardAnimationsBlock_block_invoke
+___copy_helper_block_.138
+___destroy_helper_block_.139
+___CRToastOutwardAnimationsSetupBlock_block_invoke
+___CRToastOutwardAnimationsSetupBlock_block_invoke_2
+___copy_helper_block_.195
+___destroy_helper_block_.196
+-[CRToastManager notificationIdentifiersInQueue]
+-[CRToastManager dismissNotification:]
+___Block_byref_object_copy_
+___Block_byref_object_dispose_
+-[CRToastManager dismissAllNotifications:]
+-[CRToastManager dismissAllNotificationsWithIdentifier:animated:]
+___65-[CRToastManager dismissAllNotificationsWithIdentifier:animated:]_block_invoke
+___copy_helper_block_.220
+___destroy_helper_block_.221
+-[CRToastManager addNotification:]
+-[CRToastManager displayNotification:]
+___38-[CRToastManager displayNotification:]_block_invoke
+___copy_helper_block_.277
+___destroy_helper_block_.278
+-[CRToastManager showNotification:inwardAnimationBlock:inwardCompletionAnimationBlock:]
+-[CRToastManager showingNotification]
+-[CRToastManager notification]
+-[CRToastManager collisionBehavior:endedContactForItem:withBoundaryIdentifier:]
+-[CRToastManager collisionBehavior:endedContactForItem:withItem:]
+-[CRToastManager notificationWindow]
+-[CRToastManager setNotificationWindow:]
+-[CRToastManager statusBarView]
+-[CRToastManager setStatusBarView:]
+-[CRToastManager notificationView]
+-[CRToastManager setNotificationView:]
+-[CRToastManager notifications]
+-[CRToastManager setNotifications:]
+-[CRToastManager gravityAnimationCompletionBlock]
+-[CRToastManager setGravityAnimationCompletionBlock:]
+-[CRToastManager .cxx_destruct]
+_CRGetStatusBarHeightForOrientation
+_CRGetDeviceOrientation
+_manager.once
+_manager.sharedInstance
+___block_descriptor_tmp
+___block_descriptor_tmp.79
+___block_descriptor_tmp.100
+___block_descriptor_tmp.104
+___block_descriptor_tmp.131
+___block_descriptor_tmp.140
+___block_descriptor_tmp.148
+___block_literal_global
+___block_descriptor_tmp.197
+_OBJC_IVAR_$_CRToastManager._notifications
+___block_descriptor_tmp.223
+_OBJC_IVAR_$_CRToastManager._notificationWindow
+___block_descriptor_tmp.279
+_OBJC_IVAR_$_CRToastManager._statusBarView
+_OBJC_IVAR_$_CRToastManager._notificationView
+_OBJC_IVAR_$_CRToastManager._gravityAnimationCompletionBlock
+l_OBJC_PROTOCOL_$_NSObject
+l_OBJC_LABEL_PROTOCOL_$_NSObject
+l_OBJC_PROTOCOL_$_UICollisionBehaviorDelegate
+l_OBJC_LABEL_PROTOCOL_$_UICollisionBehaviorDelegate
+Apple LLVM version 9.0.0 (clang-900.0.38)
+/Users/igorkulman/Projects/open-source/iOSSampleApp/Carthage/Checkouts/CRToast/CRToast/CRToastManager.m
+/Users/igorkulman/Projects/open-source/iOSSampleApp/Carthage/Checkouts/CRToast
+CRGetDeviceOrientation
+/Users/igorkulman/Projects/open-source/iOSSampleApp/Carthage/Checkouts/CRToast/CRToast/CRToastLayoutHelpers.h
+CRGetStatusBarHeightForOrientation
+UIInterfaceOrientationIsLandscape
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIApplication.h
+CRFrameAutoAdjustedForOrientation
+__destroy_helper_block_
+__copy_helper_block_
+__38-[CRToastManager displayNotification:]_block_invoke
+CRGetNotificationContainerFrame
+CRNotificationViewSize
+CRGetNotificationViewHeight
+CRGetNotificationViewHeightForOrientation
+CRGetNavigationBarHeightForOrientation
+UI_USER_INTERFACE_IDIOM
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIDevice.h
+UIInterfaceOrientationIsPortrait
+CRHorizontalSizeClassRegular
+CRUseSizeClass
+CRGetStatusBarWidth
+CRGetStatusBarWidthForOrientation
+__65-[CRToastManager dismissAllNotificationsWithIdentifier:animated:]_block_invoke
+__Block_byref_object_dispose_
+__Block_byref_object_copy_
+__CRToastOutwardAnimationsSetupBlock_block_invoke_2
+__CRToastOutwardAnimationsSetupBlock_block_invoke
+__CRToastOutwardAnimationsBlock_block_invoke
+CRToastOutwardAnimationsBlock
+__CRToastOutwardAnimationsCompletionBlock_block_invoke
+CRToastOutwardAnimationsCompletionBlock
+CRToastOutwardAnimationsSetupBlock
+__CRToastInwardAnimationsCompletionBlock_block_invoke_2
+__CRToastInwardAnimationsCompletionBlock_block_invoke
+CRToastInwardAnimationsCompletionBlock
+__CRToastInwardAnimationsBlock_block_invoke
+CRToastInwardAnimationsBlock
+__25+[CRToastManager manager]_block_invoke
+_dispatch_once
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.sdk/usr/include/dispatch/once.h
+-[CRToastViewController initWithNibName:bundle:]
+-[CRToastViewController setStatusBarStyle:]
+-[CRToastViewController shouldAutorotate]
+-[CRToastViewController prefersStatusBarHidden]
+-[CRToastViewController preferredStatusBarStyle]
+-[CRToastViewController loadView]
+-[CRToastViewController willAnimateRotationToInterfaceOrientation:duration:]
+-[CRToastViewController autorotate]
+-[CRToastViewController setAutorotate:]
+-[CRToastViewController notification]
+-[CRToastViewController setNotification:]
+-[CRToastViewController toastView]
+-[CRToastViewController setToastView:]
+-[CRToastViewController statusBarStyle]
+-[CRToastViewController .cxx_destruct]
+_OBJC_IVAR_$_CRToastViewController._autorotate
+_OBJC_IVAR_$_CRToastViewController._statusBarStyle
+_OBJC_IVAR_$_CRToastViewController._notification
+_OBJC_IVAR_$_CRToastViewController._toastView
+/Users/igorkulman/Projects/open-source/iOSSampleApp/Carthage/Checkouts/CRToast/CRToast/CRToastViewController.m
+/Users/igorkulman/Projects/open-source/iOSSampleApp/Carthage/Checkouts/CRToast/CRToast/CRToastViewController.h
+CRNotificationViewSizeForOrientation
+-[CRToastWindow pointInside:withEvent:]
+/Users/igorkulman/Projects/open-source/iOSSampleApp/Carthage/Checkouts/CRToast/CRToast/CRToastWindow.m
+-[CRToastSwipeGestureRecognizer automaticallyDismiss]
+-[CRToastSwipeGestureRecognizer setAutomaticallyDismiss:]
+-[CRToastSwipeGestureRecognizer interactionType]
+-[CRToastSwipeGestureRecognizer setInteractionType:]
+-[CRToastSwipeGestureRecognizer block]
+-[CRToastSwipeGestureRecognizer setBlock:]
+-[CRToastSwipeGestureRecognizer .cxx_destruct]
+-[CRToastTapGestureRecognizer automaticallyDismiss]
+-[CRToastTapGestureRecognizer setAutomaticallyDismiss:]
+-[CRToastTapGestureRecognizer interactionType]
+-[CRToastTapGestureRecognizer setInteractionType:]
+-[CRToastTapGestureRecognizer block]
+-[CRToastTapGestureRecognizer setBlock:]
+-[CRToastTapGestureRecognizer .cxx_destruct]
+___CRToastGenericSwipeRecognizersMake_block_invoke
+___CRToastGenericTapRecognizersMake_block_invoke
+___copy_helper_block_.80
+___destroy_helper_block_.81
++[CRToastInteractionResponder interactionResponderWithInteractionType:automaticallyDismiss:block:]
+-[CRToastInteractionResponder interactionType]
+-[CRToastInteractionResponder setInteractionType:]
+-[CRToastInteractionResponder automaticallyDismiss]
+-[CRToastInteractionResponder setAutomaticallyDismiss:]
+-[CRToastInteractionResponder block]
+-[CRToastInteractionResponder setBlock:]
+-[CRToastInteractionResponder .cxx_destruct]
++[CRToast initialize]
++[CRToast notificationWithOptions:appearanceBlock:completionBlock:]
++[CRToast setDefaultOptions:]
+-[CRToast notificationView]
+-[CRToast privateNotificationView]
+-[CRToast notificationViewAnimationFrame1]
+_CRNotificationViewFrame
+-[CRToast notificationViewAnimationFrame2]
+-[CRToast statusBarView]
+-[CRToast privateStatusBarView]
+-[CRToast statusBarViewAnimationFrame1]
+-[CRToast statusBarViewAnimationFrame2]
+-[CRToast swipeGestureRecognizerSwiped:]
+-[CRToast tapGestureRecognizerTapped:]
+-[CRToast gestureRecognizersForInteractionResponder:]
+-[CRToast gestureRecognizers]
+-[CRToast notificationType]
+-[CRToast preferredHeight]
+-[CRToast preferredPadding]
+-[CRToast presentationType]
+-[CRToast displayUnderStatusBar]
+-[CRToast shouldKeepNavigationBarBorder]
+-[CRToast inAnimationType]
+-[CRToast outAnimationType]
+-[CRToast inAnimationDirection]
+-[CRToast outAnimationDirection]
+-[CRToast animateInTimeInterval]
+-[CRToast timeInterval]
+-[CRToast animateOutTimeInterval]
+-[CRToast animationSpringInitialVelocity]
+-[CRToast animationSpringDamping]
+-[CRToast animationGravityMagnitude]
+-[CRToast text]
+-[CRToast font]
+-[CRToast textColor]
+-[CRToast textAlignment]
+-[CRToast textShadowColor]
+-[CRToast textShadowOffset]
+-[CRToast subtitleText]
+-[CRToast subtitleFont]
+-[CRToast subtitleTextColor]
+-[CRToast subtitleTextAlignment]
+-[CRToast subtitleTextShadowColor]
+-[CRToast subtitleTextShadowOffset]
+-[CRToast backgroundColor]
+-[CRToast backgroundView]
+-[CRToast image]
+-[CRToast imageContentMode]
+-[CRToast imageAlignment]
+-[CRToast imageTint]
+-[CRToast showActivityIndicator]
+-[CRToast activityIndicatorViewStyle]
+-[CRToast activityViewAlignment]
+-[CRToast textMaxNumberOfLines]
+-[CRToast subtitleTextMaxNumberOfLines]
+-[CRToast statusBarStyle]
+-[CRToast forceUserInteraction]
+-[CRToast autorotate]
+-[CRToast snapshotWindow]
+-[CRToast inGravityDirection]
+-[CRToast outGravityDirection]
+-[CRToast inCollisionPoint1]
+-[CRToast inCollisionPoint2]
+-[CRToast outCollisionPoint1]
+-[CRToast outCollisionPoint2]
+-[CRToast warnAboutSensibility]
+-[CRToast setOptions:]
+___22-[CRToast setOptions:]_block_invoke
+___copy_helper_block_.323
+___destroy_helper_block_.324
+-[CRToast gestureRecognizerShouldBegin:]
+-[CRToast gestureRecognizer:shouldRecognizeSimultaneouslyWithGestureRecognizer:]
+-[CRToast gestureRecognizer:shouldReceiveTouch:]
+-[CRToast initiateAnimator:]
+-[CRToast uuid]
+-[CRToast setUuid:]
+-[CRToast state]
+-[CRToast setState:]
+-[CRToast options]
+-[CRToast completion]
+-[CRToast setCompletion:]
+-[CRToast appearance]
+-[CRToast setAppearance:]
+-[CRToast setGestureRecognizers:]
+-[CRToast setAutorotate:]
+-[CRToast animator]
+-[CRToast setAnimator:]
+-[CRToast setPreferredHeight:]
+-[CRToast setPreferredPadding:]
+-[CRToast setPrivateNotificationView:]
+-[CRToast setPrivateStatusBarView:]
+-[CRToast .cxx_destruct]
+_CRGetNotificationViewHeight
+_CRGetStatusBarWidth
+_OBJC_IVAR_$_CRToastSwipeGestureRecognizer._automaticallyDismiss
+_OBJC_IVAR_$_CRToastSwipeGestureRecognizer._interactionType
+_OBJC_IVAR_$_CRToastSwipeGestureRecognizer._block
+_OBJC_IVAR_$_CRToastTapGestureRecognizer._automaticallyDismiss
+_OBJC_IVAR_$_CRToastTapGestureRecognizer._interactionType
+_OBJC_IVAR_$_CRToastTapGestureRecognizer._block
+___block_descriptor_tmp.82
+_OBJC_IVAR_$_CRToastInteractionResponder._interactionType
+_OBJC_IVAR_$_CRToastInteractionResponder._automaticallyDismiss
+_OBJC_IVAR_$_CRToastInteractionResponder._block
+_kCRToastIdentifer
+_kCRTextDefault
+_kCRFontDefault
+_kCRTextColorDefault
+_kCRTextShadowColorDefault
+_kCRSubtitleTextDefault
+_kCRSubtitleFontDefault
+_kCRSubtitleTextColorDefault
+_kCRSubtitleTextShadowColorDefault
+_kCRBackgroundColorDefault
+_kCRBackgroundView
+_kCRImageDefault
+_kCRImageTintDefault
+_kCRInteractionResponders
+_kCRToastKeyClassMap
+_kCRTextShadowOffsetDefault
+_kCRSubtitleTextShadowOffsetDefault
+_kCRNotificationTypeDefault
+_kCRNotificationPreferredHeightDefault
+_kCRNotificationPreferredPaddingDefault
+_kCRNotificationPresentationTypeDefault
+_kCRDisplayUnderStatusBarDefault
+_kCRAnimationTypeDefaultIn
+_kCRAnimationTypeDefaultOut
+_kCRInAnimationDirectionDefault
+_kCROutAnimationDirectionDefault
+_kCRAnimateInTimeIntervalDefault
+_kCRTimeIntervalDefault
+_kCRAnimateOutTimeIntervalDefault
+_kCRSpringDampingDefault
+_kCRSpringInitialVelocityDefault
+_kCRGravityMagnitudeDefault
+_kCRTextAlignmentDefault
+_kCRTextMaxNumberOfLinesDefault
+_kCRSubtitleTextAlignmentDefault
+_kCRSubtitleTextMaxNumberOfLinesDefault
+_kCRStatusBarStyleDefault
+_kCRImageContentModeDefault
+_kCRImageAlignmentDefault
+_kCRShowActivityIndicatorDefault
+_kCRActivityIndicatorViewStyleDefault
+_kCRActivityIndicatorAlignmentDefault
+_kCRForceUserInteractionDefault
+_kCRAutoRotateDefault
+_kCRCaptureDefaultWindowDefault
+_OBJC_IVAR_$_CRToast._privateNotificationView
+_OBJC_IVAR_$_CRToast._privateStatusBarView
+_OBJC_IVAR_$_CRToast._options
+_OBJC_IVAR_$_CRToast._gestureRecognizers
+___block_descriptor_tmp.326
+_OBJC_IVAR_$_CRToast._uuid
+_OBJC_IVAR_$_CRToast._state
+_OBJC_IVAR_$_CRToast._completion
+_OBJC_IVAR_$_CRToast._appearance
+_OBJC_IVAR_$_CRToast._autorotate
+_OBJC_IVAR_$_CRToast._animator
+_OBJC_IVAR_$_CRToast._preferredHeight
+_OBJC_IVAR_$_CRToast._preferredPadding
+l_OBJC_PROTOCOL_$_UIGestureRecognizerDelegate
+l_OBJC_LABEL_PROTOCOL_$_UIGestureRecognizerDelegate
+/Users/igorkulman/Projects/open-source/iOSSampleApp/Carthage/Checkouts/CRToast/CRToast/CRToastConfig.m
+/Users/igorkulman/Projects/open-source/iOSSampleApp/Carthage/Checkouts/CRToast/CRToast/CRToastConfig.h
+__22-[CRToast setOptions:]_block_invoke
+CRToastAnimationDirectionIsVertical
+CRToastAnimationDirectionIsHorizontal
+CRToastInteractionResponderIsGenertic
+CRStatusBarViewFrame
+CRStatusBarSnapShotView
+CRNotificationViewFrame
+CRToastGenericRecognizersMake
+__CRToastGenericTapRecognizersMake_block_invoke
+CRToastGenericTapRecognizersMake
+__CRToastGenericSwipeRecognizersMake_block_invoke
+CRToastGenericSwipeRecognizersMake
+CRToastGestureRecognizerMake
+CRToastInteractionResponderIsTap
+CRToastInteractionResponderIsSwipe
+CRToastTapGestureRecognizerMake
+CRToastSwipeGestureRecognizerMake
+NSStringFromCRToastInteractionType
+-[CRToastView initWithFrame:]
+-[CRToastView layoutSubviews]
+-[CRToastView setToast:]
+-[CRToastView toast]
+-[CRToastView backgroundView]
+-[CRToastView setBackgroundView:]
+-[CRToastView imageView]
+-[CRToastView setImageView:]
+-[CRToastView label]
+-[CRToastView setLabel:]
+-[CRToastView subtitleLabel]
+-[CRToastView setSubtitleLabel:]
+-[CRToastView activityIndicator]
+-[CRToastView setActivityIndicator:]
+-[CRToastView .cxx_destruct]
+_OBJC_IVAR_$_CRToastView._imageView
+_OBJC_IVAR_$_CRToastView._toast
+_OBJC_IVAR_$_CRToastView._label
+_OBJC_IVAR_$_CRToastView._subtitleLabel
+_OBJC_IVAR_$_CRToastView._activityIndicator
+_OBJC_IVAR_$_CRToastView._backgroundView
+/Users/igorkulman/Projects/open-source/iOSSampleApp/Carthage/Checkouts/CRToast/CRToast/CRToastView.m
+/Users/igorkulman/Projects/open-source/iOSSampleApp/Carthage/Checkouts/CRToast/CRToast/CRToastView.h
+CRContentWidthForAccessoryViewsWithAlignments
+CRToastWidthOfViewWithAlignment
+CRContentXOffsetForViewAlignmentAndWidth
+CRCenterXForActivityIndicatorWithAlignment
+CRImageViewFrameXOffsetForAlignment
+CRGetStatusBarHeight
+/Users/igorkulman/Library/Caches/org.carthage.CarthageKit/DerivedData/9.1_9B55/CRToast/0.0.9/Build/Intermediates.noindex/ArchiveIntermediates/CRToast/IntermediateBuildFilesPath/CRToast.build/Release-iphoneos/CRToast.build/DerivedSources/CRToast_vers.c
+__ZL15__ARCLite__loadv
+__ZL58__arclite_NSMutableDictionary__setObject_forKeyedSubscriptP19NSMutableDictionaryP13objc_selectorP11objc_objectS4_
+__ZL22add_image_hook_swiftV1PK11mach_headerl
+__ZL42__arclite_NSUndoManagerProxy_isKindOfClassP11objc_objectP13objc_selectorP10objc_class
+__ZL13replaceMethodP10objc_classP13objc_selectorPFP11objc_objectS4_S2_zEPS6_
+__ZL30__arclite_NSManagedObject_initP11objc_objectP13objc_selector
+__ZL41__arclite_NSManagedObject_allocWithEntityP11objc_objectP13objc_selectorS0_
+__ZL36__arclite_NSManagedObject_allocBatchP11objc_objectP13objc_selectorPS0_S0_j
+__ZL37__arclite_NSKKMS_fastIndexForKnownKeyP11objc_objectP13objc_selectorS0_
+__ZL28__arclite_NSKKMS_indexForKeyP11objc_objectP13objc_selectorS0_
+__ZL29__arclite_NSKKsD_objectForKeyP11objc_objectP13objc_selectorS0_
+__ZL35__arclite_NSKKsD_removeObjectForKeyP11objc_objectP13objc_selectorS0_
+__ZL33__arclite_NSKKsD_setObject_forKeyP11objc_objectP13objc_selectorS0_S0_
+__ZL41__arclite_NSKKsD_addEntriesFromDictionaryP11objc_objectP13objc_selectorP12NSDictionary
+__ZL28__arclite_objc_readClassPairP10objc_classPK15objc_image_info
+__ZL32__arclite_objc_allocateClassPairP10objc_classPKcm
+__ZL32__arclite_object_getIndexedIvarsP11objc_object
+__ZL23__arclite_objc_getClassPKc
+__ZL27__arclite_objc_getMetaClassPKc
+__ZL31__arclite_objc_getRequiredClassPKc
+__ZL26__arclite_objc_lookUpClassPKc
+__ZL26__arclite_objc_getProtocolPKc
+__ZL23__arclite_class_getNameP10objc_class
+__ZL26__arclite_protocol_getNameP8Protocol
+__ZL37__arclite_objc_copyClassNamesForImagePKcPj
+__ZL17transcribeMethodsP10objc_classP15glue_class_ro_t
+__ZL19transcribeProtocolsP10objc_classP15glue_class_ro_t
+__ZL20transcribePropertiesP10objc_classP15glue_class_ro_t
+__ZL14initialize_impP11objc_objectP13objc_selector
+__ZL18allocateMaybeSwiftP18glue_swift_class_tm
+__ZL22copySwiftV1MangledNamePKcb
+__ZL13demangledNamePKcb
+__ZL16scanMangledFieldRPKcS0_S1_Ri
+__ZL30arclite_uninitialized_functionv
+__ZL12cxxConstructP11objc_object
+__ZL20fixStringForCoreDataP11objc_object
+_OBJC_METACLASS_$___ARCLite__
+__ZL24OBJC_CLASS_$___ARCLite__
+__ZL31OBJC_METACLASS_RO_$___ARCLite__
+__non_lazy_classes
+__ZL27OBJC_CLASS_RO_$___ARCLite__
+__ZL11_class_name
+__ZL32OBJC_$_CLASS_METHODS___ARCLite__
+__ZL17_load_method_name
+__ZL17_load_method_type
+l_OBJC_PROTOCOL_$___ARCLiteKeyedSubscripting__
+l_OBJC_LABEL_PROTOCOL_$___ARCLiteKeyedSubscripting__
+l_OBJC_PROTOCOL_REFERENCE_$___ARCLiteKeyedSubscripting__
+__ZL30NSUndoManagerProxy_targetClass
+__ZL29original_NSManagedObject_init
+__ZL40original_NSManagedObject_allocWithEntity
+__ZL35original_NSManagedObject_allocBatch
+__ZL25NSMutableDictionary_class
+__ZL22NSConstantString_class
+__ZL14NSString_class
+__ZL36original_NSKKMS_fastIndexForKnownKey
+__ZL27original_NSKKMS_indexForKey
+__ZL28original_NSKKsD_objectForKey
+__ZL34original_NSKKsD_removeObjectForKey
+__ZL32original_NSKKsD_setObject_forKey
+__ZL40original_NSKKsD_addEntriesFromDictionary
+__ZZL22add_image_hook_swiftV1PK11mach_headerlE7patches
+__ZGVZL22add_image_hook_swiftV1PK11mach_headerlE7patches
+__ZL31original_objc_allocateClassPair
+__ZL31original_object_getIndexedIvars
+__ZL22original_objc_getClass
+__ZL26original_objc_getMetaClass
+__ZL30original_objc_getRequiredClass
+__ZL25original_objc_lookUpClass
+__ZL25original_objc_getProtocol
+__ZL22original_class_getName
+__ZL25original_protocol_getName
+__ZL36original_objc_copyClassNamesForImage
+__ZL12demangleLock
+__ZL9Demangled
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch arm64 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -Wno-trigraphs -fno-exceptions -fno-rtti -fno-sanitize=vptr -mpascal-strings -Os -Wno-missing-field-initializers -Wmissing-prototypes -Wno-implicit-atomic-properties -Wno-arc-repeated-use-of-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-float-conversion -Wno-non-literal-null-conversion -Wno-objc-literal-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -D NDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.Internal.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -miphoneos-version-min=4.3 -g -fno-threadsafe-statics -Wno-sign-conversion -Wno-infinite-recursion -Wno-move -Wno-comma -Wno-block-capture-autoreleasing -Wno-strict-prototypes -Wno-range-loop-analysis -fembed-bitcode=all -iquote /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-generated-files.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-own-target-headers.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-all-target-headers.hmap -iquote /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-project-headers.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/Symbols/BuiltProducts/include -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/DerivedSources/arm64 -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/DerivedSources -F/Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/Symbols/BuiltProducts -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.Internal.sdk/System/Library/PrivateFrameworks -Wall -Wextra -Wno-gcc-compat -Wno-error=incomplete-umbrella -Wno-error=invalid-ios-deployment-target -Wno-error=incomplete-umbrella -Wno-error=invalid-ios-deployment-target -MMD -MT dependencies -MF /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/Objects-normal/arm64/arclite.d --serialize-diagnostics /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/Objects-normal/arm64/arclite.dia -c /Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-67/source/arclite.mm -o /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/Objects-normal/arm64/arclite.o -mlinker-version=302.3.1
+/Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-67/source/arclite.mm
+/Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-67
+fixStringForCoreData
+cxxConstruct
+arclite_uninitialized_function
+scanMangledField
+isdigit
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.Internal.sdk/usr/include/ctype.h
+__isctype
+demangledName
+copySwiftV1DemangledName
+copySwiftV1MangledName
+allocateMaybeSwift
+word_align
+isSwift
+initialize_imp
+transcribeProperties
+property_list_nth
+transcribeProtocols
+transcribeMethods
+data
+method_list_nth
+__arclite_objc_copyClassNamesForImage
+__arclite_protocol_getName
+__arclite_class_getName
+__arclite_objc_getProtocol
+__arclite_objc_lookUpClass
+__arclite_objc_getRequiredClass
+__arclite_objc_getMetaClass
+__arclite_objc_getClass
+__arclite_object_getIndexedIvars
+__arclite_objc_allocateClassPair
+metaclass
+__arclite_objc_readClassPair
+transcribeIvars
+ivar_list_nth
+max
+alignment
+ro
+fastFlags
+__arclite_NSKKsD_addEntriesFromDictionary
+__arclite_NSKKsD_setObject_forKey
+__arclite_NSKKsD_removeObjectForKey
+__arclite_NSKKsD_objectForKey
+__arclite_NSKKMS_indexForKey
+__arclite_NSKKMS_fastIndexForKnownKey
+__arclite_NSManagedObject_allocBatch
+__arclite_NSManagedObject_allocWithEntity
+__arclite_NSManagedObject_init
+replaceMethod
+__arclite_NSUndoManagerProxy_isKindOfClass
+add_image_hook_swiftV1
+patch_lazy_pointers
+patch_t<const char **(const char *, unsigned int *)>
+patch_t<const char *(Protocol *)>
+patch_t<const char *(Class)>
+patch_t<Protocol *(const char *)>
+patch_t<Class (const char *)>
+patch_t<void *(id)>
+patch_t<Class (Class, const char *, unsigned long)>
+patch_t<Class (Class, const objc_image_info *)>
+__arclite_NSMutableDictionary__setObject_forKeyedSubscript
+__ARCLite__load
+install_swiftV1
+install_dict_nil_value
+addOrReplaceMethod
+keyedGetter
