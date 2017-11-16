@@ -32,4 +32,9 @@ extension Reactive where Base: NotificationCenter {
         let source = Observable.of(showSource, hideSource).merge()
         return ControlEvent(events: source)
     }
+
+    func applicationWillEnterForeground() -> ControlEvent<Void> {
+        let source = NotificationCenter.default.rx.notification(NSNotification.Name.UIApplicationWillEnterForeground).map({ _ in Void() })
+        return ControlEvent(events: source)
+    }
 }

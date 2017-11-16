@@ -19,6 +19,10 @@ class FeedViewModel {
     let load = PublishSubject<Void>() // signal that starts feed loading
     let title: String
 
+    // MARK: - Fields
+
+    private var disposeBag = DisposeBag()
+
     init(dataService: DataService, settingsService: SettingsService) {
         guard let source = settingsService.selectedSource else {
             Log.error?.message("Source not selected, nothing to show in feed")
@@ -43,5 +47,9 @@ class FeedViewModel {
         }
         feed = load.startWith(()).flatMapLatest { _ in return loadFeed }.share()
         title = source.title
+
+        NotificationCenter.default.rx.applicationWillEnterForeground().subscribe(onNext: { [weak self] in
+            self?.load.onNext(())
+        }).disposed(by: disposeBag)
     }
 }
