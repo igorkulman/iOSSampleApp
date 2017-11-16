@@ -17,7 +17,7 @@ protocol FeedViewControllerDelegeate: class {
     func userDidRequestSetup()
 }
 
-class FeedViewController: UIViewController, FeedStoryboardLodable {
+class FeedViewController: UIViewController, FeedStoryboardLodable, ToastCapable {
 
     // MARK: - Outlets
 
@@ -74,13 +74,13 @@ class FeedViewController: UIViewController, FeedStoryboardLodable {
         tableView.register(cellType: FeedCell.self)
 
         let feed = viewModel.feed.materialize()
-        feed.observeOn(MainScheduler.instance).errors().subscribe(onNext: { error in
+        feed.observeOn(MainScheduler.instance).errors().subscribe(onNext: { [weak self] error in
             switch error {
             case let rssError as RssError:
-                CRToastManager.showErrorNotification(title: rssError.description)
+                self?.showErrorToast(message: rssError.description)
                 break
             default:
-                CRToastManager.showErrorNotification(title: "network_problem".localized)
+                self?.showErrorToast(message: "network_problem".localized)
                 break
             }
         }).disposed(by: disposeBag)
