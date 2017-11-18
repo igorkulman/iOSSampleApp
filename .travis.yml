@@ -6,7 +6,7 @@ install:
 script:
     - export LC_ALL=en_US.UTF-8
     - set -o pipefail && xcodebuild clean -project iOSSampleApp.xcodeproj  -scheme iOSSampleApp CODE_SIGNING_REQUIRED=NO | xcpretty -f `xcpretty-travis-formatter`
-    - set -o pipefail && xcodebuild test -project iOSSampleApp.xcodeproj -scheme iOSSampleApp -destination 'platform=iOS Simulator,name=iPhone 6s,OS=11.0' CODE_SIGNING_REQUIRED=NO | xcpretty -f `xcpretty-travis-formatter`
+    - set -o pipefail && xcodebuild test -project iOSSampleApp.xcodeproj -scheme iOSSampleApp -destination 'platform=iOS Simulator,name=iPhone 6s,OS=11.1' CODE_SIGNING_REQUIRED=NO | xcpretty -f `xcpretty-travis-formatter`
 notifications:
   email:
     on_success: never
