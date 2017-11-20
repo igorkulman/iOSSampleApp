@@ -26,4 +26,10 @@ class FeedCell: UITableViewCell, NibReusable {
             }
         }
     }
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        titleLabel.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize: 17, weight: .semibold))
+    }
 }

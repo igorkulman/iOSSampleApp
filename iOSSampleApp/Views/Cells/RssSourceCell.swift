@@ -46,4 +46,10 @@ class RssSourceCell: UITableViewCell, NibReusable {
     // MARK: - Fields
 
     private var disposeBag = DisposeBag()
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        urlLabel.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize: 12))
+    }
 }
