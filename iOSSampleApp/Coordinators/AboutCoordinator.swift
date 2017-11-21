@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Swinject
+import SafariServices
 
 protocol AboutCoordinatorDelegate: class {
     func aboutCoordinatorDidFinish()
@@ -42,9 +43,16 @@ class AboutCoordinator: NavigationCoordinator {
     }
 
     private func showAuthorsInfo() {
+        showUrl(url: "https://blog.kulman.sk/about/")
     }
 
     private func showAuthorsBlog() {
+        showUrl(url: "https://blog.kulman.sk")
+    }
+
+    private func showUrl(url: String) {
+        let svc = SFSafariViewController(url: URL(string: url)!)
+        navigationController.present(svc, animated: true, completion: nil)
     }
 }
 
