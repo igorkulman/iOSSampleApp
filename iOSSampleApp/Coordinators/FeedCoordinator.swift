@@ -17,10 +17,16 @@ protocol FeedCoordinatorDelegate: class {
 
 class FeedCoordinator: NavigationCoordinator {
 
+    // MARK: - Coordinator keys
+
+    private let ABOUT_KEY: String = "About"
+
     // MARK: - Properties
 
     let navigationController: UINavigationController
     let container: Container
+    private var childCoordinators = [String: Coordinator]()
+
     weak var delegate: FeedCoordinatorDelegate?
 
     init(container: Container, navigationController: UINavigationController) {
@@ -47,11 +53,28 @@ class FeedCoordinator: NavigationCoordinator {
         navigationController.setBackButton()
         navigationController.pushViewController(vc, animated: true)
     }
+
+    private func showAbout() {
+        let aboutCoordinator = AboutCoordinator(container: container, navigationController: navigationController)
+        childCoordinators[ABOUT_KEY] = aboutCoordinator
+        aboutCoordinator.delegate = self
+        aboutCoordinator.start()
+    }
 }
 
 // MARK: - Delegate
 
+extension FeedCoordinator: AboutCoordinatorDelegate {
+    func aboutCoordinatorDidFinish() {
+        childCoordinators[ABOUT_KEY] = nil
+    }
+}
+
 extension FeedCoordinator: FeedViewControllerDelegeate {
+    func userDidRequestAbout() {
+        showAbout()
+    }
+
     func userDidRequestSetup() {
         delegate?.feedCoordinatorDidFinish()
     }

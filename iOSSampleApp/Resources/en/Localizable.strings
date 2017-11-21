@@ -21,3 +21,7 @@
 "network_problem" = "Network problem has occured";
 "back" = "Back";
 "bad_url" = "Invalid RSS Url";
+"about" = "About";
+"author" = "About author";
+"blog" = "Author's blog";
+"libraries" = "Used libraries";

@@ -16,7 +16,7 @@ struct RssSource: Codable {
 }
 
 extension RssSource: Equatable {
-    static func ==(lhs: RssSource, rhs: RssSource) -> Bool {
+    static func == (lhs: RssSource, rhs: RssSource) -> Bool {
         return lhs.rss == rhs.rss
     }
 }

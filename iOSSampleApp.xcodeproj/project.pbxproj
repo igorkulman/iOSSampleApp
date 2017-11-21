@@ -35,6 +35,13 @@
 		F390649B1F84DC7A003C0C12 /* RssItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F390649A1F84DC7A003C0C12 /* RssItem.swift */; };
 		F390649E1F84DF6B003C0C12 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F390649C1F84DF6B003C0C12 /* FeedCell.swift */; };
 		F390649F1F84DF6B003C0C12 /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F390649D1F84DF6B003C0C12 /* FeedCell.xib */; };
+		F3A4B2151FC42FD200787BCE /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A4B2141FC42FD200787BCE /* AboutViewController.swift */; };
+		F3A4B2171FC432CA00787BCE /* Licenses.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3A4B2161FC432CA00787BCE /* Licenses.plist */; };
+		F3A4B2191FC4331000787BCE /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A4B2181FC4331000787BCE /* About.storyboard */; };
+		F3A4B21B1FC434C300787BCE /* LibrariesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A4B21A1FC434C300787BCE /* LibrariesViewController.swift */; };
+		F3A4B21D1FC434EC00787BCE /* LibrariesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A4B21C1FC434EC00787BCE /* LibrariesViewModel.swift */; };
+		F3A4B21F1FC4359A00787BCE /* AboutCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A4B21E1FC4359A00787BCE /* AboutCoordinator.swift */; };
+		F3A4B2211FC43C0B00787BCE /* AboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A4B2201FC43C0B00787BCE /* AboutViewModel.swift */; };
 		F3A812B81F83740E00A09AAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A812B71F83740E00A09AAB /* AppDelegate.swift */; };
 		F3A812BF1F83740E00A09AAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3A812BE1F83740E00A09AAB /* Assets.xcassets */; };
 		F3A812C21F83740E00A09AAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A812C01F83740E00A09AAB /* LaunchScreen.storyboard */; };
@@ -106,6 +113,13 @@
 		F390649A1F84DC7A003C0C12 /* RssItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssItem.swift; sourceTree = "<group>"; };
 		F390649C1F84DF6B003C0C12 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		F390649D1F84DF6B003C0C12 /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
+		F3A4B2141FC42FD200787BCE /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		F3A4B2161FC432CA00787BCE /* Licenses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Licenses.plist; sourceTree = "<group>"; };
+		F3A4B2181FC4331000787BCE /* About.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
+		F3A4B21A1FC434C300787BCE /* LibrariesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariesViewController.swift; sourceTree = "<group>"; };
+		F3A4B21C1FC434EC00787BCE /* LibrariesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariesViewModel.swift; sourceTree = "<group>"; };
+		F3A4B21E1FC4359A00787BCE /* AboutCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCoordinator.swift; sourceTree = "<group>"; };
+		F3A4B2201FC43C0B00787BCE /* AboutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewModel.swift; sourceTree = "<group>"; };
 		F3A812B41F83740E00A09AAB /* iOSSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A812B71F83740E00A09AAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3A812BE1F83740E00A09AAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -202,6 +216,7 @@
 		F38CD1C31F8385530050056C /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				F3A4B2161FC432CA00787BCE /* Licenses.plist */,
 				F38CD1C11F8385350050056C /* sources.json */,
 			);
 			path = Data;
@@ -260,9 +275,11 @@
 			children = (
 				F38CD1C41F8385A10050056C /* Cells */,
 				F3A812CC1F83749200A09AAB /* Storyboards */,
+				F3A4B2141FC42FD200787BCE /* AboutViewController.swift */,
 				F38CD22E1F83A2B90050056C /* CustomSourceViewController.swift */,
 				F3AAA6211F860E55009653B7 /* DetailViewController.swift */,
 				F3A812FF1F837A6500A09AAB /* FeedViewController.swift */,
+				F3A4B21A1FC434C300787BCE /* LibrariesViewController.swift */,
 				F3A813011F837A8200A09AAB /* SourceSelectionViewController.swift */,
 			);
 			path = Views;
@@ -271,9 +288,11 @@
 		F3A812CA1F83748100A09AAB /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				F3A4B2201FC43C0B00787BCE /* AboutViewModel.swift */,
 				F38CD2321F83A6030050056C /* CustomSourceViewModel.swift */,
 				F3AAA6231F861018009653B7 /* DetailViewModel.swift */,
 				F39064941F84D4D8003C0C12 /* FeedViewModel.swift */,
+				F3A4B21C1FC434EC00787BCE /* LibrariesViewModel.swift */,
 				F38CD1BC1F8382950050056C /* RssSourceViewModel.swift */,
 				F3A813101F837DC900A09AAB /* SourceSelectionViewModel.swift */,
 			);
@@ -293,8 +312,9 @@
 		F3A812CC1F83749200A09AAB /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				F3A812C01F83740E00A09AAB /* LaunchScreen.storyboard */,
+				F3A4B2181FC4331000787BCE /* About.storyboard */,
 				F3A813031F837A8F00A09AAB /* Feed.storyboard */,
+				F3A812C01F83740E00A09AAB /* LaunchScreen.storyboard */,
 				F3A813051F837AA400A09AAB /* Setup.storyboard */,
 			);
 			path = Storyboards;
@@ -303,6 +323,7 @@
 		F3A812CD1F83749900A09AAB /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				F3A4B21E1FC4359A00787BCE /* AboutCoordinator.swift */,
 				F3A812DB1F8375DF00A09AAB /* AppCoordinator.swift */,
 				F3A8130E1F837C0800A09AAB /* FeedCoordinator.swift */,
 				F3A8130A1F837B0E00A09AAB /* SetupCoordinator.swift */,
@@ -426,6 +447,7 @@
 				F3A812B11F83740E00A09AAB /* Frameworks */,
 				F3A812B21F83740E00A09AAB /* Resources */,
 				F3A812EF1F8376BD00A09AAB /* Carthage */,
+				F3A4B2221FC43D8000787BCE /* Build number */,
 			);
 			buildRules = (
 			);
@@ -491,9 +513,11 @@
 			files = (
 				F3A813171F837F0D00A09AAB /* Localizable.strings in Resources */,
 				F390649F1F84DF6B003C0C12 /* FeedCell.xib in Resources */,
+				F3A4B2171FC432CA00787BCE /* Licenses.plist in Resources */,
 				F3A813061F837AA400A09AAB /* Setup.storyboard in Resources */,
 				F3A812C21F83740E00A09AAB /* LaunchScreen.storyboard in Resources */,
 				F38CD1CE1F8386A00050056C /* RssSourceCell.xib in Resources */,
+				F3A4B2191FC4331000787BCE /* About.storyboard in Resources */,
 				F3A813041F837A8F00A09AAB /* Feed.storyboard in Resources */,
 				F38CD1C21F8385450050056C /* sources.json in Resources */,
 				F3A812BF1F83740E00A09AAB /* Assets.xcassets in Resources */,
@@ -520,6 +544,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		F3A4B2221FC43D8000787BCE /* Build number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build number";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(git rev-list HEAD | wc -l | tr -d ' ')\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
 		};
 		F3A812EF1F8376BD00A09AAB /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -573,11 +611,15 @@
 				F3A813131F837ECF00A09AAB /* String+Extensions.swift in Sources */,
 				F390649E1F84DF6B003C0C12 /* FeedCell.swift in Sources */,
 				F3A813091F837AF400A09AAB /* RssSource.swift in Sources */,
+				F3A4B21B1FC434C300787BCE /* LibrariesViewController.swift in Sources */,
 				F3A813001F837A6500A09AAB /* FeedViewController.swift in Sources */,
 				F3A812E11F83766400A09AAB /* StoryboardLodable.swift in Sources */,
 				F3AAA6241F861018009653B7 /* DetailViewModel.swift in Sources */,
 				F38CD2331F83A6040050056C /* CustomSourceViewModel.swift in Sources */,
 				F3AAA6261F86113A009653B7 /* UINavigationController+Extensions.swift in Sources */,
+				F3A4B2151FC42FD200787BCE /* AboutViewController.swift in Sources */,
+				F3A4B21D1FC434EC00787BCE /* LibrariesViewModel.swift in Sources */,
+				F3A4B21F1FC4359A00787BCE /* AboutCoordinator.swift in Sources */,
 				F3A812FE1F83791C00A09AAB /* UserDefaultsSettingsService.swift in Sources */,
 				F3A812B81F83740E00A09AAB /* AppDelegate.swift in Sources */,
 				F38CD2371F83AEC70050056C /* UIScrollView+Extensions.swift in Sources */,
@@ -586,6 +628,7 @@
 				F38CD1CD1F8386A00050056C /* RssSourceCell.swift in Sources */,
 				F3A812DF1F83762A00A09AAB /* Swinject+Extensions.swift in Sources */,
 				F390649B1F84DC7A003C0C12 /* RssItem.swift in Sources */,
+				F3A4B2211FC43C0B00787BCE /* AboutViewModel.swift in Sources */,
 				F3A812DC1F8375DF00A09AAB /* AppCoordinator.swift in Sources */,
 				F3A812DA1F8375BB00A09AAB /* NavigationCoordinator.swift in Sources */,
 				F3A8130B1F837B0E00A09AAB /* SetupCoordinator.swift in Sources */,
