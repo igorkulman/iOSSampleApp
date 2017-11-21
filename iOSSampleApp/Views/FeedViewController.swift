@@ -15,6 +15,7 @@ import RxSwiftExt
 protocol FeedViewControllerDelegeate: class {
     func userDidRequestItemDetail(item: RssItem)
     func userDidRequestSetup()
+    func userDidRequestAbout()
 }
 
 class FeedViewController: UIViewController, FeedStoryboardLodable, ToastCapable {
@@ -33,10 +34,12 @@ class FeedViewController: UIViewController, FeedStoryboardLodable, ToastCapable 
     private var disposeBag = DisposeBag()
     private let refreshControl: UIRefreshControl
     private let setupButton: UIBarButtonItem
+    private let aboutButton: UIBarButtonItem
 
     required init?(coder aDecoder: NSCoder) {
         refreshControl = UIRefreshControl()
-        setupButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Settings"), style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        setupButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Settings"), style: .plain, target: nil, action: nil)
+        aboutButton = UIBarButtonItem(image: #imageLiteral(resourceName: "About"), style: .plain, target: nil, action: nil)
 
         super.init(coder: aDecoder)
     }
@@ -56,7 +59,9 @@ class FeedViewController: UIViewController, FeedStoryboardLodable, ToastCapable 
         tableView.estimatedRowHeight = 0
         tableView.refreshControl = refreshControl
         refreshControl.attributedTitle = NSAttributedString(string: "pull_to_refresh".localized)
-        navigationItem.rightBarButtonItem = setupButton
+
+        navigationItem.leftBarButtonItem = setupButton
+        navigationItem.rightBarButtonItem = aboutButton
     }
 
     private func setupBinding() {
@@ -68,6 +73,7 @@ class FeedViewController: UIViewController, FeedStoryboardLodable, ToastCapable 
         refreshControl.rx.controlEvent(.valueChanged).bind(to: viewModel.load).disposed(by: disposeBag)
 
         setupButton.rx.tap.subscribe(onNext: { [weak self] in self?.delegate?.userDidRequestSetup() }).disposed(by: disposeBag)
+        aboutButton.rx.tap.subscribe(onNext: { [weak self] in self?.delegate?.userDidRequestAbout() }).disposed(by: disposeBag)
     }
 
     private func setupData() {

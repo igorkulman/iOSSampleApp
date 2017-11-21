@@ -29,7 +29,7 @@ class SourceSelectionViewModel {
 
         Log.debug?.message("Loading sources")
 
-        let jsonData = Bundle.loadFile(filename: "sources.json")!
+        let jsonData = Bundle.main.loadFile(filename: "sources.json")!
 
         let jsonDecoder = JSONDecoder()
         let all = (try! jsonDecoder.decode(Array<RssSource>.self, from: jsonData)).map({ RssSourceViewModel(source: $0) })

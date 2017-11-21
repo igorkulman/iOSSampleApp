@@ -50,7 +50,7 @@ class RssSourceCell: UITableViewCell, NibReusable {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        //no pre-defined text style matches, so creating the font in code is needed
+        // no pre-defined text style matches, so creating the font in code is needed
         urlLabel.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize: 12))
         urlLabel.adjustsFontForContentSizeCategory = true
     }

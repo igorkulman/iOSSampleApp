@@ -22,8 +22,11 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 * Dependencies management (using [Carthage](https://github.com/Carthage/Carthage))
 * Continuous integration (using [Travis](https://travis-ci.org/igorkulman/iOSSampleApp))
 * Unit testing
+* Using (multiple) Storyboards just as glorified XIBs
+* Using static UITableView cells in a typed way with enums
+* Image literals
 
 ### Requirements
 
-* XCode 9
+* XCode 9.1
 * Carthage
