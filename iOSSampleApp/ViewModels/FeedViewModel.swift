@@ -34,11 +34,9 @@ class FeedViewModel {
                 switch result {
                 case let .failure(error):
                     observer.onError(error)
-                    break
                 case let .success(items):
                     observer.onNext(items)
                     observer.onCompleted()
-                    break
                 }
             }
 

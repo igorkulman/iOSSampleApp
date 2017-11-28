@@ -84,10 +84,8 @@ class FeedViewController: UIViewController, FeedStoryboardLodable, ToastCapable 
             switch error {
             case let rssError as RssError:
                 self?.showErrorToast(message: rssError.description)
-                break
             default:
                 self?.showErrorToast(message: "network_problem".localized)
-                break
             }
         }).disposed(by: disposeBag)
         feed.observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] _ in self?.refreshControl.endRefreshing() }).disposed(by: disposeBag)

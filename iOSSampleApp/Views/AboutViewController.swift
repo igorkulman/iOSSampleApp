@@ -62,20 +62,16 @@ class AboutViewController: UITableViewController, AboutStoryboardLodable {
     }
 
     private func setupBinding() {
-        tableView.rx.itemSelected.subscribe(onNext: {
-            [unowned self] indexPath in
+        tableView.rx.itemSelected.subscribe(onNext: { [unowned self] indexPath in
 
             guard let menuItem = AboutMenuItem(rawValue: indexPath.row) else { fatalError("Invalid indexPath") }
             switch menuItem {
             case .libraries:
                 self.delegate?.userDidRequestLibraries()
-                break
             case .aboutAuthor:
                 self.delegate?.userDidRequestAuthorsInfo()
-                break
             case .authorsBlog:
                 self.delegate?.userDidRequestAuthorsBlog()
-                break
             }
         }).disposed(by: disposeBag)
     }

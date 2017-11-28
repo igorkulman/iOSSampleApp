@@ -34,8 +34,7 @@ class SourceSelectionViewModel {
         let jsonDecoder = JSONDecoder()
         let all = (try! jsonDecoder.decode(Array<RssSource>.self, from: jsonData)).map({ RssSourceViewModel(source: $0) })
 
-        sources = Observable.combineLatest(allSources.asObservable(), filter.asObservable()) {
-            (all: [RssSourceViewModel], filter: String?) -> [RssSourceViewModel] in
+        sources = Observable.combineLatest(allSources.asObservable(), filter.asObservable()) { (all: [RssSourceViewModel], filter: String?) -> [RssSourceViewModel] in
             if let filter = filter, !filter.isEmpty {
                 return all.filter({ $0.source.title.lowercased().contains(filter.lowercased()) })
             } else {
