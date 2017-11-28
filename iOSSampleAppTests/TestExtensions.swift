@@ -10,7 +10,7 @@ import Foundation
 @testable import iOSSampleApp
 
 extension RssResult: Equatable {
-    public static func ==(lhs: RssResult, rhs: RssResult) -> Bool {
+    public static func == (lhs: RssResult, rhs: RssResult) -> Bool {
         switch (lhs, rhs) {
         case (.failure(let lerror), .failure(let rerror)):
             switch (lerror, rerror) {
@@ -19,7 +19,7 @@ extension RssResult: Equatable {
             default:
                 return false
             }
-        case (.success(_), .success(_)):
+        case (.success, .success):
             return true
         default:
             return false

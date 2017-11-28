@@ -30,3 +30,4 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 
 * XCode 9.1
 * Carthage
+* SwifLint
