@@ -14,6 +14,7 @@
 		F3208A921F84EAF400B57B0E /* CustomSourceViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3208A911F84EAF400B57B0E /* CustomSourceViewModelTest.swift */; };
 		F3208A991F84EB7C00B57B0E /* ServiceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3208A981F84EB7C00B57B0E /* ServiceProtocols.swift */; };
 		F3208A9A1F84EC8E00B57B0E /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3208A8E1F84E8B400B57B0E /* RxBlocking.framework */; };
+		F32EAB361FCD55C9007E4CED /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F32EAB351FCD55C9007E4CED /* RxTest.framework */; };
 		F33EB3FE1FBDD81F0050560D /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33EB3FD1FBDD81F0050560D /* UIViewController+Extensions.swift */; };
 		F365964F1F9B41880002BAC8 /* RxSwiftExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F365964E1F9B41880002BAC8 /* RxSwiftExt.framework */; };
 		F38AF5781F851D0000C82EC7 /* CRToast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38AF5771F851D0000C82EC7 /* CRToast.framework */; };
@@ -92,6 +93,7 @@
 		F3208A8E1F84E8B400B57B0E /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		F3208A911F84EAF400B57B0E /* CustomSourceViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSourceViewModelTest.swift; sourceTree = "<group>"; };
 		F3208A981F84EB7C00B57B0E /* ServiceProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocols.swift; sourceTree = "<group>"; };
+		F32EAB351FCD55C9007E4CED /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		F33EB3FD1FBDD81F0050560D /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		F365964E1F9B41880002BAC8 /* RxSwiftExt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwiftExt.framework; path = Carthage/Build/iOS/RxSwiftExt.framework; sourceTree = "<group>"; };
 		F38AF5771F851D0000C82EC7 /* CRToast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CRToast.framework; path = Carthage/Build/iOS/CRToast.framework; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F32EAB361FCD55C9007E4CED /* RxTest.framework in Frameworks */,
 				F365964F1F9B41880002BAC8 /* RxSwiftExt.framework in Frameworks */,
 				F38AF5781F851D0000C82EC7 /* CRToast.framework in Frameworks */,
 				F39064971F84DB8D003C0C12 /* FeedKit.framework in Frameworks */,
@@ -358,6 +361,7 @@
 		F3A812E21F8376A900A09AAB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F32EAB351FCD55C9007E4CED /* RxTest.framework */,
 				F365964E1F9B41880002BAC8 /* RxSwiftExt.framework */,
 				F38AF5771F851D0000C82EC7 /* CRToast.framework */,
 				F3208A8E1F84E8B400B57B0E /* RxBlocking.framework */,
@@ -443,11 +447,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F3A812C61F83740E00A09AAB /* Build configuration list for PBXNativeTarget "iOSSampleApp" */;
 			buildPhases = (
+				F3A4B2221FC43D8000787BCE /* Build number */,
 				F3A812B01F83740E00A09AAB /* Sources */,
 				F3A812B11F83740E00A09AAB /* Frameworks */,
 				F3A812B21F83740E00A09AAB /* Resources */,
 				F3A812EF1F8376BD00A09AAB /* Carthage */,
-				F3A4B2221FC43D8000787BCE /* Build number */,
+				F32EAB1D1FCD517E007E4CED /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -545,6 +550,20 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
+		F32EAB1D1FCD517E007E4CED /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 		F3A4B2221FC43D8000787BCE /* Build number */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -577,6 +596,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/FeedKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/CRToast.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwiftExt.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxTest.framework",
 			);
 			name = Carthage;
 			outputPaths = (

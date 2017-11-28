@@ -1,0 +1,10 @@
+excluded:
+    - Carthage   
+cyclomatic_complexity:
+    - 15
+    - 20    
+disabled_rules:
+    - line_length      
+    - identifier_name
+    - force_cast
+    - force_try
