@@ -11,18 +11,18 @@ import Swinject
 import UIKit
 import CleanroomLogger
 
+enum AppChildCoordinator {
+    case setup
+    case feed
+}
+
 class AppCoordinator: Coordinator {
-
-    // MARK: - Coordinator keys
-
-    private let SETUP_KEY: String = "Setup"
-    private let FEED_KEY: String = "Feed"
 
     // MARK: - Properties
 
     private let window: UIWindow
     let container: Container
-    private var childCoordinators = [String: Coordinator]()
+    private var childCoordinators = [AppChildCoordinator: Coordinator]()
     private let settingsService: SettingsService
     private let navigationController: UINavigationController
 
@@ -46,21 +46,21 @@ class AppCoordinator: Coordinator {
             Log.debug?.message("Setup complete, starting dahsboard")
             showFeed()
         } else {
-            Log.debug?.message("Startipng setup")
+            Log.debug?.message("Starting setup")
             showSetup()
         }
     }
 
     private func showFeed() {
         let feedCoordinator = FeedCoordinator(container: container, navigationController: navigationController)
-        childCoordinators[FEED_KEY] = feedCoordinator
+        childCoordinators[.feed] = feedCoordinator
         feedCoordinator.delegate = self
         feedCoordinator.start()
     }
 
     private func showSetup() {
         let setupCoordinator = SetupCoordinator(container: container, navigationController: navigationController)
-        childCoordinators[SETUP_KEY] = setupCoordinator
+        childCoordinators[.setup] = setupCoordinator
         setupCoordinator.delegate = self
         setupCoordinator.start()
     }

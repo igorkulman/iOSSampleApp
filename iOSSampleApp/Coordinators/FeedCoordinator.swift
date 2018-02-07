@@ -11,21 +11,21 @@ import UIKit
 import CleanroomLogger
 import Swinject
 
+enum FeedChildCoordinator {
+    case about
+}
+
 protocol FeedCoordinatorDelegate: class {
     func feedCoordinatorDidFinish()
 }
 
 class FeedCoordinator: NavigationCoordinator {
 
-    // MARK: - Coordinator keys
-
-    private let ABOUT_KEY: String = "About"
-
     // MARK: - Properties
 
     let navigationController: UINavigationController
     let container: Container
-    private var childCoordinators = [String: Coordinator]()
+    private var childCoordinators = [FeedChildCoordinator: Coordinator]()
 
     weak var delegate: FeedCoordinatorDelegate?
 
@@ -56,7 +56,7 @@ class FeedCoordinator: NavigationCoordinator {
 
     private func showAbout() {
         let aboutCoordinator = AboutCoordinator(container: container, navigationController: navigationController)
-        childCoordinators[ABOUT_KEY] = aboutCoordinator
+        childCoordinators[.about] = aboutCoordinator
         aboutCoordinator.delegate = self
         aboutCoordinator.start()
     }
@@ -66,7 +66,7 @@ class FeedCoordinator: NavigationCoordinator {
 
 extension FeedCoordinator: AboutCoordinatorDelegate {
     func aboutCoordinatorDidFinish() {
-        childCoordinators[ABOUT_KEY] = nil
+        childCoordinators[.about] = nil
     }
 }
 
