@@ -1,14 +1,12 @@
 //
-//  ServiceProtocols.swift
+//  DataService.swift
 //  iOSSampleApp
 //
-//  Created by Igor Kulman on 04/10/2017.
-//  Copyright © 2017 Igor Kulman. All rights reserved.
+//  Created by Igor Kulman on 20/02/2018.
+//  Copyright © 2018 Igor Kulman. All rights reserved.
 //
 
 import Foundation
-import RxSwift
-import RxCocoa
 
 enum RssError: Error, CustomStringConvertible {
     case badUrl
@@ -28,8 +26,4 @@ enum RssResult {
 
 protocol DataService: class {
     func getFeed(source: RssSource, onCompletion: @escaping (RssResult) -> Void)
-}
-
-protocol SettingsService: class {
-    var selectedSource: RssSource? { get set }
 }
