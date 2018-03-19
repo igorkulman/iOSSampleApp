@@ -36,7 +36,7 @@ class CustomSourceViewController: UIViewController, SetupStoryboardLodable {
     // MARK: - Fields
 
     private var disposeBag = DisposeBag()
-    private let doneButton = UIBarButtonItem(title: "done".localized, style: .plain, target: nil, action: nil)
+    private let doneButton = UIBarButtonItem(title: L10n.done, style: .plain, target: nil, action: nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,13 +48,13 @@ class CustomSourceViewController: UIViewController, SetupStoryboardLodable {
     // MARK: - Setup
 
     private func setupUI() {
-        title = "add_custom_source".localized
+        title = L10n.addCustomSource
         navigationItem.rightBarButtonItem = doneButton
 
-        titleLabel.text = "title".localized
-        rssUrlLabel.text = "rss_url".localized
-        logoUrlLabel.text = "\("logo_url".localized) (\("optional".localized))"
-        urlLabel.text = "url".localized
+        titleLabel.text = L10n.title
+        rssUrlLabel.text = L10n.rssUrl
+        logoUrlLabel.text = "\(L10n.logoUrl) (\(L10n.optional))"
+        urlLabel.text = L10n.url
     }
 
     private func setupBinding() {

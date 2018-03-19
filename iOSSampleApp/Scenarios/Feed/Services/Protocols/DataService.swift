@@ -14,7 +14,7 @@ enum RssError: Error, CustomStringConvertible {
     var description: String {
         switch self {
         case .badUrl:
-            return "bad_url".localized
+            return L10n.badUrl
         }
     }
 }

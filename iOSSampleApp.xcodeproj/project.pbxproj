@@ -16,6 +16,7 @@
 		F3296F67202B4C150093B94C /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3208A8E1F84E8B400B57B0E /* RxBlocking.framework */; };
 		F32EAB361FCD55C9007E4CED /* RxTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F32EAB351FCD55C9007E4CED /* RxTest.framework */; };
 		F33EB3FE1FBDD81F0050560D /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33EB3FD1FBDD81F0050560D /* UIViewController+Extensions.swift */; };
+		F3520E74206017000011EF40 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3520E73206017000011EF40 /* Strings.swift */; };
 		F3651D22203C1B0D0082A73A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3651D21203C1B0D0082A73A /* DataService.swift */; };
 		F3651D26203C1B3A0082A73A /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3651D25203C1B3A0082A73A /* SettingsService.swift */; };
 		F365964F1F9B41880002BAC8 /* RxSwiftExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F365964E1F9B41880002BAC8 /* RxSwiftExt.framework */; };
@@ -96,6 +97,7 @@
 		F3208A911F84EAF400B57B0E /* CustomSourceViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSourceViewModelTest.swift; sourceTree = "<group>"; };
 		F32EAB351FCD55C9007E4CED /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		F33EB3FD1FBDD81F0050560D /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		F3520E73206017000011EF40 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		F3651D21203C1B0D0082A73A /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		F3651D25203C1B3A0082A73A /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		F365964E1F9B41880002BAC8 /* RxSwiftExt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwiftExt.framework; path = Carthage/Build/iOS/RxSwiftExt.framework; sourceTree = "<group>"; };
@@ -534,6 +536,7 @@
 			isa = PBXGroup;
 			children = (
 				F3A813151F837EFF00A09AAB /* en */,
+				F3520E73206017000011EF40 /* Strings.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -772,6 +775,7 @@
 				F38CD2371F83AEC70050056C /* UIScrollView+Extensions.swift in Sources */,
 				F3651D22203C1B0D0082A73A /* DataService.swift in Sources */,
 				F38CD22F1F83A2B90050056C /* CustomSourceViewController.swift in Sources */,
+				F3520E74206017000011EF40 /* Strings.swift in Sources */,
 				F39064951F84D4D8003C0C12 /* FeedViewModel.swift in Sources */,
 				F38CD1CD1F8386A00050056C /* RssSourceCell.swift in Sources */,
 				F3A812DF1F83762A00A09AAB /* Swinject+Extensions.swift in Sources */,

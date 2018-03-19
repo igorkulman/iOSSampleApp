@@ -29,7 +29,7 @@ class LibrariesViewController: UITableViewController, AboutStoryboardLodable {
     // MARK: - Setup
 
     private func setupUI() {
-        title = "libraries".localized
+        title = L10n.libraries
     }
 
     private func setupData() {

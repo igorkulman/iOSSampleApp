@@ -52,10 +52,10 @@ class AboutViewController: UITableViewController, AboutStoryboardLodable {
     // MARK: - Setup
 
     func setupUI() {
-        title = "about".localized
-        authorLabel.text = "author".localized
-        librariesLabel.text = "libraries".localized
-        blogLabel.text = "blog".localized
+        title = L10n.about
+        authorLabel.text = L10n.author
+        librariesLabel.text = L10n.libraries
+        blogLabel.text = L10n.blog
 
         titleLabel.text = viewModel.appName
         versionLabel.text = viewModel.appVersion

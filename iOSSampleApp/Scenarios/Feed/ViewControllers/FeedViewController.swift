@@ -58,7 +58,7 @@ class FeedViewController: UIViewController, FeedStoryboardLodable, ToastCapable 
         title = viewModel.title
         tableView.estimatedRowHeight = 0
         tableView.refreshControl = refreshControl
-        refreshControl.attributedTitle = NSAttributedString(string: "pull_to_refresh".localized)
+        refreshControl.attributedTitle = NSAttributedString(string: L10n.pullToRefresh)
 
         navigationItem.leftBarButtonItem = setupButton
         navigationItem.rightBarButtonItem = aboutButton
@@ -85,7 +85,7 @@ class FeedViewController: UIViewController, FeedStoryboardLodable, ToastCapable 
             case let rssError as RssError:
                 self?.showErrorToast(message: rssError.description)
             default:
-                self?.showErrorToast(message: "network_problem".localized)
+                self?.showErrorToast(message: L10n.networkProblem)
             }
         }).disposed(by: disposeBag)
         feed.observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] _ in self?.refreshControl.endRefreshing() }).disposed(by: disposeBag)

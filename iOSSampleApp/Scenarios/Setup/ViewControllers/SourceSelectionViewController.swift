@@ -53,7 +53,7 @@ class SourceSelectionViewController: UIViewController, SetupStoryboardLodable {
     // MARK: - Setup
 
     private func setupUI() {
-        title = "select_source".localized
+        title = L10n.selectSource
         navigationItem.rightBarButtonItem = doneButton
         navigationItem.leftBarButtonItem = addCustomButton
 
