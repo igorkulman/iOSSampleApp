@@ -20,8 +20,11 @@ class UserDefaultsSettingsService: SettingsService {
         }
         set {
             let jsonEncoder = JSONEncoder()
-            let serialized = try! jsonEncoder.encode(newValue)
-            UserDefaults.standard.set(serialized, forKey: "source")
+            if let serialized = try? jsonEncoder.encode(newValue) {
+                UserDefaults.standard.set(serialized, forKey: "source")
+            } else {
+                UserDefaults.standard.removeObject(forKey: "source")
+            }
         }
     }
 }

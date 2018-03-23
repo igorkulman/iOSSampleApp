@@ -1,2 +1,4 @@
 Carthage/Build
 Carthage/Checkouts
+/iOSSampleApp.xcodeproj/project.xcworkspace/xcuserdata
+.DS_Store

@@ -81,5 +81,13 @@ extension AppDelegate {
         container.storyboardInitCompleted(AboutViewController.self) { r, c
             in c.viewModel = r.resolve(AboutViewModel.self)
         }
+
+        #if DEBUG
+            if ProcessInfo().arguments.contains("testMode") {
+                Log.debug?.message("Running in UI tests, deleting selected source to start clean")
+                let settingsService = container.resolve(SettingsService.self)!
+                settingsService.selectedSource = nil
+            }
+        #endif
     }
 }
