@@ -1,0 +1,6 @@
+framework module SimulatorStatusMagiciOS {
+  umbrella header "SimulatorStatusMagiciOS.h"
+
+  export *
+  module * { export * }
+}
