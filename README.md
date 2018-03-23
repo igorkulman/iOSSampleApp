@@ -16,18 +16,23 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 * Dependency Injection (using [Swinject](https://github.com/Swinject/Swinject))
 * MVVM
 * Binding (using [RxSwift](https://github.com/ReactiveX/RxSwift))
+* Dependencies management (using [Carthage](https://github.com/Carthage/Carthage))
 
 ### Other concepts
 
-* Dependencies management (using [Carthage](https://github.com/Carthage/Carthage))
 * Continuous integration (using [Travis](https://travis-ci.org/igorkulman/iOSSampleApp))
 * Unit testing
 * Using (multiple) Storyboards just as glorified XIBs
 * Using static UITableView cells in a typed way with enums
 * Image literals
+* Generated string references (using [SwiftGen](https://github.com/SwiftGen/SwiftGen))
 
 ### Requirements
 
-* XCode 9.1
+* XCode 9.2
+
+#### Optional
+
 * Carthage
 * SwifLint
+* SwiftGen
