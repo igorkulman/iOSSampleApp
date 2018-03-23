@@ -40,6 +40,7 @@ class FeedViewController: UIViewController, FeedStoryboardLodable, ToastCapable 
         refreshControl = UIRefreshControl()
         setupButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Settings"), style: .plain, target: nil, action: nil)
         aboutButton = UIBarButtonItem(image: #imageLiteral(resourceName: "About"), style: .plain, target: nil, action: nil)
+        aboutButton.accessibilityIdentifier = "about"
 
         super.init(coder: aDecoder)
     }

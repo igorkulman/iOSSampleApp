@@ -26,6 +26,7 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 * Using static UITableView cells in a typed way with enums
 * Image literals
 * Generated string references (using [SwiftGen](https://github.com/SwiftGen/SwiftGen))
+* Automated AppStore screenshots taking (using [Fastlane](https://fastlane.tools/)) 
 
 ### Requirements
 
@@ -36,3 +37,4 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 * Carthage
 * SwifLint
 * SwiftGen
+* Fastlane

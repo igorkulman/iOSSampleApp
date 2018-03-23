@@ -35,8 +35,9 @@ class SourceSelectionViewController: UIViewController, SetupStoryboardLodable {
     private let searchController: UISearchController
 
     required init?(coder aDecoder: NSCoder) {
-        doneButton = UIBarButtonItem(title: "done".localized, style: .plain, target: nil, action: nil)
-        addCustomButton = UIBarButtonItem(title: "add_custom".localized, style: .plain, target: nil, action: nil)
+        doneButton = UIBarButtonItem(title: L10n.done, style: .plain, target: nil, action: nil)
+        doneButton.accessibilityIdentifier = "done"
+        addCustomButton = UIBarButtonItem(title: L10n.addCustom, style: .plain, target: nil, action: nil)
         searchController = UISearchController(searchResultsController: nil)
 
         super.init(coder: aDecoder)
