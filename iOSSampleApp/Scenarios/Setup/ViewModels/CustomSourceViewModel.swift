@@ -24,7 +24,7 @@ class CustomSourceViewModel {
 
     init() {
         source = Observable.combineLatest(title.asObservable(), url.asObservable(), rssUrl.asObservable(), logoUrl.asObservable()) { title, url, rssUrl, logoUrl in
-            guard let title = title, !title.isEmpty, let url = url, !url.isEmpty, let rssUrl = rssUrl, !rssUrl.isEmpty else {
+            guard let title = title, !title.isEmpty, let url = url, url.isValidURL, let rssUrl = rssUrl, rssUrl.isValidURL else {
                 return nil
             }
 
