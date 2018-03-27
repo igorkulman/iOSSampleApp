@@ -6,9 +6,9 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
-import UIKit
-import RxSwift
 import RxCocoa
+import RxSwift
+import UIKit
 
 protocol CustomSourceViewControllerDelegate: class {
     func userDidAddCustomSource(source: RssSource)
@@ -70,7 +70,7 @@ class CustomSourceViewController: UIViewController, SetupStoryboardLodable {
 
         NotificationCenter.default.rx.keyboardHeightChanged().subscribe(onNext: { [weak self] height in self?.scrollview.setBottomInset(height: height) }).disposed(by: disposeBag)
 
-        doneButton.rx.tap.subscribe(onNext: { [unowned self] in self.delegate?.userDidAddCustomSource(source: self.viewModel.getCreatedSource()) }).disposed(by: disposeBag)
+        doneButton.rx.tap.withLatestFrom(viewModel.source.flatMap(ignoreNil)).subscribe(onNext: { [unowned self] source in self.delegate?.userDidAddCustomSource(source: source) }).disposed(by: disposeBag)
     }
 
     private func validityToColor(_ isValid: Bool) -> UIColor {

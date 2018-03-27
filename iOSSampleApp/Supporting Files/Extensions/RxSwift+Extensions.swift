@@ -7,9 +7,9 @@
 //
 
 import Foundation
-import UIKit
-import RxSwift
 import RxCocoa
+import RxSwift
+import UIKit
 
 extension Reactive where Base: UITextField {
     var textColor: UIBindingObserver<Base, UIColor?> {
@@ -37,4 +37,8 @@ extension Reactive where Base: NotificationCenter {
         let source = NotificationCenter.default.rx.notification(NSNotification.Name.UIApplicationWillEnterForeground).map({ _ in Void() })
         return ControlEvent(events: source)
     }
+}
+
+func ignoreNil<A>(x: A?) -> Observable<A> {
+    return x.map { Observable.just($0) } ?? Observable.empty()
 }

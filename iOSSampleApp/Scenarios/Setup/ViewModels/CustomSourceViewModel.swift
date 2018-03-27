@@ -6,9 +6,9 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
+import CleanroomLogger
 import Foundation
 import RxSwift
-import CleanroomLogger
 
 class CustomSourceViewModel {
 
@@ -20,25 +20,17 @@ class CustomSourceViewModel {
     let rssUrl = Variable<String?>(nil)
 
     let isValid: Observable<Bool>
+    let source: Observable<RssSource?>
 
     init() {
-        isValid = Observable.combineLatest(title.asObservable(), url.asObservable(), rssUrl.asObservable()) {
-            let isTitleValid = !($0 ?? "").isEmpty
-            let isUrlValid = $1?.isValidURL == true
-            let isRssUrlValid = $2?.isValidURL == true
+        source = Observable.combineLatest(title.asObservable(), url.asObservable(), rssUrl.asObservable(), logoUrl.asObservable()) { title, url, rssUrl, logoUrl in
+            guard let title = title, !title.isEmpty, let url = url, !url.isEmpty, let rssUrl = rssUrl, !rssUrl.isEmpty else {
+                return nil
+            }
 
-            return isTitleValid && isUrlValid && isRssUrlValid
-        }
-    }
-
-    // MARK: - Actions
-
-    func getCreatedSource() -> RssSource {
-        guard let title = title.value, let url = url.value, URL(string: url) != nil, let rss = rssUrl.value, URL(string: rss) != nil else {
-            Log.error?.message("Cannot process invalid form, validation is broken")
-            fatalError("Cannot process invalid form, validation is broken")
+            return RssSource(title: title, url: url, rss: rssUrl, icon: logoUrl)
         }
 
-        return RssSource(title: title, url: url, rss: rss, icon: logoUrl.value)
+        isValid = source.map({ $0 != nil })
     }
 }
