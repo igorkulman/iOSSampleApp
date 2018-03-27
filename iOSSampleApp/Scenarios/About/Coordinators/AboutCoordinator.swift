@@ -7,9 +7,9 @@
 //
 
 import Foundation
-import UIKit
-import Swinject
 import SafariServices
+import Swinject
+import UIKit
 
 protocol AboutCoordinatorDelegate: class {
     func aboutCoordinatorDidFinish()
@@ -55,6 +55,8 @@ class AboutCoordinator: NavigationCoordinator {
         navigationController.present(svc, animated: true, completion: nil)
     }
 }
+
+// MARK: - Delegate
 
 extension AboutCoordinator: AboutViewControllerDelegate {
     func userDidRequestAuthorsBlog() {

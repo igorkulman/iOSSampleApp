@@ -47,6 +47,8 @@ class SetupCoordinator: NavigationCoordinator {
     }
 }
 
+// MARK: - Delegate
+
 extension SetupCoordinator: SourceSelectionViewControllerDelegate {
     func sourceSelectionViewControllerDidFinish() {
         delegate?.setupCoordinatorDidFinish()

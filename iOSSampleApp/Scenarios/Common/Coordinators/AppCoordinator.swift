@@ -6,10 +6,10 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
+import CleanroomLogger
 import Foundation
 import Swinject
 import UIKit
-import CleanroomLogger
 
 enum AppChildCoordinator {
     case setup
@@ -65,6 +65,8 @@ class AppCoordinator: Coordinator {
         setupCoordinator.start()
     }
 }
+
+// MARK: - Delegate
 
 extension AppCoordinator: SetupCoordinatorDelegate {
     func setupCoordinatorDidFinish() {

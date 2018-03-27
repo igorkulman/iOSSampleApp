@@ -6,11 +6,11 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
-import UIKit
-import Reusable
-import RxSwift
-import RxNuke
 import Nuke
+import Reusable
+import RxNuke
+import RxSwift
+import UIKit
 
 class RssSourceCell: UITableViewCell, NibReusable {
 
@@ -24,21 +24,23 @@ class RssSourceCell: UITableViewCell, NibReusable {
 
     var viewModel: RssSourceViewModel? {
         didSet {
-            if let vm = viewModel {
-                disposeBag = DisposeBag()
+            guard let vm = viewModel else {
+                return
+            }
 
-                titleLabel.text = vm.source.title
-                urlLabel.text = vm.source.url
-                vm.isSelected.asObservable().subscribe(onNext: { [weak self] selected in
-                    self?.accessoryType = selected ? .checkmark : .none
-                }).disposed(by: disposeBag)
-                logoImage.image = nil
-                if let icon = vm.source.icon, let iconUrl = URL(string: icon) {
-                    Nuke.Manager.shared.loadImage(with: iconUrl)
-                        .observeOn(MainScheduler.instance)
-                        .subscribe(onSuccess: { [weak self] in self?.logoImage.image = $0 })
-                        .disposed(by: disposeBag)
-                }
+            disposeBag = DisposeBag()
+
+            titleLabel.text = vm.source.title
+            urlLabel.text = vm.source.url
+            vm.isSelected.asObservable().subscribe(onNext: { [weak self] selected in
+                self?.accessoryType = selected ? .checkmark : .none
+            }).disposed(by: disposeBag)
+            logoImage.image = nil
+            if let icon = vm.source.icon, let iconUrl = URL(string: icon) {
+                Nuke.Manager.shared.loadImage(with: iconUrl)
+                    .observeOn(MainScheduler.instance)
+                    .subscribe(onSuccess: { [weak self] in self?.logoImage.image = $0 })
+                    .disposed(by: disposeBag)
             }
         }
     }
