@@ -7,24 +7,19 @@
 //
 
 import Foundation
+import Defaults
 
 class UserDefaultsSettingsService: SettingsService {
-
     var selectedSource: RssSource? {
         get {
-            let jsonDecoder = JSONDecoder()
-            if let serialized = UserDefaults.standard.data(forKey: "source"), let source = try? jsonDecoder.decode(RssSource.self, from: serialized) {
-                return source
-            }
-            return nil
+            return defaults[.source]
         }
         set {
-            let jsonEncoder = JSONEncoder()
-            if let serialized = try? jsonEncoder.encode(newValue) {
-                UserDefaults.standard.set(serialized, forKey: "source")
-            } else {
-                UserDefaults.standard.removeObject(forKey: "source")
-            }
+            defaults[.source] = newValue
         }
     }
+}
+
+extension Defaults.Keys {
+    static let source = Defaults.OptionalKey<RssSource>("source")
 }
