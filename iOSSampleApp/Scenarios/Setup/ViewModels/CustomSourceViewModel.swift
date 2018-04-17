@@ -31,6 +31,6 @@ class CustomSourceViewModel {
             return RssSource(title: title, url: url, rss: rssUrl, icon: logoUrl)
         }
 
-        isValid = source.map({ $0 != nil })
+        isValid = source.map({ $0.isSome })
     }
 }

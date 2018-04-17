@@ -22,6 +22,7 @@
 		F3651D26203C1B3A0082A73A /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3651D25203C1B3A0082A73A /* SettingsService.swift */; };
 		F365964F1F9B41880002BAC8 /* RxSwiftExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F365964E1F9B41880002BAC8 /* RxSwiftExt.framework */; };
 		F377810E2085D1FD00146DBE /* Defaults.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F377810D2085D1FD00146DBE /* Defaults.framework */; };
+		F37781152085E14C00146DBE /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37781142085E14C00146DBE /* Optional+Extensions.swift */; };
 		F38AF5781F851D0000C82EC7 /* CRToast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38AF5771F851D0000C82EC7 /* CRToast.framework */; };
 		F38CD1BD1F8382950050056C /* RssSourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD1BC1F8382950050056C /* RssSourceViewModel.swift */; };
 		F38CD1C01F8384490050056C /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD1BF1F8384490050056C /* Bundle+Extensions.swift */; };
@@ -212,6 +213,7 @@
 		F3651D25203C1B3A0082A73A /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		F365964E1F9B41880002BAC8 /* RxSwiftExt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwiftExt.framework; path = Carthage/Build/iOS/RxSwiftExt.framework; sourceTree = "<group>"; };
 		F377810D2085D1FD00146DBE /* Defaults.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Defaults.framework; path = Carthage/Build/iOS/Defaults.framework; sourceTree = "<group>"; };
+		F37781142085E14C00146DBE /* Optional+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extensions.swift"; sourceTree = "<group>"; };
 		F38AF5771F851D0000C82EC7 /* CRToast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CRToast.framework; path = Carthage/Build/iOS/CRToast.framework; sourceTree = "<group>"; };
 		F38CD1BC1F8382950050056C /* RssSourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssSourceViewModel.swift; sourceTree = "<group>"; };
 		F38CD1BF1F8384490050056C /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
@@ -730,6 +732,7 @@
 			isa = PBXGroup;
 			children = (
 				F38CD1BF1F8384490050056C /* Bundle+Extensions.swift */,
+				F37781142085E14C00146DBE /* Optional+Extensions.swift */,
 				F38CD2341F83AB9E0050056C /* RxSwift+Extensions.swift */,
 				F3A812E01F83766400A09AAB /* StoryboardLodable.swift */,
 				F3A813121F837ECF00A09AAB /* String+Extensions.swift */,
@@ -1063,6 +1066,7 @@
 				F38CD2331F83A6040050056C /* CustomSourceViewModel.swift in Sources */,
 				F3AAA6261F86113A009653B7 /* UINavigationController+Extensions.swift in Sources */,
 				F3A4B2151FC42FD200787BCE /* AboutViewController.swift in Sources */,
+				F37781152085E14C00146DBE /* Optional+Extensions.swift in Sources */,
 				F3A4B21D1FC434EC00787BCE /* LibrariesViewModel.swift in Sources */,
 				F3A4B21F1FC4359A00787BCE /* AboutCoordinator.swift in Sources */,
 				F3651D26203C1B3A0082A73A /* SettingsService.swift in Sources */,

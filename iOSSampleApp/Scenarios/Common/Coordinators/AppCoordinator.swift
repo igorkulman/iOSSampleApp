@@ -42,7 +42,7 @@ class AppCoordinator: Coordinator {
     }
 
     func start() {
-        if settingsService.selectedSource != nil {
+        if settingsService.selectedSource.isSome {
             Log.debug?.message("Setup complete, starting dahsboard")
             showFeed()
         } else {
