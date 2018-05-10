@@ -39,6 +39,6 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 * SwiftGen
 * Fastlane
 
-### Build
+### Getting started
 
-Run `carthage bootstrap` before first build. 
+To get started with the project run `./bootstrap.sh` to install Carthage, SwifLint, SwiftGen, Fastlane and build all the Carthage dependencies. If you already have Carthage installed and do not want or need the other tools, just run `carthage bootstrap` to build all the Carthage dependencies. This need to be done *just once*. 
