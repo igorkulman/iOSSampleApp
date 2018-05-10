@@ -1,4 +1,4 @@
-github "ReactiveX/RxSwift" ~> 3.0
+github "ReactiveX/RxSwift" ~> 4.0
 github "Swinject/Swinject" ~> 2.0.0
 github "Swinject/SwinjectStoryboard" ~> 1.0.0
 github "emaloney/CleanroomLogger" ~> 5.1.0
@@ -11,3 +11,4 @@ github "cruffenach/CRToast"
 github "RxSwiftCommunity/RxSwiftExt"
 github "shinydevelopment/SimulatorStatusMagic"
 github "sindresorhus/Defaults"
+github "Quick/Nimble"

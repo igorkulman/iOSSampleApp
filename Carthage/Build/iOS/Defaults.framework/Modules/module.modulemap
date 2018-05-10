@@ -1,4 +1,0 @@
-framework module Defaults {
-    header "Defaults-Swift.h"
-    requires objc
-}

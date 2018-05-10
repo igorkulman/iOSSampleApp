@@ -1,4 +1,0 @@
-framework module FeedKit {
-    header "FeedKit-Swift.h"
-    requires objc
-}

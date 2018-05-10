@@ -1,4 +1,0 @@
-framework module RxNuke {
-    header "RxNuke-Swift.h"
-    requires objc
-}
