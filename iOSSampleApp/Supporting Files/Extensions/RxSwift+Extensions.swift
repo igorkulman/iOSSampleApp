@@ -12,8 +12,8 @@ import RxSwift
 import UIKit
 
 extension Reactive where Base: UITextField {
-    var textColor: UIBindingObserver<Base, UIColor?> {
-        return UIBindingObserver(UIElement: base) { label, textColor in
+    var textColor: Binder<UIColor?> {
+        return Binder(base) { label, textColor in
             label.textColor = textColor
         }
     }

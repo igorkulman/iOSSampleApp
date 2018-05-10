@@ -1,6 +1,6 @@
 github "AliSoftware/Reusable" "4.0.1"
 github "ReactiveX/RxSwift" "4.1.2"
-github "RxSwiftCommunity/RxSwiftExt" "3.0.0"
+github "RxSwiftCommunity/RxSwiftExt" "3.2.0"
 github "Swinject/Swinject" "2.1.1"
 github "Swinject/SwinjectAutoregistration" "61f0d86186798a2875ae9264b34f8e9fb1443983"
 github "Swinject/SwinjectStoryboard" "1.1.2"
