@@ -30,11 +30,15 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 
 ### Requirements
 
-* XCode 9.2
+* Carthage
+* XCode 9+
 
 #### Optional
 
-* Carthage
 * SwifLint
 * SwiftGen
 * Fastlane
+
+### Build
+
+Run `carthage bootstrap` before first build. 
