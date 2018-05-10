@@ -6,4 +6,4 @@ brew outdated swiftlint || brew upgrade swiftlint
 brew outdated swiftgen || brew upgrade swiftgen
 brew cask install fastlane
 
-brew bootstrap
+carthage bootstrap --platform iOS
