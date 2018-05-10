@@ -1,12 +1,12 @@
 language: objective-c
-osx_image: xcode9.1
+osx_image: xcode9.2
 cache:
   directories:
   - Carthage
 before_install:
   - brew update
   - brew outdated carthage || brew upgrade carthage
-  - carthage bootstrap --verbose --no-use-binaries --platform iOS --cache-builds  
+  - carthage bootstrap --platform iOS --cache-builds  
   - gem install xcpretty
   - gem install xcpretty-travis-formatter
 script:
