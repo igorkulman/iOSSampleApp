@@ -1,5 +1,6 @@
 github "AliSoftware/Reusable" "4.0.1"
 github "Quick/Nimble" "v7.1.1"
+github "Quick/Quick" "v1.3.0"
 github "ReactiveX/RxSwift" "4.1.2"
 github "RxSwiftCommunity/RxSwiftExt" "3.2.0"
 github "Swinject/Swinject" "2.1.1"
