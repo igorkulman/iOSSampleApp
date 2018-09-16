@@ -31,14 +31,14 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 
 ### Requirements
 
-* Carthage
+* [Carthage](https://github.com/Carthage/Carthage)
 * XCode 9.4+
 
 #### Optional
 
-* SwifLint
-* SwiftGen
-* Fastlane
+* [SwifLint](https://github.com/realm/SwiftLint)
+* [SwiftGen](https://github.com/SwiftGen/SwiftGen)
+* [Fastlane](https://fastlane.tools/)
 
 ### Getting started
 
