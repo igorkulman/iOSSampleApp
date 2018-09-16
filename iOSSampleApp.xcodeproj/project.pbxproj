@@ -84,6 +84,7 @@
 		F3C8DB3B214EA1B700C1A654 /* DataServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB3A214EA1B700C1A654 /* DataServiceMock.swift */; };
 		F3C8DB3D214EA1E700C1A654 /* SettingsServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB3C214EA1E700C1A654 /* SettingsServiceMock.swift */; };
 		F3C8DB3F214EA3AA00C1A654 /* SourceSelectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB3E214EA3AA00C1A654 /* SourceSelectionViewModelTests.swift */; };
+		F3C8DB41214EA7F200C1A654 /* FeedViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB40214EA7F200C1A654 /* FeedViewModelTests.swift */; };
 		F3D6865C1F9B761E00879154 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6865B1F9B761E00879154 /* TestExtensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -287,6 +288,7 @@
 		F3C8DB3A214EA1B700C1A654 /* DataServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceMock.swift; sourceTree = "<group>"; };
 		F3C8DB3C214EA1E700C1A654 /* SettingsServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsServiceMock.swift; sourceTree = "<group>"; };
 		F3C8DB3E214EA3AA00C1A654 /* SourceSelectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceSelectionViewModelTests.swift; sourceTree = "<group>"; };
+		F3C8DB40214EA7F200C1A654 /* FeedViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModelTests.swift; sourceTree = "<group>"; };
 		F3D6865B1F9B761E00879154 /* TestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -342,6 +344,7 @@
 				F3C8DB39214EA1A000C1A654 /* Mocks */,
 				F3208A7E1F84E48100B57B0E /* Info.plist */,
 				F3208A881F84E83900B57B0E /* DataServiceTests.swift */,
+				F3C8DB40214EA7F200C1A654 /* FeedViewModelTests.swift */,
 				F3208A911F84EAF400B57B0E /* CustomSourceViewModelTests.swift */,
 				F3C8DB3E214EA3AA00C1A654 /* SourceSelectionViewModelTests.swift */,
 				F3D6865B1F9B761E00879154 /* TestExtensions.swift */,
@@ -1057,6 +1060,7 @@
 			files = (
 				F3208A921F84EAF400B57B0E /* CustomSourceViewModelTests.swift in Sources */,
 				F3C8DB3B214EA1B700C1A654 /* DataServiceMock.swift in Sources */,
+				F3C8DB41214EA7F200C1A654 /* FeedViewModelTests.swift in Sources */,
 				F3D6865C1F9B761E00879154 /* TestExtensions.swift in Sources */,
 				F3C8DB3D214EA1E700C1A654 /* SettingsServiceMock.swift in Sources */,
 				F3C8DB3F214EA3AA00C1A654 /* SourceSelectionViewModelTests.swift in Sources */,

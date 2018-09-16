@@ -10,6 +10,9 @@ import Foundation
 @testable import iOSSampleApp
 
 class DataServiceMock: DataService {
+    var result: RssResult?
+
     func getFeed(source: RssSource, onCompletion: @escaping (RssResult) -> Void) {
+        onCompletion(result!)
     }
 }
