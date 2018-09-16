@@ -1,6 +1,7 @@
 # iOS Sample App
 
 [![Travis CI](https://travis-ci.org/igorkulman/iOSSampleApp.svg?branch=master)](https://travis-ci.org/igorkulman/iOSSampleApp)
+[![codecov](https://codecov.io/gh/igorkulman/iOSSampleApp/branch/master/graph/badge.svg)](https://codecov.io/gh/igorkulman/iOSSampleApp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Platforms](https://img.shields.io/badge/platform-iOS-lightgrey.svg)
 [![Swift Version](https://img.shields.io/badge/Swift-4-F16D39.svg?style=flat)](https://developer.apple.com/swift)
@@ -31,7 +32,7 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 ### Requirements
 
 * Carthage
-* XCode 9+
+* XCode 9.4+
 
 #### Optional
 
