@@ -27,9 +27,9 @@ class CustomSourceViewModelTests: QuickSpec {
 
             context("with valid data") {
                 let vm = CustomSourceViewModel()
-                vm.title.value = "Coding Journal"
-                vm.rssUrl.value = "https://blog.kulman.sk/index.xml"
-                vm.url.value = "https://blog.kulman.sk"
+                vm.title.accept("Coding Journal")
+                vm.rssUrl.accept("https://blog.kulman.sk/index.xml")
+                vm.url.accept("https://blog.kulman.sk")
 
                 it("should validate OK") {
                     expect(try! vm.isValid.toBlocking().first()).to(equal(true))
@@ -38,9 +38,9 @@ class CustomSourceViewModelTests: QuickSpec {
 
             context("with missing URL") {
                 let vm = CustomSourceViewModel()
-                vm.title.value = "Coding Journal"
-                vm.rssUrl.value = "https://blog.kulman.sk/index.xml"
-                vm.url.value = nil
+                vm.title.accept("Coding Journal")
+                vm.rssUrl.accept("https://blog.kulman.sk/index.xml")
+                vm.url.accept(nil)
 
                 it("should not validate") {
                     expect(try! vm.isValid.toBlocking().first()).to(equal(false))
@@ -49,9 +49,9 @@ class CustomSourceViewModelTests: QuickSpec {
 
             context("with invalid URL") {
                 let vm = CustomSourceViewModel()
-                vm.title.value = "Coding Journal"
-                vm.rssUrl.value = "https://blog.kulman.sk/index.xml"
-                vm.url.value = "blog"
+                vm.title.accept("Coding Journal")
+                vm.rssUrl.accept("https://blog.kulman.sk/index.xml")
+                vm.url.accept("blog")
 
                 it("should not validate") {
                     expect(try! vm.isValid.toBlocking().first()).to(equal(false))
@@ -60,9 +60,9 @@ class CustomSourceViewModelTests: QuickSpec {
 
             context("with invalid RSS URL") {
                 let vm = CustomSourceViewModel()
-                vm.title.value = "Coding Journal"
-                vm.rssUrl.value = "dss"
-                vm.url.value = "https://blog.kulman.sk"
+                vm.title.accept("Coding Journal")
+                vm.rssUrl.accept("dss")
+                vm.url.accept("https://blog.kulman.sk")
 
                 it("should not validate") {
                     expect(try! vm.isValid.toBlocking().first()).to(equal(false))
@@ -71,9 +71,9 @@ class CustomSourceViewModelTests: QuickSpec {
 
             context("with missing title") {
                 let vm = CustomSourceViewModel()
-                vm.title.value = nil
-                vm.rssUrl.value = "https://blog.kulman.sk/index.xml"
-                vm.url.value = "https://blog.kulman.sk"
+                vm.title.accept(nil)
+                vm.rssUrl.accept("https://blog.kulman.sk/index.xml")
+                vm.url.accept("https://blog.kulman.sk")
 
                 it("should not validate") {
                     expect(try! vm.isValid.toBlocking().first()).to(equal(false))
