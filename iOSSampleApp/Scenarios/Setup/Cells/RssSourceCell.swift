@@ -37,9 +37,8 @@ class RssSourceCell: UITableViewCell, NibReusable {
             }).disposed(by: disposeBag)
             logoImage.image = nil
             if let icon = vm.source.icon, let iconUrl = URL(string: icon) {
-                Nuke.Manager.shared.loadImage(with: iconUrl)
-                    .observeOn(MainScheduler.instance)
-                    .subscribe(onSuccess: { [weak self] in self?.logoImage.image = $0 })
+                ImagePipeline.shared.rx.loadImage(with: iconUrl)
+                    .subscribe(onSuccess: { [weak self] in self?.logoImage.image = $0.image })
                     .disposed(by: disposeBag)
             }
         }
