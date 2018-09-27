@@ -82,7 +82,7 @@ class SourceSelectionViewController: UIViewController, SetupStoryboardLodable {
         searchController.searchBar.rx.cancelButtonClicked.subscribe(onNext: { [weak self] in
             self?.searchController.searchBar.resignFirstResponder()
             self?.searchController.searchBar.setShowsCancelButton(false, animated: true)
-            self?.viewModel.filter.value = nil
+            self?.viewModel.filter.accept(nil)
             self?.searchController.searchBar.text = nil
         }).disposed(by: disposeBag)
 

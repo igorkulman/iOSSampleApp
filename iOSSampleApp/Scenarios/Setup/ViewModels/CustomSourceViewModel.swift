@@ -9,15 +9,16 @@
 import CleanroomLogger
 import Foundation
 import RxSwift
+import RxCocoa
 
 class CustomSourceViewModel {
 
     // MARK: - Properties
 
-    let title = Variable<String?>(nil)
-    let url = Variable<String?>(nil)
-    let logoUrl = Variable<String?>(nil)
-    let rssUrl = Variable<String?>(nil)
+    let title = BehaviorRelay<String?>(value: nil)
+    let url = BehaviorRelay<String?>(value: nil)
+    let logoUrl = BehaviorRelay<String?>(value: nil)
+    let rssUrl = BehaviorRelay<String?>(value: nil)
 
     let isValid: Observable<Bool>
     let source: Observable<RssSource?>

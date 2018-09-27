@@ -9,13 +9,14 @@
 import Foundation
 import RxSwift
 import CleanroomLogger
+import RxCocoa
 
 class SourceSelectionViewModel {
 
     // MARK: - Properties
 
     let sources: Observable<[RssSourceViewModel]>
-    let filter = Variable<String?>(nil)
+    let filter = BehaviorRelay<String?>(value: nil)
     let isValid: Observable<Bool>
 
     // MARK: - Fields
@@ -49,10 +50,10 @@ class SourceSelectionViewModel {
         // selecting again from feed
         if let selected = settingsService.selectedSource {
             if let index = allSources.value.index(where: { $0.source == selected }) { // pre-selecting the current source
-                allSources.value[index].isSelected.value = true
+                allSources.value[index].isSelected.accept(true)
             } else { // using a custom source
                 let vm = RssSourceViewModel(source: selected)
-                vm.isSelected.value = true
+                vm.isSelected.accept(true)
                 allSources.value.insert(vm, at: 0)
             }
         }
@@ -64,10 +65,10 @@ class SourceSelectionViewModel {
         let selected = source.isSelected.value
 
         for s in allSources.value {
-            s.isSelected.value = false
+            s.isSelected.accept(false)
         }
 
-        source.isSelected.value = !selected
+        source.isSelected.accept(!selected)
     }
 
     func addNewSource(source: RssSource) {

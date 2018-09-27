@@ -8,10 +8,11 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 class RssSourceViewModel {
     let source: RssSource
-    let isSelected = Variable<Bool>(false)
+    let isSelected = BehaviorRelay<Bool>(value: false)
 
     init(source: RssSource) {
         self.source = source
