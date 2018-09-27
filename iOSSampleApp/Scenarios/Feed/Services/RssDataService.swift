@@ -13,10 +13,12 @@ import UIKit
 
 class RssDataService: DataService {
     func getFeed(source: RssSource, onCompletion: @escaping (RssResult) -> Void) {
-        guard let feedURL = URL(string: source.rss), let parser = FeedParser(URL: feedURL) else {
+        guard let feedURL = URL(string: source.rss) else {
             onCompletion(.failure(RssError.badUrl))
             return
         }
+
+        let parser = FeedParser(URL: feedURL)
 
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         Log.debug?.message("Loading \(feedURL)")
