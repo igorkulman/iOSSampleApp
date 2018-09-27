@@ -1,9 +1,9 @@
 github "ReactiveX/RxSwift" ~> 4.0
-github "Swinject/Swinject" ~> 2.0.0
-github "Swinject/SwinjectStoryboard" ~> 1.0.0
-github "emaloney/CleanroomLogger" ~> 5.1.0
-github "Swinject/SwinjectAutoregistration" "swift4"
-github "AliSoftware/Reusable" "4.0.1"
+github "Swinject/Swinject"
+github "Swinject/SwinjectStoryboard"
+github "emaloney/CleanroomLogger" ~> 6.0.0
+github "Swinject/SwinjectAutoregistration"
+github "AliSoftware/Reusable"
 github "kean/RxNuke"
 github "kean/Nuke"
 github "nmdias/FeedKit"
