@@ -1,4 +1,4 @@
 strings:
-  paths: iOSSampleApp/Resources/en/Localizable.strings
+  paths: iOSSampleApp/Resources/Base.lproj/Localizable.strings
   templateName: structured-swift4
   output: iOSSampleApp/Resources/Strings.swift
