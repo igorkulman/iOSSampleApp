@@ -1,12 +1,12 @@
-/* 
-  Localizable.strings
-  iOSSampleApp
+/*
+ Localizable.strings
+ iOSSampleApp
+ 
+ Created by Igor Kulman on 03/10/2017.
+ Copyright © 2017 Igor Kulman. All rights reserved.
+ */
 
-  Created by Igor Kulman on 03/10/2017.
-  Copyright © 2017 Igor Kulman. All rights reserved.
-*/
-
-"select_source" = "Select source"; 
+"select_source" = "Select source";
 "done" = "Done";
 "add_custom" = "Add custom";
 "add_custom_source" = "Add custom source";
@@ -20,7 +20,6 @@
 "bad_url" = "Invalid RSS feed URL";
 "network_problem" = "Network problem has occured";
 "back" = "Back";
-"bad_url" = "Invalid RSS Url";
 "about" = "About";
 "author" = "About author";
 "blog" = "Author's blog";
