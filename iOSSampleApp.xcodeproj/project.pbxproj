@@ -1021,7 +1021,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "buildNumber=$(git rev-list HEAD | wc -l | tr -d ' ')\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
+			shellScript = "$SRCROOT/Build-Phases/set-build-number";
 		};
 		F3A812EF1F8376BD00A09AAB /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
