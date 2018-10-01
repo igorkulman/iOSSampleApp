@@ -874,6 +874,7 @@
 			buildConfigurationList = F3A812C61F83740E00A09AAB /* Build configuration list for PBXNativeTarget "iOSSampleApp" */;
 			buildPhases = (
 				F3FEEBB521628E2B00D1CF9E /* Generate strings */,
+				F3FEEBB621628FEA00D1CF9E /* Check strings */,
 				F3A4B2221FC43D8000787BCE /* Build number */,
 				F3A812B01F83740E00A09AAB /* Sources */,
 				F3A812B11F83740E00A09AAB /* Frameworks */,
@@ -1079,6 +1080,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "$SRCROOT/Build-Phases/generate-strings";
+		};
+		F3FEEBB621628FEA00D1CF9E /* Check strings */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/iOSSampleApp/Resources/Base.lproj/Localizable.strings",
+				"$(SRCROOT)/iOSSampleApp/Resources/sk.lproj/Localizable.strings",
+			);
+			name = "Check strings";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$SRCROOT/Build-Phases/check-strings";
 		};
 /* End PBXShellScriptBuildPhase section */
 
