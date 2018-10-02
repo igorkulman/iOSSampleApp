@@ -4,8 +4,8 @@ cache:
   directories:
   - Carthage
 before_install:
-  - brew outdated carthage || brew upgrade carthage
-  - brew outdated swiftgen || brew install swiftgen
+  - brew install carthage
+  - brew install swiftgen
   - carthage bootstrap --platform iOS --cache-builds  
   - gem install xcpretty
   - gem install xcpretty-travis-formatter
