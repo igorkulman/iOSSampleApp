@@ -875,11 +875,11 @@
 			buildPhases = (
 				F3FEEBB521628E2B00D1CF9E /* Generate strings */,
 				F3FEEBB621628FEA00D1CF9E /* Check strings */,
+				F32EAB1D1FCD517E007E4CED /* SwiftLint */,
 				F3A812B01F83740E00A09AAB /* Sources */,
 				F3A812B11F83740E00A09AAB /* Frameworks */,
 				F3A812B21F83740E00A09AAB /* Resources */,
 				F3A812EF1F8376BD00A09AAB /* Carthage */,
-				F32EAB1D1FCD517E007E4CED /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -1061,6 +1061,7 @@
 			);
 			name = "Generate strings";
 			outputPaths = (
+				"$(SRCROOT)/iOSSampleApp/Resources/Strings.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
