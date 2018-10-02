@@ -875,7 +875,6 @@
 			buildPhases = (
 				F3FEEBB521628E2B00D1CF9E /* Generate strings */,
 				F3FEEBB621628FEA00D1CF9E /* Check strings */,
-				F3A4B2221FC43D8000787BCE /* Build number */,
 				F3A812B01F83740E00A09AAB /* Sources */,
 				F3A812B11F83740E00A09AAB /* Frameworks */,
 				F3A812B21F83740E00A09AAB /* Resources */,
@@ -1023,20 +1022,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-		F3A4B2221FC43D8000787BCE /* Build number */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Build number";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/Build-Phases/set-build-number";
 		};
 		F3A812EF1F8376BD00A09AAB /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
