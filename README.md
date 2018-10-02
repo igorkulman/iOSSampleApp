@@ -27,7 +27,6 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 * Using (multiple) Storyboards just as glorified XIBs
 * Using static UITableView cells in a typed way with enums
 * Image literals
-* [Generated string references](https://blog.kulman.sk/using-ios-strings-in-a-safer-way/) (using [SwiftGen](https://github.com/SwiftGen/SwiftGen))
 * Automated AppStore screenshots taking (using [Fastlane](https://fastlane.tools/)) 
 
 ### Requirements
