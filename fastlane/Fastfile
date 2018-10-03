@@ -23,3 +23,10 @@ lane :tests do
   run_tests(devices: ["iPhone 6s"],
             scheme: "iOSSampleApp")
 end
+
+desc "Bootstrap Carthage depedencies"
+lane :carthage_bootstrap do
+	carthage(command: "bootstrap",
+			 platform: "iOS",
+			 cache_builds: true)
+end
