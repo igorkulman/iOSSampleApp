@@ -11,6 +11,13 @@
 
 default_platform(:ios)
 
+platform :ios do
+  desc "Generate new localized screenshots"
+  lane :screenshots do
+    capture_screenshots(scheme: "iOSSampleApp")
+  end
+end
+
 desc "Run all unit tests"
 lane :tests do
   run_tests(devices: ["iPhone 6s"],
