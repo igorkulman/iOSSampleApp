@@ -8,3 +8,4 @@ disabled_rules:
     - identifier_name
     - force_cast
     - force_try
+    - file_length
