@@ -20,6 +20,11 @@ or alternatively using `brew cask install fastlane`
 fastlane tests
 ```
 Run all unit tests
+### carthage_bootstrap
+```
+fastlane carthage_bootstrap
+```
+Bootstrap Carthage depedencies
 
 ----
 

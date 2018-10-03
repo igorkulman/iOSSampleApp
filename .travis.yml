@@ -6,11 +6,11 @@ cache:
 before_install:
   - brew install carthage
   - brew install swiftgen
-  - carthage bootstrap --platform iOS --cache-builds  
   - gem install xcpretty
   - gem install xcpretty-travis-formatter
   - gem install fastlane -NV
 script:
+  - fastlane carthage_bootstrap  
   - fastlane tests
 notifications:
   email:
