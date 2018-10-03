@@ -23,7 +23,7 @@ class AppUITests: XCTestCase {
         app = XCUIApplication()
         XCUIDevice.shared.orientation = .portrait
         setupSnapshot(app)
-        app.launchArguments = ["testMode"]
+        app.launchArguments += ["testMode"]
         app.launch()
 
         #if DEBUG
