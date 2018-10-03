@@ -1,9 +1,9 @@
 #!/bin/bash
 
 brew update
-brew outdated carthage || brew upgrade carthage
-brew outdated swiftlint || brew upgrade swiftlint
-brew outdated swiftgen || brew upgrade swiftgen
-brew cask install fastlane
+brew ls --versions carthage && brew upgrade carthage || brew install carthage
+brew ls --versions swiftlint && brew upgrade swiftlint || brew install swiftlint
+brew ls --versions swiftgen && brew upgrade swiftgen || brew install swiftgen
+sudo gem install fastlane -NV
 
-carthage bootstrap --platform iOS
+fastlane carthage_bootstrap
