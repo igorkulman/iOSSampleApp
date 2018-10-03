@@ -3,7 +3,6 @@
 //  Example
 //
 //  Created by Felix Krause on 10/8/15.
-//  Copyright © 2015 Felix Krause. All rights reserved.
 //
 
 // -----------------------------------------------------
@@ -53,7 +52,7 @@ enum SnapshotError: Error, CustomDebugStringConvertible {
             return "Couldn't find Snapshot configuration files - can't detect `Users` dir"
         case .cannotFindSimulatorHomeDirectory:
             return "Couldn't find simulator home location. Please, check SIMULATOR_HOST_HOME env variable."
-        case let .cannotAccessSimulatorHomeDirectory(simulatorHostHome):
+        case .cannotAccessSimulatorHomeDirectory(let simulatorHostHome):
             return "Can't prepare environment. Simulator home location is inaccessible. Does \(simulatorHostHome) exist?"
         case .cannotRunOnPhysicalDevice:
             return "Can't use Snapshot on a physical device."
@@ -70,6 +69,7 @@ open class Snapshot: NSObject {
     }
 
     open class func setupSnapshot(_ app: XCUIApplication) {
+        
         Snapshot.app = app
 
         do {
@@ -88,7 +88,7 @@ open class Snapshot: NSObject {
             print("CacheDirectory is not set - probably running on a physical device?")
             return
         }
-
+        
         let path = cacheDirectory.appendingPathComponent("language.txt")
 
         do {
@@ -105,7 +105,7 @@ open class Snapshot: NSObject {
             print("CacheDirectory is not set - probably running on a physical device?")
             return
         }
-
+        
         let path = cacheDirectory.appendingPathComponent("locale.txt")
 
         do {
@@ -125,7 +125,7 @@ open class Snapshot: NSObject {
             print("CacheDirectory is not set - probably running on a physical device?")
             return
         }
-
+        
         let path = cacheDirectory.appendingPathComponent("snapshot-launch_arguments.txt")
         app.launchArguments += ["-FASTLANE_SNAPSHOT", "YES", "-ui_testing"]
 
@@ -154,13 +154,14 @@ open class Snapshot: NSObject {
         #if os(OSX)
             XCUIApplication().typeKey(XCUIKeyboardKeySecondaryFn, modifierFlags: [])
         #else
-
+            
             guard let app = self.app else {
                 print("XCUIApplication is not set. Please call setupSnapshot(app) before snapshot().")
                 return
             }
-
-            let screenshot = app.windows.firstMatch.screenshot()
+            
+            let window = app.windows.firstMatch
+            let screenshot = window.screenshot()
             guard let simulator = ProcessInfo().environment["SIMULATOR_DEVICE_NAME"], let screenshotsDir = screenshotsDirectory else { return }
             let path = screenshotsDir.appendingPathComponent("\(simulator)-\(name).png")
             do {
@@ -242,34 +243,34 @@ private extension XCUIElementAttributes {
 
 private extension XCUIElementQuery {
     var networkLoadingIndicators: XCUIElementQuery {
-        let isNetworkLoadingIndicator = NSPredicate { evaluatedObject, _ in
+        let isNetworkLoadingIndicator = NSPredicate { (evaluatedObject, _) in
             guard let element = evaluatedObject as? XCUIElementAttributes else { return false }
 
             return element.isNetworkLoadingIndicator
         }
 
-        return containing(isNetworkLoadingIndicator)
+        return self.containing(isNetworkLoadingIndicator)
     }
 
     var deviceStatusBars: XCUIElementQuery {
-        let deviceWidth = XCUIApplication().frame.width
+        let deviceWidth = XCUIApplication().windows.firstMatch.frame.width
 
-        let isStatusBar = NSPredicate { evaluatedObject, _ in
+        let isStatusBar = NSPredicate { (evaluatedObject, _) in
             guard let element = evaluatedObject as? XCUIElementAttributes else { return false }
 
             return element.isStatusBar(deviceWidth)
         }
 
-        return containing(isStatusBar)
+        return self.containing(isStatusBar)
     }
 }
 
 private extension CGFloat {
     func isBetween(_ numberA: CGFloat, and numberB: CGFloat) -> Bool {
-        return numberA ... numberB ~= self
+        return numberA...numberB ~= self
     }
 }
 
 // Please don't remove the lines below
 // They are used to detect outdated configuration files
-// SnapshotHelperVersion [1.9]
+// SnapshotHelperVersion [1.12]
