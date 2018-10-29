@@ -18,5 +18,3 @@ notifications:
     on_success: never
 after_success:
   - fastlane test_coverage
-after_failure:
-  - cat /var/folders/nz/vv4_9tw56nv9k3tkvyszvwg80000gn/T/com.apple.dt.XCTest/IDETestRunSession-*/*/*.log
