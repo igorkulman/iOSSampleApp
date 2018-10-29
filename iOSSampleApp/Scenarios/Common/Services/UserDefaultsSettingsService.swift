@@ -6,8 +6,8 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
-import Foundation
 import Defaults
+import Foundation
 
 class UserDefaultsSettingsService: SettingsService {
     var selectedSource: RssSource? {

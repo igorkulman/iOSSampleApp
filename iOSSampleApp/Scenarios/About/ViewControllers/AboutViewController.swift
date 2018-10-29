@@ -6,10 +6,10 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
-import UIKit
 import RxSwift
+import UIKit
 
-protocol AboutViewControllerDelegate: class {
+protocol AboutViewControllerDelegate: AnyObject {
     func aboutViewControllerDismissed()
     func userDidRequestLibraries()
     func userDidRequestAuthorsInfo()
@@ -76,7 +76,9 @@ class AboutViewController: UITableViewController, AboutStoryboardLodable {
         }).disposed(by: disposeBag)
     }
 
-    override func viewWillDisappear(_: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
         if navigationController?.viewControllers.index(of: self) == nil {
             delegate?.aboutViewControllerDismissed()
         }

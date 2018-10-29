@@ -6,11 +6,11 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
+import CRToast
 import Foundation
 import UIKit
-import CRToast
 
-protocol ToastCapable: class {
+protocol ToastCapable: AnyObject {
     func showErrorToast(message: String)
 }
 

@@ -9,7 +9,8 @@
 import Foundation
 import Swinject
 
-protocol Coordinator: class {
+protocol Coordinator: AnyObject {
     var container: Container { get }
+
     func start()
 }

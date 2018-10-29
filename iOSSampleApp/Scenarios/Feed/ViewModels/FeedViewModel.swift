@@ -6,9 +6,9 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
+import CleanroomLogger
 import Foundation
 import RxSwift
-import CleanroomLogger
 import UIKit
 
 class FeedViewModel {

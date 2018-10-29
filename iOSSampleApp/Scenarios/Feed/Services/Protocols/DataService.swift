@@ -24,6 +24,6 @@ enum RssResult {
     case success([RssItem])
 }
 
-protocol DataService: class {
+protocol DataService: AnyObject {
     func getFeed(source: RssSource, onCompletion: @escaping (RssResult) -> Void)
 }

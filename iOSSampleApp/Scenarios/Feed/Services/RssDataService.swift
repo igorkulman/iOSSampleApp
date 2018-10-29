@@ -6,9 +6,9 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
-import Foundation
-import FeedKit
 import CleanroomLogger
+import FeedKit
+import Foundation
 import UIKit
 
 class RssDataService: DataService {

@@ -6,13 +6,13 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
-import UIKit
-import RxSwift
-import RxCocoa
 import CRToast
+import RxCocoa
+import RxSwift
 import RxSwiftExt
+import UIKit
 
-protocol FeedViewControllerDelegeate: class {
+protocol FeedViewControllerDelegeate: AnyObject {
     func userDidRequestItemDetail(item: RssItem)
     func userDidRequestSetup()
     func userDidRequestAbout()

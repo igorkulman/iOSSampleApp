@@ -11,7 +11,7 @@ import SafariServices
 import Swinject
 import UIKit
 
-protocol AboutCoordinatorDelegate: class {
+protocol AboutCoordinatorDelegate: AnyObject {
     func aboutCoordinatorDidFinish()
 }
 

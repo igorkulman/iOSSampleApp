@@ -6,12 +6,12 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
-import Foundation
-import UIKit
 import CleanroomLogger
+import Foundation
 import Swinject
+import UIKit
 
-protocol SetupCoordinatorDelegate: class {
+protocol SetupCoordinatorDelegate: AnyObject {
     func setupCoordinatorDidFinish()
 }
 

@@ -12,7 +12,7 @@ import Foundation
 extension RssResult: Equatable {
     public static func == (lhs: RssResult, rhs: RssResult) -> Bool {
         switch (lhs, rhs) {
-        case (.failure(let lerror), .failure(let rerror)):
+        case let (.failure(lerror), .failure(rerror)):
             switch (lerror, rerror) {
             case (RssError.badUrl, RssError.badUrl):
                 return true

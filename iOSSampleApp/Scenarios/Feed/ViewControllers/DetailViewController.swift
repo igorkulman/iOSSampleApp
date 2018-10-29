@@ -6,10 +6,10 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
-import UIKit
 import CleanroomLogger
-import RxSwift
 import RxCocoa
+import RxSwift
+import UIKit
 
 class DetailViewController: UIViewController, FeedStoryboardLodable {
 
@@ -51,7 +51,8 @@ class DetailViewController: UIViewController, FeedStoryboardLodable {
         }).disposed(by: disposeBag)
     }
 
-    override func viewDidDisappear(_: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 }

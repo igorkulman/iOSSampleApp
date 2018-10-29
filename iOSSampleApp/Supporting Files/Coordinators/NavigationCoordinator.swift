@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import UIKit
 import Swinject
+import UIKit
 
 protocol NavigationCoordinator: Coordinator {
     var navigationController: UINavigationController { get }

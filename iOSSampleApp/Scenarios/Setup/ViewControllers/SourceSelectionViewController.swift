@@ -6,11 +6,11 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
-import UIKit
-import RxSwift
 import RxCocoa
+import RxSwift
+import UIKit
 
-protocol SourceSelectionViewControllerDelegate: class {
+protocol SourceSelectionViewControllerDelegate: AnyObject {
     func sourceSelectionViewControllerDidFinish()
     func userDidRequestCustomSource()
 }

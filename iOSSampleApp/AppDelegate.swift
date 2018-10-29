@@ -6,8 +6,8 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
-import UIKit
 import Swinject
+import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

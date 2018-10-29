@@ -6,16 +6,16 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
-import Foundation
-import UIKit
 import CleanroomLogger
+import Foundation
 import Swinject
+import UIKit
 
 enum FeedChildCoordinator {
     case about
 }
 
-protocol FeedCoordinatorDelegate: class {
+protocol FeedCoordinatorDelegate: AnyObject {
     func feedCoordinatorDidFinish()
 }
 
@@ -37,7 +37,7 @@ class FeedCoordinator: NavigationCoordinator {
     // MARK: - Coordinator core
 
     func start() {
-        let isTransitionFromSetup = navigationController.viewControllers.count > 0
+        let isTransitionFromSetup = !navigationController.viewControllers.isEmpty
         let vc = container.resolveViewController(FeedViewController.self)
         vc.delegate = self
         vc.navigationItem.hidesBackButton = true

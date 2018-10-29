@@ -6,8 +6,8 @@
 //  Copyright © 2018 Igor Kulman. All rights reserved.
 //
 
-import XCTest
 import SimulatorStatusMagiciOS
+import XCTest
 
 class AppUITests: XCTestCase {
     var app: XCUIApplication!

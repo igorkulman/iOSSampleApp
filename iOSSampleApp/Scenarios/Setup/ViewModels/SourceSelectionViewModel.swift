@@ -6,10 +6,10 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
-import Foundation
-import RxSwift
 import CleanroomLogger
+import Foundation
 import RxCocoa
+import RxSwift
 
 class SourceSelectionViewModel {
 

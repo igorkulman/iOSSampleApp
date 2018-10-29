@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol StoryboardLodable: class {
+protocol StoryboardLodable: AnyObject {
     @nonobjc static var storyboardName: String { get }
 }
 

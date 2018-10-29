@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol SettingsService: class {
+protocol SettingsService: AnyObject {
     var selectedSource: RssSource? { get set }
 }

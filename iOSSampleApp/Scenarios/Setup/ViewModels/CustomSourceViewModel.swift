@@ -8,8 +8,8 @@
 
 import CleanroomLogger
 import Foundation
-import RxSwift
 import RxCocoa
+import RxSwift
 
 class CustomSourceViewModel {
 

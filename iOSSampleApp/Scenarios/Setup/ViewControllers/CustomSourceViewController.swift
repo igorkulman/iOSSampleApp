@@ -10,7 +10,7 @@ import RxCocoa
 import RxSwift
 import UIKit
 
-protocol CustomSourceViewControllerDelegate: class {
+protocol CustomSourceViewControllerDelegate: AnyObject {
     func userDidAddCustomSource(source: RssSource)
 }
 

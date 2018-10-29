@@ -17,66 +17,74 @@ import RxTest
 class CustomSourceViewModelTests: QuickSpec {
     override func spec() {
         describe("CustomSourceViewModel") {
-            context("with empty data") {
-                let vm = CustomSourceViewModel()
+            var vm: CustomSourceViewModel!
+            beforeEach {
+                vm = CustomSourceViewModel()
+            }
 
+            context("with empty data") {
                 it("should not validate") {
-                    expect(try! vm.isValid.toBlocking().first()).to(equal(false))
+                    expect(try! vm.isValid.toBlocking().first()) == false
                 }
             }
 
             context("with valid data") {
-                let vm = CustomSourceViewModel()
-                vm.title.accept("Coding Journal")
-                vm.rssUrl.accept("https://blog.kulman.sk/index.xml")
-                vm.url.accept("https://blog.kulman.sk")
+                beforeEach {
+                    vm.title.accept("Coding Journal")
+                    vm.rssUrl.accept("https://blog.kulman.sk/index.xml")
+                    vm.url.accept("https://blog.kulman.sk")
+                }
 
                 it("should validate OK") {
-                    expect(try! vm.isValid.toBlocking().first()).to(equal(true))
+                    expect(try! vm.isValid.toBlocking().first()) == true
                 }
             }
 
             context("with missing URL") {
-                let vm = CustomSourceViewModel()
-                vm.title.accept("Coding Journal")
-                vm.rssUrl.accept("https://blog.kulman.sk/index.xml")
-                vm.url.accept(nil)
+                beforeEach {
+                    vm.title.accept("Coding Journal")
+                    vm.rssUrl.accept("https://blog.kulman.sk/index.xml")
+                    vm.url.accept(nil)
+                }
 
                 it("should not validate") {
-                    expect(try! vm.isValid.toBlocking().first()).to(equal(false))
+                    expect(try! vm.isValid.toBlocking().first()) == false
                 }
             }
 
             context("with invalid URL") {
-                let vm = CustomSourceViewModel()
-                vm.title.accept("Coding Journal")
-                vm.rssUrl.accept("https://blog.kulman.sk/index.xml")
-                vm.url.accept("blog")
+                beforeEach {
+                    vm.title.accept("Coding Journal")
+                    vm.rssUrl.accept("https://blog.kulman.sk/index.xml")
+                    vm.url.accept("blog")
+                }
 
                 it("should not validate") {
-                    expect(try! vm.isValid.toBlocking().first()).to(equal(false))
+                    expect(try! vm.isValid.toBlocking().first()) == false
                 }
             }
 
             context("with invalid RSS URL") {
-                let vm = CustomSourceViewModel()
-                vm.title.accept("Coding Journal")
-                vm.rssUrl.accept("dss")
-                vm.url.accept("https://blog.kulman.sk")
+                beforeEach {
+                    vm.title.accept("Coding Journal")
+                    vm.rssUrl.accept("dss")
+                    vm.url.accept("https://blog.kulman.sk")
+                }
 
                 it("should not validate") {
-                    expect(try! vm.isValid.toBlocking().first()).to(equal(false))
+                    expect(try! vm.isValid.toBlocking().first()) == false
                 }
             }
 
             context("with missing title") {
-                let vm = CustomSourceViewModel()
-                vm.title.accept(nil)
-                vm.rssUrl.accept("https://blog.kulman.sk/index.xml")
-                vm.url.accept("https://blog.kulman.sk")
+                beforeEach {
+                    vm.title.accept(nil)
+                    vm.rssUrl.accept("https://blog.kulman.sk/index.xml")
+                    vm.url.accept("https://blog.kulman.sk")
+                }
 
                 it("should not validate") {
-                    expect(try! vm.isValid.toBlocking().first()).to(equal(false))
+                    expect(try! vm.isValid.toBlocking().first()) == false
                 }
             }
         }

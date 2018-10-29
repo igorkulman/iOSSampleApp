@@ -14,16 +14,22 @@ import Quick
 class DataServiceTests: QuickSpec {
     override func spec() {
         describe("RSS data service") {
-            let service = RssDataService()
+            var service: RssDataService!
+            beforeEach {
+                service = RssDataService()
+            }
 
             context("given valid RSS feed") {
-                let source = RssSource(title: "Coding Journal", url: "https://blog.kulman.sk", rss: "https://blog.kulman.sk/index.xml", icon: nil)
+                var source: RssSource!
+                beforeEach {
+                    source = RssSource(title: "Coding Journal", url: "https://blog.kulman.sk", rss: "https://blog.kulman.sk/index.xml", icon: nil)
+                }
 
                 it("succeeeds") {
                     waitUntil(timeout: 5) { done in
                         service.getFeed(source: source) { result in
                             expect(result).notTo(equal(.failure(RssError.badUrl)))
-                            expect(result).to(equal(.success([])))
+                            expect(result) == .success([])
                             done()
                         }
                     }
@@ -31,12 +37,15 @@ class DataServiceTests: QuickSpec {
             }
 
             context("given invalid RSS feed") {
-                let source = RssSource(title: "Fake", url: "", rss: "", icon: nil)
+                var source: RssSource!
+                beforeEach {
+                    source = RssSource(title: "Fake", url: "", rss: "", icon: nil)
+                }
 
                 it("fails") {
                     waitUntil(timeout: 5) { done in
                         service.getFeed(source: source) { result in
-                            expect(result).to(equal(.failure(RssError.badUrl)))
+                            expect(result) == .failure(RssError.badUrl)
                             done()
                         }
                     }
