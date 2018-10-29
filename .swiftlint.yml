@@ -33,9 +33,7 @@ opt_in_rules:
     - explicit_init
     - extension_access_modifier
     - fallthrough
-    - fatal_error_message
-    - file_header
-    - file_name
+    - fatal_error_message        
     - first_where
     - identical_operands
     - joined_default_parameter
