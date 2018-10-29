@@ -6,6 +6,7 @@ cache:
 before_install:
   - brew install carthage
   - brew install swiftgen
+  - brew install swiftlint
   - gem install xcpretty
   - gem install xcpretty-travis-formatter
   - gem install fastlane -NV
