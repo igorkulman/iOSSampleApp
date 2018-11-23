@@ -994,7 +994,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/Build-Phases/Carthage/generate-output-list\n$SRCROOT/Build-Phases/Carthage/copy-frameworks\n";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 		F32EAB1D1FCD517E007E4CED /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1028,7 +1028,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/Build-Phases/Carthage/generate-output-list\n$SRCROOT/Build-Phases/Carthage/copy-frameworks\n";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 		F3A812EF1F8376BD00A09AAB /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1048,7 +1048,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/Build-Phases/Carthage/generate-output-list\n$SRCROOT/Build-Phases/Carthage/copy-frameworks\n";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 		F3FEEBB521628E2B00D1CF9E /* Generate strings */ = {
 			isa = PBXShellScriptBuildPhase;
