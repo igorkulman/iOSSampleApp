@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -902,17 +902,19 @@
 				TargetAttributes = {
 					F3208A791F84E48100B57B0E = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						TestTargetID = F3A812B31F83740E00A09AAB;
 					};
 					F35BD6352065111F000AE4E8 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						TestTargetID = F3A812B31F83740E00A09AAB;
 					};
 					F3A812B31F83740E00A09AAB = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -979,20 +981,20 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+				"$SRCROOT/Build-Phases/Carthage/iOSSampleAppTests.xcfilelist",
+			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxTest.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
 			);
 			name = Carthage;
+			outputFileListPaths = (
+				"$SRCROOT/Build-Phases/Carthage/iOSSampleAppTests-output.xcfilelist",
+			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 		F32EAB1D1FCD517E007E4CED /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1013,43 +1015,40 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+				"$SRCROOT/Build-Phases/Carthage/iOSSampleAppUITests.xcfilelist",
+			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/SimulatorStatusMagiciOS.framework",
 			);
 			name = Carthage;
+			outputFileListPaths = (
+				"$SRCROOT/Build-Phases/Carthage/iOSSampleAppUITests-output.xcfilelist",
+			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 		F3A812EF1F8376BD00A09AAB /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+				"$SRCROOT/Build-Phases/Carthage/iOSSampleApp.xcfilelist",
+			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Swinject.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwinjectStoryboard.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/CleanroomLogger.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwinjectAutoregistration.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Reusable.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxNuke.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/FeedKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/CRToast.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwiftExt.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Defaults.framework",
 			);
 			name = Carthage;
+			outputFileListPaths = (
+				"$SRCROOT/Build-Phases/Carthage/iOSSampleApp-output.xcfilelist",
+			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 		F3FEEBB521628E2B00D1CF9E /* Generate strings */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1065,7 +1064,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/Build-Phases/generate-strings";
+			shellScript = "$SRCROOT/Build-Phases/generate-strings\n";
 		};
 		F3FEEBB621628FEA00D1CF9E /* Check strings */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1210,11 +1209,15 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = iOSSampleAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = sk.kulman.iOSSampleAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSSampleApp.app/iOSSampleApp";
 			};
@@ -1232,10 +1235,14 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = iOSSampleAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = sk.kulman.iOSSampleAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSSampleApp.app/iOSSampleApp";
 			};
@@ -1252,10 +1259,14 @@
 				);
 				INFOPLIST_FILE = iOSSampleAppUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = sk.kulman.iOSSampleAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = iOSSampleApp;
 			};
@@ -1272,10 +1283,14 @@
 				);
 				INFOPLIST_FILE = iOSSampleAppUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = sk.kulman.iOSSampleAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = iOSSampleApp;
 			};
@@ -1389,7 +1404,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1405,10 +1421,13 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = iOSSampleApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = sk.kulman.iOSSampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1425,10 +1444,13 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = iOSSampleApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = sk.kulman.iOSSampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
