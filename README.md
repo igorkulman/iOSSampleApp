@@ -32,7 +32,7 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 ### Requirements
 
 * [Carthage](https://github.com/Carthage/Carthage)
-* XCode 9.4+
+* XCode 10+
 * [SwiftGen](https://github.com/SwiftGen/SwiftGen)
 
 #### Optional
@@ -46,4 +46,4 @@ To get started with the project run `./bootstrap.sh` to install Carthage, SwifLi
 
 If you already have Carthage installed and do not want or need the other tools, just run `carthage bootstrap --platform iOS` to build all the Carthage dependencies. 
 
-This need to be done **just once** for the intial setup.
+This need to be done **just once** for the initial setup.
