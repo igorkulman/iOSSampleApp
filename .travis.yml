@@ -4,9 +4,10 @@ cache:
   directories:
   - Carthage
 before_install:
-  - brew install carthage
-  - brew install swiftgen
-  - brew install swiftlint
+  - brew update
+  - brew ls --versions carthage && brew upgrade carthage || brew install carthage
+  - brew ls --versions swiftgen && brew upgrade swiftgen || brew install swiftgen
+  - brew ls --versions swiftlint && brew upgrade swiftlint || brew install swiftlint    
   - gem install xcpretty
   - gem install xcpretty-travis-formatter
   - gem install fastlane -NV
