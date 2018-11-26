@@ -23,7 +23,7 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 
 * Localization to 2 languages with [safer string usage](https://blog.kulman.sk/using-ios-strings-in-a-safer-way/) and checking for missing translations
 * Continuous integration (using [Travis](https://travis-ci.org/igorkulman/iOSSampleApp))
-* Unit testing
+* Unit testing, including testing view controllers for leaks (using [SpecLeaks](https://github.com/leandromperez/specleaks))
 * Using (multiple) Storyboards just as glorified XIBs
 * Using static UITableView cells in a typed way with enums
 * Image literals

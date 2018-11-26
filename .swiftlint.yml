@@ -4,6 +4,7 @@ excluded:
     - support
     - Build-Phases
     - iOSSampleApp/Resources
+    - iOSSampleAppTests/SpeckLeaks
 
 disabled_rules:
     - line_length      
@@ -11,6 +12,7 @@ disabled_rules:
     - force_cast
     - force_try
     - file_length
+    - function_body_length
 
 analyzer_rules:
     - unused_import
@@ -49,8 +51,7 @@ opt_in_rules:
     - private_action
     - private_outlet
     - prohibited_interface_builder
-    - prohibited_super_call
-    - quick_discouraged_call
+    - prohibited_super_call    
     - quick_discouraged_focused_test
     - quick_discouraged_pending_test
     - redundant_nil_coalescing
