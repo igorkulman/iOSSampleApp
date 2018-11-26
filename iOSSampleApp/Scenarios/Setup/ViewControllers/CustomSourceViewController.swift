@@ -64,16 +64,12 @@ class CustomSourceViewController: UIViewController, SetupStoryboardLodable {
         rssUrlTextField.rx.text.bind(to: viewModel.rssUrl).disposed(by: disposeBag)
         logoUrlTextField.rx.text.bind(to: viewModel.logoUrl).disposed(by: disposeBag)
 
-        viewModel.rssUrl.asObservable().map({ $0?.isValidURL == true }).map(validityToColor).bind(to: rssUrlTextField.rx.textColor).disposed(by: disposeBag)
-        viewModel.url.asObservable().map({ $0?.isValidURL == true }).map(validityToColor).bind(to: urlTextField.rx.textColor).disposed(by: disposeBag)
-        viewModel.logoUrl.asObservable().map({ $0?.isValidURL == true }).map(validityToColor).bind(to: logoUrlTextField.rx.textColor).disposed(by: disposeBag)
+        viewModel.rssUrl.asObservable().map({ $0?.isValidURL == true ? UIColor.black : UIColor.red }).bind(to: rssUrlTextField.rx.textColor).disposed(by: disposeBag)
+        viewModel.url.asObservable().map({ $0?.isValidURL == true ? UIColor.black : UIColor.red }).bind(to: urlTextField.rx.textColor).disposed(by: disposeBag)
+        viewModel.logoUrl.asObservable().map({ $0?.isValidURL == true ? UIColor.black : UIColor.red }).bind(to: logoUrlTextField.rx.textColor).disposed(by: disposeBag)
 
         NotificationCenter.default.rx.keyboardHeightChanged().subscribe(onNext: { [weak self] height in self?.scrollview.setBottomInset(height: height) }).disposed(by: disposeBag)
 
         doneButton.rx.tap.withLatestFrom(viewModel.source.flatMap(ignoreNil)).subscribe(onNext: { [unowned self] source in self.delegate?.userDidAddCustomSource(source: source) }).disposed(by: disposeBag)
-    }
-
-    private func validityToColor(_ isValid: Bool) -> UIColor {
-        return isValid ? UIColor.black : UIColor.red
     }
 }
