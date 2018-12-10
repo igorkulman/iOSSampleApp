@@ -7,9 +7,9 @@
 [![Swift Version](https://img.shields.io/badge/Swift-4.1-F16D39.svg?style=flat)](https://developer.apple.com/swift)
 [![Twitter](https://img.shields.io/badge/twitter-@igorkulman-blue.svg)](http://twitter.com/igorkulman)
 
-### Description
-
 Sample iOS app written the way I write iOS apps because I cannot share the app I currently work on.
+
+## Shown concepts
 
 ### Architecture concepts
 
@@ -29,21 +29,28 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 * Image literals
 * Automated AppStore screenshots taking in multiple languages (using [Fastlane](https://fastlane.tools/)) 
 
-### Requirements
+## Getting started
+
+### Prerequisites
 
 * [Carthage](https://github.com/Carthage/Carthage)
 * XCode 10+
 * [SwiftGen](https://github.com/SwiftGen/SwiftGen)
+* [SwifLint](https://github.com/realm/SwiftLint) (optional)
+* [Fastlane](https://fastlane.tools/) (optional)
 
-#### Optional
-
-* [SwifLint](https://github.com/realm/SwiftLint)
-* [Fastlane](https://fastlane.tools/)
-
-### Getting started
+### Bootstraping the project
 
 To get started with the project run `./bootstrap.sh` to install Carthage, SwifLint, SwiftGen, Fastlane and build all the Carthage dependencies. 
 
 If you already have Carthage installed and do not want or need the other tools, just run `carthage bootstrap --platform iOS` to build all the Carthage dependencies. 
 
 This need to be done **just once** for the initial setup.
+
+## Author
+
+Igor Kulman - igor@kulman.sk
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
