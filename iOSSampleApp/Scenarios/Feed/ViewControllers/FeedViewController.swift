@@ -66,8 +66,6 @@ final class FeedViewController: UIViewController, FeedStoryboardLodable, ToastCa
     }
 
     private func setupBinding() {
-        tableView.rx.setDelegate(self).disposed(by: disposeBag)
-
         tableView.rx.modelSelected(RssItem.self).subscribe(onNext: { [weak self] item in self?.delegate?.userDidRequestItemDetail(item: item) }).disposed(by: disposeBag)
         tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in self?.tableView.deselectRow(at: indexPath, animated: true) }).disposed(by: disposeBag)
 
@@ -96,11 +94,5 @@ final class FeedViewController: UIViewController, FeedStoryboardLodable, ToastCa
                 cell.model = element
             }
             .disposed(by: disposeBag)
-    }
-}
-
-extension FeedViewController: UITableViewDelegate {
-    func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
-        return 100
     }
 }

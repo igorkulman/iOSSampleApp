@@ -87,9 +87,6 @@ final class SourceSelectionViewController: UIViewController, SetupStoryboardLoda
             self?.viewModel.filter.accept(nil)
             self?.searchController.searchBar.text = nil
         }).disposed(by: disposeBag)
-
-        tableView.rx.setDelegate(self)
-            .disposed(by: disposeBag)
     }
 
     private func setupData() {
@@ -100,11 +97,5 @@ final class SourceSelectionViewController: UIViewController, SetupStoryboardLoda
                 cell.viewModel = element
             }
             .disposed(by: disposeBag)
-    }
-}
-
-extension SourceSelectionViewController: UITableViewDelegate {
-    func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
-        return 60
     }
 }
