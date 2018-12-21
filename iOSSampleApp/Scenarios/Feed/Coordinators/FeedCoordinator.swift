@@ -48,8 +48,7 @@ final class FeedCoordinator: NavigationCoordinator {
     }
 
     private func showDetail(item: RssItem) {
-        let vc = container.resolveViewController(DetailViewController.self)
-        vc.viewModel.item = item
+        let vc = DetailViewController(item: item)
         vc.delegate = self
         let nc = UINavigationController(rootViewController: vc)
         navigationController.present(nc, animated: true, completion: nil)

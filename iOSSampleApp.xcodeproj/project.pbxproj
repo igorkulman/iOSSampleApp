@@ -85,7 +85,6 @@
 		F3A9678A21AC38D8005E7F3F /* ViewControllerLeakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A9678921AC38D8005E7F3F /* ViewControllerLeakTests.swift */; };
 		F3A9678C21AC3961005E7F3F /* ViewControllerLeakTests+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A9678B21AC3961005E7F3F /* ViewControllerLeakTests+Setup.swift */; };
 		F3AAA6221F860E55009653B7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AAA6211F860E55009653B7 /* DetailViewController.swift */; };
-		F3AAA6241F861018009653B7 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AAA6231F861018009653B7 /* DetailViewModel.swift */; };
 		F3AAA6261F86113A009653B7 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AAA6251F86113A009653B7 /* UINavigationController+Extensions.swift */; };
 		F3C8DB3B214EA1B700C1A654 /* DataServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB3A214EA1B700C1A654 /* DataServiceMock.swift */; };
 		F3C8DB3D214EA1E700C1A654 /* SettingsServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB3C214EA1E700C1A654 /* SettingsServiceMock.swift */; };
@@ -298,7 +297,6 @@
 		F3A9678921AC38D8005E7F3F /* ViewControllerLeakTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerLeakTests.swift; sourceTree = "<group>"; };
 		F3A9678B21AC3961005E7F3F /* ViewControllerLeakTests+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewControllerLeakTests+Setup.swift"; sourceTree = "<group>"; };
 		F3AAA6211F860E55009653B7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		F3AAA6231F861018009653B7 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		F3AAA6251F86113A009653B7 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
 		F3C8DB3A214EA1B700C1A654 /* DataServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceMock.swift; sourceTree = "<group>"; };
 		F3C8DB3C214EA1E700C1A654 /* SettingsServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsServiceMock.swift; sourceTree = "<group>"; };
@@ -635,7 +633,6 @@
 		F3651D1B203C1A860082A73A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				F3AAA6231F861018009653B7 /* DetailViewModel.swift */,
 				F39064941F84D4D8003C0C12 /* FeedViewModel.swift */,
 			);
 			path = ViewModels;
@@ -1165,7 +1162,6 @@
 				F3A4B21B1FC434C300787BCE /* LibrariesViewController.swift in Sources */,
 				F3A813001F837A6500A09AAB /* FeedViewController.swift in Sources */,
 				F3A812E11F83766400A09AAB /* StoryboardLodable.swift in Sources */,
-				F3AAA6241F861018009653B7 /* DetailViewModel.swift in Sources */,
 				F38CD2331F83A6040050056C /* CustomSourceViewModel.swift in Sources */,
 				F3AAA6261F86113A009653B7 /* UINavigationController+Extensions.swift in Sources */,
 				F3A4B2151FC42FD200787BCE /* AboutViewController.swift in Sources */,

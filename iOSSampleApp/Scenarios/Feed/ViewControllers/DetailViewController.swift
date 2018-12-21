@@ -20,10 +20,11 @@ final class DetailViewController: UIViewController, FeedStoryboardLodable {
 
     // MARK: - Properties
 
-    var viewModel: DetailViewModel!
     weak var delegate: DetailViewControllerDelegate?
 
     // MARK: - Fields
+
+    private let item: RssItem
 
     private var webView: WKWebView?
 
@@ -44,11 +45,18 @@ final class DetailViewController: UIViewController, FeedStoryboardLodable {
 
     // MARK: - Lifecycle
 
+    init(item: RssItem) {
+        self.item = item
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func loadView() {
         let webConfiguration = WKWebViewConfiguration()
         let webView = WKWebView(frame: .zero, configuration: webConfiguration)
-
-        webView.navigationDelegate = self
 
         webView.allowsBackForwardNavigationGestures = true
         webView.isMultipleTouchEnabled = true
@@ -78,14 +86,14 @@ final class DetailViewController: UIViewController, FeedStoryboardLodable {
 
     private func setupUI() {
         navigationItem.rightBarButtonItem = doneBarButtonItem
-        title = viewModel.item.title
+        title = item.title
 
         navigationController?.setToolbarHidden(false, animated: false)
         navigationController?.navigationBar.addSubview(progressView)
     }
 
     private func setupData() {
-        if let link = viewModel.item.link, let url = URL(string: link) {
+        if let link = item.link, let url = URL(string: link) {
             load(url)
         }
     }
@@ -112,7 +120,7 @@ final class DetailViewController: UIViewController, FeedStoryboardLodable {
             if self.webView?.url != nil {
                 self.webView?.reload()
             } else {
-                if let link = self.viewModel.item.link, let url = URL(string: link) {
+                if let link = self.item.link, let url = URL(string: link) {
                     self.load(url)
                 }
             }
@@ -155,55 +163,6 @@ final class DetailViewController: UIViewController, FeedStoryboardLodable {
         let request = URLRequest(url: url)
         DispatchQueue.main.async {
             webView.load(request)
-        }
-    }
-}
-
-// MARK: - WKNavigationDelegate
-
-extension DetailViewController: WKNavigationDelegate {
-    public func webView(_: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        let url = navigationAction.request.url
-        let hostAddress = navigationAction.request.url?.host
-
-        if navigationAction.targetFrame == nil, UIApplication.shared.canOpenURL(url!) {
-            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
-        }
-
-        // To connnect app store
-        if hostAddress == "itunes.apple.com" {
-            if UIApplication.shared.canOpenURL(navigationAction.request.url!) {
-                UIApplication.shared.open(navigationAction.request.url!, options: [:], completionHandler: nil)
-                decisionHandler(.cancel)
-                return
-            }
-        }
-
-        let url_elements = url!.absoluteString.components(separatedBy: ":")
-
-        switch url_elements[0] {
-        case "tel":
-            openCustomApp(urlScheme: "telprompt://", additional_info: url_elements[1])
-            decisionHandler(.cancel)
-
-        case "sms":
-            openCustomApp(urlScheme: "sms://", additional_info: url_elements[1])
-            decisionHandler(.cancel)
-
-        case "mailto":
-            openCustomApp(urlScheme: "mailto://", additional_info: url_elements[1])
-            decisionHandler(.cancel)
-
-        default:
-            decisionHandler(.allow)
-        }
-    }
-
-    private func openCustomApp(urlScheme: String, additional_info: String) {
-        if let requestUrl = URL(string: "\(urlScheme)" + "\(additional_info)") {
-            if UIApplication.shared.canOpenURL(requestUrl) {
-                UIApplication.shared.open(requestUrl, options: [:], completionHandler: nil)
-            }
         }
     }
 }

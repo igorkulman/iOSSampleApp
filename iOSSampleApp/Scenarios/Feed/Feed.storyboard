@@ -45,20 +45,5 @@
             </objects>
             <point key="canvasLocation" x="-225" y="6"/>
         </scene>
-        <!--Detail View Controller-->
-        <scene sceneID="gpH-7i-kY9">
-            <objects>
-                <viewController storyboardIdentifier="Detail" id="koL-ov-1yQ" customClass="DetailViewController" customModule="iOSSampleApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="X2d-za-ygM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="fdI-Rt-IlU"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vr6-Bz-ap5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="433" y="6"/>
-        </scene>
     </scenes>
 </document>
