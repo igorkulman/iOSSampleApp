@@ -25,9 +25,11 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 * Continuous integration
 * Unit testing, including testing view controllers for leaks
 * Using (multiple) Storyboards just as glorified XIBs
+* Creating a view controller in code when Storyboard cannot be used
 * Using static UITableView cells in a typed way with enums
 * Image literals
 * Automated AppStore screenshots taking in multiple languages
+* Adding custom reactive properties
 
 ## Getting started
 
