@@ -11,7 +11,13 @@ import RxSwift
 import UIKit
 
 protocol SourceSelectionViewControllerDelegate: AnyObject {
+    /**
+     Invoked when the user finished setting the RSS source
+     */
     func sourceSelectionViewControllerDidFinish()
+    /**
+     Invoked when user requests adding a new custom source
+     */
     func userDidRequestCustomSource()
 }
 

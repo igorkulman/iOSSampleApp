@@ -13,8 +13,19 @@ import RxSwiftExt
 import UIKit
 
 protocol FeedViewControllerDelegeate: AnyObject {
+    /**
+     Invoked when user requests showing RSS item detail
+
+     - Parameter item: RSS item to show detail
+     */
     func userDidRequestItemDetail(item: RssItem)
+    /**
+     Invoked when user requests starting the setup process again
+     */
     func userDidRequestSetup()
+    /**
+     Invoked when user resuests the About screen
+     */
     func userDidRequestAbout()
 }
 

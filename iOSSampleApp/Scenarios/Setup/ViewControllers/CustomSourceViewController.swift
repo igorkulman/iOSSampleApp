@@ -11,6 +11,11 @@ import RxSwift
 import UIKit
 
 protocol CustomSourceViewControllerDelegate: AnyObject {
+    /**
+     Invokes when user adds a new custom RSS source
+
+     - Parameter source: newly added RSS source
+     */
     func userDidAddCustomSource(source: RssSource)
 }
 

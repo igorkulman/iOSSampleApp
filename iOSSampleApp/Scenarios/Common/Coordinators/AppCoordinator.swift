@@ -90,6 +90,9 @@ extension AppCoordinator: SetupCoordinatorDelegate {
 }
 
 extension AppCoordinator: FeedCoordinatorDelegate {
+    /**
+     Invoked when the feed flow is no longer needed
+     */
     func feedCoordinatorDidFinish() {
         showSetup()
     }

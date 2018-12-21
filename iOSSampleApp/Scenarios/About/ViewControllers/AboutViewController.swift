@@ -10,9 +10,21 @@ import RxSwift
 import UIKit
 
 protocol AboutViewControllerDelegate: AnyObject {
+    /**
+     Invoked when user naviages back from the About screen
+     */
     func aboutViewControllerDismissed()
+    /**
+     Invoked when user requests the list of used open source libraries
+     */
     func userDidRequestLibraries()
+    /**
+     Invoked when user requests the authors info
+     */
     func userDidRequestAuthorsInfo()
+    /**
+     Invoked when user requests the authors blog
+     */
     func userDidRequestAuthorsBlog()
 }
 
@@ -64,6 +76,7 @@ final class AboutViewController: UITableViewController, AboutStoryboardLodable {
     private func setupBinding() {
         tableView.rx.itemSelected.subscribe(onNext: { [unowned self] indexPath in
 
+            // instead of using the row umber directly converting them to an enum to use them in a safer way
             guard let menuItem = AboutMenuItem(rawValue: indexPath.row) else { fatalError("Invalid indexPath") }
             switch menuItem {
             case .libraries:

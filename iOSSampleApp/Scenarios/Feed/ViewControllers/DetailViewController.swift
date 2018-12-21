@@ -13,6 +13,9 @@ import UIKit
 import WebKit
 
 protocol DetailViewControllerDelegate: AnyObject {
+    /**
+     Invoked when user finished looking at the RSS source detail
+     */
     func detailViewControllerDidFinish()
 }
 
