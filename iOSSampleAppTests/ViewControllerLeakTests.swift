@@ -57,9 +57,7 @@ class ViewControllerLeakTests: QuickSpec {
         describe("DetailViewController") {
             describe("viewDidLoad") {
                 let vc = LeakTest {
-                    let controller = container.resolveViewController(DetailViewController.self)
-                    controller.viewModel.item = RssItem(title: "Test", description: "Test sesc", link: "https://blog.kulman.sk", pubDate: Date())
-                    return controller
+                    return DetailViewController(item: RssItem(title: "Test", description: "Test sesc", link: "https://blog.kulman.sk", pubDate: Date()))
                 }
                 it("must not leak") {
                     expect(vc).toNot(leak())
