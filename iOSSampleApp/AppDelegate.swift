@@ -13,7 +13,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let container = Container()
+    internal let container = Container()
 
     private var appCoordinator: AppCoordinator!
 

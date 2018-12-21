@@ -8,6 +8,12 @@
 
 import Foundation
 
+/**
+App specific settings
+ */
 protocol SettingsService: AnyObject {
+    /**
+     Currently selected RSS source
+     */
     var selectedSource: RssSource? { get set }
 }

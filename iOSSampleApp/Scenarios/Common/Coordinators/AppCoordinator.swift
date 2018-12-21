@@ -16,6 +16,9 @@ enum AppChildCoordinator {
     case feed
 }
 
+/**
+ Main coordinator responseible for starting the setup process or showing the feed depending on the app state
+ */
 final class AppCoordinator: Coordinator {
 
     // MARK: - Properties
@@ -41,6 +44,9 @@ final class AppCoordinator: Coordinator {
         self.window.rootViewController = navigationController
     }
 
+    /**
+     Starts the app showing either the setup flow or the feed depending on the app state
+    */
     func start() {
         if settingsService.selectedSource.isSome {
             Log.debug?.message("Setup complete, starting dahsboard")
@@ -51,6 +57,9 @@ final class AppCoordinator: Coordinator {
         }
     }
 
+    /**
+     Shows the feed using the FeedCoordinator
+     */
     private func showFeed() {
         let feedCoordinator = FeedCoordinator(container: container, navigationController: navigationController)
         childCoordinators[.feed] = feedCoordinator
@@ -58,6 +67,9 @@ final class AppCoordinator: Coordinator {
         feedCoordinator.start()
     }
 
+    /**
+     Starts the setup flow using the SetupCoordinator
+     */
     private func showSetup() {
         let setupCoordinator = SetupCoordinator(container: container, navigationController: navigationController)
         childCoordinators[.setup] = setupCoordinator

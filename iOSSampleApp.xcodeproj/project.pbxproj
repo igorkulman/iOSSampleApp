@@ -57,7 +57,6 @@
 		F3A812C21F83740E00A09AAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A812C01F83740E00A09AAB /* LaunchScreen.storyboard */; };
 		F3A812D51F83754100A09AAB /* AppDelegate+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A812D41F83754100A09AAB /* AppDelegate+Setup.swift */; };
 		F3A812D81F8375A100A09AAB /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A812D71F8375A100A09AAB /* Coordinator.swift */; };
-		F3A812DA1F8375BB00A09AAB /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A812D91F8375BB00A09AAB /* NavigationCoordinator.swift */; };
 		F3A812DC1F8375DF00A09AAB /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A812DB1F8375DF00A09AAB /* AppCoordinator.swift */; };
 		F3A812DF1F83762A00A09AAB /* Container+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A812DE1F83762A00A09AAB /* Container+Extensions.swift */; };
 		F3A812E11F83766400A09AAB /* StoryboardLodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A812E01F83766400A09AAB /* StoryboardLodable.swift */; };
@@ -264,7 +263,6 @@
 		F3A812C31F83740E00A09AAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3A812D41F83754100A09AAB /* AppDelegate+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Setup.swift"; sourceTree = "<group>"; };
 		F3A812D71F8375A100A09AAB /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		F3A812D91F8375BB00A09AAB /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
 		F3A812DB1F8375DF00A09AAB /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		F3A812DE1F83762A00A09AAB /* Container+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Container+Extensions.swift"; sourceTree = "<group>"; };
 		F3A812E01F83766400A09AAB /* StoryboardLodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardLodable.swift; sourceTree = "<group>"; };
@@ -759,7 +757,6 @@
 			isa = PBXGroup;
 			children = (
 				F3A812D71F8375A100A09AAB /* Coordinator.swift */,
-				F3A812D91F8375BB00A09AAB /* NavigationCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -1184,7 +1181,6 @@
 				F390649B1F84DC7A003C0C12 /* RssItem.swift in Sources */,
 				F3A4B2211FC43C0B00787BCE /* AboutViewModel.swift in Sources */,
 				F3A812DC1F8375DF00A09AAB /* AppCoordinator.swift in Sources */,
-				F3A812DA1F8375BB00A09AAB /* NavigationCoordinator.swift in Sources */,
 				F3A8130B1F837B0E00A09AAB /* SetupCoordinator.swift in Sources */,
 				F3A812D81F8375A100A09AAB /* Coordinator.swift in Sources */,
 				F3A8130F1F837C0800A09AAB /* FeedCoordinator.swift in Sources */,

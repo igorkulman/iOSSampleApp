@@ -13,7 +13,10 @@ import SwinjectAutoregistration
 
 extension AppDelegate {
 
-    func setupLogging() {
+    /**
+     Set up logging to console and to file with 15 days log retention
+     */
+    internal func setupLogging() {
         var configs = [LogConfiguration]()
 
         // create a recorder for logging to stdout & stderr
@@ -47,7 +50,10 @@ extension AppDelegate {
         Log.enable(configuration: configs)
     }
 
-    func setupDependencies() {
+    /**
+     Set up the depedency graph in the DI container
+     */
+    internal func setupDependencies() {
         Log.debug?.message("Registering dependencies")
 
         // services
