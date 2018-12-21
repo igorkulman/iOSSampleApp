@@ -13,7 +13,7 @@ import UIKit
 import WebKit
 
 protocol DetailViewControllerDelegate: AnyObject {
-    func userDidFinish()
+    func detailViewControllerDidFinish()
 }
 
 final class DetailViewController: UIViewController, FeedStoryboardLodable {
@@ -108,7 +108,7 @@ final class DetailViewController: UIViewController, FeedStoryboardLodable {
         }).disposed(by: disposeBag)
 
         doneBarButtonItem.rx.tap.subscribe(onNext: { [weak self] in
-            self?.delegate?.userDidFinish()
+            self?.delegate?.detailViewControllerDidFinish()
         }).disposed(by: disposeBag)
 
         reloadBarButtonItem.rx.tap.subscribe(onNext: { [weak self] in

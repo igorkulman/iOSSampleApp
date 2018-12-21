@@ -85,7 +85,7 @@ extension FeedCoordinator: FeedViewControllerDelegeate {
 }
 
 extension FeedCoordinator: DetailViewControllerDelegate {
-    func userDidFinish() {
+    func detailViewControllerDidFinish() {
         navigationController.dismiss(animated: true, completion: nil)
     }
 }
