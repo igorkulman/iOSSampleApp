@@ -16,7 +16,7 @@ enum AppChildCoordinator {
     case feed
 }
 
-class AppCoordinator: Coordinator {
+final class AppCoordinator: Coordinator {
 
     // MARK: - Properties
 

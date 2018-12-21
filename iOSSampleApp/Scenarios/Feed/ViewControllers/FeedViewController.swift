@@ -18,7 +18,7 @@ protocol FeedViewControllerDelegeate: AnyObject {
     func userDidRequestAbout()
 }
 
-class FeedViewController: UIViewController, FeedStoryboardLodable, ToastCapable {
+final class FeedViewController: UIViewController, FeedStoryboardLodable, ToastCapable {
 
     // MARK: - Outlets
 

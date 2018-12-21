@@ -15,7 +15,7 @@ protocol SetupCoordinatorDelegate: AnyObject {
     func setupCoordinatorDidFinish()
 }
 
-class SetupCoordinator: NavigationCoordinator {
+final class SetupCoordinator: NavigationCoordinator {
 
     // MARK: - Properties
 

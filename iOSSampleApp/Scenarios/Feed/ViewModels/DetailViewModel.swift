@@ -8,6 +8,6 @@
 
 import Foundation
 
-class DetailViewModel {
+final class DetailViewModel {
     var item: RssItem!
 }

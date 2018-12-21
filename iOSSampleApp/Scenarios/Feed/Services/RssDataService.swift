@@ -11,7 +11,7 @@ import FeedKit
 import Foundation
 import UIKit
 
-class RssDataService: DataService {
+final class RssDataService: DataService {
     func getFeed(source: RssSource, onCompletion: @escaping (RssResult) -> Void) {
         guard let feedURL = URL(string: source.rss) else {
             onCompletion(.failure(RssError.badUrl))

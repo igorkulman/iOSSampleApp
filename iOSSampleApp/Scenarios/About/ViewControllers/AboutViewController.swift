@@ -22,7 +22,7 @@ enum AboutMenuItem: Int {
     case authorsBlog
 }
 
-class AboutViewController: UITableViewController, AboutStoryboardLodable {
+final class AboutViewController: UITableViewController, AboutStoryboardLodable {
 
     // MARK: - Outlets
 

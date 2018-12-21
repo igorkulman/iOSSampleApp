@@ -11,7 +11,7 @@ import RxSwift
 
 typealias Library = (String, String)
 
-class LibrariesViewModel {
+final class LibrariesViewModel {
 
     // MARK: - Properties
 

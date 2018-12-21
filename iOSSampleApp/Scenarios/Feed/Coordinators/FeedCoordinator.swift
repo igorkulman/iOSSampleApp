@@ -19,7 +19,7 @@ protocol FeedCoordinatorDelegate: AnyObject {
     func feedCoordinatorDidFinish()
 }
 
-class FeedCoordinator: NavigationCoordinator {
+final class FeedCoordinator: NavigationCoordinator {
 
     // MARK: - Properties
 

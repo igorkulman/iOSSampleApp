@@ -14,7 +14,7 @@ protocol CustomSourceViewControllerDelegate: AnyObject {
     func userDidAddCustomSource(source: RssSource)
 }
 
-class CustomSourceViewController: UIViewController, SetupStoryboardLodable {
+final class CustomSourceViewController: UIViewController, SetupStoryboardLodable {
 
     // MARK: - Outlets
 

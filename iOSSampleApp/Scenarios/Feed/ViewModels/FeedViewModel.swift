@@ -11,7 +11,7 @@ import Foundation
 import RxSwift
 import UIKit
 
-class FeedViewModel {
+final class FeedViewModel {
 
     // MARK: - Properties
 

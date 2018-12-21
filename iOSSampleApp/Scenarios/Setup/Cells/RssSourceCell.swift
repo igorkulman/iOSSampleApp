@@ -12,7 +12,7 @@ import RxNuke
 import RxSwift
 import UIKit
 
-class RssSourceCell: UITableViewCell, NibReusable {
+final class RssSourceCell: UITableViewCell, NibReusable {
 
     // MARK: - Outlets
 

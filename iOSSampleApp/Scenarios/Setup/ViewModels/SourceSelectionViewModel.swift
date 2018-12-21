@@ -11,7 +11,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-class SourceSelectionViewModel {
+final class SourceSelectionViewModel {
 
     // MARK: - Properties
 

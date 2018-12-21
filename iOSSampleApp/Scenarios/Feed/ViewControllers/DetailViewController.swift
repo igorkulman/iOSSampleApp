@@ -11,7 +11,7 @@ import RxCocoa
 import RxSwift
 import UIKit
 
-class DetailViewController: UIViewController, FeedStoryboardLodable {
+final class DetailViewController: UIViewController, FeedStoryboardLodable {
 
     // MARK: - Outlets
 

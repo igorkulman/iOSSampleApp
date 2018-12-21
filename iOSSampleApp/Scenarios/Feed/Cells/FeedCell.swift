@@ -9,7 +9,7 @@
 import Reusable
 import UIKit
 
-class FeedCell: UITableViewCell, NibReusable {
+final class FeedCell: UITableViewCell, NibReusable {
 
     // MARK: - Outlets
 

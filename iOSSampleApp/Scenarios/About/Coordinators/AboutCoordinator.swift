@@ -15,7 +15,7 @@ protocol AboutCoordinatorDelegate: AnyObject {
     func aboutCoordinatorDidFinish()
 }
 
-class AboutCoordinator: NavigationCoordinator {
+final class AboutCoordinator: NavigationCoordinator {
 
     // MARK: - Properties
 

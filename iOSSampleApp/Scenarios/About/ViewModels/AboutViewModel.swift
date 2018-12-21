@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AboutViewModel {
+final class AboutViewModel {
 
     let appName: String
     let appVersion: String

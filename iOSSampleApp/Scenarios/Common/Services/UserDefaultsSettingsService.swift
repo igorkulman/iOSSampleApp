@@ -9,7 +9,7 @@
 import Defaults
 import Foundation
 
-class UserDefaultsSettingsService: SettingsService {
+final class UserDefaultsSettingsService: SettingsService {
     var selectedSource: RssSource? {
         get {
             return defaults[.source]

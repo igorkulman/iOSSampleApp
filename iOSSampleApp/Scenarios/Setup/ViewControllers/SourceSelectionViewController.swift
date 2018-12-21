@@ -15,7 +15,7 @@ protocol SourceSelectionViewControllerDelegate: AnyObject {
     func userDidRequestCustomSource()
 }
 
-class SourceSelectionViewController: UIViewController, SetupStoryboardLodable {
+final class SourceSelectionViewController: UIViewController, SetupStoryboardLodable {
 
     // MARK: - Outlets
 

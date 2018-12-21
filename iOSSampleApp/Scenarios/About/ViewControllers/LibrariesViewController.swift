@@ -9,7 +9,7 @@
 import RxSwift
 import UIKit
 
-class LibrariesViewController: UITableViewController, AboutStoryboardLodable {
+final class LibrariesViewController: UITableViewController, AboutStoryboardLodable {
 
     // MARK: - Properties
 

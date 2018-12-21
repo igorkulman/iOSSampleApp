@@ -11,7 +11,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-class CustomSourceViewModel {
+final class CustomSourceViewModel {
 
     // MARK: - Properties
 

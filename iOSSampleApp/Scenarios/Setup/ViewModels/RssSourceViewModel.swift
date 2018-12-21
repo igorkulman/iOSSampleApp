@@ -10,7 +10,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-class RssSourceViewModel {
+final class RssSourceViewModel {
     let source: RssSource
     let isSelected = BehaviorRelay<Bool>(value: false)
 
