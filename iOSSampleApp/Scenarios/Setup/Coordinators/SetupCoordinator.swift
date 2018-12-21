@@ -12,9 +12,15 @@ import Swinject
 import UIKit
 
 protocol SetupCoordinatorDelegate: AnyObject {
+    /**
+     Invoked when the setup flow finishes, setting a RSS source
+     */
     func setupCoordinatorDidFinish()
 }
 
+/**
+Setup flow responsible for selecting the RSS source
+ */
 final class SetupCoordinator: NavigationCoordinator {
 
     // MARK: - Properties
@@ -30,16 +36,25 @@ final class SetupCoordinator: NavigationCoordinator {
 
     // MARK: - Coordinator core
 
+    /**
+     Starts the setup flow asking the user to select the RSS source
+     */
     func start() {
         showSourceSelection()
     }
 
+    /**
+     Shows the screen asking the user to select the RSS source
+     */
     private func showSourceSelection() {
         let vc = container.resolveViewController(SourceSelectionViewController.self)
         vc.delegate = self
         navigationController.pushViewController(vc, animated: true)
     }
 
+    /**
+     Shows the user a screen to add a custom RSS source
+     */
     private func showAddSourceForm() {
         let vc = container.resolveViewController(CustomSourceViewController.self)
         vc.delegate = self

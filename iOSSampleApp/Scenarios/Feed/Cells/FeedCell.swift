@@ -29,6 +29,8 @@ final class FeedCell: UITableViewCell, NibReusable {
         }
     }
 
+    // MARK: - Lifecycle
+
     override func awakeFromNib() {
         super.awakeFromNib()
 

@@ -81,6 +81,9 @@ final class AppCoordinator: Coordinator {
 // MARK: - Delegate
 
 extension AppCoordinator: SetupCoordinatorDelegate {
+    /**
+     Invoked when the setup flow finishes, setting a RSS source
+     */
     func setupCoordinatorDidFinish() {
         showFeed()
     }

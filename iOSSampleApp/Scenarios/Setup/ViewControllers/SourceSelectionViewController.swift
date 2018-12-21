@@ -43,6 +43,8 @@ final class SourceSelectionViewController: UIViewController, SetupStoryboardLoda
         super.init(coder: aDecoder)
     }
 
+    // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

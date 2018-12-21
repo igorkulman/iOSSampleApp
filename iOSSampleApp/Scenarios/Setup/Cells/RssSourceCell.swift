@@ -48,6 +48,8 @@ final class RssSourceCell: UITableViewCell, NibReusable {
 
     private var disposeBag = DisposeBag()
 
+    // MARK: - Lifecycle
+
     override func awakeFromNib() {
         super.awakeFromNib()
 

@@ -38,6 +38,8 @@ final class CustomSourceViewController: UIViewController, SetupStoryboardLodable
     private var disposeBag = DisposeBag()
     private let doneButton = UIBarButtonItem(title: L10n.done, style: .plain, target: nil, action: nil)
 
+    // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
