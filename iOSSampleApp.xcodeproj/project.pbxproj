@@ -91,6 +91,7 @@
 		F3C8DB3F214EA3AA00C1A654 /* SourceSelectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB3E214EA3AA00C1A654 /* SourceSelectionViewModelTests.swift */; };
 		F3C8DB41214EA7F200C1A654 /* FeedViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB40214EA7F200C1A654 /* FeedViewModelTests.swift */; };
 		F3CBB19621CCFFA00023EE18 /* RxSwift+WKWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CBB19521CCFFA00023EE18 /* RxSwift+WKWebView.swift */; };
+		F3CBB19821CD07620023EE18 /* RxSwift+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CBB19721CD07620023EE18 /* RxSwift+UIViewController.swift */; };
 		F3D6865C1F9B761E00879154 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6865B1F9B761E00879154 /* TestExtensions.swift */; };
 		F3D9327C21628CDE00EA1E91 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F3D9327E21628CDE00EA1E91 /* Localizable.strings */; };
 		F3D9328521628D2300EA1E91 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F3D9328321628D2300EA1E91 /* Localizable.strings */; };
@@ -303,6 +304,7 @@
 		F3C8DB3E214EA3AA00C1A654 /* SourceSelectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceSelectionViewModelTests.swift; sourceTree = "<group>"; };
 		F3C8DB40214EA7F200C1A654 /* FeedViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModelTests.swift; sourceTree = "<group>"; };
 		F3CBB19521CCFFA00023EE18 /* RxSwift+WKWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxSwift+WKWebView.swift"; sourceTree = "<group>"; };
+		F3CBB19721CD07620023EE18 /* RxSwift+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxSwift+UIViewController.swift"; sourceTree = "<group>"; };
 		F3D6865B1F9B761E00879154 /* TestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExtensions.swift; sourceTree = "<group>"; };
 		F3D9327F21628CE200EA1E91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F3D9328421628D2300EA1E91 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -767,6 +769,7 @@
 				F3A812DE1F83762A00A09AAB /* Container+Extensions.swift */,
 				F37781142085E14C00146DBE /* Optional+Extensions.swift */,
 				F38CD2341F83AB9E0050056C /* Reactive+Extensions.swift */,
+				F3CBB19721CD07620023EE18 /* RxSwift+UIViewController.swift */,
 				F3CBB19521CCFFA00023EE18 /* RxSwift+WKWebView.swift */,
 				F3A812E01F83766400A09AAB /* StoryboardLodable.swift */,
 				F3A813121F837ECF00A09AAB /* String+Extensions.swift */,
@@ -1169,6 +1172,7 @@
 				F3A4B21D1FC434EC00787BCE /* LibrariesViewModel.swift in Sources */,
 				F3A4B21F1FC4359A00787BCE /* AboutCoordinator.swift in Sources */,
 				F3651D26203C1B3A0082A73A /* SettingsService.swift in Sources */,
+				F3CBB19821CD07620023EE18 /* RxSwift+UIViewController.swift in Sources */,
 				F3A812FE1F83791C00A09AAB /* UserDefaultsSettingsService.swift in Sources */,
 				F3A812B81F83740E00A09AAB /* AppDelegate.swift in Sources */,
 				F38CD2371F83AEC70050056C /* UIScrollView+Extensions.swift in Sources */,

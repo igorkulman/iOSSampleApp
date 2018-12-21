@@ -36,11 +36,3 @@ extension Reactive where Base: WKWebView {
         return observeWeakly(Bool.self, "canGoForward").map { $0 ?? false }
     }
 }
-
-extension Reactive where Base: UIViewController {
-    var toolbarItems: Binder<[UIBarButtonItem]> {
-        return Binder(base) { vc, items in
-            vc.toolbarItems = items
-        }
-    }
-}
