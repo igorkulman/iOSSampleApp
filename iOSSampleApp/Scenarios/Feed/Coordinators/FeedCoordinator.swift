@@ -50,8 +50,9 @@ final class FeedCoordinator: NavigationCoordinator {
     private func showDetail(item: RssItem) {
         let vc = container.resolveViewController(DetailViewController.self)
         vc.viewModel.item = item
-        navigationController.setBackButton()
-        navigationController.pushViewController(vc, animated: true)
+        vc.delegate = self
+        let nc = UINavigationController(rootViewController: vc)
+        navigationController.present(nc, animated: true, completion: nil)
     }
 
     private func showAbout() {
@@ -81,5 +82,11 @@ extension FeedCoordinator: FeedViewControllerDelegeate {
 
     func userDidRequestItemDetail(item: RssItem) {
         showDetail(item: item)
+    }
+}
+
+extension FeedCoordinator: DetailViewControllerDelegate {
+    func userDidFinish() {
+        navigationController.dismiss(animated: true, completion: nil)
     }
 }
