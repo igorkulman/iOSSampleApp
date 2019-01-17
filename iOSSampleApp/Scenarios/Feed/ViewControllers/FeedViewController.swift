@@ -89,8 +89,8 @@ final class FeedViewController: UIViewController, FeedStoryboardLodable, ToastCa
     private func setupData() {
         tableView.register(cellType: FeedCell.self)
 
-        let feed = viewModel.feed.materialize()
-        feed.observeOn(MainScheduler.instance).errors().subscribe(onNext: { [weak self] error in
+        // announcing errors with a toast
+        viewModel.onError.subscribe(onNext: { [weak self] error in
             switch error {
             case let rssError as RssError:
                 self?.showErrorToast(message: rssError.description)
@@ -98,9 +98,11 @@ final class FeedViewController: UIViewController, FeedStoryboardLodable, ToastCa
                 self?.showErrorToast(message: L10n.networkProblem)
             }
         }).disposed(by: disposeBag)
-        feed.observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] _ in self?.refreshControl.endRefreshing() }).disposed(by: disposeBag)
 
-        feed.elements()
+        // refresh is considered finished when new data arrives or when the request fails
+        Observable.merge(viewModel.feed.map({ _ in Void() }), viewModel.onError.map({ _ in Void() })).subscribe(onNext: { [weak self] in self?.refreshControl.endRefreshing() }).disposed(by: disposeBag)
+
+        viewModel.feed
             .bind(to: tableView.rx.items(cellIdentifier: FeedCell.reuseIdentifier, cellType: FeedCell.self)) { _, element, cell in
                 cell.model = element
             }
