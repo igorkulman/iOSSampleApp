@@ -49,8 +49,7 @@ opt_in_rules:
     - override_in_extension
     - pattern_matching_keywords
     - private_action
-    - private_outlet
-    - prohibited_interface_builder
+    - private_outlet    
     - prohibited_super_call    
     - quick_discouraged_focused_test
     - quick_discouraged_pending_test
