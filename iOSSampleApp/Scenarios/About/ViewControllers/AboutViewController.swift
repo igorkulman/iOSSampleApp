@@ -89,11 +89,7 @@ final class AboutViewController: UITableViewController, AboutStoryboardLodable {
         }).disposed(by: disposeBag)
     }
 
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        if navigationController == nil {
-            delegate?.aboutViewControllerDismissed()
-        }
+    deinit {
+        delegate?.aboutViewControllerDismissed()
     }
 }
