@@ -13,6 +13,7 @@ disabled_rules:
     - force_try
     - file_length
     - function_body_length
+    - nimble_operator
 
 analyzer_rules:
     - unused_import
