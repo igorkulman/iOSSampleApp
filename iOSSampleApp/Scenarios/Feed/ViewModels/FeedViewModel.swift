@@ -6,8 +6,8 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
-import CleanroomLogger
 import Foundation
+import os.log
 import RxSwift
 import UIKit
 
@@ -41,7 +41,7 @@ final class FeedViewModel {
 
     init(dataService: DataService, settingsService: SettingsService) {
         guard let source = settingsService.selectedSource else {
-            Log.error?.message("Source not selected, nothing to show in feed")
+            os_log("Source not selected, nothing to show in feed", log: OSLog.lifeCycle, type: .error)
             fatalError("Source not selected, nothing to show in feed")
         }
 

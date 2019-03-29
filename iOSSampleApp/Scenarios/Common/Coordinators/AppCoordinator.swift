@@ -6,8 +6,8 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
-import CleanroomLogger
 import Foundation
+import os.log
 import Swinject
 import UIKit
 
@@ -49,10 +49,10 @@ final class AppCoordinator: Coordinator {
     */
     func start() {
         if settingsService.selectedSource.isSome {
-            Log.debug?.message("Setup complete, starting dahsboard")
+            os_log("Setup complete, starting dashboard", log: OSLog.lifeCycle, type: .debug)
             showFeed()
         } else {
-            Log.debug?.message("Starting setup")
+            os_log("Starting setup", log: OSLog.lifeCycle, type: .debug)
             showSetup()
         }
     }

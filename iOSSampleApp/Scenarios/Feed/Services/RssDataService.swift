@@ -6,9 +6,9 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
-import CleanroomLogger
 import FeedKit
 import Foundation
+import os.log
 import UIKit
 
 final class RssDataService: DataService {
@@ -21,10 +21,11 @@ final class RssDataService: DataService {
         let parser = FeedParser(URL: feedURL)
 
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        Log.debug?.message("Loading \(feedURL)")
+        os_log("Loading %@", log: OSLog.data, type: .debug, feedURL.absoluteString)
 
         parser.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { result in
             if let error = result.error {
+                os_log("Loading data failed with %@", log: OSLog.data, type: .error, error)
                 onCompletion(.failure(error))
             } else if let rss = result.rssFeed, let items = rss.items {
                 onCompletion(.success(items.map({ RssItem(title: $0.title, description: $0.description, link: $0.link, pubDate: $0.pubDate) })))

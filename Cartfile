@@ -1,7 +1,6 @@
 github "ReactiveX/RxSwift" ~> 4.0
 github "Swinject/Swinject"
 github "Swinject/SwinjectStoryboard"
-github "emaloney/CleanroomLogger" ~> 6.0.0
 github "Swinject/SwinjectAutoregistration"
 github "AliSoftware/Reusable"
 github "kean/RxNuke"
