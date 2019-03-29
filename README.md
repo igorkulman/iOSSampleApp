@@ -61,7 +61,6 @@ This need to be done **just once** for the initial setup.
 - [RxSwiftExt](https://github.com/RxSwiftCommunity/RxSwiftExt) - A collection of Rx operators & tools not found in the core RxSwift distribution 
 - [Swinject](https://github.com/Swinject/Swinject) - Dependency injection framework for Swift
 - [SwinjectStoryboard](https://github.com/Swinject/SwinjectStoryboard) - Swinject extension for automatic dependency injection via Storyboard 
-- [CleanroomLogger](https://github.com/emaloney/CleanroomLogger) - CleanroomLogger provides an extensible Swift-based logging API that is simple, lightweight and performant 
 - [Reusable](https://github.com/AliSoftware/Reusable) - A Swift mixin for reusing views easily and in a type-safe way
 - [Nuke](https://github.com/kean/Nuke) - A powerful image loading and caching system
 - [RxNuke](https://github.com/kean/RxNuke) - RxSwift extensions for Nuke 

@@ -6,8 +6,8 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
-import CleanroomLogger
 import Foundation
+import os.log
 import RxCocoa
 import RxSwift
 
@@ -28,7 +28,7 @@ final class SourceSelectionViewModel {
     init(settingsService: SettingsService) {
         self.settingsService = settingsService
 
-        Log.debug?.message("Loading sources")
+        os_log("Loading bundled sources", log: OSLog.data, type: .debug)
 
         let jsonData = Bundle.main.loadFile(filename: "sources.json")!
 
@@ -79,7 +79,7 @@ final class SourceSelectionViewModel {
 
     func saveSelectedSource() -> Bool {
         guard let selected = allSources.value.first(where: { $0.isSelected.value }) else {
-            Log.error?.message("Cannot save, no source selected")
+            os_log("Cannot save, no source selected", log: OSLog.data, type: .error)
             return false
         }
 
