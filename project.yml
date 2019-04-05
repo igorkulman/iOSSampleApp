@@ -1,0 +1,64 @@
+name: iOSSampleApp
+options: 
+  createIntermediateGroups: true
+  indentWidth: 2 
+  tabWidth: 2 
+  bundleIdPrefix: "sk.kulman"
+  xcodeVersion: 0940
+  groupSortPosition: top
+targets:
+  iOSSampleApp:
+    type: application
+    platform: iOS
+    deploymentTarget: "11.0"
+    sources:
+      - path: iOSSampleApp
+    dependencies:
+      - carthage: RxSwift
+      - carthage: RxCocoa      
+      - carthage: Swinject      
+      - carthage: SwinjectStoryboard            
+      - carthage: SwinjectAutoregistration      
+      - carthage: Reusable      
+      - carthage: RxNuke      
+      - carthage: Nuke      
+      - carthage: FeedKit            
+      - carthage: CRToast      
+      - carthage: RxSwiftExt      
+      - carthage: Defaults            
+    preBuildScripts:
+      - path: Build-Phases/lint
+        name: Swift Lint
+      - path: Build-Phases/generate-strings
+        name: Generate strings
+        inputFiles:
+          - $(SRCROOT)/iOSSampleApp/Resources/Base.lproj/Localizable.strings
+        outputFiles:
+          - $(SRCROOT)/iOSSampleApp/Resources/Strings.swift
+      - path: Build-Phases/check-strings
+        name: Check strings
+        inputFiles:
+          - $(SRCROOT)/iOSSampleApp/Resources/Base.lproj/Localizable.strings
+          - $(SRCROOT)/iOSSampleApp/Resources/sk.lproj/Localizable.strings
+  iOSSampleAppTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "11.0"    
+    sources:
+      - path: iOSSampleAppTests
+    dependencies:
+      - target: iOSSampleApp
+      - carthage: Quick      
+      - carthage: Nimble      
+      - carthage: RxBlocking      
+      - carthage: RxTest      
+  iOSSampleAppUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    deploymentTarget: "11.0"    
+    sources:
+      - path: iOSSampleAppUITests
+      - path: fastlane/SnapshotHelper.swift
+    dependencies:
+      - target: iOSSampleApp
+      - carthage: SimulatorStatusMagiciOS
