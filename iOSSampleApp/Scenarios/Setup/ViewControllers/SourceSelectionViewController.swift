@@ -85,7 +85,7 @@ final class SourceSelectionViewController: UIViewController, SetupStoryboardLoda
         }).disposed(by: disposeBag)
         addCustomButton.rx.tap.subscribe(onNext: { [weak self] in self?.delegate?.userDidRequestCustomSource() }).disposed(by: disposeBag)
 
-        searchController.searchBar.rx.text.throttle(0.1, scheduler: MainScheduler.instance).bind(to: viewModel.filter).disposed(by: disposeBag)
+        searchController.searchBar.rx.text.throttle(RxTimeInterval.milliseconds(100), scheduler: MainScheduler.instance).bind(to: viewModel.filter).disposed(by: disposeBag)
         searchController.searchBar.rx.textDidBeginEditing.subscribe(onNext: { [weak self] in self?.searchController.searchBar.setShowsCancelButton(true, animated: true) }).disposed(by: disposeBag)
         searchController.searchBar.rx.cancelButtonClicked.subscribe(onNext: { [weak self] in
             self?.searchController.searchBar.resignFirstResponder()

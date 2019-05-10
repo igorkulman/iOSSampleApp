@@ -11,3 +11,4 @@ $(SRCROOT)/Carthage/Build/iOS/CRToast.framework
 $(SRCROOT)/Carthage/Build/iOS/RxSwiftExt.framework
 $(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework
 $(SRCROOT)/Carthage/Build/iOS/Defaults.framework
+$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework
