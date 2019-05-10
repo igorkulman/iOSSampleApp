@@ -49,7 +49,7 @@ final class SourceSelectionViewModel {
 
         // selecting again from feed
         if let selected = settingsService.selectedSource {
-            if let index = allSources.value.index(where: { $0.source == selected }) { // pre-selecting the current source
+            if let index = allSources.value.firstIndex(where: { $0.source == selected }) { // pre-selecting the current source
                 allSources.value[index].isSelected.accept(true)
             } else { // using a custom source
                 let vm = RssSourceViewModel(source: selected)

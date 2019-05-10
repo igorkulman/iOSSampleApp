@@ -927,19 +927,19 @@
 				TargetAttributes = {
 					F3208A791F84E48100B57B0E = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						TestTargetID = F3A812B31F83740E00A09AAB;
 					};
 					F35BD6352065111F000AE4E8 = {
 						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						TestTargetID = F3A812B31F83740E00A09AAB;
 					};
 					F3A812B31F83740E00A09AAB = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1251,7 +1251,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sk.kulman.iOSSampleAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSSampleApp.app/iOSSampleApp";
 			};
@@ -1276,7 +1276,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = sk.kulman.iOSSampleAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSSampleApp.app/iOSSampleApp";
 			};
@@ -1300,7 +1300,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = sk.kulman.iOSSampleAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = iOSSampleApp;
 			};
@@ -1324,7 +1324,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = sk.kulman.iOSSampleAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = iOSSampleApp;
 			};
@@ -1461,7 +1461,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = sk.kulman.iOSSampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1484,7 +1484,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = sk.kulman.iOSSampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
