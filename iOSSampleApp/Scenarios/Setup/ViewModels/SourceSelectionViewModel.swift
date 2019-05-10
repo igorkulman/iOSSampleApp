@@ -21,7 +21,7 @@ final class SourceSelectionViewModel {
 
     // MARK: - Fields
 
-    private let allSources = Variable<[RssSourceViewModel]>([])
+    private let allSources = BehaviorRelay<[RssSourceViewModel]>(value: [])
     private let settingsService: SettingsService
     private var disposeBag = DisposeBag()
 
@@ -45,7 +45,7 @@ final class SourceSelectionViewModel {
 
         isValid = sources.asObservable().flatMap { Observable.combineLatest($0.map { $0.isSelected.asObservable() }) }.map({ $0.filter({ $0 }).count == 1 })
 
-        allSources.value.append(contentsOf: all)
+        allSources.accept(all)
 
         // selecting again from feed
         if let selected = settingsService.selectedSource {
@@ -54,7 +54,7 @@ final class SourceSelectionViewModel {
             } else { // using a custom source
                 let vm = RssSourceViewModel(source: selected)
                 vm.isSelected.accept(true)
-                allSources.value.insert(vm, at: 0)
+                allSources.accept(allSources.value.inserting(vm, at: 0))
             }
         }
     }
@@ -73,7 +73,7 @@ final class SourceSelectionViewModel {
 
     func addNewSource(source: RssSource) {
         let vm = RssSourceViewModel(source: source)
-        allSources.value.insert(vm, at: 0)
+        allSources.accept(allSources.value.inserting(vm, at: 0))
         toggleSource(source: vm)
     }
 
