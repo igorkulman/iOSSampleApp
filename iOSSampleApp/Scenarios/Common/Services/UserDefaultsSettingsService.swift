@@ -6,7 +6,6 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
-import Defaults
 import Foundation
 
 /**
@@ -18,17 +17,20 @@ final class UserDefaultsSettingsService: SettingsService {
      */
     var selectedSource: RssSource? {
         get {
-            return defaults[.source]
+            let coder = JSONDecoder()
+            guard let value = UserDefaults.standard.data(forKey: "source"), let source = try? coder.decode(RssSource.self, from: value) else {
+                return nil
+            }
+
+            return source
         }
         set {
-            defaults[.source] = newValue
+            let coder = JSONEncoder()
+            guard let data = try? coder.encode(newValue) else {
+                fatalError("Encoding RssSource should never fail")
+            }
+
+            UserDefaults.standard.set(data, forKey: "source")
         }
     }
-}
-
-/**
-Defining the source key for the Defaults library
- */
-extension Defaults.Keys {
-    static let source = Defaults.OptionalKey<RssSource>("source")
 }

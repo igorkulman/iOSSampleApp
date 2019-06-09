@@ -23,7 +23,6 @@
 		F3651D22203C1B0D0082A73A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3651D21203C1B0D0082A73A /* DataService.swift */; };
 		F3651D26203C1B3A0082A73A /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3651D25203C1B3A0082A73A /* SettingsService.swift */; };
 		F365964F1F9B41880002BAC8 /* RxSwiftExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F365964E1F9B41880002BAC8 /* RxSwiftExt.framework */; };
-		F377810E2085D1FD00146DBE /* Defaults.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F377810D2085D1FD00146DBE /* Defaults.framework */; };
 		F37781152085E14C00146DBE /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37781142085E14C00146DBE /* Optional+Extensions.swift */; };
 		F38AF5781F851D0000C82EC7 /* CRToast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F38AF5771F851D0000C82EC7 /* CRToast.framework */; };
 		F38CD1BD1F8382950050056C /* RssSourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD1BC1F8382950050056C /* RssSourceViewModel.swift */; };
@@ -338,7 +337,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3ABC2BC2285F8790010BAF0 /* RxRelay.framework in Frameworks */,
-				F377810E2085D1FD00146DBE /* Defaults.framework in Frameworks */,
 				F3296F67202B4C150093B94C /* RxBlocking.framework in Frameworks */,
 				F365964F1F9B41880002BAC8 /* RxSwiftExt.framework in Frameworks */,
 				F38AF5781F851D0000C82EC7 /* CRToast.framework in Frameworks */,
