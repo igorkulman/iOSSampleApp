@@ -25,8 +25,13 @@ final class UserDefaultsSettingsService: SettingsService {
             return source
         }
         set {
+            guard let value = newValue else {
+                UserDefaults.standard.removeObject(forKey: "source")
+                return
+            }
+
             let coder = JSONEncoder()
-            guard let data = try? coder.encode(newValue) else {
+            guard let data = try? coder.encode(value) else {
                 fatalError("Encoding RssSource should never fail")
             }
 
