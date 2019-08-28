@@ -19,4 +19,6 @@ jobs:
     - name: Test
       run: fastlane tests
     - name: Test coverage
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       run: fastlane test_coverage
