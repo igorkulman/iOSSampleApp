@@ -1,0 +1,19 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: macOS-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install needed software
+      run: gem install xcpretty && brew install swiftlint
+    - name: Carthage bootstrap
+      run: carthage_bootstrap
+    - name: Test
+      run: fastlane tests
+    - name: Test coverage
+      run: fastlane test_coverage
