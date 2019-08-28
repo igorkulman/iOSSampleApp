@@ -10,7 +10,10 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Install needed software
-      run: gem install xcpretty && brew install swiftlint
+      run: |
+        gem install xcpretty 
+        gem install bundler
+        brew install swiftlint
     - name: Carthage bootstrap
       run: fastlane carthage_bootstrap
     - name: Test
