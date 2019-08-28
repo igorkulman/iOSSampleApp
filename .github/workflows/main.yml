@@ -12,7 +12,7 @@ jobs:
     - name: Install needed software
       run: gem install xcpretty && brew install swiftlint
     - name: Carthage bootstrap
-      run: carthage_bootstrap
+      run: fastlane carthage_bootstrap
     - name: Test
       run: fastlane tests
     - name: Test coverage
