@@ -63,6 +63,7 @@ final class FeedCoordinator: NavigationCoordinator {
         let vc = DetailViewController(item: item)
         vc.delegate = self
         let nc = UINavigationController(rootViewController: vc)
+        nc.modalPresentationStyle = .fullScreen
         navigationController.present(nc, animated: true, completion: nil)
     }
 
