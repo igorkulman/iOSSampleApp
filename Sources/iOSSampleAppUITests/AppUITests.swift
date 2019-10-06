@@ -6,7 +6,6 @@
 //  Copyright © 2018 Igor Kulman. All rights reserved.
 //
 
-import SimulatorStatusMagiciOS
 import XCTest
 
 class AppUITests: XCTestCase {
@@ -26,25 +25,7 @@ class AppUITests: XCTestCase {
         app.launchArguments += ["testMode"]
         app.launch()
 
-        #if DEBUG
-            SDStatusBarManager.sharedInstance().carrierName = ""
-            SDStatusBarManager.sharedInstance().timeString = "9:41"
-            SDStatusBarManager.sharedInstance().bluetoothState = .hidden
-            SDStatusBarManager.sharedInstance().batteryDetailEnabled = true
-            SDStatusBarManager.sharedInstance().networkType = .typeWiFi
-            SDStatusBarManager.sharedInstance().enableOverrides()
-        #endif
-
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-
-        #if DEBUG
-            SDStatusBarManager.sharedInstance().disableOverrides()
-        #endif
     }
 
     func testScreenshots() {
