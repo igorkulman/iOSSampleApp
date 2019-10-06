@@ -1,9 +1,4 @@
-Carthage/Build
-Carthage/Checkouts
-/iOSSampleApp.xcodeproj/project.xcworkspace/xcuserdata
 .DS_Store
-xcshareddata
 /fastlane/report.xml
 /fastlane/test_output
 Sources/Carthage
-iOSSampleApp.xcodeproj/xcuserdata
