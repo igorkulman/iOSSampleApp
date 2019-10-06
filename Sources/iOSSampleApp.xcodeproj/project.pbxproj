@@ -18,8 +18,6 @@
 		F33EB3FE1FBDD81F0050560D /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33EB3FD1FBDD81F0050560D /* UIViewController+Extensions.swift */; };
 		F3520E74206017000011EF40 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3520E73206017000011EF40 /* Strings.swift */; };
 		F35BD6392065111F000AE4E8 /* AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35BD6382065111F000AE4E8 /* AppUITests.swift */; };
-		F35BD6412065113F000AE4E8 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35BD6402065113F000AE4E8 /* SnapshotHelper.swift */; };
-		F35BD6A5206512B7000AE4E8 /* SimulatorStatusMagiciOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F35BD69D206512A5000AE4E8 /* SimulatorStatusMagiciOS.framework */; };
 		F3651D22203C1B0D0082A73A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3651D21203C1B0D0082A73A /* DataService.swift */; };
 		F3651D26203C1B3A0082A73A /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3651D25203C1B3A0082A73A /* SettingsService.swift */; };
 		F365964F1F9B41880002BAC8 /* RxSwiftExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F365964E1F9B41880002BAC8 /* RxSwiftExt.framework */; };
@@ -75,12 +73,6 @@
 		F3A8130F1F837C0800A09AAB /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A8130E1F837C0800A09AAB /* FeedCoordinator.swift */; };
 		F3A813111F837DC900A09AAB /* SourceSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A813101F837DC900A09AAB /* SourceSelectionViewModel.swift */; };
 		F3A813131F837ECF00A09AAB /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A813121F837ECF00A09AAB /* String+Extensions.swift */; };
-		F3A9678321AC38C4005E7F3F /* AnalyzeLeak.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A9677D21AC38C4005E7F3F /* AnalyzeLeak.swift */; };
-		F3A9678421AC38C4005E7F3F /* AnalyzeLeakAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A9677E21AC38C4005E7F3F /* AnalyzeLeakAction.swift */; };
-		F3A9678521AC38C4005E7F3F /* Expectation+Leaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A9677F21AC38C4005E7F3F /* Expectation+Leaks.swift */; };
-		F3A9678621AC38C4005E7F3F /* LeaksAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A9678021AC38C4005E7F3F /* LeaksAnalyzer.swift */; };
-		F3A9678721AC38C4005E7F3F /* LeakTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A9678121AC38C4005E7F3F /* LeakTest.swift */; };
-		F3A9678821AC38C4005E7F3F /* Matchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A9678221AC38C4005E7F3F /* Matchers.swift */; };
 		F3A9678A21AC38D8005E7F3F /* ViewControllerLeakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A9678921AC38D8005E7F3F /* ViewControllerLeakTests.swift */; };
 		F3A9678C21AC3961005E7F3F /* ViewControllerLeakTests+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A9678B21AC3961005E7F3F /* ViewControllerLeakTests+Setup.swift */; };
 		F3AAA6221F860E55009653B7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AAA6211F860E55009653B7 /* DetailViewController.swift */; };
@@ -96,6 +88,8 @@
 		F3D6865C1F9B761E00879154 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6865B1F9B761E00879154 /* TestExtensions.swift */; };
 		F3D9327C21628CDE00EA1E91 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F3D9327E21628CDE00EA1E91 /* Localizable.strings */; };
 		F3D9328521628D2300EA1E91 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F3D9328321628D2300EA1E91 /* Localizable.strings */; };
+		F3EEA696234A3BE800A2FCB5 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EEA695234A3BE800A2FCB5 /* SnapshotHelper.swift */; };
+		F3EEA698234A3E1000A2FCB5 /* SpecLeaks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3EEA697234A3E1000A2FCB5 /* SpecLeaks.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,7 +124,6 @@
 		F35BD6362065111F000AE4E8 /* iOSSampleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSSampleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F35BD6382065111F000AE4E8 /* AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUITests.swift; sourceTree = "<group>"; };
 		F35BD63A2065111F000AE4E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F35BD6402065113F000AE4E8 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		F35BD643206512A5000AE4E8 /* 04E96ACB-9EEA-34B9-9E72-4562831AC5F5.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "04E96ACB-9EEA-34B9-9E72-4562831AC5F5.bcsymbolmap"; sourceTree = "<group>"; };
 		F35BD644206512A5000AE4E8 /* 04EFFB2B-CF9F-3CBA-A4E0-50A69F28A005.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "04EFFB2B-CF9F-3CBA-A4E0-50A69F28A005.bcsymbolmap"; sourceTree = "<group>"; };
 		F35BD645206512A5000AE4E8 /* 0BADCF03-B942-3BA2-A5C7-DBF32F4D69E2.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; path = "0BADCF03-B942-3BA2-A5C7-DBF32F4D69E2.bcsymbolmap"; sourceTree = "<group>"; };
@@ -287,12 +280,6 @@
 		F3A8130E1F837C0800A09AAB /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
 		F3A813101F837DC900A09AAB /* SourceSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceSelectionViewModel.swift; sourceTree = "<group>"; };
 		F3A813121F837ECF00A09AAB /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
-		F3A9677D21AC38C4005E7F3F /* AnalyzeLeak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyzeLeak.swift; sourceTree = "<group>"; };
-		F3A9677E21AC38C4005E7F3F /* AnalyzeLeakAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyzeLeakAction.swift; sourceTree = "<group>"; };
-		F3A9677F21AC38C4005E7F3F /* Expectation+Leaks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Expectation+Leaks.swift"; sourceTree = "<group>"; };
-		F3A9678021AC38C4005E7F3F /* LeaksAnalyzer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaksAnalyzer.swift; sourceTree = "<group>"; };
-		F3A9678121AC38C4005E7F3F /* LeakTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeakTest.swift; sourceTree = "<group>"; };
-		F3A9678221AC38C4005E7F3F /* Matchers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matchers.swift; sourceTree = "<group>"; };
 		F3A9678921AC38D8005E7F3F /* ViewControllerLeakTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerLeakTests.swift; sourceTree = "<group>"; };
 		F3A9678B21AC3961005E7F3F /* ViewControllerLeakTests+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewControllerLeakTests+Setup.swift"; sourceTree = "<group>"; };
 		F3AAA6211F860E55009653B7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -308,6 +295,8 @@
 		F3D6865B1F9B761E00879154 /* TestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExtensions.swift; sourceTree = "<group>"; };
 		F3D9327F21628CE200EA1E91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F3D9328421628D2300EA1E91 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F3EEA695234A3BE800A2FCB5 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = ../../fastlane/SnapshotHelper.swift; sourceTree = "<group>"; };
+		F3EEA697234A3E1000A2FCB5 /* SpecLeaks.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpecLeaks.framework; path = Carthage/Build/iOS/SpecLeaks.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +304,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3EEA698234A3E1000A2FCB5 /* SpecLeaks.framework in Frameworks */,
 				F321C21920A96A9E0055AC2C /* Quick.framework in Frameworks */,
 				F3A070A420651A4000912F62 /* RxTest.framework in Frameworks */,
 				F3A070A320651A0E00912F62 /* Nimble.framework in Frameworks */,
@@ -328,7 +318,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F35BD6A5206512B7000AE4E8 /* SimulatorStatusMagiciOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,7 +348,6 @@
 			isa = PBXGroup;
 			children = (
 				F3C8DB39214EA1A000C1A654 /* Mocks */,
-				F3A9677C21AC38C4005E7F3F /* SpeckLeaks */,
 				F3208A7E1F84E48100B57B0E /* Info.plist */,
 				F3208A881F84E83900B57B0E /* DataServiceTests.swift */,
 				F3C8DB40214EA7F200C1A654 /* FeedViewModelTests.swift */,
@@ -375,7 +363,7 @@
 		F35BD6372065111F000AE4E8 /* iOSSampleAppUITests */ = {
 			isa = PBXGroup;
 			children = (
-				F35BD6402065113F000AE4E8 /* SnapshotHelper.swift */,
+				F3EEA695234A3BE800A2FCB5 /* SnapshotHelper.swift */,
 				F35BD6382065111F000AE4E8 /* AppUITests.swift */,
 				F35BD63A2065111F000AE4E8 /* Info.plist */,
 			);
@@ -782,6 +770,7 @@
 		F3A812E21F8376A900A09AAB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F3EEA697234A3E1000A2FCB5 /* SpecLeaks.framework */,
 				F3ABC2BB2285F8780010BAF0 /* RxRelay.framework */,
 				F321C21A20A972CB0055AC2C /* RxNimble.framework */,
 				F321C21820A96A9E0055AC2C /* Quick.framework */,
@@ -818,19 +807,6 @@
 				F3D9328121628CF000EA1E91 /* en */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		F3A9677C21AC38C4005E7F3F /* SpeckLeaks */ = {
-			isa = PBXGroup;
-			children = (
-				F3A9677D21AC38C4005E7F3F /* AnalyzeLeak.swift */,
-				F3A9677E21AC38C4005E7F3F /* AnalyzeLeakAction.swift */,
-				F3A9677F21AC38C4005E7F3F /* Expectation+Leaks.swift */,
-				F3A9678021AC38C4005E7F3F /* LeaksAnalyzer.swift */,
-				F3A9678121AC38C4005E7F3F /* LeakTest.swift */,
-				F3A9678221AC38C4005E7F3F /* Matchers.swift */,
-			);
-			path = SpeckLeaks;
 			sourceTree = "<group>";
 		};
 		F3C8DB39214EA1A000C1A654 /* Mocks */ = {
@@ -887,7 +863,6 @@
 				F35BD6322065111F000AE4E8 /* Sources */,
 				F35BD6332065111F000AE4E8 /* Frameworks */,
 				F35BD6342065111F000AE4E8 /* Resources */,
-				F3A070A520651A8100912F62 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -1040,26 +1015,6 @@
 			shellPath = /bin/sh;
 			shellScript = "$SRCROOT/Build-Phases/lint";
 		};
-		F3A070A520651A8100912F62 /* Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"$SRCROOT/Build-Phases/Carthage/iOSSampleAppUITests.xcfilelist",
-			);
-			inputPaths = (
-			);
-			name = Carthage;
-			outputFileListPaths = (
-				"$SRCROOT/Build-Phases/Carthage/iOSSampleAppUITests-output.xcfilelist",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
 		F3A812EF1F8376BD00A09AAB /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1119,18 +1074,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3A9678421AC38C4005E7F3F /* AnalyzeLeakAction.swift in Sources */,
 				F3208A921F84EAF400B57B0E /* CustomSourceViewModelTests.swift in Sources */,
-				F3A9678721AC38C4005E7F3F /* LeakTest.swift in Sources */,
 				F3C8DB3B214EA1B700C1A654 /* DataServiceMock.swift in Sources */,
-				F3A9678521AC38C4005E7F3F /* Expectation+Leaks.swift in Sources */,
-				F3A9678821AC38C4005E7F3F /* Matchers.swift in Sources */,
 				F3C8DB41214EA7F200C1A654 /* FeedViewModelTests.swift in Sources */,
 				F3D6865C1F9B761E00879154 /* TestExtensions.swift in Sources */,
 				F3C8DB3D214EA1E700C1A654 /* SettingsServiceMock.swift in Sources */,
-				F3A9678321AC38C4005E7F3F /* AnalyzeLeak.swift in Sources */,
 				F3A9678C21AC3961005E7F3F /* ViewControllerLeakTests+Setup.swift in Sources */,
-				F3A9678621AC38C4005E7F3F /* LeaksAnalyzer.swift in Sources */,
 				F3C8DB3F214EA3AA00C1A654 /* SourceSelectionViewModelTests.swift in Sources */,
 				F3208A891F84E83900B57B0E /* DataServiceTests.swift in Sources */,
 				F3A9678A21AC38D8005E7F3F /* ViewControllerLeakTests.swift in Sources */,
@@ -1142,7 +1091,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F35BD6392065111F000AE4E8 /* AppUITests.swift in Sources */,
-				F35BD6412065113F000AE4E8 /* SnapshotHelper.swift in Sources */,
+				F3EEA696234A3BE800A2FCB5 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

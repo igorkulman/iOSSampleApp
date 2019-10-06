@@ -66,7 +66,6 @@ This need to be done **just once** for the initial setup.
 - [RxNuke](https://github.com/kean/RxNuke) - RxSwift extensions for Nuke 
 - [FeedKit](https://github.com/nmdias/FeedKit) - An RSS, Atom and JSON Feed parser written in Swift 
 - [CRToast](https://github.com/cruffenach/CRToast) - A modern iOS toast view that can fit your notification needs 
-- [SimulatorStatusMagic](shinydevelopment/SimulatorStatusMagic) - Clean up your status bar for taking screenshots on the iOS simulator
 - [SpecLeaks](leandromperez/specleaks) - Unit Tests Memory Leaks in Swift. Write readable tests for mem leaks easily with these Quick and Nimble extensions
 - [Quick](https://github.com/Quick/Quick) - The Swift (and Objective-C) testing framework
 - [Nimble](https://github.com/Quick/Nimble) - A Matcher Framework for Swift and Objective-C 
