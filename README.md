@@ -35,7 +35,7 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 
 ### Prerequisites
 
-* XCode 10+
+* XCode 11.1+
 * [Carthage](https://github.com/Carthage/Carthage)
 * [SwiftGen](https://github.com/SwiftGen/SwiftGen)
 * [SwifLint](https://github.com/realm/SwiftLint) (optional)
@@ -46,12 +46,12 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 To get started with the project run
 
 ```bash
-sh ./bootstrap.sh` 
+sh support/bootstrap.sh` 
 ```
 
 to install Carthage, SwifLint, SwiftGen, Fastlane and build all the Carthage dependencies. 
 
-If you already have Carthage installed and do not want or need the other tools, just run `carthage bootstrap --platform iOS` to build all the Carthage dependencies. 
+If you already have Carthage installed and do not want or need the other tools, just run `carthage bootstrap --platform iOS` in the `Sources` directory to build all the Carthage dependencies. 
 
 This need to be done **just once** for the initial setup.
 

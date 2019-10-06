@@ -29,7 +29,7 @@ extension Reactive where Base: NotificationCenter {
         })
         let hideSource = NotificationCenter.default.rx.notification(UIResponder.keyboardWillHideNotification).map({ _ in CGFloat(0) })
 
-        let source = Observable.of(showSource, hideSource).merge()
+        let source = Observable.merge(showSource, hideSource)
         return ControlEvent(events: source)
     }
 

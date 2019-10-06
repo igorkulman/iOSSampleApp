@@ -72,6 +72,7 @@ final class AboutCoordinator: NavigationCoordinator {
      */
     private func showUrl(url: String) {
         let svc = SFSafariViewController(url: URL(string: url)!)
+        svc.modalPresentationStyle = .fullScreen
         navigationController.present(svc, animated: true, completion: nil)
     }
 }

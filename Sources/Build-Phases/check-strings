@@ -1,0 +1,1 @@
+${PROJECT_DIR}/../support/verify-string-files -master ${SRCROOT}/iOSSampleApp/Resources/Base.lproj/Localizable.strings

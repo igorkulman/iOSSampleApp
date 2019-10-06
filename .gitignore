@@ -5,3 +5,5 @@ Carthage/Checkouts
 xcshareddata
 /fastlane/report.xml
 /fastlane/test_output
+Sources/Carthage
+iOSSampleApp.xcodeproj/xcuserdata
