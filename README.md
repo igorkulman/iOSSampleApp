@@ -30,6 +30,7 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 * Image literals
 * Automated AppStore screenshots taking in multiple languages
 * Adding custom reactive properties
+* Basic Dark mode support
 
 ## Getting started
 
