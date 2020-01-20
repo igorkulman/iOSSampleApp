@@ -1,0 +1,36 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: macOS-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Install needed software
+      run: |
+        gem install xcpretty 
+        gem install bundler:1.16.3
+        brew install swiftlint
+
+    - name: Cache
+      uses: actions/cache@v1
+      with:
+        path: Sources/Carthage
+        key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}
+        restore-keys: |
+          ${{ runner.os }}-carthage-
+
+    - name: Carthage bootstrap
+      run: fastlane carthage_bootstrap
+
+    - name: Run unit and UI tests
+      run: fastlane tests
+
+    - name: Report test coverage
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      run: fastlane test_coverage
