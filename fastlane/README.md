@@ -25,6 +25,11 @@ Run all unit tests
 fastlane carthage_bootstrap
 ```
 Bootstrap Carthage depedencies
+### test_coverage
+```
+fastlane test_coverage
+```
+Uploads test coverage
 
 ----
 

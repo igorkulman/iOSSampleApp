@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "0940"
+   version = "1.7">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F3A812B31F83740E00A09AAB"
+               BuildableName = "iOSSampleApp.app"
+               BlueprintName = "iOSSampleApp"
+               ReferencedContainer = "container:iOSSampleApp.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
+      <PreActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;function version {&#10;    echo &quot;$@&quot; | awk -F. &apos;{ printf(&quot;%d%03d%03d%03d\n&quot;, $1,$2,$3,$4); }&apos;;&#10;}&#10;&#10;# Don&#x2019;t run on iOS devices.&#10;if [[ &quot;${SDKROOT}&quot; != *&quot;simulator&quot;* ]]; then&#10;    exit 0&#10;fi&#10;&#10;# Don&#x2019;t run on iOS versions before 13.&#10;if [ $(version &quot;${TARGET_DEVICE_OS_VERSION}&quot;) -ge $(version &quot;13&quot;) ]; then&#10;    xcrun simctl boot &quot;${TARGET_DEVICE_IDENTIFIER}&quot;&#10;&#10;    xcrun simctl status_bar &quot;${TARGET_DEVICE_IDENTIFIER}&quot; override \&#10;        --time &quot;9:41&quot; \&#10;        --dataNetwork wifi \&#10;        --wifiMode active \&#10;        --wifiBars 3 \&#10;        --cellularMode notSupported \&#10;        --batteryState discharging \&#10;        --batteryLevel 100&#10;fi&#10;">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "F35BD6352065111F000AE4E8"
+                     BuildableName = "iOSSampleAppUITests.xctest"
+                     BlueprintName = "iOSSampleAppUITests"
+                     ReferencedContainer = "container:iOSSampleApp.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PreActions>
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;# Type a script or drag a script file from your workspace to insert its path.&#10;function version {&#10;    echo &quot;$@&quot; | awk -F. &apos;{ printf(&quot;%d%03d%03d%03d\n&quot;, $1,$2,$3,$4); }&apos;;&#10;}&#10;&#10;# Don&#x2019;t run on iOS devices.&#10;if [[ &quot;${SDKROOT}&quot; != *&quot;simulator&quot;* ]]; then&#10;    exit 0&#10;fi&#10;&#10;# Don&#x2019;t run on iOS versions before 13.&#10;if [ $(version &quot;${TARGET_DEVICE_OS_VERSION}&quot;) -ge $(version &quot;13&quot;) ]; then&#10;    xcrun simctl boot &quot;${TARGET_DEVICE_IDENTIFIER}&quot;&#10;    xcrun simctl status_bar &quot;${TARGET_DEVICE_IDENTIFIER}&quot; clear&#10;fi&#10;">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "F35BD6352065111F000AE4E8"
+                     BuildableName = "iOSSampleAppUITests.xctest"
+                     BlueprintName = "iOSSampleAppUITests"
+                     ReferencedContainer = "container:iOSSampleApp.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "F3A812B31F83740E00A09AAB"
+            BuildableName = "iOSSampleApp.app"
+            BlueprintName = "iOSSampleApp"
+            ReferencedContainer = "container:iOSSampleApp.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+      <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F3208A791F84E48100B57B0E"
+               BuildableName = "iOSSampleAppTests.xctest"
+               BlueprintName = "iOSSampleAppTests"
+               ReferencedContainer = "container:iOSSampleApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F35BD6352065111F000AE4E8"
+               BuildableName = "iOSSampleAppUITests.xctest"
+               BlueprintName = "iOSSampleAppUITests"
+               ReferencedContainer = "container:iOSSampleApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
+   </TestAction>
+   <LaunchAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
+      allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "F3A812B31F83740E00A09AAB"
+            BuildableName = "iOSSampleApp.app"
+            BlueprintName = "iOSSampleApp"
+            ReferencedContainer = "container:iOSSampleApp.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </LaunchAction>
+   <ProfileAction
+      buildConfiguration = "Release"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "F3A812B31F83740E00A09AAB"
+            BuildableName = "iOSSampleApp.app"
+            BlueprintName = "iOSSampleApp"
+            ReferencedContainer = "container:iOSSampleApp.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>

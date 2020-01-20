@@ -29,12 +29,13 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 * Image literals
 * Automated AppStore screenshots taking in multiple languages
 * Adding custom reactive properties
+* Basic Dark mode support
 
 ## Getting started
 
 ### Prerequisites
 
-* XCode 10+
+* XCode 11.1+
 * [Carthage](https://github.com/Carthage/Carthage)
 * [SwiftGen](https://github.com/SwiftGen/SwiftGen)
 * [SwifLint](https://github.com/realm/SwiftLint) (optional)
@@ -45,12 +46,12 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 To get started with the project run
 
 ```bash
-sh ./bootstrap.sh` 
+sh support/bootstrap.sh` 
 ```
 
 to install Carthage, SwifLint, SwiftGen, Fastlane and build all the Carthage dependencies. 
 
-If you already have Carthage installed and do not want or need the other tools, just run `carthage bootstrap --platform iOS` to build all the Carthage dependencies. 
+If you already have Carthage installed and do not want or need the other tools, just run `carthage bootstrap --platform iOS` in the `Sources` directory to build all the Carthage dependencies. 
 
 This need to be done **just once** for the initial setup.
 
@@ -65,7 +66,6 @@ This need to be done **just once** for the initial setup.
 - [RxNuke](https://github.com/kean/RxNuke) - RxSwift extensions for Nuke 
 - [FeedKit](https://github.com/nmdias/FeedKit) - An RSS, Atom and JSON Feed parser written in Swift 
 - [CRToast](https://github.com/cruffenach/CRToast) - A modern iOS toast view that can fit your notification needs 
-- [SimulatorStatusMagic](shinydevelopment/SimulatorStatusMagic) - Clean up your status bar for taking screenshots on the iOS simulator
 - [SpecLeaks](leandromperez/specleaks) - Unit Tests Memory Leaks in Swift. Write readable tests for mem leaks easily with these Quick and Nimble extensions
 - [Quick](https://github.com/Quick/Quick) - The Swift (and Objective-C) testing framework
 - [Nimble](https://github.com/Quick/Nimble) - A Matcher Framework for Swift and Objective-C 
