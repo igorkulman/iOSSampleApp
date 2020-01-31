@@ -42,14 +42,14 @@ final class FeedCoordinator: NavigationCoordinator {
      Starts the feed flow showing the list of articles from the currently selected RSS source
      */
     func start() {
-        let isTransitionFromSetup = !navigationController.viewControllers.isEmpty
+        let isNavigationStackEmpty = navigationController.viewControllers.isEmpty
         let vc = container.resolveViewController(FeedViewController.self)
         vc.delegate = self
         vc.navigationItem.hidesBackButton = true
         navigationController.pushViewController(vc, animated: true)
 
-        // removing previus VC when coming from setup
-        if isTransitionFromSetup {
+        // FeedViewController should be always the top most VC
+        if !isNavigationStackEmpty {
             navigationController.viewControllers.remove(at: 0)
         }
     }
