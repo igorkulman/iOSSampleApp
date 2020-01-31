@@ -85,6 +85,7 @@ extension AppCoordinator: SetupCoordinatorDelegate {
      Invoked when the setup flow finishes, setting a RSS source
      */
     func setupCoordinatorDidFinish() {
+        childCoordinators[.setup] = nil
         showFeed()
     }
 }
@@ -94,6 +95,7 @@ extension AppCoordinator: FeedCoordinatorDelegate {
      Invoked when the feed flow is no longer needed
      */
     func feedCoordinatorDidFinish() {
+        childCoordinators[.feed] = nil
         showSetup()
     }
 }
