@@ -27,7 +27,7 @@ jobs:
     - name: Carthage bootstrap
       run: fastlane carthage_bootstrap
 
-    - name: Run unit and UI tests
+    - name: Run unit tests
       run: fastlane tests
 
     - name: Report test coverage

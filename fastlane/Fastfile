@@ -8,6 +8,7 @@
 
 # Uncomment the line if you want fastlane to automatically update itself
 #update_fastlane
+opt_out_usage
 
 default_platform(:ios)
 
@@ -21,8 +22,9 @@ end
 
 desc "Run all unit tests"
 lane :tests do
-  run_tests(devices: ["iPhone 6s"],
+  run_tests(devices: ["iPhone 8"],
             project: "Sources/iOSSampleApp.xcodeproj",
+            skip_testing: "iOSSampleAppUITests",
             scheme: "iOSSampleApp")
 end
 
