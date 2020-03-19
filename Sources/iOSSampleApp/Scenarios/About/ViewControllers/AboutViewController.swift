@@ -74,7 +74,7 @@ final class AboutViewController: UITableViewController, AboutStoryboardLodable {
     }
 
     private func setupBinding() {
-        tableView.rx.itemSelected.subscribe(onNext: { [unowned self] indexPath in
+        tableView.rx.itemSelected.bind { [unowned self] indexPath in
 
             // instead of using the row umber directly converting them to an enum to use them in a safer way
             guard let menuItem = AboutMenuItem(rawValue: indexPath.row) else { fatalError("Invalid indexPath") }
@@ -86,7 +86,7 @@ final class AboutViewController: UITableViewController, AboutStoryboardLodable {
             case .authorsBlog:
                 self.delegate?.userDidRequestAuthorsBlog()
             }
-        }).disposed(by: disposeBag)
+        }.disposed(by: disposeBag)
     }
 
     deinit {

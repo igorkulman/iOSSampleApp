@@ -32,9 +32,9 @@ final class RssSourceCell: UITableViewCell, NibReusable {
 
             titleLabel.text = vm.source.title
             urlLabel.text = vm.source.url
-            vm.isSelected.asObservable().subscribe(onNext: { [weak self] selected in
+            vm.isSelected.asObservable().bind { [weak self] selected in
                 self?.accessoryType = selected ? .checkmark : .none
-            }).disposed(by: disposeBag)
+            }.disposed(by: disposeBag)
             logoImage.image = nil
             if let icon = vm.source.icon, let iconUrl = URL(string: icon) {
                 ImagePipeline.shared.rx.loadImage(with: iconUrl)

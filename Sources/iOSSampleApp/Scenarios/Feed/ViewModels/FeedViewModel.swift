@@ -76,8 +76,8 @@ final class FeedViewModel {
         title = source.title
 
         // refreshing the feed on app activation
-        NotificationCenter.default.rx.applicationWillEnterForeground().subscribe(onNext: { [weak self] in
+        NotificationCenter.default.rx.applicationWillEnterForeground().bind { [weak self] in
             self?.load.onNext(())
-        }).disposed(by: disposeBag)
+        }.disposed(by: disposeBag)
     }
 }

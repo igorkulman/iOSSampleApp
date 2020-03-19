@@ -74,25 +74,25 @@ final class SourceSelectionViewController: UIViewController, SetupStoryboardLoda
     }
 
     private func setupBinding() {
-        tableView.rx.modelSelected(RssSourceViewModel.self).subscribe(onNext: { [weak self] source in self?.viewModel.toggleSource(source: source) }).disposed(by: disposeBag)
-        tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in self?.tableView.deselectRow(at: indexPath, animated: true) }).disposed(by: disposeBag)
+        tableView.rx.modelSelected(RssSourceViewModel.self).bind { [weak self] source in self?.viewModel.toggleSource(source: source) }.disposed(by: disposeBag)
+        tableView.rx.itemSelected.bind { [weak self] indexPath in self?.tableView.deselectRow(at: indexPath, animated: true) }.disposed(by: disposeBag)
         viewModel.isValid.bind(to: doneButton.rx.isEnabled).disposed(by: disposeBag)
-        doneButton.rx.tap.subscribe(onNext: { [weak self] in
+        doneButton.rx.tap.bind { [weak self] in
             if self?.viewModel.saveSelectedSource() == true {
                 self?.delegate?.sourceSelectionViewControllerDidFinish()
             }
 
-        }).disposed(by: disposeBag)
-        addCustomButton.rx.tap.subscribe(onNext: { [weak self] in self?.delegate?.userDidRequestCustomSource() }).disposed(by: disposeBag)
+        }.disposed(by: disposeBag)
+        addCustomButton.rx.tap.bind { [weak self] in self?.delegate?.userDidRequestCustomSource() }.disposed(by: disposeBag)
 
         searchController.searchBar.rx.text.throttle(RxTimeInterval.milliseconds(100), scheduler: MainScheduler.instance).bind(to: viewModel.filter).disposed(by: disposeBag)
-        searchController.searchBar.rx.textDidBeginEditing.subscribe(onNext: { [weak self] in self?.searchController.searchBar.setShowsCancelButton(true, animated: true) }).disposed(by: disposeBag)
-        searchController.searchBar.rx.cancelButtonClicked.subscribe(onNext: { [weak self] in
+        searchController.searchBar.rx.textDidBeginEditing.bind { [weak self] in self?.searchController.searchBar.setShowsCancelButton(true, animated: true) }.disposed(by: disposeBag)
+        searchController.searchBar.rx.cancelButtonClicked.bind { [weak self] in
             self?.searchController.searchBar.resignFirstResponder()
             self?.searchController.searchBar.setShowsCancelButton(false, animated: true)
             self?.viewModel.filter.accept(nil)
             self?.searchController.searchBar.text = nil
-        }).disposed(by: disposeBag)
+        }.disposed(by: disposeBag)
     }
 
     private func setupData() {

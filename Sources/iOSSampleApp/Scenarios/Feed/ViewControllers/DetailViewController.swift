@@ -102,19 +102,19 @@ final class DetailViewController: UIViewController, FeedStoryboardLodable {
     }
 
     private func setupBinding() {
-        backBarButtonItem.rx.tap.subscribe(onNext: { [weak self] in
+        backBarButtonItem.rx.tap.bind { [weak self] in
             self?.webView?.goBack()
-        }).disposed(by: disposeBag)
+        }.disposed(by: disposeBag)
 
-        forwardBarButtonItem.rx.tap.subscribe(onNext: { [weak self] in
+        forwardBarButtonItem.rx.tap.bind { [weak self] in
             self?.webView?.goForward()
-        }).disposed(by: disposeBag)
+        }.disposed(by: disposeBag)
 
-        doneBarButtonItem.rx.tap.subscribe(onNext: { [weak self] in
+        doneBarButtonItem.rx.tap.bind { [weak self] in
             self?.delegate?.detailViewControllerDidFinish()
-        }).disposed(by: disposeBag)
+        }.disposed(by: disposeBag)
 
-        reloadBarButtonItem.rx.tap.subscribe(onNext: { [weak self] in
+        reloadBarButtonItem.rx.tap.bind { [weak self] in
             guard let self = self else {
                 return
             }
@@ -127,7 +127,7 @@ final class DetailViewController: UIViewController, FeedStoryboardLodable {
                     self.load(url)
                 }
             }
-        }).disposed(by: disposeBag)
+        }.disposed(by: disposeBag)
 
         guard let webView = webView else {
             return
@@ -137,7 +137,7 @@ final class DetailViewController: UIViewController, FeedStoryboardLodable {
         webView.rx.canGoForward.bind(to: forwardBarButtonItem.rx.isEnabled).disposed(by: disposeBag)
 
         webView.rx.title.bind(to: navigationItem.rx.title).disposed(by: disposeBag)
-        webView.rx.estimatedProgress.subscribe(onNext: { [weak self] estimatedProgress in
+        webView.rx.estimatedProgress.bind { [weak self] estimatedProgress in
             self?.progressView.alpha = 1
             self?.progressView.setProgress(Float(estimatedProgress), animated: true)
 
@@ -148,7 +148,7 @@ final class DetailViewController: UIViewController, FeedStoryboardLodable {
                         self?.progressView.setProgress(0, animated: false)
                 })
             }
-        }).disposed(by: disposeBag)
+        }.disposed(by: disposeBag)
 
         webView.rx.loading.map { [backBarButtonItem, flexibleSpaceBarButtonItem, forwardBarButtonItem, reloadBarButtonItem, stopBarButtonItem] (isLoading: Bool) -> [UIBarButtonItem] in
             if isLoading {
