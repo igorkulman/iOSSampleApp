@@ -79,6 +79,7 @@
 		F3AAA6261F86113A009653B7 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AAA6251F86113A009653B7 /* UINavigationController+Extensions.swift */; };
 		F3ABC2BA2285F6D00010BAF0 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ABC2B92285F6D00010BAF0 /* Array+Extensions.swift */; };
 		F3ABC2BC2285F8790010BAF0 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3ABC2BB2285F8780010BAF0 /* RxRelay.framework */; };
+		F3C7CFDD2423AF4C003A961E /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C7CFDC2423AF4C003A961E /* URL+Extensions.swift */; };
 		F3C8DB3B214EA1B700C1A654 /* DataServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB3A214EA1B700C1A654 /* DataServiceMock.swift */; };
 		F3C8DB3D214EA1E700C1A654 /* SettingsServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB3C214EA1E700C1A654 /* SettingsServiceMock.swift */; };
 		F3C8DB3F214EA3AA00C1A654 /* SourceSelectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB3E214EA3AA00C1A654 /* SourceSelectionViewModelTests.swift */; };
@@ -286,6 +287,7 @@
 		F3AAA6251F86113A009653B7 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
 		F3ABC2B92285F6D00010BAF0 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		F3ABC2BB2285F8780010BAF0 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
+		F3C7CFDC2423AF4C003A961E /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		F3C8DB3A214EA1B700C1A654 /* DataServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceMock.swift; sourceTree = "<group>"; };
 		F3C8DB3C214EA1E700C1A654 /* SettingsServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsServiceMock.swift; sourceTree = "<group>"; };
 		F3C8DB3E214EA3AA00C1A654 /* SourceSelectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceSelectionViewModelTests.swift; sourceTree = "<group>"; };
@@ -763,6 +765,7 @@
 				F3AAA6251F86113A009653B7 /* UINavigationController+Extensions.swift */,
 				F38CD2361F83AEC70050056C /* UIScrollView+Extensions.swift */,
 				F33EB3FD1FBDD81F0050560D /* UIViewController+Extensions.swift */,
+				F3C7CFDC2423AF4C003A961E /* URL+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1100,6 +1103,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F32925F4224E20BC00A1ECD4 /* OSLog+Extensions.swift in Sources */,
+				F3C7CFDD2423AF4C003A961E /* URL+Extensions.swift in Sources */,
 				F38CD1BD1F8382950050056C /* RssSourceViewModel.swift in Sources */,
 				F3A813021F837A8200A09AAB /* SourceSelectionViewController.swift in Sources */,
 				F38CD1C01F8384490050056C /* Bundle+Extensions.swift in Sources */,
