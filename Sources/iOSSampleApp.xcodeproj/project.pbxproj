@@ -287,6 +287,13 @@
 		F3AAA6251F86113A009653B7 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
 		F3ABC2B92285F6D00010BAF0 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		F3ABC2BB2285F8780010BAF0 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
+		F3C2E59D24387A4E002A1449 /* generate-strings.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "generate-strings.sh"; sourceTree = "<group>"; };
+		F3C2E59E24387A4E002A1449 /* lint.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = lint.sh; sourceTree = "<group>"; };
+		F3C2E59F24387A4E002A1449 /* check-strings.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "check-strings.sh"; sourceTree = "<group>"; };
+		F3C2E5A124387A4E002A1449 /* iOSSampleApp-output.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = "iOSSampleApp-output.xcfilelist"; sourceTree = "<group>"; };
+		F3C2E5A224387A4E002A1449 /* iOSSampleAppTests-output.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = "iOSSampleAppTests-output.xcfilelist"; sourceTree = "<group>"; };
+		F3C2E5A324387A4E002A1449 /* iOSSampleApp.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = iOSSampleApp.xcfilelist; sourceTree = "<group>"; };
+		F3C2E5A424387A4E002A1449 /* iOSSampleAppTests.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = iOSSampleAppTests.xcfilelist; sourceTree = "<group>"; };
 		F3C7CFDC2423AF4C003A961E /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		F3C8DB3A214EA1B700C1A654 /* DataServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceMock.swift; sourceTree = "<group>"; };
 		F3C8DB3C214EA1E700C1A654 /* SettingsServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsServiceMock.swift; sourceTree = "<group>"; };
@@ -699,6 +706,7 @@
 		F3A812AB1F83740E00A09AAB = {
 			isa = PBXGroup;
 			children = (
+				F3C2E59C24387A4E002A1449 /* Build-Phases */,
 				F3A812B61F83740E00A09AAB /* iOSSampleApp */,
 				F3208A7B1F84E48100B57B0E /* iOSSampleAppTests */,
 				F35BD6372065111F000AE4E8 /* iOSSampleAppUITests */,
@@ -810,6 +818,28 @@
 				F3D9328121628CF000EA1E91 /* en */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		F3C2E59C24387A4E002A1449 /* Build-Phases */ = {
+			isa = PBXGroup;
+			children = (
+				F3C2E5A024387A4E002A1449 /* Carthage */,
+				F3C2E59D24387A4E002A1449 /* generate-strings.sh */,
+				F3C2E59F24387A4E002A1449 /* check-strings.sh */,
+				F3C2E59E24387A4E002A1449 /* lint.sh */,
+			);
+			path = "Build-Phases";
+			sourceTree = "<group>";
+		};
+		F3C2E5A024387A4E002A1449 /* Carthage */ = {
+			isa = PBXGroup;
+			children = (
+				F3C2E5A124387A4E002A1449 /* iOSSampleApp-output.xcfilelist */,
+				F3C2E5A224387A4E002A1449 /* iOSSampleAppTests-output.xcfilelist */,
+				F3C2E5A324387A4E002A1449 /* iOSSampleApp.xcfilelist */,
+				F3C2E5A424387A4E002A1449 /* iOSSampleAppTests.xcfilelist */,
+			);
+			path = Carthage;
 			sourceTree = "<group>";
 		};
 		F3C8DB39214EA1A000C1A654 /* Mocks */ = {
@@ -1016,7 +1046,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/Build-Phases/lint";
+			shellScript = "$SRCROOT/Build-Phases/lint.sh\n";
 		};
 		F3A812EF1F8376BD00A09AAB /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1052,7 +1082,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/Build-Phases/generate-strings\n";
+			shellScript = "$SRCROOT/Build-Phases/generate-strings.sh\n";
 		};
 		F3FEEBB621628FEA00D1CF9E /* Check strings */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1068,7 +1098,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/Build-Phases/check-strings";
+			shellScript = "$SRCROOT/Build-Phases/check-strings.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
