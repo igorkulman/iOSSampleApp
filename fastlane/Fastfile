@@ -31,9 +31,10 @@ end
 desc "Bootstrap Carthage depedencies"
 lane :carthage_bootstrap do
 	carthage(command: "bootstrap",
-       platform: "iOS",
-       project_directory: "Sources",
-			 cache_builds: true)
+          platform: "iOS",
+          project_directory: "Sources",
+          use_binaries: false,
+          cache_builds: true)
 end
 
 desc "Uploads test coverage"
