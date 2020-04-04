@@ -35,13 +35,13 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 
 ### Prerequisites
 
-* XCode 11.1+
+* XCode 11.4
 * [Carthage](https://github.com/Carthage/Carthage)
 * [SwiftGen](https://github.com/SwiftGen/SwiftGen)
 * [SwifLint](https://github.com/realm/SwiftLint) (optional)
 * [Fastlane](https://fastlane.tools/) (optional)
 
-### Bootstraping the project
+### Bootstrapping the project
 
 To get started with the project run
 
@@ -51,7 +51,7 @@ sh support/bootstrap.sh`
 
 to install Carthage, SwifLint, SwiftGen, Fastlane and build all the Carthage dependencies. 
 
-If you already have Carthage installed and do not want or need the other tools, just run `carthage bootstrap --platform iOS` in the `Sources` directory to build all the Carthage dependencies. 
+If you already have Carthage installed and do not want or need the other tools, just run `carthage bootstrap --platform iOS --no-use-binaries --cache-builds` in the `Sources` directory to build all the Carthage dependencies. 
 
 This need to be done **just once** for the initial setup.
 
@@ -60,7 +60,6 @@ This need to be done **just once** for the initial setup.
 - [RxSwift](https://github.com/ReactiveX/RxSwift) - Reactive Programming in Swift 
 - [RxSwiftExt](https://github.com/RxSwiftCommunity/RxSwiftExt) - A collection of Rx operators & tools not found in the core RxSwift distribution 
 - [Swinject](https://github.com/Swinject/Swinject) - Dependency injection framework for Swift
-- [SwinjectStoryboard](https://github.com/Swinject/SwinjectStoryboard) - Swinject extension for automatic dependency injection via Storyboard 
 - [Reusable](https://github.com/AliSoftware/Reusable) - A Swift mixin for reusing views easily and in a type-safe way
 - [Nuke](https://github.com/kean/Nuke) - A powerful image loading and caching system
 - [RxNuke](https://github.com/kean/RxNuke) - RxSwift extensions for Nuke 
