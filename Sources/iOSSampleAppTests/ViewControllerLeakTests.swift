@@ -10,7 +10,6 @@ import Foundation
 @testable import iOSSampleApp
 import Nimble
 import Quick
-import SpecLeaks
 import Swinject
 import XCTest
 
@@ -21,7 +20,7 @@ class ViewControllerLeakTests: QuickSpec {
         describe("AboutViewController") {
             describe("viewDidLoad") {
                 let vc = LeakTest {
-                    return container.resolveViewController(AboutViewController.self)
+                    return container.resolve(AboutViewController.self)!
                 }
                 it("must not leak") {
                     expect(vc).toNot(leak())
@@ -32,7 +31,7 @@ class ViewControllerLeakTests: QuickSpec {
         describe("LibrariesViewController") {
             describe("viewDidLoad") {
                 let vc = LeakTest {
-                    return container.resolveViewController(LibrariesViewController.self)
+                    return container.resolve(LibrariesViewController.self)!
                 }
                 it("must not leak") {
                     expect(vc).toNot(leak())
@@ -47,7 +46,7 @@ class ViewControllerLeakTests: QuickSpec {
                     settings.selectedSource = RssSource(title: "Test", url: "https://blog.kulman.sk", rss: "https://blog.kulman.sk/index.xml", icon: nil)
                     let dataService = container.resolve(DataService.self)! as! DataServiceMock
                     dataService.result = .success([])
-                    return container.resolveViewController(FeedViewController.self)
+                    return container.resolve(FeedViewController.self)!
                 }
                 it("must not leak") {
                     expect(vc).toNot(leak())
@@ -69,7 +68,7 @@ class ViewControllerLeakTests: QuickSpec {
         describe("CustomSourceViewController") {
             describe("viewDidLoad") {
                 let vc = LeakTest {
-                    return container.resolveViewController(CustomSourceViewController.self)
+                    return container.resolve(CustomSourceViewController.self)!
                 }
                 it("must not leak") {
                     expect(vc).toNot(leak())
@@ -80,7 +79,7 @@ class ViewControllerLeakTests: QuickSpec {
         describe("SourceSelectionViewController") {
             describe("viewDidLoad") {
                 let vc = LeakTest {
-                    return container.resolveViewController(SourceSelectionViewController.self)
+                    return container.resolve(SourceSelectionViewController.self)!
                 }
                 it("must not leak") {
                     expect(vc).toNot(leak())

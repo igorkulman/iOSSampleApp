@@ -29,19 +29,19 @@ extension ViewControllerLeakTests {
         container.autoregister(AboutViewModel.self, initializer: AboutViewModel.init)
 
         // view controllers
-        container.storyboardInitCompleted(SourceSelectionViewController.self) { r, c in
+        container.registerViewController(SourceSelectionViewController.self) { r, c in
             c.viewModel = r.resolve(SourceSelectionViewModel.self)
         }
-        container.storyboardInitCompleted(CustomSourceViewController.self) { r, c in
+        container.registerViewController(CustomSourceViewController.self) { r, c in
             c.viewModel = r.resolve(CustomSourceViewModel.self)
         }
-        container.storyboardInitCompleted(FeedViewController.self) { r, c in
+        container.registerViewController(FeedViewController.self) { r, c in
             c.viewModel = r.resolve(FeedViewModel.self)
         }
-        container.storyboardInitCompleted(LibrariesViewController.self) { r, c in
+        container.registerViewController(LibrariesViewController.self) { r, c in
             c.viewModel = r.resolve(LibrariesViewModel.self)
         }
-        container.storyboardInitCompleted(AboutViewController.self) { r, c
+        container.registerViewController(AboutViewController.self) { r, c
             in c.viewModel = r.resolve(AboutViewModel.self)
         }
 
