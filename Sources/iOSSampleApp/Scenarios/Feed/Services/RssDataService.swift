@@ -20,20 +20,20 @@ final class RssDataService: DataService {
 
         let parser = FeedParser(URL: feedURL)
 
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         os_log("Loading %@", log: OSLog.data, type: .debug, feedURL.absoluteString)
 
         parser.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { result in
-            if let error = result.error {
-                os_log("Loading data failed with %@", log: OSLog.data, type: .error, error)
-                onCompletion(.failure(error))
-            } else if let rss = result.rssFeed, let items = rss.items {
+            switch result {
+            case let .success(feed):
+                guard let rss = feed.rssFeed, let items = rss.items else {
+                    onCompletion(.success([]))
+                    return
+                }
+
                 onCompletion(.success(items.map({ RssItem(title: $0.title, description: $0.description, link: $0.link, pubDate: $0.pubDate) })))
-            } else {
-                onCompletion(.success([]))
-            }
-            DispatchQueue.main.async {
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            case let .failure(error):
+                os_log("Loading data failed with %@", log: OSLog.data, type: .error, error as CVarArg)
+                onCompletion(.failure(error))
             }
         }
     }

@@ -30,20 +30,20 @@ extension AppDelegate {
         container.autoregister(AboutViewModel.self, initializer: AboutViewModel.init)
 
         // view controllers
-        container.storyboardInitCompleted(SourceSelectionViewController.self) { r, c in
-            c.viewModel = r.resolve(SourceSelectionViewModel.self)
+        container.registerViewController(SourceSelectionViewController.self) { r, c in
+            c.viewModel = r~>
         }
-        container.storyboardInitCompleted(CustomSourceViewController.self) { r, c in
-            c.viewModel = r.resolve(CustomSourceViewModel.self)
+        container.registerViewController(CustomSourceViewController.self) { r, c in
+            c.viewModel = r~>
         }
-        container.storyboardInitCompleted(FeedViewController.self) { r, c in
-            c.viewModel = r.resolve(FeedViewModel.self)
+        container.registerViewController(FeedViewController.self) { r, c in
+            c.viewModel = r~>
         }
-        container.storyboardInitCompleted(LibrariesViewController.self) { r, c in
-            c.viewModel = r.resolve(LibrariesViewModel.self)
+        container.registerViewController(LibrariesViewController.self) { r, c in
+            c.viewModel = r~>
         }
-        container.storyboardInitCompleted(AboutViewController.self) { r, c
-            in c.viewModel = r.resolve(AboutViewModel.self)
+        container.registerViewController(AboutViewController.self) { r, c in
+            c.viewModel = r~>
         }
 
         #if DEBUG

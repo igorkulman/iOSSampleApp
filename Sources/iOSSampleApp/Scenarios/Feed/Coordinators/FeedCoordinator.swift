@@ -43,7 +43,7 @@ final class FeedCoordinator: NavigationCoordinator {
      */
     func start() {
         let isNavigationStackEmpty = navigationController.viewControllers.isEmpty
-        let vc = container.resolveViewController(FeedViewController.self)
+        let vc = container.resolve(FeedViewController.self)!
         vc.delegate = self
         vc.navigationItem.hidesBackButton = true
         navigationController.pushViewController(vc, animated: true)

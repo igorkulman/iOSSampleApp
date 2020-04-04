@@ -14,7 +14,6 @@
 		F3208A9A1F84EC8E00B57B0E /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3208A8E1F84E8B400B57B0E /* RxBlocking.framework */; };
 		F321C21920A96A9E0055AC2C /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F321C21820A96A9E0055AC2C /* Quick.framework */; };
 		F32925F4224E20BC00A1ECD4 /* OSLog+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32925F3224E20BC00A1ECD4 /* OSLog+Extensions.swift */; };
-		F3296F67202B4C150093B94C /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3208A8E1F84E8B400B57B0E /* RxBlocking.framework */; };
 		F33EB3FE1FBDD81F0050560D /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33EB3FD1FBDD81F0050560D /* UIViewController+Extensions.swift */; };
 		F3520E74206017000011EF40 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3520E73206017000011EF40 /* Strings.swift */; };
 		F35BD6392065111F000AE4E8 /* AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35BD6382065111F000AE4E8 /* AppUITests.swift */; };
@@ -59,7 +58,6 @@
 		F3A812DF1F83762A00A09AAB /* Container+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A812DE1F83762A00A09AAB /* Container+Extensions.swift */; };
 		F3A812E11F83766400A09AAB /* StoryboardLodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A812E01F83766400A09AAB /* StoryboardLodable.swift */; };
 		F3A812F61F83780800A09AAB /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3A812F01F83780700A09AAB /* RxCocoa.framework */; };
-		F3A812F71F83780800A09AAB /* SwinjectStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3A812F11F83780700A09AAB /* SwinjectStoryboard.framework */; };
 		F3A812F81F83780800A09AAB /* SwinjectAutoregistration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3A812F21F83780700A09AAB /* SwinjectAutoregistration.framework */; };
 		F3A812F91F83780800A09AAB /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3A812F31F83780700A09AAB /* Swinject.framework */; };
 		F3A812FA1F83780800A09AAB /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3A812F41F83780700A09AAB /* RxSwift.framework */; };
@@ -335,7 +333,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3ABC2BC2285F8790010BAF0 /* RxRelay.framework in Frameworks */,
-				F3296F67202B4C150093B94C /* RxBlocking.framework in Frameworks */,
 				F365964F1F9B41880002BAC8 /* RxSwiftExt.framework in Frameworks */,
 				F38AF5781F851D0000C82EC7 /* CRToast.framework in Frameworks */,
 				F39064971F84DB8D003C0C12 /* FeedKit.framework in Frameworks */,
@@ -343,7 +340,6 @@
 				F38CD22B1F83A1FE0050056C /* Nuke.framework in Frameworks */,
 				F38CD1C61F83860E0050056C /* Reusable.framework in Frameworks */,
 				F3A812F61F83780800A09AAB /* RxCocoa.framework in Frameworks */,
-				F3A812F71F83780800A09AAB /* SwinjectStoryboard.framework in Frameworks */,
 				F3A812F81F83780800A09AAB /* SwinjectAutoregistration.framework in Frameworks */,
 				F3A812F91F83780800A09AAB /* Swinject.framework in Frameworks */,
 				F3A812FA1F83780800A09AAB /* RxSwift.framework in Frameworks */,

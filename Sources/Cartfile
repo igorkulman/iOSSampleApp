@@ -1,6 +1,5 @@
 github "ReactiveX/RxSwift" ~> 5.0
 github "Swinject/Swinject"
-github "Swinject/SwinjectStoryboard"
 github "Swinject/SwinjectAutoregistration"
 github "AliSoftware/Reusable"
 github "kean/RxNuke"

@@ -37,7 +37,7 @@ final class AboutCoordinator: NavigationCoordinator {
      Starts the Abotu flow by showing the basic info and additional menu items
      */
     func start() {
-        let vc = container.resolveViewController(AboutViewController.self)
+        let vc = container.resolve(AboutViewController.self)!
         vc.delegate = self
         navigationController.setBackButton()
         navigationController.pushViewController(vc, animated: true)
@@ -47,7 +47,7 @@ final class AboutCoordinator: NavigationCoordinator {
      Shows the list of open source libraries used by the app
      */
     private func showLibraries() {
-        let vc = container.resolveViewController(LibrariesViewController.self)
+        let vc = container.resolve(LibrariesViewController.self)!
         navigationController.pushViewController(vc, animated: true)
     }
 

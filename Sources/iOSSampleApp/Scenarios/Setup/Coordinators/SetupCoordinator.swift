@@ -46,7 +46,7 @@ final class SetupCoordinator: NavigationCoordinator {
      Shows the screen asking the user to select the RSS source
      */
     private func showSourceSelection() {
-        let vc = container.resolveViewController(SourceSelectionViewController.self)
+        let vc = container.resolve(SourceSelectionViewController.self)!
         vc.delegate = self
         navigationController.pushViewController(vc, animated: true)
     }
@@ -55,7 +55,7 @@ final class SetupCoordinator: NavigationCoordinator {
      Shows the user a screen to add a custom RSS source
      */
     private func showAddSourceForm() {
-        let vc = container.resolveViewController(CustomSourceViewController.self)
+        let vc = container.resolve(CustomSourceViewController.self)!
         vc.delegate = self
         navigationController.pushViewController(vc, animated: true)
     }

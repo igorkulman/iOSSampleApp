@@ -8,18 +8,17 @@
 
 import Foundation
 import Swinject
-import SwinjectStoryboard
+import UIKit
 
 extension Container {
-    /**
-     Retrieves UIViewController of the specified type. The UIViewController must conform to StoryboardLodable
-
-     - Parameter serviceType: UIViewController type
-     - Returns: UIViewController of specified type
-     */
-    func resolveViewController<ViewController: StoryboardLodable>(_ serviceType: ViewController.Type) -> ViewController {
-        let sb = SwinjectStoryboard.create(name: serviceType.storyboardName, bundle: nil, container: self)
-        let name = "\(serviceType)".replacingOccurrences(of: "ViewController", with: "")
-        return sb.instantiateViewController(withIdentifier: name) as! ViewController
+    @discardableResult
+    func registerViewController<ViewController: StoryboardLodable>(_ controllerType: ViewController.Type, initCompleted: ((Swinject.Resolver, ViewController) -> Void)?  = nil) -> Swinject.ServiceEntry<ViewController> {
+        return register(ViewController.self) { r in
+            let storyboard = UIStoryboard(name: controllerType.storyboardName, bundle: nil)
+            let name = "\(controllerType)".replacingOccurrences(of: "ViewController", with: "")
+            let viewController = storyboard.instantiateViewController(withIdentifier: name) as! ViewController
+            initCompleted?(r, viewController)
+            return viewController
+        }
     }
 }
