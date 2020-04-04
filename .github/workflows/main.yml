@@ -15,6 +15,9 @@ jobs:
         gem install xcpretty 
         gem install bundler:1.16.3
         brew install swiftlint
+        brew uninstall carthage
+        brew tap nsoperations/formulas
+        brew install nsoperations/formulas/carthage 
 
     - name: Cache
       uses: actions/cache@v1
