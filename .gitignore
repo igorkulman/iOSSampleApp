@@ -2,3 +2,4 @@
 /fastlane/report.xml
 /fastlane/test_output
 Sources/Carthage
+Sources/iOSSampleApp.xcodeproj/project.xcworkspace/xcuserdata/igorkulman.xcuserdatad/UserInterfaceState.xcuserstate

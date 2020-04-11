@@ -77,7 +77,10 @@ final class AboutViewController: UITableViewController, AboutStoryboardLodable {
         tableView.rx.itemSelected.bind { [unowned self] indexPath in
 
             // instead of using the row umber directly converting them to an enum to use them in a safer way
-            guard let menuItem = AboutMenuItem(rawValue: indexPath.row) else { fatalError("Invalid indexPath") }
+            guard let menuItem = AboutMenuItem(rawValue: indexPath.row) else {
+                fail("Invalid indexPath for AboutMenuItem")
+            }
+
             switch menuItem {
             case .libraries:
                 self.delegate?.userDidRequestLibraries()
