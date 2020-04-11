@@ -10,29 +10,33 @@
 import Foundation
 import os.log
 
-func failDebug(_ logMessage: String, file: String = #file, function: String = #function, line: Int = #line) {
+func failDebug(_ logMessage: String, file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
     let formattedMessage = formatLogMessage(logMessage, file: file, function: function, line: line)
     OSLog.log(formattedMessage, log: OSLog.conditions, type: .error)
-    assertionFailure(formattedMessage)
+    assertionFailure(formattedMessage, file: file, line: line)
 }
 
-func fail(_ logMessage: String, file: String = #file, function: String = #function, line: Int = #line) -> Never {
+func fail(_ logMessage: String, file: StaticString = #file, function: StaticString = #function, line: UInt = #line) -> Never {
     let formattedMessage = formatLogMessage(logMessage, file: file, function: function, line: line)
     OSLog.log(formattedMessage, log: OSLog.conditions, type: .error)
-    fatalError(formattedMessage)
+    fatalError(logMessage, file: file, line: line)
 }
 
-func notImplemented(file: String = #file, function: String = #function, line: Int = #line) -> Never {
+func notImplemented(file: StaticString = #file, function: StaticString = #function, line: UInt = #line) -> Never {
     fail("Method not implemented.", file: file, function: function, line: line)
 }
 
-func formatLogMessage(_ logString: String, file: String = #file, function: String = #function, line: Int = #line) -> String {
-    let filename = (file as NSString).lastPathComponent
+func formatLogMessage(_ logString: String, file: StaticString = #file, function: StaticString = #function, line: UInt = #line) -> String {
+    let filename = (file.withUTF8Buffer {
+        String(decoding: $0, as: UTF8.self)
+    } as NSString).lastPathComponent
     return "[\(filename):\(line) \(function)]: \(logString)"
 }
 
-func assertDebug(_ condition: @autoclosure () -> Bool, _ logMessage: String, file: String = #file, function: String = #function, line: Int = #line) {
+func assertDebug(_ condition: @autoclosure () -> Bool, _ logMessage: String, file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
+    #if DEBUG
     if !condition() {
-        failDebug(logMessage)
+        failDebug(logMessage, file: file, function: function, line: line)
     }
+    #endif
 }
