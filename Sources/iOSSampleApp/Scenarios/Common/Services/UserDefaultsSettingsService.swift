@@ -32,7 +32,7 @@ final class UserDefaultsSettingsService: SettingsService {
 
             let coder = JSONEncoder()
             guard let data = try? coder.encode(value) else {
-                fatalError("Encoding RssSource should never fail")
+                fail("Encoding RssSource should never fail")
             }
 
             UserDefaults.standard.set(data, forKey: "source")
