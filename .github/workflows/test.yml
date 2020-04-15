@@ -3,10 +3,9 @@ name: Test
 on: [push]
 
 jobs:
-  test:
-
-    runs-on: macOS-latest
-    
+  job-test:
+    name: Run unit tests
+    runs-on: macOS-latest    
     steps:
     - uses: actions/checkout@v1
 
