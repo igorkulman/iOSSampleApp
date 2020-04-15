@@ -19,6 +19,11 @@ message("This PR changes Danger configuration") if git.modified_files.include? "
 # Warn when there is a big PR
 warn("This PR seems bigger than it should be!") if git.lines_of_code > 500
 
+# Lint
+swiftlint.config_file = '.swiftlint.yml'
+swiftlint.directory = "Sources/iOSSampleApp"
+swiftlint.lint_files
+
 # Checking for missing strings
 `support/verify-string-files -master Sources/iOSSampleApp/Resources/Base.lproj/Localizable.strings  -warning-level warning &> verify-string-files.txt`
 result = File.readlines('verify-string-files.txt')
