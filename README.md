@@ -20,7 +20,7 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 ### Other concepts
 
 * Localization to 2 languages with [safer string usage](https://blog.kulman.sk/using-ios-strings-in-a-safer-way/) and checking for missing translations
-* Continuous integration with Github Actions
+* Continuous integration with Github Actions and Danger
 * Unit testing, including testing view controllers for leaks
 * Using (multiple) Storyboards just as glorified XIBs
 * Creating a view controller in code when Storyboard cannot be used
