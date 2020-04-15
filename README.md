@@ -1,6 +1,5 @@
 # iOS Sample App
 
-[![codecov](https://codecov.io/gh/igorkulman/iOSSampleApp/branch/master/graph/badge.svg)](https://codecov.io/gh/igorkulman/iOSSampleApp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Platforms](https://img.shields.io/badge/platform-iOS-lightgrey.svg)
 [![Swift Version](https://img.shields.io/badge/Swift-5-F16D39.svg?style=flat)](https://developer.apple.com/swift)
@@ -21,7 +20,7 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 ### Other concepts
 
 * Localization to 2 languages with [safer string usage](https://blog.kulman.sk/using-ios-strings-in-a-safer-way/) and checking for missing translations
-* Continuous integration with Github Actions
+* Continuous integration with Github Actions and Danger
 * Unit testing, including testing view controllers for leaks
 * Using (multiple) Storyboards just as glorified XIBs
 * Creating a view controller in code when Storyboard cannot be used

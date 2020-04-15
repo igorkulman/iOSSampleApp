@@ -1,19 +1,18 @@
-name: CI
+name: Test
 
 on: [push]
 
 jobs:
-  build:
-
-    runs-on: macOS-latest
-    
+  job-test:
+    name: Run unit tests
+    runs-on: macOS-latest    
     steps:
     - uses: actions/checkout@v1
 
     - name: Install needed software
       run: |
         gem install xcpretty 
-        gem install bundler:1.16.3
+        gem install bundler:1.17.2
         brew install swiftlint
         brew uninstall carthage
         brew tap nsoperations/formulas
@@ -32,8 +31,3 @@ jobs:
 
     - name: Run unit tests
       run: fastlane tests
-
-    - name: Report test coverage
-      env:
-        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      run: fastlane test_coverage

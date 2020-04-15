@@ -17,7 +17,6 @@ disabled_rules:
 
 analyzer_rules:
     - unused_import
-    - unused_private_declaration
 
 number_separator:
     minimum_length: 7
@@ -71,7 +70,7 @@ function_parameter_count:
     error: 10
 
 large_tuple:
-warning: 3
+  warning: 3
 custom_rules:
     double_space: # from https://github.com/IBM-Swift/Package-Builder
       include: "*.swift"
