@@ -1,4 +1,4 @@
-name: CI
+name: Test
 
 on: [push]
 
@@ -13,7 +13,7 @@ jobs:
     - name: Install needed software
       run: |
         gem install xcpretty 
-        gem install bundler:1.16.3
+        gem install bundler:1.17.2
         brew install swiftlint
         brew uninstall carthage
         brew tap nsoperations/formulas
@@ -32,8 +32,3 @@ jobs:
 
     - name: Run unit tests
       run: fastlane tests
-
-    - name: Report test coverage
-      env:
-        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      run: fastlane test_coverage
