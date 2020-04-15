@@ -36,10 +36,3 @@ lane :carthage_bootstrap do
           use_binaries: false,
           cache_builds: true)
 end
-
-desc "Uploads test coverage"
-lane :test_coverage do
-	codecov_reporter(
-    	token: ENV["CODECOV_TOKEN"]
-	)
-end
