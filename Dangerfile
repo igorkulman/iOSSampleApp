@@ -21,7 +21,7 @@ warn("This PR seems bigger than it should be!") if git.lines_of_code > 500
 
 # Lint
 swiftlint.config_file = '.swiftlint.yml'
-swiftlint.directory = "Sources/iOSSampleApp"
+swiftlint.directory = "Sources"
 swiftlint.lint_files
 
 # Checking for missing strings
