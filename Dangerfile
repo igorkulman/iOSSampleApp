@@ -68,10 +68,8 @@ if result.count > 0
         index = line.index(": warning:") + 11
         line = line[index...-1]
         lang = line.rpartition(' ').last.sub(".lproj", "").upcase()
-        if lang == "DE"
-            lang = "🇩🇪  DE"
-        elsif lang == "ES"
-            lang = "🇪🇸  ES"
+        if lang == "SK"
+            lang = "🇸🇰  SK"
         end
         key = line.rpartition(' ').first.sub("is missing in", "")
         message << "#{lang} | #{key} \n"
