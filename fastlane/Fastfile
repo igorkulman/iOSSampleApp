@@ -28,11 +28,31 @@ lane :tests do
             scheme: "iOSSampleApp")
 end
 
-desc "Bootstrap Carthage depedencies"
-lane :carthage_bootstrap do
-	carthage(command: "bootstrap",
-          platform: "iOS",
-          project_directory: "Sources",
-          use_binaries: false,
-          cache_builds: true)
+desc "Updates libraries licenses"
+lane :update_licenses do
+  require 'xcodeproj'
+
+  dependencies = []
+
+  project = Xcodeproj::Project.open("../Sources/iOSSampleApp.xcodeproj")
+
+  project.targets.each do |target|
+      next if target.name.end_with? "Tests"
+    
+      target.package_product_dependencies.each do |dependency|            
+          dependencies.push((dependency.package.repositoryURL.sub "https://github.com/", "github \"") + "\"")
+      end
+  end
+
+  dependencies = dependencies.uniq.sort
+
+  File.open("../support/Cartfile.spm", "w+") do |f|
+      f.puts(dependencies)
+  end
+
+  Dir.chdir ".." do    
+    sh "swift support/fetch_licenses.swift support/Cartfile.spm Sources/iOSSampleApp/Data"
+  end
+
+  File.delete("../support/Cartfile.spm")
 end

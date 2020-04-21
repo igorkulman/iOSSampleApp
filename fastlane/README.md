@@ -20,16 +20,11 @@ or alternatively using `brew cask install fastlane`
 fastlane tests
 ```
 Run all unit tests
-### carthage_bootstrap
+### update_licenses
 ```
-fastlane carthage_bootstrap
+fastlane update_licenses
 ```
-Bootstrap Carthage depedencies
-### test_coverage
-```
-fastlane test_coverage
-```
-Uploads test coverage
+Updates libraries licenses
 
 ----
 
