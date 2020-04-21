@@ -21,7 +21,7 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 
 * Localization to 2 languages with [safer string usage](https://blog.kulman.sk/using-ios-strings-in-a-safer-way/) and checking for missing translations
 * Continuous integration with Github Actions and Danger
-* Unit testing, including testing view controllers for leaks
+* Unit testing, including [testing view controllers for leaks](https://blog.kulman.sk/unit-testing-memory-leaks/)
 * Using (multiple) Storyboards just as glorified XIBs
 * Creating a view controller in code when Storyboard cannot be used
 * Using static UITableView cells in a typed way with enums
@@ -34,25 +34,10 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 
 ### Prerequisites
 
-* XCode 11.4
-* [Carthage](https://github.com/Carthage/Carthage)
+* XCode 11.4.1
 * [SwiftGen](https://github.com/SwiftGen/SwiftGen)
 * [SwifLint](https://github.com/realm/SwiftLint) (optional)
 * [Fastlane](https://fastlane.tools/) (optional)
-
-### Bootstrapping the project
-
-To get started with the project run
-
-```bash
-sh support/bootstrap.sh` 
-```
-
-to install Carthage, SwifLint, SwiftGen, Fastlane and build all the Carthage dependencies. 
-
-If you already have Carthage installed and do not want or need the other tools, just run `carthage bootstrap --platform iOS --no-use-binaries --cache-builds` in the `Sources` directory to build all the Carthage dependencies. 
-
-This need to be done **just once** for the initial setup.
 
 ## Built With
 
