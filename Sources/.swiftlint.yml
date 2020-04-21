@@ -4,7 +4,7 @@ excluded:
     - support
     - Build-Phases
     - iOSSampleApp/Resources
-    - iOSSampleAppTests/SpecLeaks
+    - iOSSampleAppTests/Support
 
 disabled_rules:
     - line_length      

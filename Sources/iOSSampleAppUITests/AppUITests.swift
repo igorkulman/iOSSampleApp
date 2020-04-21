@@ -31,13 +31,13 @@ class AppUITests: XCTestCase {
     func testScreenshots() {
         snapshot("1-Setup")
 
-        app.tables.cells.element(boundBy: 0).tap()
+        app.tables.cells.element(boundBy: 1).tap()
         app.buttons["done"].tap()
 
         snapshot("2-List")
 
         app.tables.cells.element(boundBy: 0).tap()
-        let home = app.links["Igor Kulman"]
+        let home = app.links["Hacker News"]
         let exists = NSPredicate(format: "exists == 1")
         expectation(for: exists, evaluatedWith: home, handler: nil)
 

@@ -48,7 +48,7 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 - [Nuke](https://github.com/kean/Nuke) - A powerful image loading and caching system
 - [RxNuke](https://github.com/kean/RxNuke) - RxSwift extensions for Nuke 
 - [FeedKit](https://github.com/nmdias/FeedKit) - An RSS, Atom and JSON Feed parser written in Swift 
-- [CRToast](https://github.com/cruffenach/CRToast) - A modern iOS toast view that can fit your notification needs 
+- [NotificationBanner](https://github.com/Daltron/NotificationBanner) - The easiest way to display highly customizable in app notification banners in iOS 
 - [SpecLeaks](leandromperez/specleaks) - Unit Tests Memory Leaks in Swift. Write readable tests for mem leaks easily with these Quick and Nimble extensions
 - [Quick](https://github.com/Quick/Quick) - The Swift (and Objective-C) testing framework
 - [Nimble](https://github.com/Quick/Nimble) - A Matcher Framework for Swift and Objective-C 

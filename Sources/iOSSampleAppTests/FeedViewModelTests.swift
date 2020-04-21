@@ -10,9 +10,7 @@ import Foundation
 @testable import iOSSampleApp
 import Nimble
 import Quick
-import RxBlocking
 import RxSwift
-import RxTest
 
 class FeedViewModelTests: QuickSpec {
     override func spec() {
