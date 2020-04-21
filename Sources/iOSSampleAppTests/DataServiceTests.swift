@@ -22,7 +22,7 @@ class DataServiceTests: QuickSpec {
             context("given valid RSS feed") {
                 var source: RssSource!
                 beforeEach {
-                    source = RssSource(title: "Coding Journal", url: "https://blog.kulman.sk", rss: "https://blog.kulman.sk/index.xml", icon: nil)
+                    source = RssSource(title: "Hacker News", url: "https://news.ycombinator.com", rss: "https://news.ycombinator.com/rss", icon: nil)
                 }
 
                 it("succeeeds") {

@@ -6,7 +6,6 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
-import CRToast
 import RxCocoa
 import RxSwift
 import RxSwiftExt

@@ -3,3 +3,5 @@
 /fastlane/test_output
 Sources/Carthage
 Sources/iOSSampleApp.xcodeproj/project.xcworkspace/xcuserdata/igorkulman.xcuserdatad/UserInterfaceState.xcuserstate
+Sources/iOSSampleApp.xcodeproj/xcuserdata/
+Sources/iOSSampleApp.xcodeproj/project.xcworkspace/xcshareddata/

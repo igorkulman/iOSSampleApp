@@ -14,20 +14,6 @@ jobs:
         gem install xcpretty 
         gem install bundler:1.17.2
         brew install swiftlint
-        brew uninstall carthage
-        brew tap nsoperations/formulas
-        brew install nsoperations/formulas/carthage 
-
-    - name: Cache
-      uses: actions/cache@v1
-      with:
-        path: Sources/Carthage
-        key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}
-        restore-keys: |
-          ${{ runner.os }}-carthage-
-
-    - name: Carthage bootstrap
-      run: fastlane carthage_bootstrap
 
     - name: Run unit tests
       run: fastlane tests

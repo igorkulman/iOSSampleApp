@@ -33,6 +33,8 @@ final class LibrariesViewController: UITableViewController, AboutStoryboardLodab
     }
 
     private func setupData() {
+        tableView.dataSource = nil
+
         viewModel.libraries.bind(to: tableView.rx.items(cellIdentifier: "LicensesCell", cellType: UITableViewCell.self)) { _, element, cell in
             let (name, licenseName) = element
             cell.textLabel?.text = name
