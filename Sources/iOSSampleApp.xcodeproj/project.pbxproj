@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		F300AE1F244F700300F5E060 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = F300AE1E244F700300F5E060 /* Nimble */; };
 		F300AE22244F708C00F5E060 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = F300AE21244F708C00F5E060 /* Quick */; };
-		F300AE25244F716C00F5E060 /* SpecLeaks in Frameworks */ = {isa = PBXBuildFile; productRef = F300AE24244F716C00F5E060 /* SpecLeaks */; };
 		F300AE28244F71DA00F5E060 /* RxBlocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300AE27244F71DA00F5E060 /* RxBlocking.swift */; };
 		F300AE2B244F76DD00F5E060 /* NotificationBannerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F300AE2A244F76DD00F5E060 /* NotificationBannerSwift */; };
 		F3208A891F84E83900B57B0E /* DataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3208A881F84E83900B57B0E /* DataServiceTests.swift */; };
@@ -30,6 +29,7 @@
 		F3651D22203C1B0D0082A73A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3651D21203C1B0D0082A73A /* DataService.swift */; };
 		F3651D26203C1B3A0082A73A /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3651D25203C1B3A0082A73A /* SettingsService.swift */; };
 		F37781152085E14C00146DBE /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37781142085E14C00146DBE /* Optional+Extensions.swift */; };
+		F382F15824584B0A00861DDF /* SpecLeaks in Frameworks */ = {isa = PBXBuildFile; productRef = F382F15724584B0A00861DDF /* SpecLeaks */; };
 		F38CD1BD1F8382950050056C /* RssSourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD1BC1F8382950050056C /* RssSourceViewModel.swift */; };
 		F38CD1C01F8384490050056C /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD1BF1F8384490050056C /* Bundle+Extensions.swift */; };
 		F38CD1C21F8385450050056C /* sources.json in Resources */ = {isa = PBXBuildFile; fileRef = F38CD1C11F8385350050056C /* sources.json */; };
@@ -190,7 +190,7 @@
 			files = (
 				F300AE22244F708C00F5E060 /* Quick in Frameworks */,
 				F300AE1F244F700300F5E060 /* Nimble in Frameworks */,
-				F300AE25244F716C00F5E060 /* SpecLeaks in Frameworks */,
+				F382F15824584B0A00861DDF /* SpecLeaks in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,7 +626,7 @@
 			packageProductDependencies = (
 				F300AE1E244F700300F5E060 /* Nimble */,
 				F300AE21244F708C00F5E060 /* Quick */,
-				F300AE24244F716C00F5E060 /* SpecLeaks */,
+				F382F15724584B0A00861DDF /* SpecLeaks */,
 			);
 			productName = iOSSampleAppTests;
 			productReference = F3208A7A1F84E48100B57B0E /* iOSSampleAppTests.xctest */;
@@ -731,8 +731,8 @@
 				F33474FB244F68840034B1C2 /* XCRemoteSwiftPackageReference "RxNuke" */,
 				F300AE1D244F700300F5E060 /* XCRemoteSwiftPackageReference "Nimble" */,
 				F300AE20244F708C00F5E060 /* XCRemoteSwiftPackageReference "Quick" */,
-				F300AE23244F716C00F5E060 /* XCRemoteSwiftPackageReference "specleaks" */,
 				F300AE29244F76DC00F5E060 /* XCRemoteSwiftPackageReference "NotificationBanner" */,
+				F382F15624584B0A00861DDF /* XCRemoteSwiftPackageReference "specleaks" */,
 			);
 			productRefGroup = F3A812B51F83740E00A09AAB /* Products */;
 			projectDirPath = "";
@@ -1240,14 +1240,6 @@
 				version = 2.2.0;
 			};
 		};
-		F300AE23244F716C00F5E060 /* XCRemoteSwiftPackageReference "specleaks" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/igorkulman/specleaks";
-			requirement = {
-				kind = revision;
-				revision = 849646fa79ad02dddb9619cae6e3d4188284340c;
-			};
-		};
 		F300AE29244F76DC00F5E060 /* XCRemoteSwiftPackageReference "NotificationBanner" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Daltron/NotificationBanner";
@@ -1312,6 +1304,14 @@
 				version = 0.12.0;
 			};
 		};
+		F382F15624584B0A00861DDF /* XCRemoteSwiftPackageReference "specleaks" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/leandromperez/specleaks";
+			requirement = {
+				kind = revision;
+				revision = b102b637e2ea2f38fe3baac5b2a7cfa79e73cfc2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1324,11 +1324,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F300AE20244F708C00F5E060 /* XCRemoteSwiftPackageReference "Quick" */;
 			productName = Quick;
-		};
-		F300AE24244F716C00F5E060 /* SpecLeaks */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F300AE23244F716C00F5E060 /* XCRemoteSwiftPackageReference "specleaks" */;
-			productName = SpecLeaks;
 		};
 		F300AE2A244F76DD00F5E060 /* NotificationBannerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1379,6 +1374,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F33474FB244F68840034B1C2 /* XCRemoteSwiftPackageReference "RxNuke" */;
 			productName = RxNuke;
+		};
+		F382F15724584B0A00861DDF /* SpecLeaks */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F382F15624584B0A00861DDF /* XCRemoteSwiftPackageReference "specleaks" */;
+			productName = SpecLeaks;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
