@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import os.log
 import RxCocoa
 import RxSwift
 
@@ -28,7 +27,7 @@ final class SourceSelectionViewModel {
     init(settingsService: SettingsService) {
         self.settingsService = settingsService
 
-        os_log("Loading bundled sources", log: OSLog.data, type: .debug)
+        Log.debug("Loading bundled sources")
 
         let jsonData = Bundle.main.loadFile(filename: "sources.json")!
 
@@ -79,7 +78,7 @@ final class SourceSelectionViewModel {
 
     func saveSelectedSource() -> Bool {
         guard let selected = allSources.value.first(where: { $0.isSelected.value }) else {
-            os_log("Cannot save, no source selected", log: OSLog.data, type: .error)
+            Log.error("Cannot save, no source selected")
             return false
         }
 

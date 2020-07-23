@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import os.log
 import Swinject
 import SwinjectAutoregistration
 
@@ -16,7 +15,7 @@ extension AppDelegate {
      Set up the depedency graph in the DI container
      */
     internal func setupDependencies() {
-        os_log("Registering dependencies", log: OSLog.lifeCycle, type: .debug)
+        Log.debug("Registering dependencies")
 
         // services
         container.autoregister(SettingsService.self, initializer: UserDefaultsSettingsService.init).inObjectScope(ObjectScope.container)
@@ -48,7 +47,7 @@ extension AppDelegate {
 
         #if DEBUG
             if ProcessInfo().arguments.contains("testMode") {
-                os_log("Running in UI tests, deleting selected source to start clean", log: OSLog.lifeCycle, type: .debug)
+                Log.debug("Running in UI tests, deleting selected source to start clean")
                 let settingsService = container.resolve(SettingsService.self)!
                 settingsService.selectedSource = nil
             }

@@ -8,17 +8,15 @@
 // swiftlint:disable unavailable_function
 
 import Foundation
-import os.log
 
 func failDebug(_ logMessage: String, file: StaticString = #file, function: StaticString = #function, line: UInt = #line) {
     let formattedMessage = formatLogMessage(logMessage, file: file, function: function, line: line)
-    OSLog.log(formattedMessage, log: OSLog.conditions, type: .error)
+    Log.debug(formattedMessage)
     assertionFailure(formattedMessage, file: file, line: line)
 }
 
 func fail(_ logMessage: String, file: StaticString = #file, function: StaticString = #function, line: UInt = #line) -> Never {
-    let formattedMessage = formatLogMessage(logMessage, file: file, function: function, line: line)
-    OSLog.log(formattedMessage, log: OSLog.conditions, type: .error)
+    Log.error(formatLogMessage(logMessage, file: file, function: function, line: line))
     fatalError(logMessage, file: file, line: line)
 }
 

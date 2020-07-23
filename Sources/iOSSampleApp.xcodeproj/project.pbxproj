@@ -13,7 +13,6 @@
 		F300AE2B244F76DD00F5E060 /* NotificationBannerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F300AE2A244F76DD00F5E060 /* NotificationBannerSwift */; };
 		F3208A891F84E83900B57B0E /* DataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3208A881F84E83900B57B0E /* DataServiceTests.swift */; };
 		F3208A921F84EAF400B57B0E /* CustomSourceViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3208A911F84EAF400B57B0E /* CustomSourceViewModelTests.swift */; };
-		F32925F4224E20BC00A1ECD4 /* OSLog+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32925F3224E20BC00A1ECD4 /* OSLog+Extensions.swift */; };
 		F33474E7244F64220034B1C2 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F33474E6244F64220034B1C2 /* RxSwift */; };
 		F33474E9244F64220034B1C2 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F33474E8244F64220034B1C2 /* RxCocoa */; };
 		F33474EB244F64220034B1C2 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = F33474EA244F64220034B1C2 /* RxRelay */; };
@@ -23,6 +22,7 @@
 		F33474F7244F65050034B1C2 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = F33474F6244F65050034B1C2 /* FeedKit */; };
 		F33474FA244F67270034B1C2 /* RxSwiftExt in Frameworks */ = {isa = PBXBuildFile; productRef = F33474F9244F67270034B1C2 /* RxSwiftExt */; };
 		F33474FD244F68840034B1C2 /* RxNuke in Frameworks */ = {isa = PBXBuildFile; productRef = F33474FC244F68840034B1C2 /* RxNuke */; };
+		F33A1F4124C9866F008ED2BD /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33A1F4024C9866F008ED2BD /* Log.swift */; };
 		F33EB3FE1FBDD81F0050560D /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33EB3FD1FBDD81F0050560D /* UIViewController+Extensions.swift */; };
 		F3520E74206017000011EF40 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3520E73206017000011EF40 /* Strings.swift */; };
 		F35BD6392065111F000AE4E8 /* AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35BD6382065111F000AE4E8 /* AppUITests.swift */; };
@@ -111,7 +111,7 @@
 		F3208A7E1F84E48100B57B0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3208A881F84E83900B57B0E /* DataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceTests.swift; sourceTree = "<group>"; };
 		F3208A911F84EAF400B57B0E /* CustomSourceViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSourceViewModelTests.swift; sourceTree = "<group>"; };
-		F32925F3224E20BC00A1ECD4 /* OSLog+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OSLog+Extensions.swift"; sourceTree = "<group>"; };
+		F33A1F4024C9866F008ED2BD /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		F33EB3FD1FBDD81F0050560D /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		F3520E73206017000011EF40 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		F35BD6362065111F000AE4E8 /* iOSSampleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSSampleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -521,6 +521,7 @@
 				F3A812D61F83758000A09AAB /* Coordinators */,
 				F3A812D41F83754100A09AAB /* AppDelegate+Setup.swift */,
 				F3D7D14A2441C599001695B9 /* DebugUtils.swift */,
+				F33A1F4024C9866F008ED2BD /* Log.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -540,7 +541,6 @@
 				F38CD1BF1F8384490050056C /* Bundle+Extensions.swift */,
 				F3A812DE1F83762A00A09AAB /* Container+Extensions.swift */,
 				F37781142085E14C00146DBE /* Optional+Extensions.swift */,
-				F32925F3224E20BC00A1ECD4 /* OSLog+Extensions.swift */,
 				F38CD2341F83AB9E0050056C /* Reactive+Extensions.swift */,
 				F3CBB19721CD07620023EE18 /* RxSwift+UIViewController.swift */,
 				F3CBB19521CCFFA00023EE18 /* RxSwift+WKWebView.swift */,
@@ -860,8 +860,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F32925F4224E20BC00A1ECD4 /* OSLog+Extensions.swift in Sources */,
 				F3C7CFDD2423AF4C003A961E /* URL+Extensions.swift in Sources */,
+				F33A1F4124C9866F008ED2BD /* Log.swift in Sources */,
 				F38CD1BD1F8382950050056C /* RssSourceViewModel.swift in Sources */,
 				F3A813021F837A8200A09AAB /* SourceSelectionViewController.swift in Sources */,
 				F38CD1C01F8384490050056C /* Bundle+Extensions.swift in Sources */,

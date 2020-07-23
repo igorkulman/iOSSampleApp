@@ -8,7 +8,6 @@
 
 import FeedKit
 import Foundation
-import os.log
 import UIKit
 
 final class RssDataService: DataService {
@@ -20,7 +19,7 @@ final class RssDataService: DataService {
 
         let parser = FeedParser(URL: feedURL)
 
-        os_log("Loading %@", log: OSLog.data, type: .debug, feedURL.absoluteString)
+        Log.debug("Loading \(feedURL.absoluteString)")
 
         parser.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { result in
             switch result {
@@ -32,7 +31,7 @@ final class RssDataService: DataService {
 
                 onCompletion(.success(items.map({ RssItem(title: $0.title, description: $0.description, link: $0.link, pubDate: $0.pubDate) })))
             case let .failure(error):
-                os_log("Loading data failed with %@", log: OSLog.data, type: .error, error as CVarArg)
+                Log.error("Loading data failed with \(error)")
                 onCompletion(.failure(error))
             }
         }
