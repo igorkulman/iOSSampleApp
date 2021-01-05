@@ -8,7 +8,6 @@
 
 import Nuke
 import Reusable
-import RxNuke
 import RxSwift
 import UIKit
 
@@ -32,15 +31,17 @@ final class RssSourceCell: UITableViewCell, NibReusable {
 
             titleLabel.text = vm.source.title
             urlLabel.text = vm.source.url
-            vm.isSelected.asObservable().bind { [weak self] selected in
-                self?.accessoryType = selected ? .checkmark : .none
+            vm.isSelected.asObservable().withUnretained(self).bind { owner, selected in
+                owner.accessoryType = selected ? .checkmark : .none
             }.disposed(by: disposeBag)
             logoImage.image = nil
-            if let icon = vm.source.icon, let iconUrl = URL(string: icon) {
-                ImagePipeline.shared.rx.loadImage(with: iconUrl)
-                    .subscribe(onSuccess: { [weak self] in self?.logoImage.image = $0.image })
-                    .disposed(by: disposeBag)
+
+            guard let icon = vm.source.icon, let iconUrl = URL(string: icon) else {
+                logoImage.image = nil
+                return
             }
+
+            Nuke.loadImage(with: iconUrl, into: logoImage)
         }
     }
 

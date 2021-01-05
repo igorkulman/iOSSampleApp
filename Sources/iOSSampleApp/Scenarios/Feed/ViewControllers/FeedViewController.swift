@@ -76,30 +76,30 @@ final class FeedViewController: UIViewController, FeedStoryboardLodable, ToastCa
     }
 
     private func setupBinding() {
-        tableView.rx.modelSelected(RssItem.self).bind { [weak self] item in self?.delegate?.userDidRequestItemDetail(item: item) }.disposed(by: disposeBag)
-        tableView.rx.itemSelected.bind { [weak self] indexPath in self?.tableView.deselectRow(at: indexPath, animated: true) }.disposed(by: disposeBag)
+        tableView.rx.modelSelected(RssItem.self).withUnretained(self).bind { owner, item in owner.delegate?.userDidRequestItemDetail(item: item) }.disposed(by: disposeBag)
+        tableView.rx.itemSelected.withUnretained(self).bind { owner, indexPath in owner.tableView.deselectRow(at: indexPath, animated: true) }.disposed(by: disposeBag)
 
         refreshControl.rx.controlEvent(.valueChanged).bind(to: viewModel.load).disposed(by: disposeBag)
 
-        setupButton.rx.tap.bind { [weak self] in self?.delegate?.userDidRequestSetup() }.disposed(by: disposeBag)
-        aboutButton.rx.tap.bind { [weak self] in self?.delegate?.userDidRequestAbout() }.disposed(by: disposeBag)
+        setupButton.rx.tap.withUnretained(self).bind { owner, _ in owner.delegate?.userDidRequestSetup() }.disposed(by: disposeBag)
+        aboutButton.rx.tap.withUnretained(self).bind { owner, _ in owner.delegate?.userDidRequestAbout() }.disposed(by: disposeBag)
     }
 
     private func setupData() {
         tableView.register(cellType: FeedCell.self)
 
         // announcing errors with a toast
-        viewModel.onError.bind { [weak self] error in
+        viewModel.onError.withUnretained(self).bind { owner, error in
             switch error {
             case let rssError as RssError:
-                self?.showErrorToast(message: rssError.description)
+                owner.showErrorToast(message: rssError.description)
             default:
-                self?.showErrorToast(message: L10n.networkProblem)
+                owner.showErrorToast(message: L10n.networkProblem)
             }
         }.disposed(by: disposeBag)
 
         // refresh is considered finished when new data arrives or when the request fails
-        Observable.merge(viewModel.feed.map({ _ in Void() }), viewModel.onError.map({ _ in Void() })).bind { [weak self] in self?.refreshControl.endRefreshing() }.disposed(by: disposeBag)
+        Observable.merge(viewModel.feed.map({ _ in Void() }), viewModel.onError.map({ _ in Void() })).withUnretained(self).bind { owner, _ in owner.refreshControl.endRefreshing() }.disposed(by: disposeBag)
 
         viewModel.feed
             .bind(to: tableView.rx.items(cellIdentifier: FeedCell.reuseIdentifier, cellType: FeedCell.self)) { _, element, cell in

@@ -75,8 +75,8 @@ final class CustomSourceViewController: UIViewController, SetupStoryboardLodable
         viewModel.url.asObservable().map({ $0?.isValidURL == true ? UIColor.black : UIColor.red }).bind(to: urlTextField.rx.textColor).disposed(by: disposeBag)
         viewModel.logoUrl.asObservable().map({ $0?.isValidURL == true ? UIColor.black : UIColor.red }).bind(to: logoUrlTextField.rx.textColor).disposed(by: disposeBag)
 
-        NotificationCenter.default.rx.keyboardHeightChanged().bind { [weak self] height in self?.scrollview.setBottomInset(height: height) }.disposed(by: disposeBag)
+        NotificationCenter.default.rx.keyboardHeightChanged().withUnretained(self).bind { owner, height in owner.scrollview.setBottomInset(height: height) }.disposed(by: disposeBag)
 
-        doneButton.rx.tap.withLatestFrom(viewModel.source.flatMap(ignoreNil)).bind { [unowned self] source in self.delegate?.userDidAddCustomSource(source: source) }.disposed(by: disposeBag)
+        doneButton.rx.tap.withLatestFrom(viewModel.source.flatMap(ignoreNil)).withUnretained(self).bind { owner, source in owner.delegate?.userDidAddCustomSource(source: source) }.disposed(by: disposeBag)
     }
 }

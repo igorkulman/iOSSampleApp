@@ -67,15 +67,15 @@ final class FeedViewModel {
                 return loadFeed.materialize() // converting the feed to Observable<Event<[RssItem]>> contaitning both data and error so the observable does not complete on error
             }
             .share() // sharing the subscription so network calls are not duplicated
-            .observeOn(MainScheduler.instance) // making sure the result is returned in the UI thread
+            .observe(on: MainScheduler.instance) // making sure the result is returned in the UI thread
 
         feed = response.elements()
         onError = response.errors()
         title = source.title
 
         // refreshing the feed on app activation
-        NotificationCenter.default.rx.applicationWillEnterForeground().bind { [weak self] in
-            self?.load.onNext(())
+        NotificationCenter.default.rx.applicationWillEnterForeground().withUnretained(self).bind { owner, _ in
+            owner.load.onNext(())
         }.disposed(by: disposeBag)
     }
 }

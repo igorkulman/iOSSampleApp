@@ -5,7 +5,6 @@
 //  Created by Igor Kulman on 11/04/2020.
 //  Copyright © 2020 Igor Kulman. All rights reserved.
 //
-// swiftlint:disable unavailable_function
 
 import Foundation
 
