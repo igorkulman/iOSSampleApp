@@ -27,13 +27,12 @@ final class RssSourceCell: UITableViewCell, NibReusable {
                 return
             }
 
-            disposeBag = DisposeBag()
+            disposeBag = DisposeBag {
+                vm.isSelected.map({ $0 ? .checkmark : .none }).bind(to: rx.accessoryType)
+            }
 
             titleLabel.text = vm.source.title
             urlLabel.text = vm.source.url
-            vm.isSelected.asObservable().withUnretained(self).bind { owner, selected in
-                owner.accessoryType = selected ? .checkmark : .none
-            }.disposed(by: disposeBag)
             logoImage.image = nil
 
             guard let icon = vm.source.icon, let iconUrl = URL(string: icon) else {
