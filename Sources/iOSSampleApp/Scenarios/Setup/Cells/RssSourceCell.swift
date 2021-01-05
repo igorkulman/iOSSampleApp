@@ -6,7 +6,6 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
-import Nuke
 import Reusable
 import RxSwift
 import UIKit
@@ -27,20 +26,14 @@ final class RssSourceCell: UITableViewCell, NibReusable {
                 return
             }
 
-            disposeBag = DisposeBag {
-                vm.isSelected.map({ $0 ? .checkmark : .none }).bind(to: rx.accessoryType)
-            }
-
+            logoImage.image = nil
             titleLabel.text = vm.source.title
             urlLabel.text = vm.source.url
-            logoImage.image = nil
 
-            guard let icon = vm.source.icon, let iconUrl = URL(string: icon) else {
-                logoImage.image = nil
-                return
+            disposeBag = DisposeBag {
+                vm.isSelected.map({ $0 ? .checkmark : .none }).bind(to: rx.accessoryType)
+                vm.icon.bind(to: logoImage.rx.image)
             }
-
-            Nuke.loadImage(with: iconUrl, into: logoImage)
         }
     }
 
