@@ -18,7 +18,7 @@ protocol DetailViewControllerDelegate: AnyObject {
     func detailViewControllerDidFinish()
 }
 
-final class DetailViewController: UIViewController, FeedStoryboardLodable {
+final class DetailViewController: UIViewController {
 
     // MARK: - Properties
 
@@ -141,11 +141,7 @@ final class DetailViewController: UIViewController, FeedStoryboardLodable {
                 return
             }
 
-            UIView.animate(withDuration: 0.3, delay: 0.3, options: .curveEaseOut, animations: { [weak self] in
-                self?.progressView.alpha = 0
-                }, completion: { [weak self] _ in
-                    self?.progressView.setProgress(0, animated: false)
-            })
+            owner.animateProgressAlpha()
         }.disposed(by: disposeBag)
 
         webView.rx.loading.map { [backBarButtonItem, flexibleSpaceBarButtonItem, forwardBarButtonItem, reloadBarButtonItem, stopBarButtonItem] (isLoading: Bool) -> [UIBarButtonItem] in
@@ -155,6 +151,16 @@ final class DetailViewController: UIViewController, FeedStoryboardLodable {
                 return [backBarButtonItem, flexibleSpaceBarButtonItem, forwardBarButtonItem, flexibleSpaceBarButtonItem, reloadBarButtonItem]
             }
         }.bind(to: self.rx.toolbarItems).disposed(by: disposeBag)
+    }
+
+    // MARK: - Internal
+
+    private func animateProgressAlpha() {
+        UIView.animate(withDuration: 0.3, delay: 0.3, options: .curveEaseOut, animations: { [weak self] in
+            self?.progressView.alpha = 0
+            }, completion: { [weak self] _ in
+                self?.progressView.setProgress(0, animated: false)
+        })
     }
 
     private func load(_ url: URL) {
