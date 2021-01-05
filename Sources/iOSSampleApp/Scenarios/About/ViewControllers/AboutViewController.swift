@@ -74,20 +74,14 @@ final class AboutViewController: UITableViewController, AboutStoryboardLodable {
     }
 
     private func setupBinding() {
-        tableView.rx.itemSelected.bind { [unowned self] indexPath in
-
-            // instead of using the row umber directly converting them to an enum to use them in a safer way
-            guard let menuItem = AboutMenuItem(rawValue: indexPath.row) else {
-                fail("Invalid indexPath for AboutMenuItem")
-            }
-
+        tableView.rx.itemSelected.compactMap({ AboutMenuItem(rawValue: $0.row) }).withUnretained(self).bind { owner, menuItem in
             switch menuItem {
             case .libraries:
-                self.delegate?.userDidRequestLibraries()
+                owner.delegate?.userDidRequestLibraries()
             case .aboutAuthor:
-                self.delegate?.userDidRequestAuthorsInfo()
+                owner.delegate?.userDidRequestAuthorsInfo()
             case .authorsBlog:
-                self.delegate?.userDidRequestAuthorsBlog()
+                owner.delegate?.userDidRequestAuthorsBlog()
             }
         }.disposed(by: disposeBag)
     }

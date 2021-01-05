@@ -18,7 +18,7 @@ protocol DetailViewControllerDelegate: AnyObject {
     func detailViewControllerDidFinish()
 }
 
-final class DetailViewController: UIViewController, FeedStoryboardLodable {
+final class DetailViewController: UIViewController {
 
     // MARK: - Properties
 
@@ -102,29 +102,25 @@ final class DetailViewController: UIViewController, FeedStoryboardLodable {
     }
 
     private func setupBinding() {
-        backBarButtonItem.rx.tap.bind { [weak self] in
-            self?.webView?.goBack()
+        backBarButtonItem.rx.tap.withUnretained(self).bind { owner, _ in
+            owner.webView?.goBack()
         }.disposed(by: disposeBag)
 
-        forwardBarButtonItem.rx.tap.bind { [weak self] in
-            self?.webView?.goForward()
+        forwardBarButtonItem.rx.tap.withUnretained(self).bind { owner, _ in
+            owner.webView?.goForward()
         }.disposed(by: disposeBag)
 
-        doneBarButtonItem.rx.tap.bind { [weak self] in
-            self?.delegate?.detailViewControllerDidFinish()
+        doneBarButtonItem.rx.tap.withUnretained(self).bind { owner, _ in
+            owner.delegate?.detailViewControllerDidFinish()
         }.disposed(by: disposeBag)
 
-        reloadBarButtonItem.rx.tap.bind { [weak self] in
-            guard let self = self else {
-                return
-            }
-
-            self.webView?.stopLoading()
-            if self.webView?.url != nil {
-                self.webView?.reload()
+        reloadBarButtonItem.rx.tap.withUnretained(self).bind { owner, _ in
+            owner.webView?.stopLoading()
+            if owner.webView?.url != nil {
+                owner.webView?.reload()
             } else {
-                if let link = self.item.link, let url = URL(string: link) {
-                    self.load(url)
+                if let link = owner.item.link, let url = URL(string: link) {
+                    owner.load(url)
                 }
             }
         }.disposed(by: disposeBag)
@@ -137,17 +133,15 @@ final class DetailViewController: UIViewController, FeedStoryboardLodable {
         webView.rx.canGoForward.bind(to: forwardBarButtonItem.rx.isEnabled).disposed(by: disposeBag)
 
         webView.rx.title.bind(to: navigationItem.rx.title).disposed(by: disposeBag)
-        webView.rx.estimatedProgress.bind { [weak self] estimatedProgress in
-            self?.progressView.alpha = 1
-            self?.progressView.setProgress(Float(estimatedProgress), animated: true)
+        webView.rx.estimatedProgress.withUnretained(self).bind { owner, estimatedProgress in
+            owner.progressView.alpha = 1
+            owner.progressView.setProgress(Float(estimatedProgress), animated: true)
 
-            if estimatedProgress >= 1.0 {
-                UIView.animate(withDuration: 0.3, delay: 0.3, options: .curveEaseOut, animations: { [weak self] in
-                    self?.progressView.alpha = 0
-                    }, completion: { [weak self] _ in
-                        self?.progressView.setProgress(0, animated: false)
-                })
+            guard estimatedProgress >= 1.0 else {
+                return
             }
+
+            owner.animateProgressAlpha()
         }.disposed(by: disposeBag)
 
         webView.rx.loading.map { [backBarButtonItem, flexibleSpaceBarButtonItem, forwardBarButtonItem, reloadBarButtonItem, stopBarButtonItem] (isLoading: Bool) -> [UIBarButtonItem] in
@@ -157,6 +151,16 @@ final class DetailViewController: UIViewController, FeedStoryboardLodable {
                 return [backBarButtonItem, flexibleSpaceBarButtonItem, forwardBarButtonItem, flexibleSpaceBarButtonItem, reloadBarButtonItem]
             }
         }.bind(to: self.rx.toolbarItems).disposed(by: disposeBag)
+    }
+
+    // MARK: - Internal
+
+    private func animateProgressAlpha() {
+        UIView.animate(withDuration: 0.3, delay: 0.3, options: .curveEaseOut, animations: { [weak self] in
+            self?.progressView.alpha = 0
+            }, completion: { [weak self] _ in
+                self?.progressView.setProgress(0, animated: false)
+        })
     }
 
     private func load(_ url: URL) {

@@ -21,13 +21,13 @@
 		F33474F4244F64D80034B1C2 /* Reusable in Frameworks */ = {isa = PBXBuildFile; productRef = F33474F3244F64D80034B1C2 /* Reusable */; };
 		F33474F7244F65050034B1C2 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = F33474F6244F65050034B1C2 /* FeedKit */; };
 		F33474FA244F67270034B1C2 /* RxSwiftExt in Frameworks */ = {isa = PBXBuildFile; productRef = F33474F9244F67270034B1C2 /* RxSwiftExt */; };
-		F33474FD244F68840034B1C2 /* RxNuke in Frameworks */ = {isa = PBXBuildFile; productRef = F33474FC244F68840034B1C2 /* RxNuke */; };
 		F33A1F4124C9866F008ED2BD /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33A1F4024C9866F008ED2BD /* Log.swift */; };
 		F33EB3FE1FBDD81F0050560D /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33EB3FD1FBDD81F0050560D /* UIViewController+Extensions.swift */; };
 		F3520E74206017000011EF40 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3520E73206017000011EF40 /* Strings.swift */; };
 		F35BD6392065111F000AE4E8 /* AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35BD6382065111F000AE4E8 /* AppUITests.swift */; };
 		F3651D22203C1B0D0082A73A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3651D21203C1B0D0082A73A /* DataService.swift */; };
 		F3651D26203C1B3A0082A73A /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3651D25203C1B3A0082A73A /* SettingsService.swift */; };
+		F376423625A4689800C58CE5 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = F376423525A4689800C58CE5 /* Nuke */; };
 		F37781152085E14C00146DBE /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37781142085E14C00146DBE /* Optional+Extensions.swift */; };
 		F382F15824584B0A00861DDF /* SpecLeaks in Frameworks */ = {isa = PBXBuildFile; productRef = F382F15724584B0A00861DDF /* SpecLeaks */; };
 		F38CD1BD1F8382950050056C /* RssSourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD1BC1F8382950050056C /* RssSourceViewModel.swift */; };
@@ -80,7 +80,6 @@
 		F3C8DB3F214EA3AA00C1A654 /* SourceSelectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB3E214EA3AA00C1A654 /* SourceSelectionViewModelTests.swift */; };
 		F3C8DB41214EA7F200C1A654 /* FeedViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB40214EA7F200C1A654 /* FeedViewModelTests.swift */; };
 		F3CBB19621CCFFA00023EE18 /* RxSwift+WKWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CBB19521CCFFA00023EE18 /* RxSwift+WKWebView.swift */; };
-		F3CBB19821CD07620023EE18 /* RxSwift+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CBB19721CD07620023EE18 /* RxSwift+UIViewController.swift */; };
 		F3D6865C1F9B761E00879154 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6865B1F9B761E00879154 /* TestExtensions.swift */; };
 		F3D7D14B2441C599001695B9 /* DebugUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D7D14A2441C599001695B9 /* DebugUtils.swift */; };
 		F3D9327C21628CDE00EA1E91 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F3D9327E21628CDE00EA1E91 /* Localizable.strings */; };
@@ -175,7 +174,6 @@
 		F3C8DB3E214EA3AA00C1A654 /* SourceSelectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceSelectionViewModelTests.swift; sourceTree = "<group>"; };
 		F3C8DB40214EA7F200C1A654 /* FeedViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModelTests.swift; sourceTree = "<group>"; };
 		F3CBB19521CCFFA00023EE18 /* RxSwift+WKWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxSwift+WKWebView.swift"; sourceTree = "<group>"; };
-		F3CBB19721CD07620023EE18 /* RxSwift+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxSwift+UIViewController.swift"; sourceTree = "<group>"; };
 		F3D6865B1F9B761E00879154 /* TestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExtensions.swift; sourceTree = "<group>"; };
 		F3D7D14A2441C599001695B9 /* DebugUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugUtils.swift; sourceTree = "<group>"; };
 		F3D9327F21628CE200EA1E91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -212,9 +210,9 @@
 				F33474E9244F64220034B1C2 /* RxCocoa in Frameworks */,
 				F33474E7244F64220034B1C2 /* RxSwift in Frameworks */,
 				F33474EE244F645A0034B1C2 /* Swinject in Frameworks */,
-				F33474FD244F68840034B1C2 /* RxNuke in Frameworks */,
 				F33474F7244F65050034B1C2 /* FeedKit in Frameworks */,
 				F33474F4244F64D80034B1C2 /* Reusable in Frameworks */,
+				F376423625A4689800C58CE5 /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,7 +540,6 @@
 				F3A812DE1F83762A00A09AAB /* Container+Extensions.swift */,
 				F37781142085E14C00146DBE /* Optional+Extensions.swift */,
 				F38CD2341F83AB9E0050056C /* Reactive+Extensions.swift */,
-				F3CBB19721CD07620023EE18 /* RxSwift+UIViewController.swift */,
 				F3CBB19521CCFFA00023EE18 /* RxSwift+WKWebView.swift */,
 				F3A812E01F83766400A09AAB /* StoryboardLodable.swift */,
 				F3A813121F837ECF00A09AAB /* String+Extensions.swift */,
@@ -675,8 +672,8 @@
 				F33474F3244F64D80034B1C2 /* Reusable */,
 				F33474F6244F65050034B1C2 /* FeedKit */,
 				F33474F9244F67270034B1C2 /* RxSwiftExt */,
-				F33474FC244F68840034B1C2 /* RxNuke */,
 				F300AE2A244F76DD00F5E060 /* NotificationBannerSwift */,
+				F376423525A4689800C58CE5 /* Nuke */,
 			);
 			productName = iOSSampleApp;
 			productReference = F3A812B41F83740E00A09AAB /* iOSSampleApp.app */;
@@ -689,7 +686,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = "Igor Kulman";
 				TargetAttributes = {
 					F3208A791F84E48100B57B0E = {
@@ -728,11 +725,11 @@
 				F33474F2244F64D80034B1C2 /* XCRemoteSwiftPackageReference "Reusable" */,
 				F33474F5244F65050034B1C2 /* XCRemoteSwiftPackageReference "FeedKit" */,
 				F33474F8244F67270034B1C2 /* XCRemoteSwiftPackageReference "RxSwiftExt" */,
-				F33474FB244F68840034B1C2 /* XCRemoteSwiftPackageReference "RxNuke" */,
 				F300AE1D244F700300F5E060 /* XCRemoteSwiftPackageReference "Nimble" */,
 				F300AE20244F708C00F5E060 /* XCRemoteSwiftPackageReference "Quick" */,
 				F300AE29244F76DC00F5E060 /* XCRemoteSwiftPackageReference "NotificationBanner" */,
 				F382F15624584B0A00861DDF /* XCRemoteSwiftPackageReference "specleaks" */,
+				F376423425A4689800C58CE5 /* XCRemoteSwiftPackageReference "Nuke" */,
 			);
 			productRefGroup = F3A812B51F83740E00A09AAB /* Products */;
 			projectDirPath = "";
@@ -883,7 +880,6 @@
 				F3A4B21D1FC434EC00787BCE /* LibrariesViewModel.swift in Sources */,
 				F3A4B21F1FC4359A00787BCE /* AboutCoordinator.swift in Sources */,
 				F3651D26203C1B3A0082A73A /* SettingsService.swift in Sources */,
-				F3CBB19821CD07620023EE18 /* RxSwift+UIViewController.swift in Sources */,
 				F3A812FE1F83791C00A09AAB /* UserDefaultsSettingsService.swift in Sources */,
 				F3A812B81F83740E00A09AAB /* AppDelegate.swift in Sources */,
 				F38CD2371F83AEC70050056C /* UIScrollView+Extensions.swift in Sources */,
@@ -998,7 +994,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S6EJ3ZVM4G;
 				INFOPLIST_FILE = iOSSampleAppUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1018,7 +1014,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S6EJ3ZVM4G;
 				INFOPLIST_FILE = iOSSampleAppUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1058,6 +1054,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1083,7 +1080,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1118,6 +1115,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1137,7 +1135,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -1253,7 +1251,7 @@
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
 			requirement = {
 				kind = exactVersion;
-				version = 5.1.1;
+				version = 6.0.0;
 			};
 		};
 		F33474EC244F645A0034B1C2 /* XCRemoteSwiftPackageReference "Swinject" */ = {
@@ -1293,15 +1291,15 @@
 			repositoryURL = "https://github.com/RxSwiftCommunity/RxSwiftExt";
 			requirement = {
 				kind = exactVersion;
-				version = 5.2.0;
+				version = 6.0.0;
 			};
 		};
-		F33474FB244F68840034B1C2 /* XCRemoteSwiftPackageReference "RxNuke" */ = {
+		F376423425A4689800C58CE5 /* XCRemoteSwiftPackageReference "Nuke" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kean/RxNuke";
+			repositoryURL = "https://github.com/kean/Nuke";
 			requirement = {
 				kind = exactVersion;
-				version = 0.12.0;
+				version = 9.2.3;
 			};
 		};
 		F382F15624584B0A00861DDF /* XCRemoteSwiftPackageReference "specleaks" */ = {
@@ -1370,10 +1368,10 @@
 			package = F33474F8244F67270034B1C2 /* XCRemoteSwiftPackageReference "RxSwiftExt" */;
 			productName = RxSwiftExt;
 		};
-		F33474FC244F68840034B1C2 /* RxNuke */ = {
+		F376423525A4689800C58CE5 /* Nuke */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F33474FB244F68840034B1C2 /* XCRemoteSwiftPackageReference "RxNuke" */;
-			productName = RxNuke;
+			package = F376423425A4689800C58CE5 /* XCRemoteSwiftPackageReference "Nuke" */;
+			productName = Nuke;
 		};
 		F382F15724584B0A00861DDF /* SpecLeaks */ = {
 			isa = XCSwiftPackageProductDependency;

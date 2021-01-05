@@ -11,14 +11,6 @@ import RxCocoa
 import RxSwift
 import UIKit
 
-extension Reactive where Base: UITextField {
-    var textColor: Binder<UIColor?> {
-        return Binder(base) { label, textColor in
-            label.textColor = textColor
-        }
-    }
-}
-
 extension Reactive where Base: NotificationCenter {
     func keyboardHeightChanged() -> ControlEvent<CGFloat> {
         let showSource = notification(UIResponder.keyboardDidShowNotification).map({ (value: Notification) -> CGFloat in
