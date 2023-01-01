@@ -30,46 +30,70 @@ protocol FeedViewControllerDelegeate: AnyObject {
 
 final class FeedViewController: UIViewController, FeedStoryboardLodable, ToastCapable {
 
-    // MARK: - Outlets
+    // MARK: - UI
 
-    @IBOutlet private weak var tableView: UITableView!
+    private lazy var tableView: UITableView = .init() &> {
+        $0.estimatedRowHeight = 0
+        $0.rowHeight = 100
+        $0.refreshControl = refreshControl
+        $0.tableFooterView = UIView()
+    }
+
+    private lazy var refreshControl: UIRefreshControl = .init() &> {
+        $0.attributedTitle = NSAttributedString(string: L10n.pullToRefresh)
+    }
+
+    private lazy var setupButton: UIBarButtonItem = .init() &> {
+        $0.image = #imageLiteral(resourceName: "Settings")
+        $0.style = .plain
+    }
+
+    private lazy var aboutButton: UIBarButtonItem = .init() &> {
+        $0.image = #imageLiteral(resourceName: "About")
+        $0.style = .plain
+        $0.accessibilityIdentifier = "about"
+    }
 
     // MARK: - Properties
 
-    var viewModel: FeedViewModel!
+    private let viewModel: FeedViewModel
+
     weak var delegate: FeedViewControllerDelegeate?
 
     // MARK: - Fields
 
     private var disposeBag = DisposeBag()
-    private let refreshControl: UIRefreshControl
-    private let setupButton: UIBarButtonItem
-    private let aboutButton: UIBarButtonItem
 
-    required init?(coder aDecoder: NSCoder) {
-        refreshControl = UIRefreshControl()
-        setupButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Settings"), style: .plain, target: nil, action: nil)
-        aboutButton = UIBarButtonItem(image: #imageLiteral(resourceName: "About"), style: .plain, target: nil, action: nil)
-        aboutButton.accessibilityIdentifier = "about"
+    init(viewModel: FeedViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
 
-        super.init(coder: aDecoder)
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Setup
+
+    override func loadView() {
+        let view = UIView()
+        defer { self.view = view }
+
+        tableView.pin(to: view)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.pin(to: view)
         setupUI()
         setupBinding()
         setupData()
     }
 
-    // MARK: - Setup
-
     private func setupUI() {
         title = viewModel.title
-        tableView.estimatedRowHeight = 0
-        tableView.refreshControl = refreshControl
-        refreshControl.attributedTitle = NSAttributedString(string: L10n.pullToRefresh)
 
         navigationItem.leftBarButtonItem = setupButton
         navigationItem.rightBarButtonItem = aboutButton

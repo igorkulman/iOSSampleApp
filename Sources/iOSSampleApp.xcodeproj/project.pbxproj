@@ -62,7 +62,6 @@
 		F3A812FE1F83791C00A09AAB /* UserDefaultsSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A812FD1F83791C00A09AAB /* UserDefaultsSettingsService.swift */; };
 		F3A813001F837A6500A09AAB /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A812FF1F837A6500A09AAB /* FeedViewController.swift */; };
 		F3A813021F837A8200A09AAB /* SourceSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A813011F837A8200A09AAB /* SourceSelectionViewController.swift */; };
-		F3A813041F837A8F00A09AAB /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A813031F837A8F00A09AAB /* Feed.storyboard */; };
 		F3A813061F837AA400A09AAB /* Setup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A813051F837AA400A09AAB /* Setup.storyboard */; };
 		F3A813091F837AF400A09AAB /* RssSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A813081F837AF400A09AAB /* RssSource.swift */; };
 		F3A8130B1F837B0E00A09AAB /* SetupCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A8130A1F837B0E00A09AAB /* SetupCoordinator.swift */; };
@@ -74,6 +73,8 @@
 		F3AAA6221F860E55009653B7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AAA6211F860E55009653B7 /* DetailViewController.swift */; };
 		F3AAA6261F86113A009653B7 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3AAA6251F86113A009653B7 /* UINavigationController+Extensions.swift */; };
 		F3ABC2BA2285F6D00010BAF0 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ABC2B92285F6D00010BAF0 /* Array+Extensions.swift */; };
+		F3C5F3522961BB1200257080 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5F3512961BB1200257080 /* Operators.swift */; };
+		F3C5F3542961BD8300257080 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5F3532961BD8300257080 /* UIView+Layout.swift */; };
 		F3C7CFDD2423AF4C003A961E /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C7CFDC2423AF4C003A961E /* URL+Extensions.swift */; };
 		F3C8DB3B214EA1B700C1A654 /* DataServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB3A214EA1B700C1A654 /* DataServiceMock.swift */; };
 		F3C8DB3D214EA1E700C1A654 /* SettingsServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB3C214EA1E700C1A654 /* SettingsServiceMock.swift */; };
@@ -153,7 +154,6 @@
 		F3A812FD1F83791C00A09AAB /* UserDefaultsSettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsSettingsService.swift; sourceTree = "<group>"; };
 		F3A812FF1F837A6500A09AAB /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		F3A813011F837A8200A09AAB /* SourceSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceSelectionViewController.swift; sourceTree = "<group>"; };
-		F3A813031F837A8F00A09AAB /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		F3A813051F837AA400A09AAB /* Setup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setup.storyboard; sourceTree = "<group>"; };
 		F3A813081F837AF400A09AAB /* RssSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssSource.swift; sourceTree = "<group>"; };
 		F3A8130A1F837B0E00A09AAB /* SetupCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCoordinator.swift; sourceTree = "<group>"; };
@@ -168,6 +168,8 @@
 		F3C2E59D24387A4E002A1449 /* generate-strings.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "generate-strings.sh"; sourceTree = "<group>"; };
 		F3C2E59E24387A4E002A1449 /* lint.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = lint.sh; sourceTree = "<group>"; };
 		F3C2E59F24387A4E002A1449 /* check-strings.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "check-strings.sh"; sourceTree = "<group>"; };
+		F3C5F3512961BB1200257080 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		F3C5F3532961BD8300257080 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		F3C7CFDC2423AF4C003A961E /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		F3C8DB3A214EA1B700C1A654 /* DataServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceMock.swift; sourceTree = "<group>"; };
 		F3C8DB3C214EA1E700C1A654 /* SettingsServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsServiceMock.swift; sourceTree = "<group>"; };
@@ -268,7 +270,6 @@
 		F3651D0D203C19C80082A73A /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				F3A813031F837A8F00A09AAB /* Feed.storyboard */,
 				F3651D18203C1A620082A73A /* Cells */,
 				F3651D13203C1A060082A73A /* Coordinators */,
 				F3651D1E203C1AD70082A73A /* Models */,
@@ -486,7 +487,9 @@
 				F3A812B51F83740E00A09AAB /* Products */,
 				F3A812E21F8376A900A09AAB /* Frameworks */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
 		};
 		F3A812B51F83740E00A09AAB /* Products */ = {
 			isa = PBXGroup;
@@ -520,6 +523,7 @@
 				F3A812D41F83754100A09AAB /* AppDelegate+Setup.swift */,
 				F3D7D14A2441C599001695B9 /* DebugUtils.swift */,
 				F33A1F4024C9866F008ED2BD /* Log.swift */,
+				F3C5F3512961BB1200257080 /* Operators.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -545,6 +549,7 @@
 				F3A813121F837ECF00A09AAB /* String+Extensions.swift */,
 				F3AAA6251F86113A009653B7 /* UINavigationController+Extensions.swift */,
 				F38CD2361F83AEC70050056C /* UIScrollView+Extensions.swift */,
+				F3C5F3532961BD8300257080 /* UIView+Layout.swift */,
 				F33EB3FD1FBDD81F0050560D /* UIViewController+Extensions.swift */,
 				F3C7CFDC2423AF4C003A961E /* URL+Extensions.swift */,
 			);
@@ -769,7 +774,6 @@
 				F3A812C21F83740E00A09AAB /* LaunchScreen.storyboard in Resources */,
 				F38CD1CE1F8386A00050056C /* RssSourceCell.xib in Resources */,
 				F3A4B2191FC4331000787BCE /* About.storyboard in Resources */,
-				F3A813041F837A8F00A09AAB /* Feed.storyboard in Resources */,
 				F38CD1C21F8385450050056C /* sources.json in Resources */,
 				F3A812BF1F83740E00A09AAB /* Assets.xcassets in Resources */,
 			);
@@ -877,6 +881,7 @@
 				F3A812E11F83766400A09AAB /* StoryboardLodable.swift in Sources */,
 				F38CD2331F83A6040050056C /* CustomSourceViewModel.swift in Sources */,
 				F3AAA6261F86113A009653B7 /* UINavigationController+Extensions.swift in Sources */,
+				F3C5F3522961BB1200257080 /* Operators.swift in Sources */,
 				F3A4B2151FC42FD200787BCE /* AboutViewController.swift in Sources */,
 				F37781152085E14C00146DBE /* Optional+Extensions.swift in Sources */,
 				F3A4B21D1FC434EC00787BCE /* LibrariesViewModel.swift in Sources */,
@@ -886,6 +891,7 @@
 				F3A812B81F83740E00A09AAB /* AppDelegate.swift in Sources */,
 				F38CD2371F83AEC70050056C /* UIScrollView+Extensions.swift in Sources */,
 				F3651D22203C1B0D0082A73A /* DataService.swift in Sources */,
+				F3C5F3542961BD8300257080 /* UIView+Layout.swift in Sources */,
 				F38CD22F1F83A2B90050056C /* CustomSourceViewController.swift in Sources */,
 				F3520E74206017000011EF40 /* Strings.swift in Sources */,
 				F39064951F84D4D8003C0C12 /* FeedViewModel.swift in Sources */,
