@@ -11,6 +11,7 @@ import Foundation
 import Nimble
 import Quick
 import Swinject
+import SwinjectAutoregistration
 import XCTest
 
 extension ViewControllerLeakTests {
@@ -29,20 +30,20 @@ extension ViewControllerLeakTests {
         container.autoregister(AboutViewModel.self, initializer: AboutViewModel.init)
 
         // view controllers
-        container.registerViewController(SourceSelectionViewController.self) { r, c in
-            c.viewModel = r.resolve(SourceSelectionViewModel.self)
+        container.register(SourceSelectionViewController.self) { r in
+            SourceSelectionViewController(viewModel: r~>)
         }
-        container.registerViewController(CustomSourceViewController.self) { r, c in
-            c.viewModel = r.resolve(CustomSourceViewModel.self)
+        container.register(CustomSourceViewController.self) { r in
+            CustomSourceViewController(viewModel: r~>)
         }
-        container.registerViewController(FeedViewController.self) { r, c in
-            c.viewModel = r.resolve(FeedViewModel.self)
+        container.register(FeedViewController.self) { r in
+            FeedViewController(viewModel: r~>)
         }
-        container.registerViewController(LibrariesViewController.self) { r, c in
-            c.viewModel = r.resolve(LibrariesViewModel.self)
+        container.register(LibrariesViewController.self) { r in
+            LibrariesViewController(viewModel: r~>)
         }
-        container.registerViewController(AboutViewController.self) { r, c
-            in c.viewModel = r.resolve(AboutViewModel.self)
+        container.register(AboutViewController.self) { r in
+            AboutViewController(viewModel: r~>)
         }
 
         return container
