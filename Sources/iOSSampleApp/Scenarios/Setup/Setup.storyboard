@@ -1,48 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Source Selection View Controller-->
-        <scene sceneID="Eb8-nE-MZa">
-            <objects>
-                <viewController storyboardIdentifier="SourceSelection" id="jCK-kU-67T" customClass="SourceSelectionViewController" customModule="iOSSampleApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="pZc-Vw-M4r">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="efB-Kd-Mra">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="nKz-hY-IEG">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="efB-Kd-Mra" firstAttribute="top" secondItem="pqE-mG-QY5" secondAttribute="top" id="9Cv-yI-lcw"/>
-                            <constraint firstItem="efB-Kd-Mra" firstAttribute="leading" secondItem="pqE-mG-QY5" secondAttribute="leading" id="GbU-V5-9PY"/>
-                            <constraint firstItem="pqE-mG-QY5" firstAttribute="trailing" secondItem="efB-Kd-Mra" secondAttribute="trailing" id="MXS-yj-GnX"/>
-                            <constraint firstItem="pqE-mG-QY5" firstAttribute="bottom" secondItem="efB-Kd-Mra" secondAttribute="bottom" id="u50-KA-HAT"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="pqE-mG-QY5"/>
-                    </view>
-                    <connections>
-                        <outlet property="tableView" destination="efB-Kd-Mra" id="Jkk-Yt-FzT"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g7F-BY-FLY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-214" y="99"/>
-        </scene>
         <!--Custom Source View Controller-->
         <scene sceneID="3dr-dz-gAL">
             <objects>
@@ -75,7 +41,7 @@
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Q6T-EB-k6s">
                                                         <rect key="frame" x="0.0" y="72.5" width="343" height="60.5"/>
@@ -92,7 +58,7 @@
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="njA-1u-6VM">
                                                         <rect key="frame" x="0.0" y="145" width="343" height="60.5"/>
@@ -109,7 +75,7 @@
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="9ci-g3-ifV">
                                                         <rect key="frame" x="0.0" y="217.5" width="343" height="60.5"/>
@@ -126,13 +92,13 @@
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     </stackView>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" secondItem="zXH-xT-747" secondAttribute="height" id="5Kv-bI-HuA"/>
                                             <constraint firstItem="zXH-xT-747" firstAttribute="top" secondItem="xCS-KJ-Y8b" secondAttribute="top" constant="8" id="851-WG-8YK"/>
@@ -141,7 +107,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="xCS-KJ-Y8b" firstAttribute="leading" secondItem="iDg-OL-TfS" secondAttribute="leading" id="0IC-q3-cVK"/>
                                     <constraint firstAttribute="trailing" secondItem="xCS-KJ-Y8b" secondAttribute="trailing" id="2Eb-jY-KBn"/>
@@ -150,7 +116,8 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="nMl-XD-GQ5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="iDg-OL-TfS" firstAttribute="trailing" secondItem="nMl-XD-GQ5" secondAttribute="trailing" id="70y-Ov-bmx"/>
                             <constraint firstItem="nMl-XD-GQ5" firstAttribute="bottom" secondItem="iDg-OL-TfS" secondAttribute="bottom" id="JJp-8z-97N"/>
@@ -158,7 +125,6 @@
                             <constraint firstItem="xCS-KJ-Y8b" firstAttribute="width" secondItem="t13-HK-T4n" secondAttribute="width" id="dup-8q-pbf"/>
                             <constraint firstItem="iDg-OL-TfS" firstAttribute="leading" secondItem="nMl-XD-GQ5" secondAttribute="leading" id="s2e-hq-pue"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="nMl-XD-GQ5"/>
                     </view>
                     <connections>
                         <outlet property="logoUrlLabel" destination="B98-3I-s6m" id="Uj6-Wl-zRZ"/>
@@ -177,4 +143,9 @@
             <point key="canvasLocation" x="445.60000000000002" y="98.50074962518741"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

@@ -23,33 +23,54 @@ protocol SourceSelectionViewControllerDelegate: AnyObject {
 
 final class SourceSelectionViewController: UIViewController, SetupStoryboardLodable {
 
-    // MARK: - Outlets
+    // MARK: - UI
 
-    @IBOutlet private weak var tableView: UITableView!
+    private lazy var tableView: UITableView = .init() &> {
+        $0.rowHeight = 60
+        $0.tableFooterView = UIView()
+    }
+
+    private lazy var doneButton: UIBarButtonItem = .init() &> {
+        $0.title = L10n.done
+        $0.style = .plain
+        $0.accessibilityIdentifier = "done"
+    }
+
+    private lazy var addCustomButton: UIBarButtonItem = .init() &> {
+        $0.title = L10n.addCustom
+        $0.style = .plain
+    }
+
+    private lazy var searchController: UISearchController = .init()
 
     // MARK: - Properties
 
-    var viewModel: SourceSelectionViewModel!
+    let viewModel: SourceSelectionViewModel
+
     weak var delegate: SourceSelectionViewControllerDelegate?
 
     // MARK: - Fields
 
     private var disposeBag = DisposeBag()
 
-    private let doneButton: UIBarButtonItem
-    private let addCustomButton: UIBarButtonItem
-    private let searchController: UISearchController
-
-    required init?(coder aDecoder: NSCoder) {
-        doneButton = UIBarButtonItem(title: L10n.done, style: .plain, target: nil, action: nil)
-        doneButton.accessibilityIdentifier = "done"
-        addCustomButton = UIBarButtonItem(title: L10n.addCustom, style: .plain, target: nil, action: nil)
-        searchController = UISearchController(searchResultsController: nil)
-
-        super.init(coder: aDecoder)
+    init(viewModel: SourceSelectionViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
     }
 
-    // MARK: - Lifecycle
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Setup
+
+    override func loadView() {
+        let view = UIView()
+        defer { self.view = view }
+
+        tableView.pin(to: view)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,8 +79,6 @@ final class SourceSelectionViewController: UIViewController, SetupStoryboardLoda
         setupBinding()
         setupData()
     }
-
-    // MARK: - Setup
 
     private func setupUI() {
         title = L10n.selectSource
