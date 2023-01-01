@@ -43,10 +43,11 @@ final class FeedCoordinator: NavigationCoordinator {
      */
     func start() {
         let isNavigationStackEmpty = navigationController.viewControllers.isEmpty
-        let vc = container.resolve(FeedViewController.self)!
-        vc.delegate = self
-        vc.navigationItem.hidesBackButton = true
-        navigationController.pushViewController(vc, animated: true)
+        let feedViewController = container.resolve(FeedViewController.self)! &> {
+            $0.delegate = self
+            $0.navigationItem.hidesBackButton = true
+        }
+        navigationController.pushViewController(feedViewController, animated: true)
 
         // FeedViewController should be always the top most VC
         if !isNavigationStackEmpty {
@@ -60,20 +61,23 @@ final class FeedCoordinator: NavigationCoordinator {
      - Parameter item: RSS item to show detail
      */
     private func showDetail(item: RssItem) {
-        let vc = DetailViewController(item: item)
-        vc.delegate = self
-        let nc = UINavigationController(rootViewController: vc)
-        nc.modalPresentationStyle = .fullScreen
-        navigationController.present(nc, animated: true, completion: nil)
+        let detailViewController = DetailViewController(item: item) &> {
+            $0.delegate = self
+        }
+        let internalNavigationController = UINavigationController(rootViewController: detailViewController) &> {
+            $0.modalPresentationStyle = .fullScreen
+        }
+        navigationController.present(internalNavigationController, animated: true, completion: nil)
     }
 
     /**
      Shows the About screen by starting the AboutCoordinator
      */
     private func showAbout() {
-        let aboutCoordinator = AboutCoordinator(container: container, navigationController: navigationController)
+        let aboutCoordinator = AboutCoordinator(container: container, navigationController: navigationController) &> {
+            $0.delegate = self
+        }
         childCoordinators[.about] = aboutCoordinator
-        aboutCoordinator.delegate = self
         aboutCoordinator.start()
     }
 }

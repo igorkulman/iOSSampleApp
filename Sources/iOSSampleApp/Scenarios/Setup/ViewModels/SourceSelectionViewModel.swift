@@ -63,17 +63,17 @@ final class SourceSelectionViewModel {
     func toggleSource(source: RssSourceViewModel) {
         let selected = source.isSelected.value
 
-        for s in allSources.value {
-            s.isSelected.accept(false)
+        allSources.value.forEach {
+            $0.isSelected.accept(false)
         }
 
         source.isSelected.accept(!selected)
     }
 
     func addNewSource(source: RssSource) {
-        let vm = RssSourceViewModel(source: source)
-        allSources.accept(allSources.value.inserting(vm, at: 0))
-        toggleSource(source: vm)
+        let rssSourceViewModel = RssSourceViewModel(source: source)
+        allSources.accept(allSources.value.inserting(rssSourceViewModel, at: 0))
+        toggleSource(source: rssSourceViewModel)
     }
 
     func saveSelectedSource() -> Bool {

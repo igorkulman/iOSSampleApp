@@ -33,12 +33,13 @@ final class AppCoordinator: Coordinator {
     init(window: UIWindow, container: Container) {
         self.window = window
         self.container = container
-        navigationController = UINavigationController()
+        navigationController = UINavigationController() &> {
+            $0.navigationBar.prefersLargeTitles = true
+            $0.navigationBar.isTranslucent = false
+            $0.view.backgroundColor = .systemBackground
+        }
 
         settingsService = self.container.resolve(SettingsService.self)!
-
-        navigationController.navigationBar.prefersLargeTitles = true
-        navigationController.view.backgroundColor = UIColor.white
 
         self.window.rootViewController = navigationController
     }
@@ -60,9 +61,10 @@ final class AppCoordinator: Coordinator {
      Shows the feed using the FeedCoordinator
      */
     private func showFeed() {
-        let feedCoordinator = FeedCoordinator(container: container, navigationController: navigationController)
+        let feedCoordinator = FeedCoordinator(container: container, navigationController: navigationController) &> {
+            $0.delegate = self
+        }
         childCoordinators[.feed] = feedCoordinator
-        feedCoordinator.delegate = self
         feedCoordinator.start()
     }
 
@@ -70,9 +72,10 @@ final class AppCoordinator: Coordinator {
      Starts the setup flow using the SetupCoordinator
      */
     private func showSetup() {
-        let setupCoordinator = SetupCoordinator(container: container, navigationController: navigationController)
+        let setupCoordinator = SetupCoordinator(container: container, navigationController: navigationController) &> {
+            $0.delegate = self
+        }
         childCoordinators[.setup] = setupCoordinator
-        setupCoordinator.delegate = self
         setupCoordinator.start()
     }
 }

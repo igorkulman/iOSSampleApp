@@ -18,16 +18,14 @@ final class LibrariesViewModel {
     let libraries: Observable<[Library]>
 
     init() {
-        if let path = Bundle.main.path(forResource: "Licenses", ofType: "plist"), let array = NSArray(contentsOfFile: path) as? [[String: Any]] {
-            libraries = Observable.just(array.map({ dict in
-
-                let title = dict["title"] as! String
-                let license = dict["license"] as! String
-
-                return (title, license)
-            }))
-        } else {
-            libraries = Observable.just([])
+        guard let path = Bundle.main.path(forResource: "Licenses", ofType: "plist"), let array = NSArray(contentsOfFile: path) as? [[String: Any]] else {
+            fail("Invalid bundle linceses file")
         }
+
+        libraries = Observable.just(array.map {
+            let title = $0["title"] as! String
+            let license = $0["license"] as! String
+            return (title, license)
+        })
     }
 }

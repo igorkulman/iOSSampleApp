@@ -15,11 +15,9 @@ precedencegroup FunctionApplicationPrecedence {
 
 infix operator &>: FunctionApplicationPrecedence
 
+// swiftlint:disable static_operator
 @discardableResult
-public func &> <Input>(
-  value: Input,
-  function: (inout Input) throws -> Void
-) rethrows -> Input {
+public func &> <Input>(value: Input, function: (inout Input) throws -> Void) rethrows -> Input {
   var m_value = value
   try function(&m_value)
   return m_value

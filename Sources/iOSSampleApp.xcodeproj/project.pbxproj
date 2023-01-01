@@ -44,7 +44,6 @@
 		F390649E1F84DF6B003C0C12 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F390649C1F84DF6B003C0C12 /* FeedCell.swift */; };
 		F3A4B2151FC42FD200787BCE /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A4B2141FC42FD200787BCE /* AboutViewController.swift */; };
 		F3A4B2171FC432CA00787BCE /* Licenses.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3A4B2161FC432CA00787BCE /* Licenses.plist */; };
-		F3A4B2191FC4331000787BCE /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A4B2181FC4331000787BCE /* About.storyboard */; };
 		F3A4B21B1FC434C300787BCE /* LibrariesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A4B21A1FC434C300787BCE /* LibrariesViewController.swift */; };
 		F3A4B21D1FC434EC00787BCE /* LibrariesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A4B21C1FC434EC00787BCE /* LibrariesViewModel.swift */; };
 		F3A4B21F1FC4359A00787BCE /* AboutCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A4B21E1FC4359A00787BCE /* AboutCoordinator.swift */; };
@@ -74,6 +73,8 @@
 		F3C5F3522961BB1200257080 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5F3512961BB1200257080 /* Operators.swift */; };
 		F3C5F3542961BD8300257080 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5F3532961BD8300257080 /* UIView+Layout.swift */; };
 		F3C5F3572961C60A00257080 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5F3562961C60A00257080 /* LibraryCell.swift */; };
+		F3C5F35A2961E3BB00257080 /* AboutMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5F3592961E3BB00257080 /* AboutMenuItem.swift */; };
+		F3C5F35C2961E45000257080 /* AboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5F35B2961E45000257080 /* AboutCell.swift */; };
 		F3C7CFDD2423AF4C003A961E /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C7CFDC2423AF4C003A961E /* URL+Extensions.swift */; };
 		F3C8DB3B214EA1B700C1A654 /* DataServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB3A214EA1B700C1A654 /* DataServiceMock.swift */; };
 		F3C8DB3D214EA1E700C1A654 /* SettingsServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB3C214EA1E700C1A654 /* SettingsServiceMock.swift */; };
@@ -133,7 +134,6 @@
 		F390649C1F84DF6B003C0C12 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		F3A4B2141FC42FD200787BCE /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		F3A4B2161FC432CA00787BCE /* Licenses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Licenses.plist; sourceTree = "<group>"; };
-		F3A4B2181FC4331000787BCE /* About.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		F3A4B21A1FC434C300787BCE /* LibrariesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariesViewController.swift; sourceTree = "<group>"; };
 		F3A4B21C1FC434EC00787BCE /* LibrariesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariesViewModel.swift; sourceTree = "<group>"; };
 		F3A4B21E1FC4359A00787BCE /* AboutCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCoordinator.swift; sourceTree = "<group>"; };
@@ -168,6 +168,8 @@
 		F3C5F3512961BB1200257080 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		F3C5F3532961BD8300257080 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		F3C5F3562961C60A00257080 /* LibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
+		F3C5F3592961E3BB00257080 /* AboutMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMenuItem.swift; sourceTree = "<group>"; };
+		F3C5F35B2961E45000257080 /* AboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCell.swift; sourceTree = "<group>"; };
 		F3C7CFDC2423AF4C003A961E /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		F3C8DB3A214EA1B700C1A654 /* DataServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceMock.swift; sourceTree = "<group>"; };
 		F3C8DB3C214EA1E700C1A654 /* SettingsServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsServiceMock.swift; sourceTree = "<group>"; };
@@ -295,8 +297,8 @@
 			isa = PBXGroup;
 			children = (
 				F3C5F3552961C60000257080 /* Cells */,
-				F3A4B2181FC4331000787BCE /* About.storyboard */,
 				F3651D11203C19F70082A73A /* Coordinators */,
+				F3C5F3582961E3B200257080 /* Model */,
 				F3651D17203C1A4C0082A73A /* ViewControllers */,
 				F3651D1A203C1A790082A73A /* ViewModels */,
 			);
@@ -584,8 +586,17 @@
 			isa = PBXGroup;
 			children = (
 				F3C5F3562961C60A00257080 /* LibraryCell.swift */,
+				F3C5F35B2961E45000257080 /* AboutCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		F3C5F3582961E3B200257080 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F3C5F3592961E3BB00257080 /* AboutMenuItem.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		F3C8DB39214EA1A000C1A654 /* Mocks */ = {
@@ -776,7 +787,6 @@
 				F3A4B2171FC432CA00787BCE /* Licenses.plist in Resources */,
 				F3A813061F837AA400A09AAB /* Setup.storyboard in Resources */,
 				F3A812C21F83740E00A09AAB /* LaunchScreen.storyboard in Resources */,
-				F3A4B2191FC4331000787BCE /* About.storyboard in Resources */,
 				F38CD1C21F8385450050056C /* sources.json in Resources */,
 				F3A812BF1F83740E00A09AAB /* Assets.xcassets in Resources */,
 			);
@@ -887,6 +897,7 @@
 				F3AAA6261F86113A009653B7 /* UINavigationController+Extensions.swift in Sources */,
 				F3C5F3522961BB1200257080 /* Operators.swift in Sources */,
 				F3A4B2151FC42FD200787BCE /* AboutViewController.swift in Sources */,
+				F3C5F35A2961E3BB00257080 /* AboutMenuItem.swift in Sources */,
 				F37781152085E14C00146DBE /* Optional+Extensions.swift in Sources */,
 				F3A4B21D1FC434EC00787BCE /* LibrariesViewModel.swift in Sources */,
 				F3A4B21F1FC4359A00787BCE /* AboutCoordinator.swift in Sources */,
@@ -909,6 +920,7 @@
 				F3D7D14B2441C599001695B9 /* DebugUtils.swift in Sources */,
 				F3A8130F1F837C0800A09AAB /* FeedCoordinator.swift in Sources */,
 				F33EB3FE1FBDD81F0050560D /* UIViewController+Extensions.swift in Sources */,
+				F3C5F35C2961E45000257080 /* AboutCell.swift in Sources */,
 				F3AAA6221F860E55009653B7 /* DetailViewController.swift in Sources */,
 				F38CD2351F83AB9E0050056C /* Reactive+Extensions.swift in Sources */,
 			);
