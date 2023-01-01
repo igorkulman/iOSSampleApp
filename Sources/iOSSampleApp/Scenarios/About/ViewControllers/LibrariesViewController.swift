@@ -9,15 +9,27 @@
 import RxSwift
 import UIKit
 
-final class LibrariesViewController: UITableViewController, AboutStoryboardLodable {
+final class LibrariesViewController: UITableViewController {
 
     // MARK: - Properties
 
-    var viewModel: LibrariesViewModel!
+    private let viewModel: LibrariesViewModel
 
     // MARK: - Fields
 
     private var disposeBag = DisposeBag()
+
+    init(viewModel: LibrariesViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Setup
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,16 +38,15 @@ final class LibrariesViewController: UITableViewController, AboutStoryboardLodab
         setupData()
     }
 
-    // MARK: - Setup
-
     private func setupUI() {
         title = L10n.libraries
     }
 
     private func setupData() {
         tableView.dataSource = nil
+        tableView.register(cellType: LibraryCell.self)
 
-        viewModel.libraries.bind(to: tableView.rx.items(cellIdentifier: "LicensesCell", cellType: UITableViewCell.self)) { _, element, cell in
+        viewModel.libraries.bind(to: tableView.rx.items(cellIdentifier: LibraryCell.reuseIdentifier, cellType: LibraryCell.self)) { _, element, cell in
             let (name, licenseName) = element
             cell.textLabel?.text = name
             cell.detailTextLabel?.text = licenseName

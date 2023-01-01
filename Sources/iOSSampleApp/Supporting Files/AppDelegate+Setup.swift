@@ -38,8 +38,8 @@ extension AppDelegate {
         container.register(FeedViewController.self) { r in
             FeedViewController(viewModel: r~>)
         }
-        container.registerViewController(LibrariesViewController.self) { r, c in
-            c.viewModel = r~>
+        container.register(LibrariesViewController.self) { r in
+            LibrariesViewController(viewModel: r~>)
         }
         container.registerViewController(AboutViewController.self) { r, c in
             c.viewModel = r~>

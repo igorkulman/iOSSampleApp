@@ -73,6 +73,7 @@
 		F3ABC2BA2285F6D00010BAF0 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3ABC2B92285F6D00010BAF0 /* Array+Extensions.swift */; };
 		F3C5F3522961BB1200257080 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5F3512961BB1200257080 /* Operators.swift */; };
 		F3C5F3542961BD8300257080 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5F3532961BD8300257080 /* UIView+Layout.swift */; };
+		F3C5F3572961C60A00257080 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5F3562961C60A00257080 /* LibraryCell.swift */; };
 		F3C7CFDD2423AF4C003A961E /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C7CFDC2423AF4C003A961E /* URL+Extensions.swift */; };
 		F3C8DB3B214EA1B700C1A654 /* DataServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB3A214EA1B700C1A654 /* DataServiceMock.swift */; };
 		F3C8DB3D214EA1E700C1A654 /* SettingsServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB3C214EA1E700C1A654 /* SettingsServiceMock.swift */; };
@@ -166,6 +167,7 @@
 		F3C2E59F24387A4E002A1449 /* check-strings.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "check-strings.sh"; sourceTree = "<group>"; };
 		F3C5F3512961BB1200257080 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		F3C5F3532961BD8300257080 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
+		F3C5F3562961C60A00257080 /* LibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
 		F3C7CFDC2423AF4C003A961E /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		F3C8DB3A214EA1B700C1A654 /* DataServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceMock.swift; sourceTree = "<group>"; };
 		F3C8DB3C214EA1E700C1A654 /* SettingsServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsServiceMock.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 		F3651D0F203C19DF0082A73A /* About */ = {
 			isa = PBXGroup;
 			children = (
+				F3C5F3552961C60000257080 /* Cells */,
 				F3A4B2181FC4331000787BCE /* About.storyboard */,
 				F3651D11203C19F70082A73A /* Coordinators */,
 				F3651D17203C1A4C0082A73A /* ViewControllers */,
@@ -577,6 +580,14 @@
 			path = "Build-Phases";
 			sourceTree = "<group>";
 		};
+		F3C5F3552961C60000257080 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F3C5F3562961C60A00257080 /* LibraryCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		F3C8DB39214EA1A000C1A654 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
@@ -855,6 +866,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3C5F3572961C60A00257080 /* LibraryCell.swift in Sources */,
 				F3C7CFDD2423AF4C003A961E /* URL+Extensions.swift in Sources */,
 				F33A1F4124C9866F008ED2BD /* Log.swift in Sources */,
 				F38CD1BD1F8382950050056C /* RssSourceViewModel.swift in Sources */,
