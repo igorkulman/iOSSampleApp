@@ -43,7 +43,6 @@
 		F39064991F84DBA7003C0C12 /* RssDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39064981F84DBA7003C0C12 /* RssDataService.swift */; };
 		F390649B1F84DC7A003C0C12 /* RssItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F390649A1F84DC7A003C0C12 /* RssItem.swift */; };
 		F390649E1F84DF6B003C0C12 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F390649C1F84DF6B003C0C12 /* FeedCell.swift */; };
-		F390649F1F84DF6B003C0C12 /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F390649D1F84DF6B003C0C12 /* FeedCell.xib */; };
 		F3A4B2151FC42FD200787BCE /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A4B2141FC42FD200787BCE /* AboutViewController.swift */; };
 		F3A4B2171FC432CA00787BCE /* Licenses.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3A4B2161FC432CA00787BCE /* Licenses.plist */; };
 		F3A4B2191FC4331000787BCE /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A4B2181FC4331000787BCE /* About.storyboard */; };
@@ -133,7 +132,6 @@
 		F39064981F84DBA7003C0C12 /* RssDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssDataService.swift; sourceTree = "<group>"; };
 		F390649A1F84DC7A003C0C12 /* RssItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssItem.swift; sourceTree = "<group>"; };
 		F390649C1F84DF6B003C0C12 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
-		F390649D1F84DF6B003C0C12 /* FeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
 		F3A4B2141FC42FD200787BCE /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		F3A4B2161FC432CA00787BCE /* Licenses.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Licenses.plist; sourceTree = "<group>"; };
 		F3A4B2181FC4331000787BCE /* About.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
@@ -377,7 +375,6 @@
 			isa = PBXGroup;
 			children = (
 				F390649C1F84DF6B003C0C12 /* FeedCell.swift */,
-				F390649D1F84DF6B003C0C12 /* FeedCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -766,7 +763,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F390649F1F84DF6B003C0C12 /* FeedCell.xib in Resources */,
 				F3D9327C21628CDE00EA1E91 /* Localizable.strings in Resources */,
 				F3D9328521628D2300EA1E91 /* Localizable.strings in Resources */,
 				F3A4B2171FC432CA00787BCE /* Licenses.plist in Resources */,

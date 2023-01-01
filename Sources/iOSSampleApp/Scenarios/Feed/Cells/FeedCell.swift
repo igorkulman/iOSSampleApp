@@ -9,12 +9,19 @@
 import Reusable
 import UIKit
 
-final class FeedCell: UITableViewCell, NibReusable {
+final class FeedCell: UITableViewCell, Reusable {
 
-    // MARK: - Outlets
+    // MARK: - UI
 
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var descriptionLabel: UILabel!
+    private lazy var titleLabel: UILabel = .init() &> {
+        $0.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize: 17, weight: .semibold))
+        $0.adjustsFontForContentSizeCategory = true
+    }
+
+    private lazy var descriptionLabel: UILabel = .init() &> {
+        $0.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        $0.numberOfLines = 3
+    }
 
     // MARK: - Properties
 
@@ -29,13 +36,33 @@ final class FeedCell: UITableViewCell, NibReusable {
         }
     }
 
-    // MARK: - Lifecycle
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setup()
+    }
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
-        // no pre-defined text style matches, so creating the font in code is needed
-        titleLabel.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize: 17, weight: .semibold))
-        titleLabel.adjustsFontForContentSizeCategory = true
+    // MARK: - Setup
+
+    private func setup() {
+        preservesSuperviewLayoutMargins = true
+        contentView.preservesSuperviewLayoutMargins = true
+
+        let stackView: UIStackView = .init(arrangedSubviews: [titleLabel, descriptionLabel]) &> {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.axis = .vertical
+        }
+
+        addSubview(stackView)
+        NSLayoutConstraint.activate([
+            stackView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
+            stackView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor)
+        ])
     }
 }
