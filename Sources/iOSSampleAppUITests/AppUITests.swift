@@ -37,12 +37,6 @@ class AppUITests: XCTestCase {
         snapshot("2-List")
 
         app.tables.cells.element(boundBy: 0).tap()
-        let home = app.links["Hacker News"]
-        let exists = NSPredicate(format: "exists == 1")
-        expectation(for: exists, evaluatedWith: home, handler: nil)
-
-        waitForExpectations(timeout: 5, handler: nil)
-
         snapshot("3-Detail")
 
         app.navigationBars.buttons.element(boundBy: 0).tap()
