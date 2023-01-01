@@ -28,31 +28,61 @@ protocol AboutViewControllerDelegate: AnyObject {
     func userDidRequestAuthorsBlog()
 }
 
-enum AboutMenuItem: Int {
-    case libraries
-    case aboutAuthor
-    case authorsBlog
-}
+final class AboutViewController: UITableViewController {
 
-final class AboutViewController: UITableViewController, AboutStoryboardLodable {
+    // MARK: - UI
 
-    // MARK: - Outlets
+    private lazy var titleLabel: UILabel = .init() &> {
+        $0.textAlignment = .center
+        $0.font = UIFont.preferredFont(forTextStyle: .headline)
+    }
 
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var authorLabel: UILabel!
-    @IBOutlet private weak var librariesLabel: UILabel!
-    @IBOutlet private weak var versionLabel: UILabel!
-    @IBOutlet private weak var blogLabel: UILabel!
+    private lazy var versionLabel: UILabel = .init() &> {
+        $0.textAlignment = .center
+        $0.font = UIFont.preferredFont(forTextStyle: .caption2)
+    }
+
+    private lazy var logoImageView: UIImageView = .init() &> {
+        $0.image = #imageLiteral(resourceName: "Logo")
+        $0.contentMode = .scaleAspectFit
+        $0.fixSize(width: 48, height: 48)
+    }
+
+    private lazy var headerView: UIView = .init() &> {
+        let textsStackView: UIStackView = .init(arrangedSubviews: [titleLabel, versionLabel]) &> {
+            $0.axis = .vertical
+        }
+
+        let stackView: UIStackView = .init(arrangedSubviews: [logoImageView, textsStackView]) &> {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.axis = .vertical
+            $0.spacing = 8
+        }
+
+        stackView.pin(to: $0, insets: .init(top: 0, left: 0, bottom: 16, right: 0))
+    }
 
     // MARK: - Properties
 
-    var viewModel: AboutViewModel!
+    private let viewModel: AboutViewModel
 
     weak var delegate: AboutViewControllerDelegate?
 
     // MARK: - Fields
 
     private var disposeBag = DisposeBag()
+
+    // MARK: - Setup
+
+    init(viewModel: AboutViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,20 +91,22 @@ final class AboutViewController: UITableViewController, AboutStoryboardLodable {
         setupBinding()
     }
 
-    // MARK: - Setup
-
-    func setupUI() {
+    private func setupUI() {
         title = L10n.about
-        authorLabel.text = L10n.author
-        librariesLabel.text = L10n.libraries
-        blogLabel.text = L10n.blog
 
         titleLabel.text = viewModel.appName
         versionLabel.text = viewModel.appVersion
     }
 
     private func setupBinding() {
-        tableView.rx.itemSelected.compactMap({ AboutMenuItem(rawValue: $0.row) }).withUnretained(self).bind { owner, menuItem in
+        tableView.dataSource = nil
+        tableView.register(cellType: AboutCell.self)
+
+        Observable.just(AboutMenuItem.allCases).bind(to: tableView.rx.items(cellIdentifier: AboutCell.reuseIdentifier, cellType: AboutCell.self)) { _, element, cell in
+            cell.textLabel?.text = element.title
+        }.disposed(by: disposeBag)
+
+        tableView.rx.modelSelected(AboutMenuItem.self).withUnretained(self).bind { owner, menuItem in
             switch menuItem {
             case .libraries:
                 owner.delegate?.userDidRequestLibraries()
@@ -88,5 +120,9 @@ final class AboutViewController: UITableViewController, AboutStoryboardLodable {
 
     deinit {
         delegate?.aboutViewControllerDismissed()
+    }
+
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return headerView
     }
 }

@@ -37,18 +37,19 @@ final class AboutCoordinator: NavigationCoordinator {
      Starts the Abotu flow by showing the basic info and additional menu items
      */
     func start() {
-        let vc = container.resolve(AboutViewController.self)!
-        vc.delegate = self
+        let aboutViewController = container.resolve(AboutViewController.self)! &> {
+            $0.delegate = self
+        }
         navigationController.setBackButton()
-        navigationController.pushViewController(vc, animated: true)
+        navigationController.pushViewController(aboutViewController, animated: true)
     }
 
     /**
      Shows the list of open source libraries used by the app
      */
     private func showLibraries() {
-        let vc = container.resolve(LibrariesViewController.self)!
-        navigationController.pushViewController(vc, animated: true)
+        let librariesViewController = container.resolve(LibrariesViewController.self)!
+        navigationController.pushViewController(librariesViewController, animated: true)
     }
 
     /**
@@ -71,9 +72,10 @@ final class AboutCoordinator: NavigationCoordinator {
      - Parameter url: URL to show
      */
     private func showUrl(url: URL) {
-        let svc = SFSafariViewController(url: url)
-        svc.modalPresentationStyle = .fullScreen
-        navigationController.present(svc, animated: true, completion: nil)
+        let safariViewController = SFSafariViewController(url: url) &> {
+            $0.modalPresentationStyle = .fullScreen
+        }
+        navigationController.present(safariViewController, animated: true, completion: nil)
     }
 }
 
