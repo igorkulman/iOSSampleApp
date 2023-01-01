@@ -32,3 +32,27 @@ extension UIView {
         ])
     }
 }
+
+extension UIScrollView {
+    func pin(to view: UIView, with contentView: UIView) {
+        translatesAutoresizingMaskIntoConstraints = false
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(contentView)
+
+        view.addSubview(self)
+        let guide = view.safeAreaLayoutGuide
+
+        NSLayoutConstraint.activate([
+            frameLayoutGuide.leadingAnchor.constraint(equalTo: guide.leadingAnchor),
+            frameLayoutGuide.topAnchor.constraint(equalTo: guide.topAnchor),
+            frameLayoutGuide.trailingAnchor.constraint(equalTo: guide.trailingAnchor),
+            frameLayoutGuide.bottomAnchor.constraint(equalTo: guide.bottomAnchor),
+            contentLayoutGuide.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            contentLayoutGuide.topAnchor.constraint(equalTo: contentView.topAnchor),
+            contentLayoutGuide.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            contentLayoutGuide.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            contentLayoutGuide.widthAnchor.constraint(equalTo: contentView.widthAnchor),
+            contentView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor)
+        ])
+    }
+}

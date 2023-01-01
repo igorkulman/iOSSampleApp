@@ -32,8 +32,8 @@ extension AppDelegate {
         container.register(SourceSelectionViewController.self) { r in
             SourceSelectionViewController(viewModel: r~>)
         }
-        container.registerViewController(CustomSourceViewController.self) { r, c in
-            c.viewModel = r~>
+        container.register(CustomSourceViewController.self) { r in
+            CustomSourceViewController(viewModel: r~>)
         }
         container.register(FeedViewController.self) { r in
             FeedViewController(viewModel: r~>)

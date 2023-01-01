@@ -56,12 +56,11 @@ final class FeedViewController: UIViewController, ToastCapable {
 
     // MARK: - Properties
 
-    private let viewModel: FeedViewModel
-
     weak var delegate: FeedViewControllerDelegeate?
 
     // MARK: - Fields
 
+    private let viewModel: FeedViewModel
     private var disposeBag = DisposeBag()
 
     init(viewModel: FeedViewModel) {
