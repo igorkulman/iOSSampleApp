@@ -29,8 +29,8 @@ extension AppDelegate {
         container.autoregister(AboutViewModel.self, initializer: AboutViewModel.init)
 
         // view controllers
-        container.registerViewController(SourceSelectionViewController.self) { r, c in
-            c.viewModel = r~>
+        container.register(SourceSelectionViewController.self) { r in
+            SourceSelectionViewController(viewModel: r~>)
         }
         container.registerViewController(CustomSourceViewController.self) { r, c in
             c.viewModel = r~>

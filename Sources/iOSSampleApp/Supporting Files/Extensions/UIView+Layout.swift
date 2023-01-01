@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 
 extension UIView {
-    func pin(to view: UIView) {
+    func pin(to view: UIView, guide: UILayoutGuide? = nil) {
         translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(self)
 
-        let guide = view.safeAreaLayoutGuide
+        let guide = guide ?? view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
             leadingAnchor.constraint(equalTo: guide.leadingAnchor),
             trailingAnchor.constraint(equalTo: guide.trailingAnchor),

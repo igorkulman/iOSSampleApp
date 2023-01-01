@@ -53,16 +53,9 @@ final class FeedCell: UITableViewCell, Reusable {
         contentView.preservesSuperviewLayoutMargins = true
 
         let stackView: UIStackView = .init(arrangedSubviews: [titleLabel, descriptionLabel]) &> {
-            $0.translatesAutoresizingMaskIntoConstraints = false
             $0.axis = .vertical
         }
 
-        addSubview(stackView)
-        NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
-            stackView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor)
-        ])
+        stackView.pin(to: self, guide: layoutMarginsGuide)
     }
 }
