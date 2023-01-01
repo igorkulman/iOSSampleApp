@@ -33,10 +33,16 @@ final class AppCoordinator: Coordinator {
     init(window: UIWindow, container: Container) {
         self.window = window
         self.container = container
+
         navigationController = UINavigationController() &> {
+            $0.view.backgroundColor = .systemBackground
             $0.navigationBar.prefersLargeTitles = true
             $0.navigationBar.isTranslucent = false
-            $0.view.backgroundColor = .systemBackground
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = .systemBackground
+            $0.navigationBar.standardAppearance = appearance
+            $0.navigationBar.scrollEdgeAppearance = $0.navigationBar.standardAppearance
         }
 
         settingsService = self.container.resolve(SettingsService.self)!
