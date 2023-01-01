@@ -1,3 +1,4 @@
+export PATH="$PATH:/opt/homebrew/bin"
 if which swiftgen >/dev/null; then
 swiftgen
 else
