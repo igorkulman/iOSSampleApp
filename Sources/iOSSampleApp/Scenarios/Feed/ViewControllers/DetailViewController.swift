@@ -30,12 +30,12 @@ final class DetailViewController: UIViewController {
 
     private var webView: WKWebView?
 
-    private let backBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Back"), style: .plain, target: self, action: nil)
-    private let forwardBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Forward"), style: .plain, target: self, action: nil)
-    private let reloadBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: nil)
-    private let stopBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: nil)
-    private let doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: nil)
-    private let flexibleSpaceBarButtonItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+    private lazy var backBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Back"), style: .plain, target: self, action: nil)
+    private lazy var forwardBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Forward"), style: .plain, target: self, action: nil)
+    private lazy var reloadBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: nil)
+    private lazy var stopBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: nil)
+    private lazy var doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: nil)
+    private lazy var flexibleSpaceBarButtonItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
 
     private lazy var progressView: UIProgressView = {
         let progressView = UIProgressView(progressViewStyle: .default)
