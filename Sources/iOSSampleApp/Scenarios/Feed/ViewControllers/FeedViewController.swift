@@ -28,7 +28,7 @@ protocol FeedViewControllerDelegeate: AnyObject {
     func userDidRequestAbout()
 }
 
-final class FeedViewController: UIViewController, FeedStoryboardLodable, ToastCapable {
+final class FeedViewController: UIViewController, ToastCapable {
 
     // MARK: - UI
 
@@ -86,7 +86,6 @@ final class FeedViewController: UIViewController, FeedStoryboardLodable, ToastCa
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.pin(to: view)
         setupUI()
         setupBinding()
         setupData()
