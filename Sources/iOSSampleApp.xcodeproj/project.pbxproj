@@ -34,7 +34,6 @@
 		F38CD1C01F8384490050056C /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD1BF1F8384490050056C /* Bundle+Extensions.swift */; };
 		F38CD1C21F8385450050056C /* sources.json in Resources */ = {isa = PBXBuildFile; fileRef = F38CD1C11F8385350050056C /* sources.json */; };
 		F38CD1CD1F8386A00050056C /* RssSourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD1CB1F8386A00050056C /* RssSourceCell.swift */; };
-		F38CD1CE1F8386A00050056C /* RssSourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F38CD1CC1F8386A00050056C /* RssSourceCell.xib */; };
 		F38CD22F1F83A2B90050056C /* CustomSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD22E1F83A2B90050056C /* CustomSourceViewController.swift */; };
 		F38CD2331F83A6040050056C /* CustomSourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD2321F83A6030050056C /* CustomSourceViewModel.swift */; };
 		F38CD2351F83AB9E0050056C /* Reactive+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD2341F83AB9E0050056C /* Reactive+Extensions.swift */; };
@@ -123,7 +122,6 @@
 		F38CD1BF1F8384490050056C /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		F38CD1C11F8385350050056C /* sources.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sources.json; sourceTree = "<group>"; };
 		F38CD1CB1F8386A00050056C /* RssSourceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssSourceCell.swift; sourceTree = "<group>"; };
-		F38CD1CC1F8386A00050056C /* RssSourceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RssSourceCell.xib; sourceTree = "<group>"; };
 		F38CD22E1F83A2B90050056C /* CustomSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSourceViewController.swift; sourceTree = "<group>"; };
 		F38CD2321F83A6030050056C /* CustomSourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSourceViewModel.swift; sourceTree = "<group>"; };
 		F38CD2341F83AB9E0050056C /* Reactive+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+Extensions.swift"; sourceTree = "<group>"; };
@@ -383,7 +381,6 @@
 			isa = PBXGroup;
 			children = (
 				F38CD1CB1F8386A00050056C /* RssSourceCell.swift */,
-				F38CD1CC1F8386A00050056C /* RssSourceCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -768,7 +765,6 @@
 				F3A4B2171FC432CA00787BCE /* Licenses.plist in Resources */,
 				F3A813061F837AA400A09AAB /* Setup.storyboard in Resources */,
 				F3A812C21F83740E00A09AAB /* LaunchScreen.storyboard in Resources */,
-				F38CD1CE1F8386A00050056C /* RssSourceCell.xib in Resources */,
 				F3A4B2191FC4331000787BCE /* About.storyboard in Resources */,
 				F38CD1C21F8385450050056C /* sources.json in Resources */,
 				F3A812BF1F83740E00A09AAB /* Assets.xcassets in Resources */,

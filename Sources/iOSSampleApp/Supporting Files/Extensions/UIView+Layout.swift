@@ -22,4 +22,13 @@ extension UIView {
             bottomAnchor.constraint(equalTo: guide.bottomAnchor)
         ])
     }
+
+    func fixSize(width: CGFloat, height: CGFloat) {
+        translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            widthAnchor.constraint(equalToConstant: width),
+            heightAnchor.constraint(equalToConstant: height)
+        ])
+    }
 }

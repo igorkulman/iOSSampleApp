@@ -10,13 +10,23 @@ import Reusable
 import RxSwift
 import UIKit
 
-final class RssSourceCell: UITableViewCell, NibReusable {
+final class RssSourceCell: UITableViewCell, Reusable {
 
-    // MARK: - Outlets
+    // MARK: - UI
 
-    @IBOutlet private weak var logoImage: UIImageView!
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var urlLabel: UILabel!
+    private lazy var logoImage: UIImageView = .init() &> {
+        $0.contentMode = .scaleAspectFit
+        $0.fixSize(width: 36, height: 36)
+    }
+
+    private lazy var titleLabel: UILabel = .init() &> {
+        $0.font = UIFont.preferredFont(forTextStyle: .body)
+    }
+
+    private lazy var urlLabel: UILabel = .init() &> {
+        $0.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize: 12))
+        $0.adjustsFontForContentSizeCategory = true
+    }
 
     // MARK: - Properties
 
@@ -41,13 +51,38 @@ final class RssSourceCell: UITableViewCell, NibReusable {
 
     private var disposeBag = DisposeBag()
 
-    // MARK: - Lifecycle
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setup()
+    }
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
-        // no pre-defined text style matches, so creating the font in code is needed
-        urlLabel.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize: 12))
-        urlLabel.adjustsFontForContentSizeCategory = true
+    // MARK: - Setup
+
+    private func setup() {
+        preservesSuperviewLayoutMargins = true
+        contentView.preservesSuperviewLayoutMargins = true
+
+        let stackView: UIStackView = .init(arrangedSubviews: [titleLabel, urlLabel]) &> {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.axis = .vertical
+        }
+
+        addSubview(logoImage)
+        NSLayoutConstraint.activate([
+            logoImage.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor),
+            logoImage.centerYAnchor.constraint(equalTo: layoutMarginsGuide.centerYAnchor)
+        ])
+
+        addSubview(stackView)
+        NSLayoutConstraint.activate([
+            stackView.leadingAnchor.constraint(equalTo: logoImage.trailingAnchor, constant: 8),
+            stackView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor),
+            stackView.centerYAnchor.constraint(equalTo: logoImage.centerYAnchor)
+        ])
     }
 }
