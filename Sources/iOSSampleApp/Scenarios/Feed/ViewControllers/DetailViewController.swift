@@ -20,6 +20,30 @@ protocol DetailViewControllerDelegate: AnyObject {
 
 final class DetailViewController: UIViewController {
 
+    // MARK: - UI
+
+    private lazy var backBarButtonItem: UIBarButtonItem = .init() &> {
+        $0.image = Asset.back.image
+        $0.style = .plain
+    }
+
+    private lazy var forwardBarButtonItem: UIBarButtonItem = .init() &> {
+        $0.image = Asset.forward.image
+        $0.style = .plain
+    }
+
+    private lazy var reloadBarButtonItem: UIBarButtonItem = .init(barButtonSystemItem: .refresh, target: self, action: nil)
+
+    private lazy var stopBarButtonItem: UIBarButtonItem = .init(barButtonSystemItem: .stop, target: self, action: nil)
+
+    private lazy var doneBarButtonItem: UIBarButtonItem = .init(barButtonSystemItem: .stop, target: self, action: nil)
+
+    private lazy var flexibleSpaceBarButtonItem: UIBarButtonItem = .init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+
+    private lazy var progressView: UIProgressView = .init(progressViewStyle: .default) &> {
+        $0.trackTintColor = .clear
+    }
+
     // MARK: - Properties
 
     weak var delegate: DetailViewControllerDelegate?
@@ -27,22 +51,7 @@ final class DetailViewController: UIViewController {
     // MARK: - Fields
 
     private let item: RssItem
-
     private var webView: WKWebView?
-
-    private lazy var backBarButtonItem = UIBarButtonItem(image: Asset.back.image, style: .plain, target: self, action: nil)
-    private lazy var forwardBarButtonItem = UIBarButtonItem(image: Asset.forward.image, style: .plain, target: self, action: nil)
-    private lazy var reloadBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: nil)
-    private lazy var stopBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: nil)
-    private lazy var doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: nil)
-    private lazy var flexibleSpaceBarButtonItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-
-    private lazy var progressView: UIProgressView = {
-        let progressView = UIProgressView(progressViewStyle: .default)
-        progressView.trackTintColor = .clear
-        return progressView
-    }()
-
     private var disposeBag = DisposeBag()
 
     // MARK: - Setup
