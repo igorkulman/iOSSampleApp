@@ -45,7 +45,7 @@ final class DetailViewController: UIViewController {
 
     private var disposeBag = DisposeBag()
 
-    // MARK: - Lifecycle
+    // MARK: - Setup
 
     init(item: RssItem) {
         self.item = item
@@ -84,8 +84,6 @@ final class DetailViewController: UIViewController {
         setupBinding()
         setupData()
     }
-
-    // MARK: - Setup
 
     private func setupUI() {
         navigationItem.rightBarButtonItem = doneBarButtonItem
