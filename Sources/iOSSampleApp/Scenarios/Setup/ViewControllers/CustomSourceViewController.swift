@@ -44,7 +44,9 @@ final class CustomSourceViewController: UIViewController {
         $0.title = "\(L10n.logoUrl) (\(L10n.optional))"
     }
 
-    private lazy var scrollView: UIScrollView = .init()
+    private lazy var scrollView: UIScrollView = .init() &> {
+        $0.backgroundColor = .systemBackground
+    }
 
     // MARK: - Properties
 
