@@ -17,9 +17,8 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Install needed software
-        run: |          
+        run: |
           gem install bundler:1.17.2
-          brew install swiftlint
 
       - name: cache gems
         uses: actions/cache@v1
