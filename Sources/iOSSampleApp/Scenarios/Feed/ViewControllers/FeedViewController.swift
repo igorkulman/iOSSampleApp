@@ -44,12 +44,12 @@ final class FeedViewController: UIViewController, ToastCapable {
     }
 
     private lazy var setupButton: UIBarButtonItem = .init() &> {
-        $0.image = #imageLiteral(resourceName: "Settings")
+        $0.image = Asset.settings.image
         $0.style = .plain
     }
 
     private lazy var aboutButton: UIBarButtonItem = .init() &> {
-        $0.image = #imageLiteral(resourceName: "About")
+        $0.image = Asset.about.image
         $0.style = .plain
         $0.accessibilityIdentifier = "about"
     }

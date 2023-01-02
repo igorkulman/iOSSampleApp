@@ -30,8 +30,8 @@ final class DetailViewController: UIViewController {
 
     private var webView: WKWebView?
 
-    private lazy var backBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Back"), style: .plain, target: self, action: nil)
-    private lazy var forwardBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Forward"), style: .plain, target: self, action: nil)
+    private lazy var backBarButtonItem = UIBarButtonItem(image: Asset.back.image, style: .plain, target: self, action: nil)
+    private lazy var forwardBarButtonItem = UIBarButtonItem(image: Asset.forward.image, style: .plain, target: self, action: nil)
     private lazy var reloadBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: nil)
     private lazy var stopBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: nil)
     private lazy var doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: nil)
