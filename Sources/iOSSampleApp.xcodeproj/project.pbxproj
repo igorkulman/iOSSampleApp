@@ -74,6 +74,7 @@
 		F3C5F35C2961E45000257080 /* AboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5F35B2961E45000257080 /* AboutCell.swift */; };
 		F3C5F35E2961EADD00257080 /* UIEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5F35D2961EADD00257080 /* UIEdgeInsets+Extensions.swift */; };
 		F3C5F3632962C56300257080 /* FormFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5F3622962C56300257080 /* FormFieldView.swift */; };
+		F3C5F3652962CE6B00257080 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5F3642962CE6B00257080 /* Assets.swift */; };
 		F3C7CFDD2423AF4C003A961E /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C7CFDC2423AF4C003A961E /* URL+Extensions.swift */; };
 		F3C8DB3B214EA1B700C1A654 /* DataServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB3A214EA1B700C1A654 /* DataServiceMock.swift */; };
 		F3C8DB3D214EA1E700C1A654 /* SettingsServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB3C214EA1E700C1A654 /* SettingsServiceMock.swift */; };
@@ -168,6 +169,7 @@
 		F3C5F35B2961E45000257080 /* AboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCell.swift; sourceTree = "<group>"; };
 		F3C5F35D2961EADD00257080 /* UIEdgeInsets+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Extensions.swift"; sourceTree = "<group>"; };
 		F3C5F3622962C56300257080 /* FormFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldView.swift; sourceTree = "<group>"; };
+		F3C5F3642962CE6B00257080 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		F3C7CFDC2423AF4C003A961E /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		F3C8DB3A214EA1B700C1A654 /* DataServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceMock.swift; sourceTree = "<group>"; };
 		F3C8DB3C214EA1E700C1A654 /* SettingsServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsServiceMock.swift; sourceTree = "<group>"; };
@@ -562,6 +564,7 @@
 		F3A813141F837EDD00A09AAB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F3C5F3642962CE6B00257080 /* Assets.swift */,
 				F3520E73206017000011EF40 /* Strings.swift */,
 				F3D9328221628CF900EA1E91 /* sk */,
 				F3D9328121628CF000EA1E91 /* en */,
@@ -821,10 +824,12 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/iOSSampleApp/Resources/Base.lproj/Localizable.strings",
+				"$(SRCROOT)/iOSSampleApp/Assets.xcassets",
 			);
 			name = "Generate strings";
 			outputPaths = (
 				"$(SRCROOT)/iOSSampleApp/Resources/Strings.swift",
+				"$(SRCROOT)/iOSSampleApp/Resources/Assets.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -906,6 +911,7 @@
 				F3A4B21F1FC4359A00787BCE /* AboutCoordinator.swift in Sources */,
 				F3651D26203C1B3A0082A73A /* SettingsService.swift in Sources */,
 				F3A812FE1F83791C00A09AAB /* UserDefaultsSettingsService.swift in Sources */,
+				F3C5F3652962CE6B00257080 /* Assets.swift in Sources */,
 				F3A812B81F83740E00A09AAB /* AppDelegate.swift in Sources */,
 				F38CD2371F83AEC70050056C /* UIScrollView+Extensions.swift in Sources */,
 				F3651D22203C1B0D0082A73A /* DataService.swift in Sources */,
