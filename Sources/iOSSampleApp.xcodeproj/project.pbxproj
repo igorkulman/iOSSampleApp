@@ -159,7 +159,6 @@
 		F3AAA6211F860E55009653B7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F3AAA6251F86113A009653B7 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
 		F3ABC2B92285F6D00010BAF0 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
-		F3C2E59F24387A4E002A1449 /* check-strings.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "check-strings.sh"; sourceTree = "<group>"; };
 		F3C5F3512961BB1200257080 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		F3C5F3532961BD8300257080 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		F3C5F3562961C60A00257080 /* LibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
@@ -477,7 +476,6 @@
 		F3A812AB1F83740E00A09AAB = {
 			isa = PBXGroup;
 			children = (
-				F3C2E59C24387A4E002A1449 /* Build-Phases */,
 				F3A812B61F83740E00A09AAB /* iOSSampleApp */,
 				F3208A7B1F84E48100B57B0E /* iOSSampleAppTests */,
 				F35BD6372065111F000AE4E8 /* iOSSampleAppUITests */,
@@ -568,14 +566,6 @@
 				F3D9328121628CF000EA1E91 /* en */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		F3C2E59C24387A4E002A1449 /* Build-Phases */ = {
-			isa = PBXGroup;
-			children = (
-				F3C2E59F24387A4E002A1449 /* check-strings.sh */,
-			);
-			path = "Build-Phases";
 			sourceTree = "<group>";
 		};
 		F3C5F3552961C60000257080 /* Cells */ = {
@@ -816,7 +806,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/Build-Phases/check-strings.sh\n";
+			shellScript = "${PROJECT_DIR}/../support/verify-string-files -master ${SRCROOT}/iOSSampleApp/Resources/Base.lproj/Localizable.strings\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
