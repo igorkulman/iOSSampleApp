@@ -1,0 +1,15 @@
+strings:
+  inputs: Resources/Base.lproj/Localizable.strings
+  outputs:
+    params:
+      publicAccess: true
+    templateName: structured-swift4
+    output: Resources/Strings.swift
+
+xcassets:
+  inputs: Assets.xcassets
+  outputs:
+    params:
+      publicAccess: true
+    templateName: swift5
+    output: Resources/Assets.swift
