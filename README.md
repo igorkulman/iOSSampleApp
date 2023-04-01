@@ -29,14 +29,13 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 * Basic Dark mode support
 * Custom operator for simple UI code
 * Generated code to safely access assets
+* Xcode build plugins
 
 ## Getting started
 
 ### Prerequisites
 
-* XCode 14.2
-* [SwiftGen](https://github.com/SwiftGen/SwiftGen)
-* [SwifLint](https://github.com/realm/SwiftLint) (optional)
+* Xcode 14.2
 * [Fastlane](https://fastlane.tools/) (optional)
 
 ## Built with
@@ -51,6 +50,8 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 - [SpecLeaks](leandromperez/specleaks) - Unit Tests Memory Leaks in Swift. Write readable tests for mem leaks easily with these Quick and Nimble extensions
 - [Quick](https://github.com/Quick/Quick) - The Swift (and Objective-C) testing framework
 - [Nimble](https://github.com/Quick/Nimble) - A Matcher Framework for Swift and Objective-C
+- [SwiftGen](https://github.com/SwiftGen/SwiftGen) - The Swift code generator for your assets, storyboards, Localizable.strings, … — Get rid of all String-based APIs
+- [SwifLint](https://github.com/realm/SwiftLint) - A tool to enforce Swift style and conventions
 
 ## Author
 
