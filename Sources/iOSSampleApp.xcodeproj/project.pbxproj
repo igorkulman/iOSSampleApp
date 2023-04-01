@@ -159,7 +159,6 @@
 		F3AAA6211F860E55009653B7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F3AAA6251F86113A009653B7 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
 		F3ABC2B92285F6D00010BAF0 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
-		F3C2E59D24387A4E002A1449 /* generate-strings.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "generate-strings.sh"; sourceTree = "<group>"; };
 		F3C2E59F24387A4E002A1449 /* check-strings.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "check-strings.sh"; sourceTree = "<group>"; };
 		F3C5F3512961BB1200257080 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		F3C5F3532961BD8300257080 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
@@ -574,7 +573,6 @@
 		F3C2E59C24387A4E002A1449 /* Build-Phases */ = {
 			isa = PBXGroup;
 			children = (
-				F3C2E59D24387A4E002A1449 /* generate-strings.sh */,
 				F3C2E59F24387A4E002A1449 /* check-strings.sh */,
 			);
 			path = "Build-Phases";
@@ -678,7 +676,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F3A812C61F83740E00A09AAB /* Build configuration list for PBXNativeTarget "iOSSampleApp" */;
 			buildPhases = (
-				F3FEEBB521628E2B00D1CF9E /* Generate strings */,
 				F3FEEBB621628FEA00D1CF9E /* Check strings */,
 				F3A812B01F83740E00A09AAB /* Sources */,
 				F3A812B11F83740E00A09AAB /* Frameworks */,
@@ -687,6 +684,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				F32344D629D816BD00B1886D /* PBXTargetDependency */,
 				F32344CF29D814C000B1886D /* PBXTargetDependency */,
 			);
 			name = iOSSampleApp;
@@ -759,6 +757,7 @@
 				F382F15624584B0A00861DDF /* XCRemoteSwiftPackageReference "specleaks" */,
 				F376423425A4689800C58CE5 /* XCRemoteSwiftPackageReference "Nuke" */,
 				F32344CD29D814B900B1886D /* XCRemoteSwiftPackageReference "SwiftLint" */,
+				F32344D429D816B500B1886D /* XCRemoteSwiftPackageReference "5am-swift-gen" */,
 			);
 			productRefGroup = F3A812B51F83740E00A09AAB /* Products */;
 			projectDirPath = "";
@@ -802,24 +801,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		F3FEEBB521628E2B00D1CF9E /* Generate strings */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/iOSSampleApp/Resources/Base.lproj/Localizable.strings",
-				"$(SRCROOT)/iOSSampleApp/Assets.xcassets",
-			);
-			name = "Generate strings";
-			outputPaths = (
-				"$(SRCROOT)/iOSSampleApp/Resources/Strings.swift",
-				"$(SRCROOT)/iOSSampleApp/Resources/Assets.swift",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/Build-Phases/generate-strings.sh\n";
-		};
 		F3FEEBB621628FEA00D1CF9E /* Check strings */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -932,6 +913,10 @@
 		F32344CF29D814C000B1886D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			productRef = F32344CE29D814C000B1886D /* SwiftLintPlugin */;
+		};
+		F32344D629D816BD00B1886D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = F32344D529D816BD00B1886D /* SwiftGenPlugin */;
 		};
 		F35BD63C2065111F000AE4E8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1277,6 +1262,14 @@
 				version = 0.51.0;
 			};
 		};
+		F32344D429D816B500B1886D /* XCRemoteSwiftPackageReference "5am-swift-gen" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/5amdotis/5am-swift-gen";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.0;
+			};
+		};
 		F33474E5244F64220034B1C2 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
@@ -1363,6 +1356,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F32344CD29D814B900B1886D /* XCRemoteSwiftPackageReference "SwiftLint" */;
 			productName = "plugin:SwiftLintPlugin";
+		};
+		F32344D529D816BD00B1886D /* SwiftGenPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F32344D429D816B500B1886D /* XCRemoteSwiftPackageReference "5am-swift-gen" */;
+			productName = "plugin:SwiftGenPlugin";
 		};
 		F33474E6244F64220034B1C2 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
