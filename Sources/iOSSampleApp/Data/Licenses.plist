@@ -60,7 +60,7 @@ THE SOFTWARE.
 	</dict>
 	<dict>
 		<key>license</key>
-		<string>Other</string>
+		<string>MIT License</string>
 		<key>text</key>
 		<string>**The MIT License**
 **Copyright © 2015 Krunoslav Zaher, Shai Mishali**
@@ -164,7 +164,7 @@ THE SOFTWARE.
 		<key>text</key>
 		<string>The MIT License (MIT)
 
-Copyright (c) 2015-2020 Alexander Grebenyuk
+Copyright (c) 2015-2023 Alexander Grebenyuk
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
