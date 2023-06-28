@@ -674,7 +674,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				F32344D629D816BD00B1886D /* PBXTargetDependency */,
+				F3DFFC5E2A4C84F0001F5565 /* PBXTargetDependency */,
 				F32344CF29D814C000B1886D /* PBXTargetDependency */,
 			);
 			name = iOSSampleApp;
@@ -747,7 +747,7 @@
 				F382F15624584B0A00861DDF /* XCRemoteSwiftPackageReference "specleaks" */,
 				F376423425A4689800C58CE5 /* XCRemoteSwiftPackageReference "Nuke" */,
 				F32344CD29D814B900B1886D /* XCRemoteSwiftPackageReference "SwiftLint" */,
-				F32344D429D816B500B1886D /* XCRemoteSwiftPackageReference "5am-swift-gen" */,
+				F3DFFC5C2A4C84E2001F5565 /* XCRemoteSwiftPackageReference "SwiftGenPlugin" */,
 			);
 			productRefGroup = F3A812B51F83740E00A09AAB /* Products */;
 			projectDirPath = "";
@@ -904,14 +904,14 @@
 			isa = PBXTargetDependency;
 			productRef = F32344CE29D814C000B1886D /* SwiftLintPlugin */;
 		};
-		F32344D629D816BD00B1886D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = F32344D529D816BD00B1886D /* SwiftGenPlugin */;
-		};
 		F35BD63C2065111F000AE4E8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F3A812B31F83740E00A09AAB /* iOSSampleApp */;
 			targetProxy = F35BD63B2065111F000AE4E8 /* PBXContainerItemProxy */;
+		};
+		F3DFFC5E2A4C84F0001F5565 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = F3DFFC5D2A4C84F0001F5565 /* SwiftGenPlugin */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1252,14 +1252,6 @@
 				version = 0.51.0;
 			};
 		};
-		F32344D429D816B500B1886D /* XCRemoteSwiftPackageReference "5am-swift-gen" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/5amdotis/5am-swift-gen";
-			requirement = {
-				kind = exactVersion;
-				version = 1.0.0;
-			};
-		};
 		F33474E5244F64220034B1C2 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
@@ -1324,6 +1316,14 @@
 				revision = b102b637e2ea2f38fe3baac5b2a7cfa79e73cfc2;
 			};
 		};
+		F3DFFC5C2A4C84E2001F5565 /* XCRemoteSwiftPackageReference "SwiftGenPlugin" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BookBeat/SwiftGenPlugin";
+			requirement = {
+				kind = revision;
+				revision = 1228d5a43ca791db0719d42f641c34a00b9c32f3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1346,11 +1346,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F32344CD29D814B900B1886D /* XCRemoteSwiftPackageReference "SwiftLint" */;
 			productName = "plugin:SwiftLintPlugin";
-		};
-		F32344D529D816BD00B1886D /* SwiftGenPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F32344D429D816B500B1886D /* XCRemoteSwiftPackageReference "5am-swift-gen" */;
-			productName = "plugin:SwiftGenPlugin";
 		};
 		F33474E6244F64220034B1C2 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1401,6 +1396,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F382F15624584B0A00861DDF /* XCRemoteSwiftPackageReference "specleaks" */;
 			productName = SpecLeaks;
+		};
+		F3DFFC5D2A4C84F0001F5565 /* SwiftGenPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3DFFC5C2A4C84E2001F5565 /* XCRemoteSwiftPackageReference "SwiftGenPlugin" */;
+			productName = "plugin:SwiftGenPlugin";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
