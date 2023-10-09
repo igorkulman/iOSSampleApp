@@ -1257,7 +1257,7 @@
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
 			requirement = {
 				kind = exactVersion;
-				version = 6.0.0;
+				version = 6.6.0;
 			};
 		};
 		F33474EC244F645A0034B1C2 /* XCRemoteSwiftPackageReference "Swinject" */ = {
@@ -1297,7 +1297,7 @@
 			repositoryURL = "https://github.com/RxSwiftCommunity/RxSwiftExt";
 			requirement = {
 				kind = exactVersion;
-				version = 6.0.0;
+				version = 6.2.1;
 			};
 		};
 		F376423425A4689800C58CE5 /* XCRemoteSwiftPackageReference "Nuke" */ = {
