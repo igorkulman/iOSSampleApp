@@ -35,7 +35,7 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 
 ### Prerequisites
 
-* Xcode 14.2
+* Xcode 15
 * [Fastlane](https://fastlane.tools/) (optional)
 
 ## Built with
