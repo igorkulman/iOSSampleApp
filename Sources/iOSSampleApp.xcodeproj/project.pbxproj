@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F300AE1F244F700300F5E060 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = F300AE1E244F700300F5E060 /* Nimble */; };
-		F300AE22244F708C00F5E060 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = F300AE21244F708C00F5E060 /* Quick */; };
 		F300AE28244F71DA00F5E060 /* RxBlocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300AE27244F71DA00F5E060 /* RxBlocking.swift */; };
 		F300AE2B244F76DD00F5E060 /* NotificationBannerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F300AE2A244F76DD00F5E060 /* NotificationBannerSwift */; };
 		F3208A891F84E83900B57B0E /* DataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3208A881F84E83900B57B0E /* DataServiceTests.swift */; };
@@ -29,7 +27,6 @@
 		F3651D26203C1B3A0082A73A /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3651D25203C1B3A0082A73A /* SettingsService.swift */; };
 		F376423625A4689800C58CE5 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = F376423525A4689800C58CE5 /* Nuke */; };
 		F37781152085E14C00146DBE /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37781142085E14C00146DBE /* Optional+Extensions.swift */; };
-		F382F15824584B0A00861DDF /* SpecLeaks in Frameworks */ = {isa = PBXBuildFile; productRef = F382F15724584B0A00861DDF /* SpecLeaks */; };
 		F38CD1BD1F8382950050056C /* RssSourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD1BC1F8382950050056C /* RssSourceViewModel.swift */; };
 		F38CD1C01F8384490050056C /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38CD1BF1F8384490050056C /* Bundle+Extensions.swift */; };
 		F38CD1C21F8385450050056C /* sources.json in Resources */ = {isa = PBXBuildFile; fileRef = F38CD1C11F8385350050056C /* sources.json */; };
@@ -74,6 +71,9 @@
 		F3C5F35C2961E45000257080 /* AboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5F35B2961E45000257080 /* AboutCell.swift */; };
 		F3C5F35E2961EADD00257080 /* UIEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5F35D2961EADD00257080 /* UIEdgeInsets+Extensions.swift */; };
 		F3C5F3632962C56300257080 /* FormFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5F3622962C56300257080 /* FormFieldView.swift */; };
+		F3C71AB72B002A8A00EEAC8E /* SpecLeaks in Frameworks */ = {isa = PBXBuildFile; productRef = F3C71AB62B002A8A00EEAC8E /* SpecLeaks */; };
+		F3C71ABA2B002B2400EEAC8E /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = F3C71AB92B002B2400EEAC8E /* Nimble */; };
+		F3C71ABD2B002BB500EEAC8E /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = F3C71ABC2B002BB500EEAC8E /* Quick */; };
 		F3C7CFDD2423AF4C003A961E /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C7CFDC2423AF4C003A961E /* URL+Extensions.swift */; };
 		F3C8DB3B214EA1B700C1A654 /* DataServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB3A214EA1B700C1A654 /* DataServiceMock.swift */; };
 		F3C8DB3D214EA1E700C1A654 /* SettingsServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB3C214EA1E700C1A654 /* SettingsServiceMock.swift */; };
@@ -183,9 +183,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F300AE22244F708C00F5E060 /* Quick in Frameworks */,
-				F300AE1F244F700300F5E060 /* Nimble in Frameworks */,
-				F382F15824584B0A00861DDF /* SpecLeaks in Frameworks */,
+				F3C71ABD2B002BB500EEAC8E /* Quick in Frameworks */,
+				F3C71AB72B002A8A00EEAC8E /* SpecLeaks in Frameworks */,
+				F3C71ABA2B002B2400EEAC8E /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,9 +633,9 @@
 			);
 			name = iOSSampleAppTests;
 			packageProductDependencies = (
-				F300AE1E244F700300F5E060 /* Nimble */,
-				F300AE21244F708C00F5E060 /* Quick */,
-				F382F15724584B0A00861DDF /* SpecLeaks */,
+				F3C71AB62B002A8A00EEAC8E /* SpecLeaks */,
+				F3C71AB92B002B2400EEAC8E /* Nimble */,
+				F3C71ABC2B002BB500EEAC8E /* Quick */,
 			);
 			productName = iOSSampleAppTests;
 			productReference = F3208A7A1F84E48100B57B0E /* iOSSampleAppTests.xctest */;
@@ -738,13 +738,13 @@
 				F33474F2244F64D80034B1C2 /* XCRemoteSwiftPackageReference "Reusable" */,
 				F33474F5244F65050034B1C2 /* XCRemoteSwiftPackageReference "FeedKit" */,
 				F33474F8244F67270034B1C2 /* XCRemoteSwiftPackageReference "RxSwiftExt" */,
-				F300AE1D244F700300F5E060 /* XCRemoteSwiftPackageReference "Nimble" */,
-				F300AE20244F708C00F5E060 /* XCRemoteSwiftPackageReference "Quick" */,
 				F300AE29244F76DC00F5E060 /* XCRemoteSwiftPackageReference "NotificationBanner" */,
-				F382F15624584B0A00861DDF /* XCRemoteSwiftPackageReference "specleaks" */,
 				F376423425A4689800C58CE5 /* XCRemoteSwiftPackageReference "Nuke" */,
 				F32344CD29D814B900B1886D /* XCRemoteSwiftPackageReference "SwiftLint" */,
 				F3DFFC5C2A4C84E2001F5565 /* XCRemoteSwiftPackageReference "SwiftGenPlugin" */,
+				F3C71AB52B002A8A00EEAC8E /* XCRemoteSwiftPackageReference "specleaks" */,
+				F3C71AB82B002B2400EEAC8E /* XCRemoteSwiftPackageReference "Nimble" */,
+				F3C71ABB2B002BB500EEAC8E /* XCRemoteSwiftPackageReference "Quick" */,
 			);
 			productRefGroup = F3A812B51F83740E00A09AAB /* Products */;
 			projectDirPath = "";
@@ -1075,7 +1075,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1131,7 +1131,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -1218,22 +1218,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F300AE1D244F700300F5E060 /* XCRemoteSwiftPackageReference "Nimble" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Quick/Nimble";
-			requirement = {
-				kind = exactVersion;
-				version = 8.0.7;
-			};
-		};
-		F300AE20244F708C00F5E060 /* XCRemoteSwiftPackageReference "Quick" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Quick/Quick";
-			requirement = {
-				kind = exactVersion;
-				version = 2.2.0;
-			};
-		};
 		F300AE29244F76DC00F5E060 /* XCRemoteSwiftPackageReference "NotificationBanner" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Daltron/NotificationBanner";
@@ -1306,12 +1290,28 @@
 				version = 9.2.3;
 			};
 		};
-		F382F15624584B0A00861DDF /* XCRemoteSwiftPackageReference "specleaks" */ = {
+		F3C71AB52B002A8A00EEAC8E /* XCRemoteSwiftPackageReference "specleaks" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/leandromperez/specleaks";
+			repositoryURL = "https://github.com/radiofrance/specleaks/";
 			requirement = {
 				kind = revision;
-				revision = b102b637e2ea2f38fe3baac5b2a7cfa79e73cfc2;
+				revision = 8c6090aeff8475f6eea6d91ac36b8219f3cc3c93;
+			};
+		};
+		F3C71AB82B002B2400EEAC8E /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble";
+			requirement = {
+				kind = exactVersion;
+				version = 10.0.0;
+			};
+		};
+		F3C71ABB2B002BB500EEAC8E /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick";
+			requirement = {
+				kind = exactVersion;
+				version = 5.0.1;
 			};
 		};
 		F3DFFC5C2A4C84E2001F5565 /* XCRemoteSwiftPackageReference "SwiftGenPlugin" */ = {
@@ -1325,16 +1325,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F300AE1E244F700300F5E060 /* Nimble */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F300AE1D244F700300F5E060 /* XCRemoteSwiftPackageReference "Nimble" */;
-			productName = Nimble;
-		};
-		F300AE21244F708C00F5E060 /* Quick */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F300AE20244F708C00F5E060 /* XCRemoteSwiftPackageReference "Quick" */;
-			productName = Quick;
-		};
 		F300AE2A244F76DD00F5E060 /* NotificationBannerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F300AE29244F76DC00F5E060 /* XCRemoteSwiftPackageReference "NotificationBanner" */;
@@ -1390,10 +1380,20 @@
 			package = F376423425A4689800C58CE5 /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = Nuke;
 		};
-		F382F15724584B0A00861DDF /* SpecLeaks */ = {
+		F3C71AB62B002A8A00EEAC8E /* SpecLeaks */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F382F15624584B0A00861DDF /* XCRemoteSwiftPackageReference "specleaks" */;
+			package = F3C71AB52B002A8A00EEAC8E /* XCRemoteSwiftPackageReference "specleaks" */;
 			productName = SpecLeaks;
+		};
+		F3C71AB92B002B2400EEAC8E /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3C71AB82B002B2400EEAC8E /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+		F3C71ABC2B002BB500EEAC8E /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3C71ABB2B002BB500EEAC8E /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
 		};
 		F3DFFC5D2A4C84F0001F5565 /* SwiftGenPlugin */ = {
 			isa = XCSwiftPackageProductDependency;
