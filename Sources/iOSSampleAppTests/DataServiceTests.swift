@@ -26,7 +26,7 @@ class DataServiceTests: QuickSpec {
                 }
 
                 it("succeeeds") {
-                    waitUntil(timeout: 5) { done in
+                    waitUntil(timeout: .seconds(5)) { done in
                         service.getFeed(source: source) { result in
                             expect(result).notTo(equal(.failure(RssError.badUrl)))
                             expect(result) == .success([])
@@ -43,7 +43,7 @@ class DataServiceTests: QuickSpec {
                 }
 
                 it("fails") {
-                    waitUntil(timeout: 5) { done in
+                    waitUntil(timeout: .seconds(5)) { done in
                         service.getFeed(source: source) { result in
                             expect(result) == .failure(RssError.badUrl)
                             done()
