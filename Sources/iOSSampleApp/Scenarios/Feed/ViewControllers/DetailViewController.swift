@@ -23,12 +23,12 @@ final class DetailViewController: UIViewController {
     // MARK: - UI
 
     private lazy var backBarButtonItem: UIBarButtonItem = .init() &> {
-        $0.image = Asset.back.image
+        $0.image = .back
         $0.style = .plain
     }
 
     private lazy var forwardBarButtonItem: UIBarButtonItem = .init() &> {
-        $0.image = Asset.forward.image
+        $0.image = .forward
         $0.style = .plain
     }
 
