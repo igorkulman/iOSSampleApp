@@ -43,7 +43,7 @@ final class AboutViewController: UITableViewController {
     }
 
     private lazy var logoImageView: UIImageView = .init() &> {
-        $0.image = Asset.logo.image
+        $0.image = .logo
         $0.contentMode = .scaleAspectFit
         $0.fixSize(width: 48, height: 48)
     }
