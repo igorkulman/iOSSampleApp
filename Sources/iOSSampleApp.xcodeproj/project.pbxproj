@@ -74,6 +74,7 @@
 		F3C71AB72B002A8A00EEAC8E /* SpecLeaks in Frameworks */ = {isa = PBXBuildFile; productRef = F3C71AB62B002A8A00EEAC8E /* SpecLeaks */; };
 		F3C71ABA2B002B2400EEAC8E /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = F3C71AB92B002B2400EEAC8E /* Nimble */; };
 		F3C71ABD2B002BB500EEAC8E /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = F3C71ABC2B002BB500EEAC8E /* Quick */; };
+		F3C71ABF2B00F26C00EEAC8E /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C71ABE2B00F26C00EEAC8E /* Library.swift */; };
 		F3C7CFDD2423AF4C003A961E /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C7CFDC2423AF4C003A961E /* URL+Extensions.swift */; };
 		F3C8DB3B214EA1B700C1A654 /* DataServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB3A214EA1B700C1A654 /* DataServiceMock.swift */; };
 		F3C8DB3D214EA1E700C1A654 /* SettingsServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB3C214EA1E700C1A654 /* SettingsServiceMock.swift */; };
@@ -165,6 +166,7 @@
 		F3C5F35B2961E45000257080 /* AboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCell.swift; sourceTree = "<group>"; };
 		F3C5F35D2961EADD00257080 /* UIEdgeInsets+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Extensions.swift"; sourceTree = "<group>"; };
 		F3C5F3622962C56300257080 /* FormFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldView.swift; sourceTree = "<group>"; };
+		F3C71ABE2B00F26C00EEAC8E /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		F3C7CFDC2423AF4C003A961E /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		F3C8DB3A214EA1B700C1A654 /* DataServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceMock.swift; sourceTree = "<group>"; };
 		F3C8DB3C214EA1E700C1A654 /* SettingsServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsServiceMock.swift; sourceTree = "<group>"; };
@@ -578,6 +580,7 @@
 			isa = PBXGroup;
 			children = (
 				F3C5F3592961E3BB00257080 /* AboutMenuItem.swift */,
+				F3C71ABE2B00F26C00EEAC8E /* Library.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -867,6 +870,7 @@
 				F3A812B81F83740E00A09AAB /* AppDelegate.swift in Sources */,
 				F38CD2371F83AEC70050056C /* UIScrollView+Extensions.swift in Sources */,
 				F3651D22203C1B0D0082A73A /* DataService.swift in Sources */,
+				F3C71ABF2B00F26C00EEAC8E /* Library.swift in Sources */,
 				F3C5F3542961BD8300257080 /* UIView+Layout.swift in Sources */,
 				F3C5F3632962C56300257080 /* FormFieldView.swift in Sources */,
 				F3C5F35E2961EADD00257080 /* UIEdgeInsets+Extensions.swift in Sources */,

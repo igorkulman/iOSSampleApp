@@ -103,7 +103,7 @@ final class AboutViewController: UITableViewController {
         tableView.register(cellType: AboutCell.self)
 
         Observable.just(AboutMenuItem.allCases).bind(to: tableView.rx.items(cellIdentifier: AboutCell.reuseIdentifier, cellType: AboutCell.self)) { _, element, cell in
-            cell.textLabel?.text = element.title
+            cell.model = element
         }.disposed(by: disposeBag)
 
         tableView.rx.modelSelected(AboutMenuItem.self).withUnretained(self).bind { owner, menuItem in

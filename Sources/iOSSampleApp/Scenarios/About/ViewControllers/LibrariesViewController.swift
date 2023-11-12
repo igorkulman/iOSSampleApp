@@ -45,11 +45,10 @@ final class LibrariesViewController: UITableViewController {
     private func setupData() {
         tableView.dataSource = nil
         tableView.register(cellType: LibraryCell.self)
+        tableView.allowsSelection = false
 
         viewModel.libraries.bind(to: tableView.rx.items(cellIdentifier: LibraryCell.reuseIdentifier, cellType: LibraryCell.self)) { _, element, cell in
-            let (name, licenseName) = element
-            cell.textLabel?.text = name
-            cell.detailTextLabel?.text = licenseName
+            cell.model = element
         }.disposed(by: disposeBag)
     }
 }
