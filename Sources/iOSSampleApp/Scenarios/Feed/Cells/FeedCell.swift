@@ -11,51 +11,20 @@ import UIKit
 
 final class FeedCell: UITableViewCell, Reusable {
 
-    // MARK: - UI
-
-    private lazy var titleLabel: UILabel = .init() &> {
-        $0.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize: 17, weight: .semibold))
-        $0.adjustsFontForContentSizeCategory = true
-    }
-
-    private lazy var descriptionLabel: UILabel = .init() &> {
-        $0.font = UIFont.preferredFont(forTextStyle: .subheadline)
-        $0.numberOfLines = 3
-    }
-
     // MARK: - Properties
 
-    var model: RssItem? {
-        didSet {
-            guard let model = model else {
-                return
-            }
+    var model: RssItem?
 
-            titleLabel.text = model.title
-            descriptionLabel.text = model.description?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+    // MARK: - Configuration
+
+    override func updateConfiguration(using state: UICellConfigurationState) {
+        contentConfiguration = UIListContentConfiguration.subtitleCell() &> {
+            $0.text = model?.title
+            $0.secondaryText = model?.description?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+
+            $0.textProperties.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize: 17, weight: .semibold))
+            $0.secondaryTextProperties.font = UIFont.preferredFont(forTextStyle: .subheadline)
+            $0.secondaryTextProperties.numberOfLines = 3
         }
-    }
-
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setup()
-    }
-
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    // MARK: - Setup
-
-    private func setup() {
-        preservesSuperviewLayoutMargins = true
-        contentView.preservesSuperviewLayoutMargins = true
-
-        let stackView: UIStackView = .init(arrangedSubviews: [titleLabel, descriptionLabel]) &> {
-            $0.axis = .vertical
-        }
-
-        stackView.pin(to: self, guide: layoutMarginsGuide)
     }
 }

@@ -9,8 +9,6 @@
 import Foundation
 import RxSwift
 
-typealias Library = (String, String)
-
 final class LibrariesViewModel {
 
     // MARK: - Properties
@@ -25,7 +23,7 @@ final class LibrariesViewModel {
         libraries = Observable.just(array.map {
             let title = $0["title"] as! String
             let license = $0["license"] as! String
-            return (title, license)
+            return Library(title: title, license: license)
         })
     }
 }

@@ -10,4 +10,18 @@ import Foundation
 import Reusable
 import UIKit
 
-final class LibraryCell: UITableViewCell, Reusable { }
+final class LibraryCell: UITableViewCell, Reusable {
+
+    // MARK: - Properties
+
+    var model: Library?
+
+    // MARK: - Configuration
+
+    override func updateConfiguration(using state: UICellConfigurationState) {
+        contentConfiguration = UIListContentConfiguration.subtitleCell() &> {
+            $0.text = model?.title
+            $0.secondaryText = model?.license
+        }
+    }
+}

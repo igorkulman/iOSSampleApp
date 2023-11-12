@@ -11,17 +11,16 @@ import Reusable
 import UIKit
 
 final class AboutCell: UITableViewCell, Reusable {
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setup()
-    }
 
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    // MARK: - Properties
 
-    private func setup() {
-        textLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+    var model: AboutMenuItem?
+
+    // MARK: - Configuration
+
+    override func updateConfiguration(using state: UICellConfigurationState) {
+        contentConfiguration = defaultContentConfiguration() &> {
+            $0.text = model?.title
+        }
     }
 }
