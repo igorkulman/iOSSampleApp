@@ -24,6 +24,7 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 * Unit testing, including [testing view controllers for leaks](https://blog.kulman.sk/unit-testing-memory-leaks/)
 * Creating a view controller in code when Storyboard cannot be used
 * Using static UITableView cells in a typed way with enums
+* Creating simple cells with UIListContentConfiguration
 * Automated AppStore screenshots taking in multiple languages
 * Adding custom reactive properties
 * Basic Dark mode support
