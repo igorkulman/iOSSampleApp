@@ -1,10 +1,5 @@
 # iOS Sample App
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![Platforms](https://img.shields.io/badge/platform-iOS-lightgrey.svg)
-[![Swift Version](https://img.shields.io/badge/Swift-5-F16D39.svg?style=flat)](https://developer.apple.com/swift)
-[![Twitter](https://img.shields.io/badge/twitter-@igorkulman-blue.svg)](http://twitter.com/igorkulman)
-
 Sample iOS app written the way I write iOS apps because I cannot share the app I currently work on.
 
 ## Shown concepts
@@ -19,10 +14,10 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 
 ### Other concepts
 
-* Localization to 2 languages with [safer string usage](https://blog.kulman.sk/using-ios-strings-in-a-safer-way/) and checking for missing translations
+* Localization to 2 languages with String catalogs
 * Continuous integration with Github Actions and Danger
 * Unit testing, including [testing view controllers for leaks](https://blog.kulman.sk/unit-testing-memory-leaks/)
-* Creating a view controller in code when Storyboard cannot be used
+* Creating a view controller in code with dependency injection
 * Using static UITableView cells in a typed way with enums
 * Creating simple cells with UIListContentConfiguration
 * Automated AppStore screenshots taking in multiple languages
@@ -51,7 +46,6 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 - [SpecLeaks](leandromperez/specleaks) - Unit Tests Memory Leaks in Swift. Write readable tests for mem leaks easily with these Quick and Nimble extensions
 - [Quick](https://github.com/Quick/Quick) - The Swift (and Objective-C) testing framework
 - [Nimble](https://github.com/Quick/Nimble) - A Matcher Framework for Swift and Objective-C
-- [SwiftGen](https://github.com/SwiftGen/SwiftGen) - The Swift code generator for your assets, storyboards, Localizable.strings, … — Get rid of all String-based APIs
 - [SwifLint](https://github.com/realm/SwiftLint) - A tool to enforce Swift style and conventions
 
 ## Author
