@@ -14,16 +14,16 @@ final class RssSourceCell: UITableViewCell, Reusable {
 
     // MARK: - UI
 
-    private lazy var logoImage: UIImageView = .init() &> {
+    private lazy var logoImage = UIImageView() &> {
         $0.contentMode = .scaleAspectFit
         $0.fixSize(width: 36, height: 36)
     }
 
-    private lazy var titleLabel: UILabel = .init() &> {
+    private lazy var titleLabel = UILabel() &> {
         $0.font = UIFont.preferredFont(forTextStyle: .body)
     }
 
-    private lazy var urlLabel: UILabel = .init() &> {
+    private lazy var urlLabel = UILabel() &> {
         $0.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize: 12))
         $0.adjustsFontForContentSizeCategory = true
     }
@@ -67,7 +67,7 @@ final class RssSourceCell: UITableViewCell, Reusable {
         preservesSuperviewLayoutMargins = true
         contentView.preservesSuperviewLayoutMargins = true
 
-        let stackView: UIStackView = .init(arrangedSubviews: [titleLabel, urlLabel]) &> {
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, urlLabel]) &> {
             $0.translatesAutoresizingMaskIntoConstraints = false
             $0.axis = .vertical
         }

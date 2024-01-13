@@ -25,23 +25,23 @@ final class SourceSelectionViewController: UIViewController {
 
     // MARK: - UI
 
-    private lazy var tableView: UITableView = .init() &> {
+    private lazy var tableView = UITableView() &> {
         $0.rowHeight = 60
         $0.tableFooterView = UIView()
     }
 
-    private lazy var doneButton: UIBarButtonItem = .init() &> {
+    private lazy var doneButton = UIBarButtonItem() &> {
         $0.title = L10n.done
         $0.style = .plain
         $0.accessibilityIdentifier = "done"
     }
 
-    private lazy var addCustomButton: UIBarButtonItem = .init() &> {
+    private lazy var addCustomButton = UIBarButtonItem() &> {
         $0.title = L10n.addCustom
         $0.style = .plain
     }
 
-    private lazy var searchController: UISearchController = .init()
+    private lazy var searchController = UISearchController()
 
     // MARK: - Properties
 

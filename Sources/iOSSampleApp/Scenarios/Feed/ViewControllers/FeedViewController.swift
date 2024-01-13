@@ -32,23 +32,23 @@ final class FeedViewController: UIViewController, ToastCapable {
 
     // MARK: - UI
 
-    private lazy var tableView: UITableView = .init() &> {
+    private lazy var tableView = UITableView() &> {
         $0.estimatedRowHeight = 0
         $0.rowHeight = 100
         $0.refreshControl = refreshControl
         $0.tableFooterView = UIView()
     }
 
-    private lazy var refreshControl: UIRefreshControl = .init() &> {
+    private lazy var refreshControl = UIRefreshControl() &> {
         $0.attributedTitle = NSAttributedString(string: L10n.pullToRefresh)
     }
 
-    private lazy var setupButton: UIBarButtonItem = .init() &> {
+    private lazy var setupButton = UIBarButtonItem() &> {
         $0.image = .settings
         $0.style = .plain
     }
 
-    private lazy var aboutButton: UIBarButtonItem = .init() &> {
+    private lazy var aboutButton = UIBarButtonItem() &> {
         $0.image = .about
         $0.style = .plain
         $0.accessibilityIdentifier = "about"

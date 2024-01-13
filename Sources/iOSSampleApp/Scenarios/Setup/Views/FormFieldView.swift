@@ -15,11 +15,11 @@ final class FormFieldView: UIView {
 
     // MARK: - UI
 
-    private lazy var label: UILabel = .init() &> {
+    private lazy var label = UILabel() &> {
         $0.font = UIFont.preferredFont(forTextStyle: .body)
     }
 
-    fileprivate lazy var textField: UITextField = .init() &> {
+    fileprivate lazy var textField = UITextField() &> {
         $0.borderStyle = .roundedRect
         $0.font = UIFont.preferredFont(forTextStyle: .body)
     }
@@ -63,7 +63,7 @@ final class FormFieldView: UIView {
     }
 
     private func setup() {
-        let stackView: UIStackView = .init(arrangedSubviews: [label, textField]) &> {
+        let stackView = UIStackView(arrangedSubviews: [label, textField]) &> {
             $0.axis = .vertical
             $0.spacing = 6
         }

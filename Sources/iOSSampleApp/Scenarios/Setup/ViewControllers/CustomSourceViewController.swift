@@ -23,28 +23,28 @@ final class CustomSourceViewController: UIViewController {
 
     // MARK: - UI
 
-    private lazy var doneButton: UIBarButtonItem = .init() &> {
+    private lazy var doneButton = UIBarButtonItem() &> {
         $0.title = L10n.done
         $0.style = .plain
     }
 
-    private lazy var rssUrlFormField: FormFieldView = .init() &> {
+    private lazy var rssUrlFormField = FormFieldView() &> {
         $0.title = L10n.rssUrl
     }
 
-    private lazy var urlFormField: FormFieldView = .init() &> {
+    private lazy var urlFormField = FormFieldView() &> {
         $0.title = L10n.url
     }
 
-    private lazy var titleFormField: FormFieldView = .init() &> {
+    private lazy var titleFormField = FormFieldView() &> {
         $0.title = L10n.title
     }
 
-    private lazy var logoUrlFormField: FormFieldView = .init() &> {
+    private lazy var logoUrlFormField = FormFieldView() &> {
         $0.title = "\(L10n.logoUrl) (\(L10n.optional))"
     }
 
-    private lazy var scrollView: UIScrollView = .init() &> {
+    private lazy var scrollView = UIScrollView() &> {
         $0.backgroundColor = .systemBackground
     }
 
@@ -73,12 +73,12 @@ final class CustomSourceViewController: UIViewController {
         let view = UIView()
         defer { self.view = view }
 
-        let stackView: UIStackView = .init(arrangedSubviews: [titleFormField, urlFormField, rssUrlFormField, logoUrlFormField]) &> {
+        let stackView = UIStackView(arrangedSubviews: [titleFormField, urlFormField, rssUrlFormField, logoUrlFormField]) &> {
             $0.axis = .vertical
             $0.spacing = 12
         }
 
-        let contentView: UIView = .init() &> {
+        let contentView = UIView() &> {
             stackView.pin(to: $0, guide: $0.layoutMarginsGuide, insets: .init(all: 8))
         }
 

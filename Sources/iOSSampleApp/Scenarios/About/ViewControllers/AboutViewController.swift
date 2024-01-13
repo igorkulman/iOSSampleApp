@@ -32,28 +32,28 @@ final class AboutViewController: UITableViewController {
 
     // MARK: - UI
 
-    private lazy var titleLabel: UILabel = .init() &> {
+    private lazy var titleLabel = UILabel() &> {
         $0.textAlignment = .center
         $0.font = UIFont.preferredFont(forTextStyle: .headline)
     }
 
-    private lazy var versionLabel: UILabel = .init() &> {
+    private lazy var versionLabel = UILabel() &> {
         $0.textAlignment = .center
         $0.font = UIFont.preferredFont(forTextStyle: .caption2)
     }
 
-    private lazy var logoImageView: UIImageView = .init() &> {
+    private lazy var logoImageView = UIImageView() &> {
         $0.image = .logo
         $0.contentMode = .scaleAspectFit
         $0.fixSize(width: 48, height: 48)
     }
 
-    private lazy var headerView: UIView = .init() &> {
-        let textsStackView: UIStackView = .init(arrangedSubviews: [titleLabel, versionLabel]) &> {
+    private lazy var headerView = UIView() &> {
+        let textsStackView = UIStackView(arrangedSubviews: [titleLabel, versionLabel]) &> {
             $0.axis = .vertical
         }
 
-        let stackView: UIStackView = .init(arrangedSubviews: [logoImageView, textsStackView]) &> {
+        let stackView = UIStackView(arrangedSubviews: [logoImageView, textsStackView]) &> {
             $0.translatesAutoresizingMaskIntoConstraints = false
             $0.axis = .vertical
             $0.spacing = 8
