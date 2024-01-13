@@ -92,7 +92,7 @@ final class AboutViewController: UITableViewController {
     }
 
     private func setupUI() {
-        title = L10n.about
+        title = NSLocalizedString("about", comment: "")
 
         titleLabel.text = viewModel.appName
         versionLabel.text = viewModel.appVersion

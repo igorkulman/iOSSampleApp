@@ -12,7 +12,7 @@ import UIKit
 extension UINavigationController {
     func setBackButton() {
         let backButton = UIBarButtonItem()
-        backButton.title = L10n.back
+        backButton.title = NSLocalizedString("back", comment: "")
         viewControllers.last?.navigationItem.backBarButtonItem = backButton
     }
 }

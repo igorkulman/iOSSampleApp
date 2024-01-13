@@ -24,24 +24,24 @@ final class CustomSourceViewController: UIViewController {
     // MARK: - UI
 
     private lazy var doneButton = UIBarButtonItem() &> {
-        $0.title = L10n.done
+        $0.title = NSLocalizedString("done", comment: "")
         $0.style = .plain
     }
 
     private lazy var rssUrlFormField = FormFieldView() &> {
-        $0.title = L10n.rssUrl
+        $0.title = NSLocalizedString("rss_url", comment: "")
     }
 
     private lazy var urlFormField = FormFieldView() &> {
-        $0.title = L10n.url
+        $0.title = NSLocalizedString("url", comment: "")
     }
 
     private lazy var titleFormField = FormFieldView() &> {
-        $0.title = L10n.title
+        $0.title = NSLocalizedString("title", comment: "")
     }
 
     private lazy var logoUrlFormField = FormFieldView() &> {
-        $0.title = "\(L10n.logoUrl) (\(L10n.optional))"
+        $0.title = "\(NSLocalizedString("logo_url", comment: "")) (\(NSLocalizedString("optional", comment: "")))"
     }
 
     private lazy var scrollView = UIScrollView() &> {
@@ -93,7 +93,7 @@ final class CustomSourceViewController: UIViewController {
     }
 
     private func setupUI() {
-        title = L10n.addCustomSource
+        title = NSLocalizedString("add_custom_source", comment: "")
         navigationItem.rightBarButtonItem = doneButton
     }
 
