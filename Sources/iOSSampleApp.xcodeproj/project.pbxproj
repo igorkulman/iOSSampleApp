@@ -909,10 +909,6 @@
 			target = F3A812B31F83740E00A09AAB /* iOSSampleApp */;
 			targetProxy = F35BD63B2065111F000AE4E8 /* PBXContainerItemProxy */;
 		};
-		F3DFFC5E2A4C84F0001F5565 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = F3DFFC5D2A4C84F0001F5565 /* SwiftGenPlugin */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -1398,11 +1394,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F3C71ABB2B002BB500EEAC8E /* XCRemoteSwiftPackageReference "Quick" */;
 			productName = Quick;
-		};
-		F3DFFC5D2A4C84F0001F5565 /* SwiftGenPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F3DFFC5C2A4C84E2001F5565 /* XCRemoteSwiftPackageReference "SwiftGenPlugin" */;
-			productName = "plugin:SwiftGenPlugin";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
