@@ -55,25 +55,3 @@ Dir.chdir "Sources" do
         markdown message
     end
 end
-
-# Checking for missing strings
-`support/verify-string-files -master Sources/iOSSampleApp/Resources/Base.lproj/Localizable.strings  -warning-level warning &> verify-string-files.txt`
-result = File.readlines('verify-string-files.txt')
-if result.count > 0
-    message = "### Missing translations\n\n".dup
-
-    message << "Language | Key | \n"
-    message << "| --- | ----- \n"
-    result.each { |line|    
-        index = line.index(": warning:") + 11
-        line = line[index...-1]
-        lang = line.rpartition(' ').last.sub(".lproj", "").upcase()
-        if lang == "SK"
-            lang = "🇸🇰  SK"
-        end
-        key = line.rpartition(' ').first.sub("is missing in", "")
-        message << "#{lang} | #{key} \n"
-    }
-    markdown message
-end
-`rm verify-string-files.txt`
