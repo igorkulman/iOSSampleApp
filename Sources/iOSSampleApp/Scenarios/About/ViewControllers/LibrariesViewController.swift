@@ -39,7 +39,7 @@ final class LibrariesViewController: UITableViewController {
     }
 
     private func setupUI() {
-        title = L10n.libraries
+        title = NSLocalizedString("libraries", comment: "")
     }
 
     private func setupData() {

@@ -31,13 +31,13 @@ final class SourceSelectionViewController: UIViewController {
     }
 
     private lazy var doneButton = UIBarButtonItem() &> {
-        $0.title = L10n.done
+        $0.title = NSLocalizedString("done", comment: "")
         $0.style = .plain
         $0.accessibilityIdentifier = "done"
     }
 
     private lazy var addCustomButton = UIBarButtonItem() &> {
-        $0.title = L10n.addCustom
+        $0.title = NSLocalizedString("add_custom", comment: "")
         $0.style = .plain
     }
 
@@ -81,7 +81,7 @@ final class SourceSelectionViewController: UIViewController {
     }
 
     private func setupUI() {
-        title = L10n.selectSource
+        title = NSLocalizedString("select_source", comment: "")
         navigationItem.rightBarButtonItem = doneButton
         navigationItem.leftBarButtonItem = addCustomButton
 

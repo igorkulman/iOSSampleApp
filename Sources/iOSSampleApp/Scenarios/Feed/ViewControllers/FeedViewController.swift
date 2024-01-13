@@ -40,7 +40,7 @@ final class FeedViewController: UIViewController, ToastCapable {
     }
 
     private lazy var refreshControl = UIRefreshControl() &> {
-        $0.attributedTitle = NSAttributedString(string: L10n.pullToRefresh)
+        $0.attributedTitle = NSAttributedString(string: NSLocalizedString("pull_to_refresh", comment: ""))
     }
 
     private lazy var setupButton = UIBarButtonItem() &> {
@@ -116,7 +116,7 @@ final class FeedViewController: UIViewController, ToastCapable {
             case let rssError as RssError:
                 owner.showErrorToast(message: rssError.description)
             default:
-                owner.showErrorToast(message: L10n.networkProblem)
+                owner.showErrorToast(message: NSLocalizedString("network_problem", comment: ""))
             }
         }.disposed(by: disposeBag)
 
