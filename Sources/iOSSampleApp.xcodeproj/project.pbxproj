@@ -666,7 +666,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F3A812C61F83740E00A09AAB /* Build configuration list for PBXNativeTarget "iOSSampleApp" */;
 			buildPhases = (
-				F3FEEBB621628FEA00D1CF9E /* Check strings */,
 				F3A812B01F83740E00A09AAB /* Sources */,
 				F3A812B11F83740E00A09AAB /* Frameworks */,
 				F3A812B21F83740E00A09AAB /* Resources */,
@@ -674,7 +673,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				F3DFFC5E2A4C84F0001F5565 /* PBXTargetDependency */,
 				F32344CF29D814C000B1886D /* PBXTargetDependency */,
 			);
 			name = iOSSampleApp;
@@ -702,7 +700,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1520;
 				ORGANIZATIONNAME = "Igor Kulman";
 				TargetAttributes = {
 					F3208A791F84E48100B57B0E = {
@@ -789,26 +787,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		F3FEEBB621628FEA00D1CF9E /* Check strings */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/iOSSampleApp/Resources/Base.lproj/Localizable.strings",
-				"$(SRCROOT)/iOSSampleApp/Resources/sk.lproj/Localizable.strings",
-			);
-			name = "Check strings";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "${PROJECT_DIR}/../support/verify-string-files -master ${SRCROOT}/iOSSampleApp/Resources/Base.lproj/Localizable.strings\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F3208A761F84E48100B57B0E /* Sources */ = {
