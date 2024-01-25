@@ -24,7 +24,7 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 * Adding custom reactive properties
 * Basic Dark mode support
 * Custom operator for simple UI code
-* Generated code to safely access assets
+* Structured logging
 * Xcode build plugins
 
 ## Getting started

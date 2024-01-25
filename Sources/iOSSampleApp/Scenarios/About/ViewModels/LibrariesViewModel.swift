@@ -17,7 +17,7 @@ final class LibrariesViewModel {
 
     init() {
         guard let path = Bundle.main.path(forResource: "Licenses", ofType: "plist"), let array = NSArray(contentsOfFile: path) as? [[String: Any]] else {
-            fail("Invalid bundle linceses file")
+            fatalError("Invalid bundle linceses file")
         }
 
         libraries = Observable.just(array.map {

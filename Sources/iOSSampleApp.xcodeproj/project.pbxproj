@@ -19,7 +19,7 @@
 		F33474F4244F64D80034B1C2 /* Reusable in Frameworks */ = {isa = PBXBuildFile; productRef = F33474F3244F64D80034B1C2 /* Reusable */; };
 		F33474F7244F65050034B1C2 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = F33474F6244F65050034B1C2 /* FeedKit */; };
 		F33474FA244F67270034B1C2 /* RxSwiftExt in Frameworks */ = {isa = PBXBuildFile; productRef = F33474F9244F67270034B1C2 /* RxSwiftExt */; };
-		F33A1F4124C9866F008ED2BD /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33A1F4024C9866F008ED2BD /* Log.swift */; };
+		F33A1F4124C9866F008ED2BD /* Logger+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33A1F4024C9866F008ED2BD /* Logger+Extensions.swift */; };
 		F33EB3FE1FBDD81F0050560D /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33EB3FD1FBDD81F0050560D /* UIViewController+Extensions.swift */; };
 		F35BD6392065111F000AE4E8 /* AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35BD6382065111F000AE4E8 /* AppUITests.swift */; };
 		F3651D22203C1B0D0082A73A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3651D21203C1B0D0082A73A /* DataService.swift */; };
@@ -82,7 +82,6 @@
 		F3C8DB41214EA7F200C1A654 /* FeedViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB40214EA7F200C1A654 /* FeedViewModelTests.swift */; };
 		F3CBB19621CCFFA00023EE18 /* RxSwift+WKWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CBB19521CCFFA00023EE18 /* RxSwift+WKWebView.swift */; };
 		F3D6865C1F9B761E00879154 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6865B1F9B761E00879154 /* TestExtensions.swift */; };
-		F3D7D14B2441C599001695B9 /* DebugUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D7D14A2441C599001695B9 /* DebugUtils.swift */; };
 		F3EEA696234A3BE800A2FCB5 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EEA695234A3BE800A2FCB5 /* SnapshotHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -109,7 +108,7 @@
 		F3208A7E1F84E48100B57B0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3208A881F84E83900B57B0E /* DataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceTests.swift; sourceTree = "<group>"; };
 		F3208A911F84EAF400B57B0E /* CustomSourceViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSourceViewModelTests.swift; sourceTree = "<group>"; };
-		F33A1F4024C9866F008ED2BD /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		F33A1F4024C9866F008ED2BD /* Logger+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+Extensions.swift"; sourceTree = "<group>"; };
 		F33EB3FD1FBDD81F0050560D /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		F35BD6362065111F000AE4E8 /* iOSSampleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSSampleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F35BD6382065111F000AE4E8 /* AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUITests.swift; sourceTree = "<group>"; };
@@ -172,7 +171,6 @@
 		F3C8DB40214EA7F200C1A654 /* FeedViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModelTests.swift; sourceTree = "<group>"; };
 		F3CBB19521CCFFA00023EE18 /* RxSwift+WKWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxSwift+WKWebView.swift"; sourceTree = "<group>"; };
 		F3D6865B1F9B761E00879154 /* TestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExtensions.swift; sourceTree = "<group>"; };
-		F3D7D14A2441C599001695B9 /* DebugUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugUtils.swift; sourceTree = "<group>"; };
 		F3EEA695234A3BE800A2FCB5 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = ../../fastlane/SnapshotHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -512,8 +510,6 @@
 				F3A812DD1F83761E00A09AAB /* Extensions */,
 				F3A812D61F83758000A09AAB /* Coordinators */,
 				F3A812D41F83754100A09AAB /* AppDelegate+Setup.swift */,
-				F3D7D14A2441C599001695B9 /* DebugUtils.swift */,
-				F33A1F4024C9866F008ED2BD /* Log.swift */,
 				F3C5F3512961BB1200257080 /* Operators.swift */,
 			);
 			path = "Supporting Files";
@@ -532,16 +528,17 @@
 			children = (
 				F3ABC2B92285F6D00010BAF0 /* Array+Extensions.swift */,
 				F38CD1BF1F8384490050056C /* Bundle+Extensions.swift */,
+				F33A1F4024C9866F008ED2BD /* Logger+Extensions.swift */,
 				F37781142085E14C00146DBE /* Optional+Extensions.swift */,
 				F38CD2341F83AB9E0050056C /* Reactive+Extensions.swift */,
 				F3CBB19521CCFFA00023EE18 /* RxSwift+WKWebView.swift */,
 				F3A813121F837ECF00A09AAB /* String+Extensions.swift */,
+				F3C5F35D2961EADD00257080 /* UIEdgeInsets+Extensions.swift */,
 				F3AAA6251F86113A009653B7 /* UINavigationController+Extensions.swift */,
 				F38CD2361F83AEC70050056C /* UIScrollView+Extensions.swift */,
 				F3C5F3532961BD8300257080 /* UIView+Layout.swift */,
 				F33EB3FD1FBDD81F0050560D /* UIViewController+Extensions.swift */,
 				F3C7CFDC2423AF4C003A961E /* URL+Extensions.swift */,
-				F3C5F35D2961EADD00257080 /* UIEdgeInsets+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -798,7 +795,7 @@
 			files = (
 				F3C5F3572961C60A00257080 /* LibraryCell.swift in Sources */,
 				F3C7CFDD2423AF4C003A961E /* URL+Extensions.swift in Sources */,
-				F33A1F4124C9866F008ED2BD /* Log.swift in Sources */,
+				F33A1F4124C9866F008ED2BD /* Logger+Extensions.swift in Sources */,
 				F38CD1BD1F8382950050056C /* RssSourceViewModel.swift in Sources */,
 				F3A813021F837A8200A09AAB /* SourceSelectionViewController.swift in Sources */,
 				F38CD1C01F8384490050056C /* Bundle+Extensions.swift in Sources */,
@@ -837,7 +834,6 @@
 				F3A812DC1F8375DF00A09AAB /* AppCoordinator.swift in Sources */,
 				F3A8130B1F837B0E00A09AAB /* SetupCoordinator.swift in Sources */,
 				F3A812D81F8375A100A09AAB /* Coordinator.swift in Sources */,
-				F3D7D14B2441C599001695B9 /* DebugUtils.swift in Sources */,
 				F3A8130F1F837C0800A09AAB /* FeedCoordinator.swift in Sources */,
 				F33EB3FE1FBDD81F0050560D /* UIViewController+Extensions.swift in Sources */,
 				F3C5F35C2961E45000257080 /* AboutCell.swift in Sources */,

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import OSLog
 import Swinject
 import UIKit
 
@@ -55,10 +56,10 @@ final class AppCoordinator: Coordinator {
     */
     func start() {
         if settingsService.selectedSource.isSome {
-            Log.debug("Setup complete, starting dashboard")
+            Logger.appFlow.debug("Setup complete, starting dashboard")
             showFeed()
         } else {
-            Log.debug("Starting setup")
+            Logger.appFlow.debug("Starting setup")
             showSetup()
         }
     }

@@ -40,7 +40,7 @@ final class FeedViewModel {
 
     init(dataService: DataService, settingsService: SettingsService) {
         guard let source = settingsService.selectedSource else {
-            fail("Source not selected, nothing to show in feed")
+            fatalError("Source not selected, nothing to show in feed")
         }
 
         // converting callback based data service call to an observable
