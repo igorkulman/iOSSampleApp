@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F300AE28244F71DA00F5E060 /* RxBlocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = F300AE27244F71DA00F5E060 /* RxBlocking.swift */; };
 		F300AE2B244F76DD00F5E060 /* NotificationBannerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F300AE2A244F76DD00F5E060 /* NotificationBannerSwift */; };
+		F306B2D52B73C26900F23CC9 /* UIKit+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = F306B2D42B73C26900F23CC9 /* UIKit+Preview.swift */; };
 		F3208A891F84E83900B57B0E /* DataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3208A881F84E83900B57B0E /* DataServiceTests.swift */; };
 		F3208A921F84EAF400B57B0E /* CustomSourceViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3208A911F84EAF400B57B0E /* CustomSourceViewModelTests.swift */; };
 		F33474E7244F64220034B1C2 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F33474E6244F64220034B1C2 /* RxSwift */; };
@@ -104,6 +105,7 @@
 
 /* Begin PBXFileReference section */
 		F300AE27244F71DA00F5E060 /* RxBlocking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxBlocking.swift; sourceTree = "<group>"; };
+		F306B2D42B73C26900F23CC9 /* UIKit+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Preview.swift"; sourceTree = "<group>"; };
 		F3208A7A1F84E48100B57B0E /* iOSSampleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSSampleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3208A7E1F84E48100B57B0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3208A881F84E83900B57B0E /* DataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceTests.swift; sourceTree = "<group>"; };
@@ -539,6 +541,7 @@
 				F3C5F3532961BD8300257080 /* UIView+Layout.swift */,
 				F33EB3FD1FBDD81F0050560D /* UIViewController+Extensions.swift */,
 				F3C7CFDC2423AF4C003A961E /* URL+Extensions.swift */,
+				F306B2D42B73C26900F23CC9 /* UIKit+Preview.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -829,6 +832,7 @@
 				F38CD22F1F83A2B90050056C /* CustomSourceViewController.swift in Sources */,
 				F39064951F84D4D8003C0C12 /* FeedViewModel.swift in Sources */,
 				F38CD1CD1F8386A00050056C /* RssSourceCell.swift in Sources */,
+				F306B2D52B73C26900F23CC9 /* UIKit+Preview.swift in Sources */,
 				F390649B1F84DC7A003C0C12 /* RssItem.swift in Sources */,
 				F3A4B2211FC43C0B00787BCE /* AboutViewModel.swift in Sources */,
 				F3A812DC1F8375DF00A09AAB /* AppCoordinator.swift in Sources */,
