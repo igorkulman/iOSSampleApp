@@ -126,3 +126,12 @@ final class AboutViewController: UITableViewController {
         return headerView
     }
 }
+
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+struct AboutViewControllerPreview: PreviewProvider {
+    static var previews: some View {
+        UINavigationController(rootViewController: AboutViewController(viewModel: AboutViewModel())).asPreview()
+    }
+}
+#endif

@@ -123,3 +123,12 @@ final class SourceSelectionViewController: UIViewController {
             .disposed(by: disposeBag)
     }
 }
+
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+struct SourceSelectionViewControllerPreview: PreviewProvider {
+    static var previews: some View {
+        UINavigationController(rootViewController: SourceSelectionViewController(viewModel: SourceSelectionViewModel(settingsService: UserDefaultsSettingsService()))).asPreview()
+    }
+}
+#endif

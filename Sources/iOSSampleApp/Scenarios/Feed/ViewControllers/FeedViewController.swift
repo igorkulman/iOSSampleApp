@@ -130,3 +130,25 @@ final class FeedViewController: UIViewController, ToastCapable {
             .disposed(by: disposeBag)
     }
 }
+
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+final class PreviewDataService: DataService {
+    func getFeed(source: RssSource, onCompletion: @escaping (RssResult) -> Void) {
+        onCompletion(.success([
+            RssItem(title: "Post 1", description: "Description", link: "", pubDate: Date()),
+            RssItem(title: "Post 2", description: "Description", link: "", pubDate: Date()),
+            RssItem(title: "Post 3", description: "Description", link: "", pubDate: Date())
+        ]))
+    }
+}
+final class PreviewSettingsService: SettingsService {
+    var selectedSource: RssSource? = RssSource(title: "Website", url: "", rss: "", icon: "")
+}
+
+struct FeedViewControllerPreview: PreviewProvider {
+    static var previews: some View {
+        UINavigationController(rootViewController: FeedViewController(viewModel: FeedViewModel(dataService: PreviewDataService(), settingsService: PreviewSettingsService()))).asPreview()
+    }
+}
+#endif

@@ -180,3 +180,12 @@ final class DetailViewController: UIViewController {
         }
     }
 }
+
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+struct DetailViewControllerPreview: PreviewProvider {
+    static var previews: some View {
+        UINavigationController(rootViewController: DetailViewController(item: RssItem(title: "New post", description: "Some description", link: "http://www.github.com/igorkulman/iOSSampleApp", pubDate: Date()))).asPreview()
+    }
+}
+#endif

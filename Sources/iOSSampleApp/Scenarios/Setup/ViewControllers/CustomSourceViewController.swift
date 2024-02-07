@@ -113,3 +113,12 @@ final class CustomSourceViewController: UIViewController {
         doneButton.rx.tap.withLatestFrom(viewModel.source.flatMap(ignoreNil)).withUnretained(self).bind { owner, source in owner.delegate?.userDidAddCustomSource(source: source) }.disposed(by: disposeBag)
     }
 }
+
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+struct CustomSourceViewControllerPreview: PreviewProvider {
+    static var previews: some View {
+        UINavigationController(rootViewController: CustomSourceViewController(viewModel: CustomSourceViewModel())).asPreview()
+    }
+}
+#endif
