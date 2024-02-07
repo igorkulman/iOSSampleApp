@@ -26,6 +26,7 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 * Custom operator for simple UI code
 * Structured logging
 * Xcode build plugins
+* Xcode previews for UIKit
 
 ## Getting started
 
