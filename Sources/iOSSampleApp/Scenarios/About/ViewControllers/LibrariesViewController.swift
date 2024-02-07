@@ -52,3 +52,12 @@ final class LibrariesViewController: UITableViewController {
         }.disposed(by: disposeBag)
     }
 }
+
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+struct LibrariesViewControllerPreview: PreviewProvider {
+    static var previews: some View {
+        UINavigationController(rootViewController: LibrariesViewController(viewModel: LibrariesViewModel())).asPreview()
+    }
+}
+#endif
