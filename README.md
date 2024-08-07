@@ -2,6 +2,8 @@
 
 Sample iOS app written the way I write iOS apps because I cannot share the app I currently work on.
 
+**SwiftUI**: I created a SwiftUI version of this sample app, using a bit defferent concepts: https://github.com/igorkulman/SwiftUISampleApp
+
 ## Shown concepts
 
 ### Architecture concepts
