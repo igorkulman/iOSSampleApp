@@ -1,13 +1,11 @@
 name: Test
 
 on: [push]
-env:
-  DEVELOPER_DIR: /Applications/Xcode_15.0.1.app/Contents/Developer
 
 jobs:
   job-test:
     name: Run unit tests
-    runs-on: macos-13
+    runs-on: macos-15
     steps:
     - uses: actions/checkout@v1
 
