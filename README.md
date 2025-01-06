@@ -17,7 +17,7 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 ### Other concepts
 
 * Localization to 2 languages with String catalogs
-* Continuous integration with Github Actions and Danger
+* Continuous integration with Github Actions
 * Unit testing, including [testing view controllers for leaks](https://blog.kulman.sk/unit-testing-memory-leaks/)
 * Creating a view controller in code with dependency injection
 * Using static UITableView cells in a typed way with enums
@@ -34,7 +34,7 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 
 ### Prerequisites
 
-* Xcode 15
+* Xcode 16
 * [Fastlane](https://fastlane.tools/) (optional)
 
 ## Built with
