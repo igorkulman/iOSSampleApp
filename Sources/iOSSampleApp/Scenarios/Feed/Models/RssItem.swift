@@ -9,8 +9,8 @@
 import Foundation
 
 struct RssItem {
-    let title: String?
+    let title: String
     let description: String?
-    let link: String?
+    let link: URL
     let pubDate: Date?
 }

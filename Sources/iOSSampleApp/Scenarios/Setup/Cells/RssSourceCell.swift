@@ -38,7 +38,7 @@ final class RssSourceCell: UITableViewCell, Reusable {
 
             logoImage.image = nil
             titleLabel.text = vm.source.title
-            urlLabel.text = vm.source.url
+            urlLabel.text = vm.source.url.absoluteString
 
             disposeBag = DisposeBag {
                 vm.isSelected.map({ $0 ? .checkmark : .none }).bind(to: rx.accessoryType)

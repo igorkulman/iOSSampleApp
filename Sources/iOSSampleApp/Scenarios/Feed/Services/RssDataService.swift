@@ -13,24 +13,24 @@ import UIKit
 
 final class RssDataService: DataService {
     func getFeed(source: RssSource, onCompletion: @escaping (RssResult) -> Void) {
-        guard let feedURL = URL(string: source.rss) else {
-            onCompletion(.failure(RssError.badUrl))
-            return
-        }
+        let parser = FeedParser(URL: source.rss)
 
-        let parser = FeedParser(URL: feedURL)
-
-        Logger.data.debug("Loading \(feedURL.absoluteString)")
+        Logger.data.debug("Loading \(source.rss.absoluteString)")
 
         parser.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { result in
             switch result {
             case let .success(feed):
-                guard let rss = feed.rssFeed, let items = rss.items else {
-                    onCompletion(.success([]))
+                if let rss = feed.rssFeed, let items = rss.items {
+                    onCompletion(.success(items.compactMap({ RssItem(item: $0) })))
                     return
                 }
 
-                onCompletion(.success(items.map({ RssItem(title: $0.title, description: $0.description, link: $0.link, pubDate: $0.pubDate) })))
+                if let atom = feed.atomFeed, let items = atom.entries {
+                    onCompletion(.success(items.compactMap({ RssItem(item: $0) })))
+                    return
+                }
+
+                onCompletion(.success([]))
             case let .failure(error):
                 Logger.data.error("Loading data failed with \(error)")
                 onCompletion(.failure(error))

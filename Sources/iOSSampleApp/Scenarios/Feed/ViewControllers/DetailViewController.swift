@@ -103,9 +103,7 @@ final class DetailViewController: UIViewController {
     }
 
     private func setupData() {
-        if let link = item.link, let url = URL(string: link) {
-            load(url)
-        }
+        load(item.link)
     }
 
     private func setupBinding() {
@@ -126,9 +124,7 @@ final class DetailViewController: UIViewController {
             if owner.webView?.url != nil {
                 owner.webView?.reload()
             } else {
-                if let link = owner.item.link, let url = URL(string: link) {
-                    owner.load(url)
-                }
+                owner.load(owner.item.link)
             }
         }.disposed(by: disposeBag)
 
@@ -185,7 +181,7 @@ final class DetailViewController: UIViewController {
 import SwiftUI
 struct DetailViewControllerPreview: PreviewProvider {
     static var previews: some View {
-        UINavigationController(rootViewController: DetailViewController(item: RssItem(title: "New post", description: "Some description", link: "http://www.github.com/igorkulman/iOSSampleApp", pubDate: Date()))).asPreview()
+        UINavigationController(rootViewController: DetailViewController(item: RssItem(title: "New post", description: "Some description", link: URL(string: "http://www.github.com/igorkulman/iOSSampleApp")!, pubDate: Date()))).asPreview()
     }
 }
 #endif

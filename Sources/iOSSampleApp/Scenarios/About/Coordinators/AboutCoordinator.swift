@@ -56,14 +56,14 @@ final class AboutCoordinator: NavigationCoordinator {
      Shows the authors info in SafariVC
      */
     private func showAuthorsInfo() {
-        showUrl(url: "https://blog.kulman.sk/about/")
+        showUrl(url: URL(string: "https://kulman.sk")!)
     }
 
     /**
      Shows the authors blog in SafariVC
      */
     private func showAuthorsBlog() {
-        showUrl(url: "https://blog.kulman.sk")
+        showUrl(url: URL(string: "https://nlog.kulman.sk")!)
     }
 
     /**

@@ -10,9 +10,9 @@ import Foundation
 
 struct RssSource: Codable {
     let title: String
-    let url: String
-    let rss: String
-    let icon: String?
+    let url: URL
+    let rss: URL
+    let icon: URL?
 }
 
 extension RssSource: Equatable {

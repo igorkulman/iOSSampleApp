@@ -24,12 +24,11 @@ final class CustomSourceViewModel {
 
     init() {
         source = Observable.combineLatest(title.asObservable(), url.asObservable(), rssUrl.asObservable(), logoUrl.asObservable()) { title, url, rssUrl, logoUrl in
-            guard let title = title, !title.isEmpty, let url = url, url.isValidURL, let rssUrl = rssUrl, rssUrl.isValidURL else {
+            guard let title = title, !title.isEmpty, let url = url.flatMap({ URL(string: $0) }), let rssUrl = rssUrl.flatMap({ URL(string: $0) }) else {
                 return nil
             }
 
-            return RssSource(title: title, url: url, rss: rssUrl, icon: logoUrl)
-        }
+            return RssSource(title: title, url: url, rss: rssUrl, icon: logoUrl.flatMap({ URL(string: $0) }))
 
         isValid = source.map({ $0.isSome })
     }

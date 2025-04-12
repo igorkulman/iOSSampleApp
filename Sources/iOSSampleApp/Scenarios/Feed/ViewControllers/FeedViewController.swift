@@ -136,14 +136,19 @@ import SwiftUI
 final class PreviewDataService: DataService {
     func getFeed(source: RssSource, onCompletion: @escaping (RssResult) -> Void) {
         onCompletion(.success([
-            RssItem(title: "Post 1", description: "Description", link: "", pubDate: Date()),
-            RssItem(title: "Post 2", description: "Description", link: "", pubDate: Date()),
-            RssItem(title: "Post 3", description: "Description", link: "", pubDate: Date())
+            RssItem(title: "Post 1", description: "Description", link: URL(string: "https://news.ycombinator.com")!, pubDate: Date()),
+            RssItem(title: "Post 2", description: "Description", link: URL(string: "https://news.ycombinator.com")!, pubDate: Date()),
+            RssItem(title: "Post 3", description: "Description", link: URL(string: "https://news.ycombinator.com")!, pubDate: Date())
         ]))
     }
 }
 final class PreviewSettingsService: SettingsService {
-    var selectedSource: RssSource? = RssSource(title: "Website", url: "", rss: "", icon: "")
+    var selectedSource: RssSource? = RssSource(
+        title: "Hacker News",
+        url: URL(string: "https://news.ycombinator.com")!,
+        rss: URL(string: "https://news.ycombinator.com/rss")!,
+        icon: URL("https://upload.wikimedia.org/wikipedia/commons/d/d5/Y_Combinator_Logo_400.gif")!
+    )
 }
 
 struct FeedViewControllerPreview: PreviewProvider {

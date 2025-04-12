@@ -20,8 +20,7 @@ final class RssSourceViewModel {
     init(source: RssSource) {
         self.source = source
 
-        guard let iconLink = source.icon, let iconUrl = URL(string: iconLink) else {
-            icon = Observable.just(nil)
+        guard let iconUrl = source.icon else {
             return
         }
 
