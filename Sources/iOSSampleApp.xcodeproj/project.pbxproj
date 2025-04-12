@@ -24,9 +24,6 @@
 		F3A812BF1F83740E00A09AAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3A812BE1F83740E00A09AAB /* Assets.xcassets */; };
 		F3A9678A21AC38D8005E7F3F /* ViewControllerLeakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A9678921AC38D8005E7F3F /* ViewControllerLeakTests.swift */; };
 		F3A9678C21AC3961005E7F3F /* ViewControllerLeakTests+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A9678B21AC3961005E7F3F /* ViewControllerLeakTests+Setup.swift */; };
-		F3C71AB72B002A8A00EEAC8E /* SpecLeaks in Frameworks */ = {isa = PBXBuildFile; productRef = F3C71AB62B002A8A00EEAC8E /* SpecLeaks */; };
-		F3C71ABA2B002B2400EEAC8E /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = F3C71AB92B002B2400EEAC8E /* Nimble */; };
-		F3C71ABD2B002BB500EEAC8E /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = F3C71ABC2B002BB500EEAC8E /* Quick */; };
 		F3C8DB3F214EA3AA00C1A654 /* SourceSelectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB3E214EA3AA00C1A654 /* SourceSelectionViewModelTests.swift */; };
 		F3C8DB41214EA7F200C1A654 /* FeedViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB40214EA7F200C1A654 /* FeedViewModelTests.swift */; };
 		F3D6865C1F9B761E00879154 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6865B1F9B761E00879154 /* TestExtensions.swift */; };
@@ -84,9 +81,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3C71ABD2B002BB500EEAC8E /* Quick in Frameworks */,
-				F3C71AB72B002A8A00EEAC8E /* SpecLeaks in Frameworks */,
-				F3C71ABA2B002B2400EEAC8E /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,9 +204,6 @@
 			);
 			name = iOSSampleAppTests;
 			packageProductDependencies = (
-				F3C71AB62B002A8A00EEAC8E /* SpecLeaks */,
-				F3C71AB92B002B2400EEAC8E /* Nimble */,
-				F3C71ABC2B002BB500EEAC8E /* Quick */,
 			);
 			productName = iOSSampleAppTests;
 			productReference = F3208A7A1F84E48100B57B0E /* iOSSampleAppTests.xctest */;
@@ -323,9 +314,6 @@
 				F376423425A4689800C58CE5 /* XCRemoteSwiftPackageReference "Nuke" */,
 				F32344CD29D814B900B1886D /* XCRemoteSwiftPackageReference "SwiftLint" */,
 				F3DFFC5C2A4C84E2001F5565 /* XCRemoteSwiftPackageReference "SwiftGenPlugin" */,
-				F3C71AB52B002A8A00EEAC8E /* XCRemoteSwiftPackageReference "specleaks" */,
-				F3C71AB82B002B2400EEAC8E /* XCRemoteSwiftPackageReference "Nimble" */,
-				F3C71ABB2B002BB500EEAC8E /* XCRemoteSwiftPackageReference "Quick" */,
 			);
 			productRefGroup = F3A812B51F83740E00A09AAB /* Products */;
 			projectDirPath = "";
@@ -766,30 +754,6 @@
 				version = 9.2.3;
 			};
 		};
-		F3C71AB52B002A8A00EEAC8E /* XCRemoteSwiftPackageReference "specleaks" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/radiofrance/specleaks/";
-			requirement = {
-				kind = revision;
-				revision = 8c6090aeff8475f6eea6d91ac36b8219f3cc3c93;
-			};
-		};
-		F3C71AB82B002B2400EEAC8E /* XCRemoteSwiftPackageReference "Nimble" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Quick/Nimble";
-			requirement = {
-				kind = exactVersion;
-				version = 10.0.0;
-			};
-		};
-		F3C71ABB2B002BB500EEAC8E /* XCRemoteSwiftPackageReference "Quick" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Quick/Quick";
-			requirement = {
-				kind = exactVersion;
-				version = 5.0.1;
-			};
-		};
 		F3DFFC5C2A4C84E2001F5565 /* XCRemoteSwiftPackageReference "SwiftGenPlugin" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/BookBeat/SwiftGenPlugin";
@@ -855,21 +819,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F376423425A4689800C58CE5 /* XCRemoteSwiftPackageReference "Nuke" */;
 			productName = Nuke;
-		};
-		F3C71AB62B002A8A00EEAC8E /* SpecLeaks */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F3C71AB52B002A8A00EEAC8E /* XCRemoteSwiftPackageReference "specleaks" */;
-			productName = SpecLeaks;
-		};
-		F3C71AB92B002B2400EEAC8E /* Nimble */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F3C71AB82B002B2400EEAC8E /* XCRemoteSwiftPackageReference "Nimble" */;
-			productName = Nimble;
-		};
-		F3C71ABC2B002BB500EEAC8E /* Quick */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F3C71ABB2B002BB500EEAC8E /* XCRemoteSwiftPackageReference "Quick" */;
-			productName = Quick;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

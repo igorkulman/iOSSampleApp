@@ -8,11 +8,8 @@
 
 import Foundation
 @testable import iOSSampleApp
-import Nimble
-import Quick
 import Swinject
 import SwinjectAutoregistration
-import XCTest
 
 extension ViewControllerLeakTests {
     func setupDependencies() -> Container {

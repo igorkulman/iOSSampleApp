@@ -8,6 +8,7 @@
 
 import Foundation
 @testable import iOSSampleApp
+import XCTest
 
 extension RssResult: Equatable {
     public static func == (lhs: RssResult, rhs: RssResult) -> Bool {
@@ -28,4 +29,12 @@ extension RssResult: Equatable {
         }
     }
 
+}
+
+extension XCTestCase {
+    func assertDeallocatedAfterTest(_ instance: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
+        addTeardownBlock { [weak instance] in
+            XCTAssertNil(instance, "Instance was not deallocated, potential memory leak.", file: file, line: line)
+        }
+    }
 }

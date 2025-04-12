@@ -8,54 +8,61 @@
 
 import Foundation
 @testable import iOSSampleApp
-import Nimble
-import Quick
+import Testing
 
-class DataServiceTests: QuickSpec {
-    override func spec() {
-        describe("RSS data service") {
-            var service: RssDataService!
-            beforeEach {
-                service = RssDataService()
+struct DataServiceTests {
+
+    @Test("Successfully fetch from valid RSS feed")
+    func testValidRssFeed() async throws {
+        // Given
+        let service = RssDataService()
+        let source = RssSource(
+            title: "Hacker News",
+            url: URL(string: "https://news.ycombinator.com")!,
+            rss: URL(string: "https://news.ycombinator.com/rss")!,
+            icon: nil
+        )
+
+        // When
+        let result = await withCheckedContinuation { continuation in
+            service.getFeed(source: source) { result in
+                continuation.resume(returning: result)
             }
+        }
 
-            context("given valid RSS feed") {
-                var source: RssSource!
-                beforeEach {
-                    source = RssSource(title: "Hacker News", url: URL(string: "https://news.ycombinator.com")!, rss: URL(string: "https://news.ycombinator.com/rss")!, icon: nil)
-                }
+        // Then
+        switch result {
+        case let .success(items):
+            #expect(!items.isEmpty)
+        case let .failure(error):
+            Issue.record("Failed with error: \(error)")
+        }
+    }
 
-                it("succeeeds") {
-                    waitUntil(timeout: .seconds(5)) { done in
-                        service.getFeed(source: source) { result in
-                            expect(result).notTo(equal(.failure(RssError.emptyResponse)))
-                            expect(result) == .success([])
-                            done()
-                        }
-                    }
-                }
+    @Test("Fail when fetching from invalid RSS feed")
+    func testInvalidRssFeed() async throws {
+        // Given
+        let service = RssDataService()
+        let source = RssSource(
+            title: "Fake",
+            url: URL(string: "https://news.ycombinator.com")!,
+            rss: URL(string: "https://news.ycombinator.com")!,
+            icon: nil
+        )
+
+        // When
+        let result = await withCheckedContinuation { continuation in
+            service.getFeed(source: source) { result in
+                continuation.resume(returning: result)
             }
+        }
 
-            context("given invalid RSS feed") {
-                var source: RssSource!
-                beforeEach {
-                    source = RssSource(title: "Fake", url: URL(string: "https://news.ycombinator.com")!, rss: URL(string: "https://news.ycombinator.com")!, icon: nil)
-                }
-
-                it("fails") {
-                    waitUntil(timeout: .seconds(5)) { done in
-                        service.getFeed(source: source) { result in
-                            switch result {
-                            case .success:
-                                fail("Expected failure, but got success")
-                            case .failure:
-                                break
-                            }
-                            done()
-                        }
-                    }
-                }
-            }
+        // Then
+        switch result {
+        case .success:
+            Issue.record("Expected failure but got success")
+        case .failure:
+            break
         }
     }
 }

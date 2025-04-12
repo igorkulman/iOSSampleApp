@@ -18,7 +18,7 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 
 * Localization to 2 languages with String catalogs
 * Continuous integration with Github Actions
-* Unit testing, including [testing view controllers for leaks](https://blog.kulman.sk/unit-testing-memory-leaks/)
+* Unit testing, including testing view controllers for leaks
 * Creating a view controller in code with dependency injection
 * Using static UITableView cells in a typed way with enums
 * Creating simple cells with UIListContentConfiguration
@@ -46,9 +46,6 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 - [Nuke](https://github.com/kean/Nuke) - A powerful image loading and caching system
 - [FeedKit](https://github.com/nmdias/FeedKit) - An RSS, Atom and JSON Feed parser written in Swift
 - [NotificationBanner](https://github.com/Daltron/NotificationBanner) - The easiest way to display highly customizable in app notification banners in iOS
-- [SpecLeaks](leandromperez/specleaks) - Unit Tests Memory Leaks in Swift. Write readable tests for mem leaks easily with these Quick and Nimble extensions
-- [Quick](https://github.com/Quick/Quick) - The Swift (and Objective-C) testing framework
-- [Nimble](https://github.com/Quick/Nimble) - A Matcher Framework for Swift and Objective-C
 - [SwifLint](https://github.com/realm/SwiftLint) - A tool to enforce Swift style and conventions
 
 ## Author

@@ -1,5 +1,5 @@
 //
-//  CustomSourceViewModelTest.swift
+//  CustomSourceViewModelTests.swift
 //  iOSSampleAppTests
 //
 //  Created by Igor Kulman on 04/10/2017.
@@ -8,83 +8,95 @@
 
 import Foundation
 @testable import iOSSampleApp
-import Nimble
-import Quick
+import Testing
 import RxSwift
 
-class CustomSourceViewModelTests: QuickSpec {
-    override func spec() {
-        describe("CustomSourceViewModel") {
-            var vm: CustomSourceViewModel!
-            beforeEach {
-                vm = CustomSourceViewModel()
-            }
+struct CustomSourceViewModelTests {
 
-            context("with empty data") {
-                it("should not validate") {
-                    expect(try! vm.isValid.toBlocking().first()) == false
-                }
-            }
+    @Test("Empty data should not be valid")
+    func testEmptyDataValidation() throws {
+        // Given
+        let vm = CustomSourceViewModel()
 
-            context("with valid data") {
-                beforeEach {
-                    vm.title.accept("Coding Journal")
-                    vm.rssUrl.accept("https://blog.kulman.sk/index.xml")
-                    vm.url.accept("https://blog.kulman.sk")
-                }
+        // When
+        let isValid = try vm.isValid.toBlocking().first()!
 
-                it("should validate OK") {
-                    expect(try! vm.isValid.toBlocking().first()) == true
-                }
-            }
+        // Then
+        #expect(isValid == false)
+    }
 
-            context("with missing URL") {
-                beforeEach {
-                    vm.title.accept("Coding Journal")
-                    vm.rssUrl.accept("https://blog.kulman.sk/index.xml")
-                    vm.url.accept(nil)
-                }
+    @Test("Valid data should validate correctly")
+    func testValidDataValidation() throws {
+        // Given
+        let vm = CustomSourceViewModel()
+        vm.title.accept("Coding Journal")
+        vm.rssUrl.accept("https://blog.kulman.sk/index.xml")
+        vm.url.accept("https://blog.kulman.sk")
 
-                it("should not validate") {
-                    expect(try! vm.isValid.toBlocking().first()) == false
-                }
-            }
+        // When
+        let isValid = try vm.isValid.toBlocking().first()!
 
-            context("with invalid URL") {
-                beforeEach {
-                    vm.title.accept("Coding Journal")
-                    vm.rssUrl.accept("https://blog.kulman.sk/index.xml")
-                    vm.url.accept("blog")
-                }
+        // Then
+        #expect(isValid == true)
+    }
 
-                it("should not validate") {
-                    expect(try! vm.isValid.toBlocking().first()) == false
-                }
-            }
+    @Test("Missing URL should not validate")
+    func testMissingUrlValidation() throws {
+        // Given
+        let vm = CustomSourceViewModel()
+        vm.title.accept("Coding Journal")
+        vm.rssUrl.accept("https://blog.kulman.sk/index.xml")
+        vm.url.accept(nil)
 
-            context("with invalid RSS URL") {
-                beforeEach {
-                    vm.title.accept("Coding Journal")
-                    vm.rssUrl.accept("dss")
-                    vm.url.accept("https://blog.kulman.sk")
-                }
+        // When
+        let isValid = try vm.isValid.toBlocking().first()!
 
-                it("should not validate") {
-                    expect(try! vm.isValid.toBlocking().first()) == false
-                }
-            }
+        // Then
+        #expect(isValid == false)
+    }
 
-            context("with missing title") {
-                beforeEach {
-                    vm.title.accept(nil)
-                    vm.rssUrl.accept("https://blog.kulman.sk/index.xml")
-                    vm.url.accept("https://blog.kulman.sk")
-                }
+    @Test("Invalid URL should not validate")
+    func testInvalidUrlValidation() throws {
+        // Given
+        let vm = CustomSourceViewModel()
+        vm.title.accept("Coding Journal")
+        vm.rssUrl.accept("https://blog.kulman.sk/index.xml")
+        vm.url.accept("blog")
 
-                it("should not validate") {
-                    expect(try! vm.isValid.toBlocking().first()) == false
-                }
-            }
-        }
+        // When
+        let isValid = try vm.isValid.toBlocking().first()!
+
+        // Then
+        #expect(isValid == false)
+    }
+
+    @Test("Invalid RSS URL should not validate")
+    func testInvalidRssUrlValidation() throws {
+        // Given
+        let vm = CustomSourceViewModel()
+        vm.title.accept("Coding Journal")
+        vm.rssUrl.accept("dss")
+        vm.url.accept("https://blog.kulman.sk")
+
+        // When
+        let isValid = try vm.isValid.toBlocking().first()!
+
+        // Then
+        #expect(isValid == false)
+    }
+
+    @Test("Missing title should not validate")
+    func testMissingTitleValidation() throws {
+        // Given
+        let vm = CustomSourceViewModel()
+        vm.title.accept(nil)
+        vm.rssUrl.accept("https://blog.kulman.sk/index.xml")
+        vm.url.accept("https://blog.kulman.sk")
+
+        // When
+        let isValid = try vm.isValid.toBlocking().first()!
+
+        // Then
+        #expect(isValid == false)
     }
 }
