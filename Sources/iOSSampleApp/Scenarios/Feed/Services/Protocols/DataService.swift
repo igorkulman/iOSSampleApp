@@ -9,18 +9,21 @@
 import Foundation
 
 enum RssError: Error, CustomStringConvertible {
-    case badUrl
+    case emptyResponse
+    case networkError(Error)
 
     var description: String {
         switch self {
-        case .badUrl:
-            return NSLocalizedString("bad_url", comment: "")
+        case .emptyResponse:
+            return NSLocalizedString("empty_response", comment: "")
+        case let .networkError(error):
+            return error.localizedDescription
         }
     }
 }
 
 enum RssResult {
-    case failure(Error)
+    case failure(RssError)
     case success([RssItem])
 }
 

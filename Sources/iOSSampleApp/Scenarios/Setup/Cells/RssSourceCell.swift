@@ -42,7 +42,7 @@ final class RssSourceCell: UITableViewCell, Reusable {
 
             disposeBag = DisposeBag {
                 vm.isSelected.map({ $0 ? .checkmark : .none }).bind(to: rx.accessoryType)
-                vm.icon.bind(to: logoImage.rx.image)
+                vm.icon.drive(logoImage.rx.image)
             }
         }
     }

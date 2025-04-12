@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxCocoa
 import RxSwift
 import UIKit
 
@@ -15,14 +16,14 @@ final class FeedViewModel {
     // MARK: - Properties
 
     /**
-     Observable with error from the feed refresh
+     Driver with error from the feed refresh
      */
-    let onError: Observable<Error>
+    let onError: Driver<Error>
 
     /**
-     Observable with actual data. Does not change when feed refresh errors out
+     Driver with actual data. Does not change when feed refresh errors out
      */
-    let feed: Observable<[RssItem]>
+    let feed: Driver<[RssItem]>
 
     /*
      Signal that starts feed loading when called from the VC
@@ -62,15 +63,18 @@ final class FeedViewModel {
         }
 
         let response = load
-            .startWith(()) // start loading immediatelly
+            .startWith(()) // start loading immediately
             .flatMapLatest { _ in
-                return loadFeed.materialize() // converting the feed to Observable<Event<[RssItem]>> contaitning both data and error so the observable does not complete on error
+                return loadFeed.materialize() // converting the feed to Observable<Event<[RssItem]>> containing both data and error so the observable does not complete on error
             }
-            .share() // sharing the subscription so network calls are not duplicated
-            .observe(on: MainScheduler.instance) // making sure the result is returned in the UI thread
+            .share()
 
         feed = response.elements()
+            .asDriver(onErrorJustReturn: [])
+
         onError = response.errors()
+            .asDriver(onErrorJustReturn: RssError.emptyResponse)
+
         title = source.title
 
         // refreshing the feed on app activation

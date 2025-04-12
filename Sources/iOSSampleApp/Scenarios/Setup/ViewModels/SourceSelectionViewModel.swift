@@ -15,9 +15,9 @@ final class SourceSelectionViewModel {
 
     // MARK: - Properties
 
-    let sources: Observable<[RssSourceViewModel]>
+    let sources: Driver<[RssSourceViewModel]>
     let filter = BehaviorRelay<String?>(value: nil)
-    let isValid: Observable<Bool>
+    let isValid: Driver<Bool>
 
     // MARK: - Fields
 
@@ -42,8 +42,10 @@ final class SourceSelectionViewModel {
                 return all
             }
         }
+        .asDriver(onErrorJustReturn: [])
 
         isValid = sources.asObservable().flatMap { Observable.combineLatest($0.map { $0.isSelected.asObservable() }) }.map({ $0.filter({ $0 }).count == 1 })
+        .asDriver(onErrorJustReturn: false)
 
         allSources.accept(all)
 

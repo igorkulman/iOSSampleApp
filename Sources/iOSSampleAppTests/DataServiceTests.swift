@@ -22,13 +22,13 @@ class DataServiceTests: QuickSpec {
             context("given valid RSS feed") {
                 var source: RssSource!
                 beforeEach {
-                    source = RssSource(title: "Hacker News", url: "https://news.ycombinator.com", rss: "https://news.ycombinator.com/rss", icon: nil)
+                    source = RssSource(title: "Hacker News", url: URL(string: "https://news.ycombinator.com")!, rss: URL(string: "https://news.ycombinator.com/rss")!, icon: nil)
                 }
 
                 it("succeeeds") {
                     waitUntil(timeout: .seconds(5)) { done in
                         service.getFeed(source: source) { result in
-                            expect(result).notTo(equal(.failure(RssError.badUrl)))
+                            expect(result).notTo(equal(.failure(RssError.emptyResponse)))
                             expect(result) == .success([])
                             done()
                         }
@@ -39,13 +39,18 @@ class DataServiceTests: QuickSpec {
             context("given invalid RSS feed") {
                 var source: RssSource!
                 beforeEach {
-                    source = RssSource(title: "Fake", url: "", rss: "", icon: nil)
+                    source = RssSource(title: "Fake", url: URL(string: "https://news.ycombinator.com")!, rss: URL(string: "https://news.ycombinator.com")!, icon: nil)
                 }
 
                 it("fails") {
                     waitUntil(timeout: .seconds(5)) { done in
                         service.getFeed(source: source) { result in
-                            expect(result) == .failure(RssError.badUrl)
+                            switch result {
+                            case .success:
+                                fail("Expected failure, but got success")
+                            case .failure:
+                                break
+                            }
                             done()
                         }
                     }

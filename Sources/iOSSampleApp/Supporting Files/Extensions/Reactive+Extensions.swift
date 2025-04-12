@@ -31,6 +31,6 @@ extension Reactive where Base: NotificationCenter {
     }
 }
 
-func ignoreNil<A>(x: A?) -> Observable<A> {
-    return x.map { Observable.just($0) } ?? Observable.empty()
+func ignoreNil<A>(x: A?) -> Driver<A> {
+    return x.map { Driver.just($0) } ?? Driver.empty()
 }

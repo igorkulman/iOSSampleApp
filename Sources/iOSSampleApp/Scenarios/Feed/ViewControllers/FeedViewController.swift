@@ -111,20 +111,30 @@ final class FeedViewController: UIViewController, ToastCapable {
         tableView.register(cellType: FeedCell.self)
 
         // announcing errors with a toast
-        viewModel.onError.withUnretained(self).bind { owner, error in
+        viewModel.onError.drive(onNext: { [weak self] error in
+            guard let self = self else {
+                return
+            }
             switch error {
             case let rssError as RssError:
-                owner.showErrorToast(message: rssError.description)
+                self.showErrorToast(message: rssError.description)
             default:
-                owner.showErrorToast(message: NSLocalizedString("network_problem", comment: ""))
+                self.showErrorToast(message: NSLocalizedString("network_problem", comment: ""))
             }
-        }.disposed(by: disposeBag)
+        }).disposed(by: disposeBag)
 
         // refresh is considered finished when new data arrives or when the request fails
-        Observable.merge(viewModel.feed.map({ _ in Void() }), viewModel.onError.map({ _ in Void() })).withUnretained(self).bind { owner, _ in owner.refreshControl.endRefreshing() }.disposed(by: disposeBag)
+        Driver.merge(
+            viewModel.feed.map({ _ in Void() }),
+            viewModel.onError.map({ _ in Void() })
+        )
+        .drive(onNext: { [weak self] _ in
+            self?.refreshControl.endRefreshing()
+        })
+        .disposed(by: disposeBag)
 
         viewModel.feed
-            .bind(to: tableView.rx.items(cellIdentifier: FeedCell.reuseIdentifier, cellType: FeedCell.self)) { _, element, cell in
+            .drive(tableView.rx.items(cellIdentifier: FeedCell.reuseIdentifier, cellType: FeedCell.self)) { _, element, cell in
                 cell.model = element
             }
             .disposed(by: disposeBag)

@@ -81,22 +81,6 @@
         }
       }
     },
-    "bad_url" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Invalid RSS feed URL"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Neplatná URL pre RSS"
-          }
-        }
-      }
-    },
     "blog" : {
       "localizations" : {
         "en" : {
@@ -125,6 +109,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hotovo"
+          }
+        }
+      }
+    },
+    "empty_response" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No items"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Žiadne položky"
           }
         }
       }

@@ -98,7 +98,7 @@ final class CustomSourceViewController: UIViewController {
     }
 
     private func setupBinding() {
-        viewModel.isValid.bind(to: doneButton.rx.isEnabled).disposed(by: disposeBag)
+        viewModel.isValid.drive(doneButton.rx.isEnabled).disposed(by: disposeBag)
         titleFormField.rx.value.bind(to: viewModel.title).disposed(by: disposeBag)
         urlFormField.rx.value.bind(to: viewModel.url).disposed(by: disposeBag)
         rssUrlFormField.rx.value.bind(to: viewModel.rssUrl).disposed(by: disposeBag)

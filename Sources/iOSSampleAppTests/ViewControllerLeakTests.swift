@@ -44,7 +44,7 @@ class ViewControllerLeakTests: QuickSpec {
             describe("viewDidLoad") {
                 let vc = LeakTest {
                     let settings = container.resolve(SettingsService.self)!
-                    settings.selectedSource = RssSource(title: "Test", url: "https://blog.kulman.sk", rss: "https://blog.kulman.sk/index.xml", icon: nil)
+                    settings.selectedSource = RssSource(title: "Test", url: URL(string:"https://blog.kulman.sk")!, rss: URL(string:"https://blog.kulman.sk/index.xml")!, icon: nil)
                     let dataService = container.resolve(DataService.self)! as! DataServiceMock
                     dataService.result = .success([])
                     return container.resolve(FeedViewController.self)!
@@ -58,7 +58,7 @@ class ViewControllerLeakTests: QuickSpec {
         describe("DetailViewController") {
             describe("viewDidLoad") {
                 let vc = LeakTest {
-                    return DetailViewController(item: RssItem(title: "Test", description: "Test sesc", link: "https://blog.kulman.sk", pubDate: Date()))
+                    return DetailViewController(item: RssItem(title: "Test", description: "Test sesc", link: URL(string:"https://blog.kulman.sk")!, pubDate: Date()))
                 }
                 it("must not leak") {
                     expect(vc).toNot(leak())

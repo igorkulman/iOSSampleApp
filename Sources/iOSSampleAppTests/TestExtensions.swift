@@ -14,8 +14,10 @@ extension RssResult: Equatable {
         switch (lhs, rhs) {
         case let (.failure(lerror), .failure(rerror)):
             switch (lerror, rerror) {
-            case (RssError.badUrl, RssError.badUrl):
+            case (RssError.emptyResponse, RssError.emptyResponse):
                 return true
+            case (RssError.networkError(let lerror), RssError.networkError(let rerror)):
+                return lerror.localizedDescription == rerror.localizedDescription
             default:
                 return false
             }

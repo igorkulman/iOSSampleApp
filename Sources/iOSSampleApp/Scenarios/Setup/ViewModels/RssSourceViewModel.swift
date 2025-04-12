@@ -15,12 +15,13 @@ import UIKit
 final class RssSourceViewModel {
     let source: RssSource
     let isSelected = BehaviorRelay<Bool>(value: false)
-    let icon: Observable<UIImage?>
+    let icon: Driver<UIImage?>
 
     init(source: RssSource) {
         self.source = source
 
         guard let iconUrl = source.icon else {
+            icon = Driver.just(nil)
             return
         }
 
@@ -36,6 +37,6 @@ final class RssSourceViewModel {
             return Disposables.create {
                 task.cancel()
             }
-        }
+        }.asDriver(onErrorJustReturn: nil)
     }
 }

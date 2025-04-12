@@ -30,10 +30,10 @@ final class RssDataService: DataService {
                     return
                 }
 
-                onCompletion(.success([]))
+                onCompletion(.failure(RssError.emptyResponse))
             case let .failure(error):
                 Logger.data.error("Loading data failed with \(error)")
-                onCompletion(.failure(error))
+                onCompletion(.failure(RssError.networkError(error)))
             }
         }
     }

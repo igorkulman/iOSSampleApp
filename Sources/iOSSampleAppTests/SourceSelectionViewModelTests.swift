@@ -40,7 +40,7 @@ class SourceSelectionViewModelTests: QuickSpec {
             context("when initialized and a feed already selected") {
                 beforeEach {
                     settingsService = SettingsServiceMock()
-                    settingsService.selectedSource = RssSource(title: "Coding Journal", url: "https://blog.kulman.sk", rss: "https://blog.kulman.sk/index.xml", icon: nil)
+                    settingsService.selectedSource = RssSource(title: "Coding Journal", url: URL(string: "https://blog.kulman.sk")!, rss: URL(string: "https://blog.kulman.sk/index.xml")!, icon: nil)
                     vm = SourceSelectionViewModel(settingsService: settingsService)
                 }
 
@@ -57,7 +57,7 @@ class SourceSelectionViewModelTests: QuickSpec {
 
             context("when a new source is added") {
                 it("should be available, at firts position and selected") {
-                    vm.addNewSource(source: RssSource(title: "Example", url: "http://example.com", rss: "http://example.com", icon: nil))
+                    vm.addNewSource(source: RssSource(title: "Example", url: URL(string:"http://example.com")!, rss: URL(string:"http://example.com")!, icon: nil))
                     let sources = try! vm.sources.toBlocking().first()!
                     expect(sources.count) == 5
                     expect(sources[1].isSelected.value).to(beFalse())
@@ -72,7 +72,7 @@ class SourceSelectionViewModelTests: QuickSpec {
             context("when initialized and a feed already selected") {
                 beforeEach {
                     settingsService = SettingsServiceMock()
-                    settingsService.selectedSource = RssSource(title: "Coding Journal", url: "https://blog.kulman.sk", rss: "https://blog.kulman.sk/index.xml", icon: nil)
+                    settingsService.selectedSource = RssSource(title: "Coding Journal", url: URL(string:"https://blog.kulman.sk")!, rss: URL(string:"https://blog.kulman.sk/index.xml")!, icon: nil)
                     vm = SourceSelectionViewModel(settingsService: settingsService)
                 }
 

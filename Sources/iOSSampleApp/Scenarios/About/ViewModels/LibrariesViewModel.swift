@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import RxCocoa
 import RxSwift
 
 final class LibrariesViewModel {
 
     // MARK: - Properties
 
-    let libraries: Observable<[Library]>
+    let libraries: Driver<[Library]>
 
     init() {
         guard let path = Bundle.main.path(forResource: "Licenses", ofType: "plist"), let array = NSArray(contentsOfFile: path) as? [[String: Any]] else {
@@ -24,6 +25,6 @@ final class LibrariesViewModel {
             let title = $0["title"] as! String
             let license = $0["license"] as! String
             return Library(title: title, license: license)
-        })
+        }).asDriver(onErrorJustReturn: [])
     }
 }

@@ -94,7 +94,7 @@ final class SourceSelectionViewController: UIViewController {
     private func setupBinding() {
         tableView.rx.modelSelected(RssSourceViewModel.self).withUnretained(self).bind { owner, source in owner.viewModel.toggleSource(source: source) }.disposed(by: disposeBag)
         tableView.rx.itemSelected.withUnretained(self).bind { owner, indexPath in owner.tableView.deselectRow(at: indexPath, animated: true) }.disposed(by: disposeBag)
-        viewModel.isValid.bind(to: doneButton.rx.isEnabled).disposed(by: disposeBag)
+        viewModel.isValid.drive(doneButton.rx.isEnabled).disposed(by: disposeBag)
         doneButton.rx.tap.withUnretained(self).bind { owner, _ in
             if owner.viewModel.saveSelectedSource() {
                 owner.delegate?.sourceSelectionViewControllerDidFinish()
@@ -117,7 +117,7 @@ final class SourceSelectionViewController: UIViewController {
         tableView.register(cellType: RssSourceCell.self)
 
         viewModel.sources
-            .bind(to: tableView.rx.items(cellIdentifier: RssSourceCell.reuseIdentifier, cellType: RssSourceCell.self)) { _, element, cell in
+            .drive(tableView.rx.items(cellIdentifier: RssSourceCell.reuseIdentifier, cellType: RssSourceCell.self)) { _, element, cell in
                 cell.viewModel = element
             }
             .disposed(by: disposeBag)

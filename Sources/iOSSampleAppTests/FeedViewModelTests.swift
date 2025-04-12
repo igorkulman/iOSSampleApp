@@ -23,9 +23,9 @@ class FeedViewModelTests: QuickSpec {
             context("when initialized") {
                 var vm: FeedViewModel!
                 beforeEach {
-                    dataService.result = RssResult.success([RssItem(title: "Test 1", description: nil, link: nil, pubDate: nil), RssItem(title: "Test 2", description: nil, link: nil, pubDate: nil)])
+                    dataService.result = RssResult.success([RssItem(title: "Test 1", description: nil, link: URL(string: "https://news.ycombinator.com")!, pubDate: nil), RssItem(title: "Test 2", description: nil, link: URL(string: "https://news.ycombinator.com")!, pubDate: nil)])
                     let settingsService = SettingsServiceMock()
-                    settingsService.selectedSource = RssSource(title: "Coding Journal", url: "https://blog.kulman.sk", rss: "https://blog.kulman.sk/index.xml", icon: nil)
+                    settingsService.selectedSource = RssSource(title: "Coding Journal", url: URL(string: "https://blog.kulman.sk")!, rss: URL(string: "https://blog.kulman.sk/index.xml")!, icon: nil)
                     vm = FeedViewModel(dataService: dataService, settingsService: settingsService)
                 }
 

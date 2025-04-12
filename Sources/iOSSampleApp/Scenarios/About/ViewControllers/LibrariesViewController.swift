@@ -47,7 +47,7 @@ final class LibrariesViewController: UITableViewController {
         tableView.register(cellType: LibraryCell.self)
         tableView.allowsSelection = false
 
-        viewModel.libraries.bind(to: tableView.rx.items(cellIdentifier: LibraryCell.reuseIdentifier, cellType: LibraryCell.self)) { _, element, cell in
+        viewModel.libraries.drive(tableView.rx.items(cellIdentifier: LibraryCell.reuseIdentifier, cellType: LibraryCell.self)) { _, element, cell in
             cell.model = element
         }.disposed(by: disposeBag)
     }
