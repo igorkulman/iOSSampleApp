@@ -46,7 +46,7 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 - [Nuke](https://github.com/kean/Nuke) - A powerful image loading and caching system
 - [FeedKit](https://github.com/nmdias/FeedKit) - An RSS, Atom and JSON Feed parser written in Swift
 - [NotificationBanner](https://github.com/Daltron/NotificationBanner) - The easiest way to display highly customizable in app notification banners in iOS
-- [SwifLint](https://github.com/realm/SwiftLint) - A tool to enforce Swift style and conventions
+- [SwiftLint](https://github.com/realm/SwiftLint) - A tool to enforce Swift style and conventions
 
 ## Author
 
