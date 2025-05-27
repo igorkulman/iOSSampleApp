@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Reusable
 import UIKit
 
 final class LibraryCell: UITableViewCell, Reusable {

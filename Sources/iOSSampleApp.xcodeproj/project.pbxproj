@@ -11,7 +11,6 @@
 		F33474E7244F64220034B1C2 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F33474E6244F64220034B1C2 /* RxSwift */; };
 		F33474E9244F64220034B1C2 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F33474E8244F64220034B1C2 /* RxCocoa */; };
 		F33474EB244F64220034B1C2 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = F33474EA244F64220034B1C2 /* RxRelay */; };
-		F33474F4244F64D80034B1C2 /* Reusable in Frameworks */ = {isa = PBXBuildFile; productRef = F33474F3244F64D80034B1C2 /* Reusable */; };
 		F33474F7244F65050034B1C2 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = F33474F6244F65050034B1C2 /* FeedKit */; };
 		F33474FA244F67270034B1C2 /* RxSwiftExt in Frameworks */ = {isa = PBXBuildFile; productRef = F33474F9244F67270034B1C2 /* RxSwiftExt */; };
 		F35BD6392065111F000AE4E8 /* AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35BD6382065111F000AE4E8 /* AppUITests.swift */; };
@@ -92,7 +91,6 @@
 				F33474E9244F64220034B1C2 /* RxCocoa in Frameworks */,
 				F33474E7244F64220034B1C2 /* RxSwift in Frameworks */,
 				F33474F7244F65050034B1C2 /* FeedKit in Frameworks */,
-				F33474F4244F64D80034B1C2 /* Reusable in Frameworks */,
 				F376423625A4689800C58CE5 /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -205,7 +203,6 @@
 				F33474E6244F64220034B1C2 /* RxSwift */,
 				F33474E8244F64220034B1C2 /* RxCocoa */,
 				F33474EA244F64220034B1C2 /* RxRelay */,
-				F33474F3244F64D80034B1C2 /* Reusable */,
 				F33474F6244F65050034B1C2 /* FeedKit */,
 				F33474F9244F67270034B1C2 /* RxSwiftExt */,
 				F300AE2A244F76DD00F5E060 /* NotificationBannerSwift */,
@@ -257,7 +254,6 @@
 			mainGroup = F3A812AB1F83740E00A09AAB;
 			packageReferences = (
 				F33474E5244F64220034B1C2 /* XCRemoteSwiftPackageReference "RxSwift" */,
-				F33474F2244F64D80034B1C2 /* XCRemoteSwiftPackageReference "Reusable" */,
 				F33474F5244F65050034B1C2 /* XCRemoteSwiftPackageReference "FeedKit" */,
 				F33474F8244F67270034B1C2 /* XCRemoteSwiftPackageReference "RxSwiftExt" */,
 				F300AE29244F76DC00F5E060 /* XCRemoteSwiftPackageReference "NotificationBanner" */,
@@ -643,14 +639,6 @@
 				version = 6.6.0;
 			};
 		};
-		F33474F2244F64D80034B1C2 /* XCRemoteSwiftPackageReference "Reusable" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AliSoftware/Reusable";
-			requirement = {
-				kind = exactVersion;
-				version = 4.1.1;
-			};
-		};
 		F33474F5244F65050034B1C2 /* XCRemoteSwiftPackageReference "FeedKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nmdias/FeedKit";
@@ -710,11 +698,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F33474E5244F64220034B1C2 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxRelay;
-		};
-		F33474F3244F64D80034B1C2 /* Reusable */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F33474F2244F64D80034B1C2 /* XCRemoteSwiftPackageReference "Reusable" */;
-			productName = Reusable;
 		};
 		F33474F6244F65050034B1C2 /* FeedKit */ = {
 			isa = XCSwiftPackageProductDependency;

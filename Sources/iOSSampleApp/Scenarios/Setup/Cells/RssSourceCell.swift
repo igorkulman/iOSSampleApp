@@ -6,7 +6,6 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
-import Reusable
 import RxSwift
 import UIKit
 
