@@ -8,7 +8,6 @@
 
 import Foundation
 import OSLog
-import Swinject
 import UIKit
 
 enum AppChildCoordinator {
@@ -24,7 +23,7 @@ final class AppCoordinator: Coordinator {
     // MARK: - Properties
 
     private let window: UIWindow
-    let container: Container
+    private let container: Container
     private var childCoordinators = [AppChildCoordinator: Coordinator]()
     private let settingsService: SettingsService
     private let navigationController: UINavigationController
@@ -46,7 +45,7 @@ final class AppCoordinator: Coordinator {
             $0.navigationBar.scrollEdgeAppearance = $0.navigationBar.standardAppearance
         }
 
-        settingsService = self.container.resolve(SettingsService.self)!
+        settingsService = container.settingsService
 
         self.window.rootViewController = navigationController
     }

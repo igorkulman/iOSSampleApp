@@ -8,7 +8,6 @@
 
 import Foundation
 import SafariServices
-import Swinject
 import UIKit
 
 protocol AboutCoordinatorDelegate: AnyObject {
@@ -23,7 +22,7 @@ final class AboutCoordinator: NavigationCoordinator {
     // MARK: - Properties
 
     let navigationController: UINavigationController
-    let container: Container
+    private let container: Container
     weak var delegate: AboutCoordinatorDelegate?
 
     init(container: Container, navigationController: UINavigationController) {
@@ -37,7 +36,7 @@ final class AboutCoordinator: NavigationCoordinator {
      Starts the Abotu flow by showing the basic info and additional menu items
      */
     func start() {
-        let aboutViewController = container.resolve(AboutViewController.self)! &> {
+        let aboutViewController = container.makeAboutViewController() &> {
             $0.delegate = self
         }
         navigationController.setBackButton()
@@ -48,7 +47,7 @@ final class AboutCoordinator: NavigationCoordinator {
      Shows the list of open source libraries used by the app
      */
     private func showLibraries() {
-        let librariesViewController = container.resolve(LibrariesViewController.self)!
+        let librariesViewController = container.makeLibrariesViewController()
         navigationController.pushViewController(librariesViewController, animated: true)
     }
 

@@ -41,7 +41,6 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 
 - [RxSwift](https://github.com/ReactiveX/RxSwift) - Reactive Programming in Swift
 - [RxSwiftExt](https://github.com/RxSwiftCommunity/RxSwiftExt) - A collection of Rx operators & tools not found in the core RxSwift distribution
-- [Swinject](https://github.com/Swinject/Swinject) - Dependency injection framework for Swift
 - [Reusable](https://github.com/AliSoftware/Reusable) - A Swift mixin for reusing views easily and in a type-safe way
 - [Nuke](https://github.com/kean/Nuke) - A powerful image loading and caching system
 - [FeedKit](https://github.com/nmdias/FeedKit) - An RSS, Atom and JSON Feed parser written in Swift

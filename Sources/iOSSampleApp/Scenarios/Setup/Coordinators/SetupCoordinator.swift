@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Swinject
 import UIKit
 
 protocol SetupCoordinatorDelegate: AnyObject {
@@ -25,7 +24,7 @@ final class SetupCoordinator: NavigationCoordinator {
     // MARK: - Properties
 
     let navigationController: UINavigationController
-    let container: Container
+    private let container: Container
     weak var delegate: SetupCoordinatorDelegate?
 
     init(container: Container, navigationController: UINavigationController) {
@@ -46,7 +45,7 @@ final class SetupCoordinator: NavigationCoordinator {
      Shows the screen asking the user to select the RSS source
      */
     private func showSourceSelection() {
-        let sourceSelectionViewController = container.resolve(SourceSelectionViewController.self)! &> {
+        let sourceSelectionViewController = container.makeSourceSelectionViewController() &> {
             $0.delegate = self
         }
         navigationController.pushViewController(sourceSelectionViewController, animated: true)
@@ -56,7 +55,7 @@ final class SetupCoordinator: NavigationCoordinator {
      Shows the user a screen to add a custom RSS source
      */
     private func showAddSourceForm() {
-        let customSourceViewController = container.resolve(CustomSourceViewController.self)! &> {
+        let customSourceViewController = container.makeCustomSourceViewController() &> {
             $0.delegate = self
         }
         navigationController.pushViewController(customSourceViewController, animated: true)
