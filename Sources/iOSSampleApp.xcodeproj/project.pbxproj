@@ -14,7 +14,6 @@
 		F33474F7244F65050034B1C2 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = F33474F6244F65050034B1C2 /* FeedKit */; };
 		F33474FA244F67270034B1C2 /* RxSwiftExt in Frameworks */ = {isa = PBXBuildFile; productRef = F33474F9244F67270034B1C2 /* RxSwiftExt */; };
 		F35BD6392065111F000AE4E8 /* AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35BD6382065111F000AE4E8 /* AppUITests.swift */; };
-		F376423625A4689800C58CE5 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = F376423525A4689800C58CE5 /* Nuke */; };
 		F3EEA696234A3BE800A2FCB5 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EEA695234A3BE800A2FCB5 /* SnapshotHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,7 +90,6 @@
 				F33474E9244F64220034B1C2 /* RxCocoa in Frameworks */,
 				F33474E7244F64220034B1C2 /* RxSwift in Frameworks */,
 				F33474F7244F65050034B1C2 /* FeedKit in Frameworks */,
-				F376423625A4689800C58CE5 /* Nuke in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,7 +204,6 @@
 				F33474F6244F65050034B1C2 /* FeedKit */,
 				F33474F9244F67270034B1C2 /* RxSwiftExt */,
 				F300AE2A244F76DD00F5E060 /* NotificationBannerSwift */,
-				F376423525A4689800C58CE5 /* Nuke */,
 			);
 			productName = iOSSampleApp;
 			productReference = F3A812B41F83740E00A09AAB /* iOSSampleApp.app */;
@@ -257,7 +254,6 @@
 				F33474F5244F65050034B1C2 /* XCRemoteSwiftPackageReference "FeedKit" */,
 				F33474F8244F67270034B1C2 /* XCRemoteSwiftPackageReference "RxSwiftExt" */,
 				F300AE29244F76DC00F5E060 /* XCRemoteSwiftPackageReference "NotificationBanner" */,
-				F376423425A4689800C58CE5 /* XCRemoteSwiftPackageReference "Nuke" */,
 				F32344CD29D814B900B1886D /* XCRemoteSwiftPackageReference "SwiftLint" */,
 				F3DFFC5C2A4C84E2001F5565 /* XCRemoteSwiftPackageReference "SwiftGenPlugin" */,
 			);
@@ -655,14 +651,6 @@
 				version = 6.2.1;
 			};
 		};
-		F376423425A4689800C58CE5 /* XCRemoteSwiftPackageReference "Nuke" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kean/Nuke";
-			requirement = {
-				kind = exactVersion;
-				version = 9.2.3;
-			};
-		};
 		F3DFFC5C2A4C84E2001F5565 /* XCRemoteSwiftPackageReference "SwiftGenPlugin" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/BookBeat/SwiftGenPlugin";
@@ -708,11 +696,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F33474F8244F67270034B1C2 /* XCRemoteSwiftPackageReference "RxSwiftExt" */;
 			productName = RxSwiftExt;
-		};
-		F376423525A4689800C58CE5 /* Nuke */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F376423425A4689800C58CE5 /* XCRemoteSwiftPackageReference "Nuke" */;
-			productName = Nuke;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
