@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Swinject
 import UIKit
 
 enum FeedChildCoordinator {
@@ -26,7 +25,7 @@ final class FeedCoordinator: NavigationCoordinator {
     // MARK: - Properties
 
     let navigationController: UINavigationController
-    let container: Container
+    private let container: Container
     private var childCoordinators = [FeedChildCoordinator: Coordinator]()
 
     weak var delegate: FeedCoordinatorDelegate?
@@ -43,7 +42,7 @@ final class FeedCoordinator: NavigationCoordinator {
      */
     func start() {
         let isNavigationStackEmpty = navigationController.viewControllers.isEmpty
-        let feedViewController = container.resolve(FeedViewController.self)! &> {
+        let feedViewController = container.makeFeedViewController() &> {
             $0.delegate = self
             $0.navigationItem.hidesBackButton = true
         }

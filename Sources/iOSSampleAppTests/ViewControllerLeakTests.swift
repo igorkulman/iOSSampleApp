@@ -11,27 +11,28 @@ import Foundation
 import XCTest
 
 class ViewControllerLeakTests: XCTestCase {
+    private lazy var container = Container() &> {
+        $0.settingsService = SettingsServiceMock()
+        $0.dataService = DataServiceMock()
+    }
+
     func testAboutViewController() {
-        let container = setupDependencies()
-        let viewController = container.resolve(AboutViewController.self)!
+        let viewController = container.makeAboutViewController()
         assertDeallocatedAfterTest(viewController)
         viewController.loadViewIfNeeded()
     }
 
     func testLibrariesViewController() {
-        let container = setupDependencies()
-        let viewController = container.resolve(LibrariesViewController.self)!
+        let viewController = container.makeLibrariesViewController()
         assertDeallocatedAfterTest(viewController)
         viewController.loadViewIfNeeded()
     }
 
     func testFeedViewController() {
-        let container = setupDependencies()
-        let settings = container.resolve(SettingsService.self)!
-        settings.selectedSource = RssSource(title: "Test", url: URL(string:"https://blog.kulman.sk")!, rss: URL(string:"https://blog.kulman.sk/index.xml")!, icon: nil)
-        let dataService = container.resolve(DataService.self)! as! DataServiceMock
+        container.settingsService.selectedSource = RssSource(title: "Test", url: URL(string:"https://blog.kulman.sk")!, rss: URL(string:"https://blog.kulman.sk/index.xml")!, icon: nil)
+        let dataService = container.dataService as! DataServiceMock
         dataService.result = .success([])
-        let viewController = container.resolve(FeedViewController.self)!
+        let viewController = container.makeFeedViewController()
         assertDeallocatedAfterTest(viewController)
         viewController.loadViewIfNeeded()
     }
@@ -43,15 +44,13 @@ class ViewControllerLeakTests: XCTestCase {
     }
 
     func testCustomSourceViewController() {
-        let container = setupDependencies()
-        let viewController = container.resolve(CustomSourceViewController.self)!
+        let viewController = container.makeCustomSourceViewController()
         assertDeallocatedAfterTest(viewController)
         viewController.loadViewIfNeeded()
     }
 
     func testSourceSelectionViewController() {
-        let container = setupDependencies()
-        let viewController = container.resolve(SourceSelectionViewController.self)!
+        let viewController = container.makeSourceSelectionViewController()
         assertDeallocatedAfterTest(viewController)
         viewController.loadViewIfNeeded()
     }

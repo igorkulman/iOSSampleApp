@@ -8,25 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		F300AE2B244F76DD00F5E060 /* NotificationBannerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F300AE2A244F76DD00F5E060 /* NotificationBannerSwift */; };
-		F3208A891F84E83900B57B0E /* DataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3208A881F84E83900B57B0E /* DataServiceTests.swift */; };
-		F3208A921F84EAF400B57B0E /* CustomSourceViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3208A911F84EAF400B57B0E /* CustomSourceViewModelTests.swift */; };
 		F33474E7244F64220034B1C2 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F33474E6244F64220034B1C2 /* RxSwift */; };
 		F33474E9244F64220034B1C2 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F33474E8244F64220034B1C2 /* RxCocoa */; };
 		F33474EB244F64220034B1C2 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = F33474EA244F64220034B1C2 /* RxRelay */; };
-		F33474EE244F645A0034B1C2 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = F33474ED244F645A0034B1C2 /* Swinject */; };
-		F33474F1244F64900034B1C2 /* SwinjectAutoregistration in Frameworks */ = {isa = PBXBuildFile; productRef = F33474F0244F64900034B1C2 /* SwinjectAutoregistration */; };
 		F33474F4244F64D80034B1C2 /* Reusable in Frameworks */ = {isa = PBXBuildFile; productRef = F33474F3244F64D80034B1C2 /* Reusable */; };
 		F33474F7244F65050034B1C2 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = F33474F6244F65050034B1C2 /* FeedKit */; };
 		F33474FA244F67270034B1C2 /* RxSwiftExt in Frameworks */ = {isa = PBXBuildFile; productRef = F33474F9244F67270034B1C2 /* RxSwiftExt */; };
 		F35BD6392065111F000AE4E8 /* AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35BD6382065111F000AE4E8 /* AppUITests.swift */; };
 		F376423625A4689800C58CE5 /* Nuke in Frameworks */ = {isa = PBXBuildFile; productRef = F376423525A4689800C58CE5 /* Nuke */; };
-		F3A812B81F83740E00A09AAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A812B71F83740E00A09AAB /* AppDelegate.swift */; };
-		F3A812BF1F83740E00A09AAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3A812BE1F83740E00A09AAB /* Assets.xcassets */; };
-		F3A9678A21AC38D8005E7F3F /* ViewControllerLeakTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A9678921AC38D8005E7F3F /* ViewControllerLeakTests.swift */; };
-		F3A9678C21AC3961005E7F3F /* ViewControllerLeakTests+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A9678B21AC3961005E7F3F /* ViewControllerLeakTests+Setup.swift */; };
-		F3C8DB3F214EA3AA00C1A654 /* SourceSelectionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB3E214EA3AA00C1A654 /* SourceSelectionViewModelTests.swift */; };
-		F3C8DB41214EA7F200C1A654 /* FeedViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C8DB40214EA7F200C1A654 /* FeedViewModelTests.swift */; };
-		F3D6865C1F9B761E00879154 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D6865B1F9B761E00879154 /* TestExtensions.swift */; };
 		F3EEA696234A3BE800A2FCB5 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EEA695234A3BE800A2FCB5 /* SnapshotHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,31 +38,33 @@
 
 /* Begin PBXFileReference section */
 		F3208A7A1F84E48100B57B0E /* iOSSampleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSSampleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F3208A7E1F84E48100B57B0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F3208A881F84E83900B57B0E /* DataServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceTests.swift; sourceTree = "<group>"; };
-		F3208A911F84EAF400B57B0E /* CustomSourceViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSourceViewModelTests.swift; sourceTree = "<group>"; };
 		F35BD6362065111F000AE4E8 /* iOSSampleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSSampleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F35BD6382065111F000AE4E8 /* AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUITests.swift; sourceTree = "<group>"; };
 		F35BD63A2065111F000AE4E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3A812B41F83740E00A09AAB /* iOSSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F3A812B71F83740E00A09AAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F3A812BE1F83740E00A09AAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F3A812C31F83740E00A09AAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F3A9678921AC38D8005E7F3F /* ViewControllerLeakTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerLeakTests.swift; sourceTree = "<group>"; };
-		F3A9678B21AC3961005E7F3F /* ViewControllerLeakTests+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewControllerLeakTests+Setup.swift"; sourceTree = "<group>"; };
-		F3C8DB3E214EA3AA00C1A654 /* SourceSelectionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceSelectionViewModelTests.swift; sourceTree = "<group>"; };
-		F3C8DB40214EA7F200C1A654 /* FeedViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModelTests.swift; sourceTree = "<group>"; };
-		F3D6865B1F9B761E00879154 /* TestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExtensions.swift; sourceTree = "<group>"; };
 		F3EEA695234A3BE800A2FCB5 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = ../../fastlane/SnapshotHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F311CEE32DE595F6001B8E7A /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = F3A812B31F83740E00A09AAB /* iOSSampleApp */;
+		};
+		F311CEFD2DE595FD001B8E7A /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = F3208A791F84E48100B57B0E /* iOSSampleAppTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		F38AE3A42D2BE0EB00A685E7 /* Scenarios */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Scenarios; sourceTree = "<group>"; };
-		F38AE3C52D2BE0EF00A685E7 /* Data */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Data; sourceTree = "<group>"; };
-		F38AE3C92D2BE0F200A685E7 /* Resources */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Resources; sourceTree = "<group>"; };
-		F38AE3DE2D2BE0F600A685E7 /* Supporting Files */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Supporting Files"; sourceTree = "<group>"; };
-		F38AE3F12D2BE0FC00A685E7 /* Support */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Support; sourceTree = "<group>"; };
-		F38AE3F52D2BE0FE00A685E7 /* Mocks */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Mocks; sourceTree = "<group>"; };
+		F311CEAD2DE595F6001B8E7A /* iOSSampleApp */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (F311CEE32DE595F6001B8E7A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = iOSSampleApp; sourceTree = "<group>"; };
+		F311CEF12DE595FD001B8E7A /* iOSSampleAppTests */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (F311CEFD2DE595FD001B8E7A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = iOSSampleAppTests; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,11 +88,9 @@
 			files = (
 				F33474EB244F64220034B1C2 /* RxRelay in Frameworks */,
 				F33474FA244F67270034B1C2 /* RxSwiftExt in Frameworks */,
-				F33474F1244F64900034B1C2 /* SwinjectAutoregistration in Frameworks */,
 				F300AE2B244F76DD00F5E060 /* NotificationBannerSwift in Frameworks */,
 				F33474E9244F64220034B1C2 /* RxCocoa in Frameworks */,
 				F33474E7244F64220034B1C2 /* RxSwift in Frameworks */,
-				F33474EE244F645A0034B1C2 /* Swinject in Frameworks */,
 				F33474F7244F65050034B1C2 /* FeedKit in Frameworks */,
 				F33474F4244F64D80034B1C2 /* Reusable in Frameworks */,
 				F376423625A4689800C58CE5 /* Nuke in Frameworks */,
@@ -111,23 +100,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F3208A7B1F84E48100B57B0E /* iOSSampleAppTests */ = {
-			isa = PBXGroup;
-			children = (
-				F38AE3F12D2BE0FC00A685E7 /* Support */,
-				F38AE3F52D2BE0FE00A685E7 /* Mocks */,
-				F3208A7E1F84E48100B57B0E /* Info.plist */,
-				F3208A881F84E83900B57B0E /* DataServiceTests.swift */,
-				F3C8DB40214EA7F200C1A654 /* FeedViewModelTests.swift */,
-				F3208A911F84EAF400B57B0E /* CustomSourceViewModelTests.swift */,
-				F3C8DB3E214EA3AA00C1A654 /* SourceSelectionViewModelTests.swift */,
-				F3A9678921AC38D8005E7F3F /* ViewControllerLeakTests.swift */,
-				F3A9678B21AC3961005E7F3F /* ViewControllerLeakTests+Setup.swift */,
-				F3D6865B1F9B761E00879154 /* TestExtensions.swift */,
-			);
-			path = iOSSampleAppTests;
-			sourceTree = "<group>";
-		};
 		F35BD6372065111F000AE4E8 /* iOSSampleAppUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,8 +113,8 @@
 		F3A812AB1F83740E00A09AAB = {
 			isa = PBXGroup;
 			children = (
-				F3A812B61F83740E00A09AAB /* iOSSampleApp */,
-				F3208A7B1F84E48100B57B0E /* iOSSampleAppTests */,
+				F311CEAD2DE595F6001B8E7A /* iOSSampleApp */,
+				F311CEF12DE595FD001B8E7A /* iOSSampleAppTests */,
 				F35BD6372065111F000AE4E8 /* iOSSampleAppUITests */,
 				F3A812B51F83740E00A09AAB /* Products */,
 				F3A812E21F8376A900A09AAB /* Frameworks */,
@@ -159,20 +131,6 @@
 				F35BD6362065111F000AE4E8 /* iOSSampleAppUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		F3A812B61F83740E00A09AAB /* iOSSampleApp */ = {
-			isa = PBXGroup;
-			children = (
-				F38AE3C52D2BE0EF00A685E7 /* Data */,
-				F38AE3C92D2BE0F200A685E7 /* Resources */,
-				F38AE3A42D2BE0EB00A685E7 /* Scenarios */,
-				F38AE3DE2D2BE0F600A685E7 /* Supporting Files */,
-				F3A812B71F83740E00A09AAB /* AppDelegate.swift */,
-				F3A812BE1F83740E00A09AAB /* Assets.xcassets */,
-				F3A812C31F83740E00A09AAB /* Info.plist */,
-			);
-			path = iOSSampleApp;
 			sourceTree = "<group>";
 		};
 		F3A812E21F8376A900A09AAB /* Frameworks */ = {
@@ -199,8 +157,7 @@
 				F3208A801F84E48100B57B0E /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				F38AE3F12D2BE0FC00A685E7 /* Support */,
-				F38AE3F52D2BE0FE00A685E7 /* Mocks */,
+				F311CEF12DE595FD001B8E7A /* iOSSampleAppTests */,
 			);
 			name = iOSSampleAppTests;
 			packageProductDependencies = (
@@ -241,18 +198,13 @@
 				F32344CF29D814C000B1886D /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				F38AE3A42D2BE0EB00A685E7 /* Scenarios */,
-				F38AE3C52D2BE0EF00A685E7 /* Data */,
-				F38AE3C92D2BE0F200A685E7 /* Resources */,
-				F38AE3DE2D2BE0F600A685E7 /* Supporting Files */,
+				F311CEAD2DE595F6001B8E7A /* iOSSampleApp */,
 			);
 			name = iOSSampleApp;
 			packageProductDependencies = (
 				F33474E6244F64220034B1C2 /* RxSwift */,
 				F33474E8244F64220034B1C2 /* RxCocoa */,
 				F33474EA244F64220034B1C2 /* RxRelay */,
-				F33474ED244F645A0034B1C2 /* Swinject */,
-				F33474F0244F64900034B1C2 /* SwinjectAutoregistration */,
 				F33474F3244F64D80034B1C2 /* Reusable */,
 				F33474F6244F65050034B1C2 /* FeedKit */,
 				F33474F9244F67270034B1C2 /* RxSwiftExt */,
@@ -271,7 +223,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 1630;
 				ORGANIZATIONNAME = "Igor Kulman";
 				TargetAttributes = {
 					F3208A791F84E48100B57B0E = {
@@ -305,8 +257,6 @@
 			mainGroup = F3A812AB1F83740E00A09AAB;
 			packageReferences = (
 				F33474E5244F64220034B1C2 /* XCRemoteSwiftPackageReference "RxSwift" */,
-				F33474EC244F645A0034B1C2 /* XCRemoteSwiftPackageReference "Swinject" */,
-				F33474EF244F64900034B1C2 /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */,
 				F33474F2244F64D80034B1C2 /* XCRemoteSwiftPackageReference "Reusable" */,
 				F33474F5244F65050034B1C2 /* XCRemoteSwiftPackageReference "FeedKit" */,
 				F33474F8244F67270034B1C2 /* XCRemoteSwiftPackageReference "RxSwiftExt" */,
@@ -345,7 +295,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3A812BF1F83740E00A09AAB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,13 +305,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3208A921F84EAF400B57B0E /* CustomSourceViewModelTests.swift in Sources */,
-				F3C8DB41214EA7F200C1A654 /* FeedViewModelTests.swift in Sources */,
-				F3D6865C1F9B761E00879154 /* TestExtensions.swift in Sources */,
-				F3A9678C21AC3961005E7F3F /* ViewControllerLeakTests+Setup.swift in Sources */,
-				F3C8DB3F214EA3AA00C1A654 /* SourceSelectionViewModelTests.swift in Sources */,
-				F3208A891F84E83900B57B0E /* DataServiceTests.swift in Sources */,
-				F3A9678A21AC38D8005E7F3F /* ViewControllerLeakTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,7 +321,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3A812B81F83740E00A09AAB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,7 +350,6 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S6EJ3ZVM4G;
 				INFOPLIST_FILE = iOSSampleAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -431,7 +371,6 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S6EJ3ZVM4G;
 				INFOPLIST_FILE = iOSSampleAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,7 +389,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S6EJ3ZVM4G;
 				INFOPLIST_FILE = iOSSampleAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -469,7 +407,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S6EJ3ZVM4G;
 				INFOPLIST_FILE = iOSSampleAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -521,6 +458,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = S6EJ3ZVM4G;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -584,6 +522,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = S6EJ3ZVM4G;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -609,7 +548,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S6EJ3ZVM4G;
 				INFOPLIST_FILE = iOSSampleApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -627,7 +565,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S6EJ3ZVM4G;
 				INFOPLIST_FILE = iOSSampleApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -706,22 +643,6 @@
 				version = 6.6.0;
 			};
 		};
-		F33474EC244F645A0034B1C2 /* XCRemoteSwiftPackageReference "Swinject" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Swinject/Swinject";
-			requirement = {
-				kind = exactVersion;
-				version = 2.7.1;
-			};
-		};
-		F33474EF244F64900034B1C2 /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Swinject/SwinjectAutoregistration";
-			requirement = {
-				kind = exactVersion;
-				version = 2.7.0;
-			};
-		};
 		F33474F2244F64D80034B1C2 /* XCRemoteSwiftPackageReference "Reusable" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AliSoftware/Reusable";
@@ -789,16 +710,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F33474E5244F64220034B1C2 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxRelay;
-		};
-		F33474ED244F645A0034B1C2 /* Swinject */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F33474EC244F645A0034B1C2 /* XCRemoteSwiftPackageReference "Swinject" */;
-			productName = Swinject;
-		};
-		F33474F0244F64900034B1C2 /* SwinjectAutoregistration */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F33474EF244F64900034B1C2 /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */;
-			productName = SwinjectAutoregistration;
 		};
 		F33474F3244F64D80034B1C2 /* Reusable */ = {
 			isa = XCSwiftPackageProductDependency;

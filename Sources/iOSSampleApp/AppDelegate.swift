@@ -6,19 +6,18 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
-import Swinject
 import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    internal let container = Container()
+    private var container: Container!
 
     private var appCoordinator: AppCoordinator!
 
     func application(_: UIApplication, willFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-        setupDependencies()
+        container = Container()
 
         return true
     }

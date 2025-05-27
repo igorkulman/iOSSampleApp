@@ -7,15 +7,9 @@
 //
 
 import Foundation
-import Swinject
 import UIKit
 
 protocol Coordinator: AnyObject {
-    /**
-     DI container
-     */
-    var container: Container { get }
-
     /**
      Entry point starting the coordinator
      */
