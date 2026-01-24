@@ -7,7 +7,6 @@
 //
 
 import Foundation
-@testable import iOSSampleApp
 
 final class DataServiceMock: DataService {
     var result: RssResult

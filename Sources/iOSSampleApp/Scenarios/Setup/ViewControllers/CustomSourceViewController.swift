@@ -105,16 +105,12 @@ final class CustomSourceViewController: UIViewController {
         observeKeyboard()
     }
 
-    // MARK: - iOS 18+ Observable Support
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
 
-    override func updateProperties() {
-        super.updateProperties()
-        
         // UIKit automatically tracks @Observable properties accessed here
-        // Update done button state
         doneButton.isEnabled = viewModel.isValid
 
-        // Update field validation states
         rssUrlFormField.isValid = viewModel.rssUrl?.isValidURL ?? false || viewModel.rssUrl?.isEmpty ?? true
         urlFormField.isValid = viewModel.url?.isValidURL ?? false || viewModel.url?.isEmpty ?? true
         logoUrlFormField.isValid = viewModel.logoUrl?.isValidURL ?? false || viewModel.logoUrl?.isEmpty ?? true
