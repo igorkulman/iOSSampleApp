@@ -20,13 +20,12 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 * Continuous integration with Github Actions
 * Unit testing, including testing view controllers for leaks
 * Creating a view controller in code with dependency injection
-* Using static UITableView cells in a typed way with enums
 * Creating simple cells with UIListContentConfiguration
 * Automated AppStore screenshots taking in multiple languages
-* Adding custom reactive properties
 * Basic Dark mode support
 * Custom operator for simple UI code
 * Structured logging
+* Using Observation framework with UIKit
 * Xcode build plugins
 * Xcode previews for UIKit
 
@@ -34,13 +33,11 @@ Sample iOS app written the way I write iOS apps because I cannot share the app I
 
 ### Prerequisites
 
-* Xcode 16
+* Xcode 26
 * [Fastlane](https://fastlane.tools/) (optional)
 
 ## Built with
 
-- [RxSwift](https://github.com/ReactiveX/RxSwift) - Reactive Programming in Swift
-- [RxSwiftExt](https://github.com/RxSwiftCommunity/RxSwiftExt) - A collection of Rx operators & tools not found in the core RxSwift distribution
 - [FeedKit](https://github.com/nmdias/FeedKit) - An RSS, Atom and JSON Feed parser written in Swift
 - [SwiftLint](https://github.com/realm/SwiftLint) - A tool to enforce Swift style and conventions
 
