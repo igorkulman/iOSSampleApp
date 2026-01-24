@@ -112,8 +112,8 @@ final class FeedViewController: UIViewController, ToastCapable {
         setupData()
     }
 
-    override func updateProperties() {
-        super.updateProperties()
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
 
         var snapshot = Snapshot()
         snapshot.appendSections([.main])
@@ -124,12 +124,13 @@ final class FeedViewController: UIViewController, ToastCapable {
             refreshControl.endRefreshing()
         }
 
-        if let error = self.viewModel.error {
+        if let error = viewModel.error {
+            viewModel.clearError()  // Clear to prevent duplicate toasts on layout passes
             switch error {
             case let rssError as RssError:
-                self.showErrorToast(message: rssError.description)
+                showErrorToast(message: rssError.description)
             default:
-                self.showErrorToast(message: String(localized: .networkProblem))
+                showErrorToast(message: String(localized: .networkProblem))
             }
         }
     }

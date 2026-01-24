@@ -7,7 +7,6 @@
 //
 
 import Foundation
-@testable import iOSSampleApp
 
 class SettingsServiceMock: SettingsService {
     var selectedSource: RssSource?

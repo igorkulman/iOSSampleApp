@@ -73,6 +73,10 @@ final class FeedViewModel {
 
     // MARK: - Methods
 
+    func clearError() {
+        error = nil
+    }
+
     @MainActor
     func load() async {
         isLoading = true

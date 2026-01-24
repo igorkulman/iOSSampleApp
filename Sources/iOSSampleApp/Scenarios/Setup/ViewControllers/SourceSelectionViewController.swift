@@ -97,9 +97,9 @@ final class SourceSelectionViewController: UIViewController {
         setupData()
     }
 
-    override func updateProperties() {
-        super.updateProperties()
-        
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+
         var snapshot = Snapshot()
         snapshot.appendSections([.main])
         snapshot.appendItems(viewModel.sources.map { $0.source })
@@ -133,7 +133,7 @@ final class SourceSelectionViewController: UIViewController {
                     return
                 }
 
-                var config = UIListContentConfiguration.subtitleCell() &> {
+                let config = UIListContentConfiguration.subtitleCell() &> {
                     $0.text = source.title
                     $0.secondaryText = source.url.absoluteString
                     $0.secondaryTextProperties.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize: 12))
