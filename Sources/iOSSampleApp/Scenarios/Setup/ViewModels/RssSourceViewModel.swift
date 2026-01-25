@@ -7,52 +7,36 @@
 //
 
 import Foundation
-import RxCocoa
-import RxSwift
+import Observation
 import UIKit
 
+@Observable
 final class RssSourceViewModel {
     let source: RssSource
-    let isSelected = BehaviorRelay<Bool>(value: false)
-    let icon: Driver<UIImage?>
-
-    private static let cache = NSCache<NSURL, UIImage>()
+    var isSelected = false
+    private(set) var icon: UIImage?
 
     init(source: RssSource) {
         self.source = source
 
-        guard let iconUrl = source.icon else {
-            icon = Driver.just(nil)
-            return
-        }
-
-        icon = Observable<UIImage?>.create { observer in
-            if let cached = RssSourceViewModel.cache.object(forKey: iconUrl as NSURL) {
-                observer.onNext(cached)
-                observer.onCompleted()
-                return Disposables.create()
-            }
-
-            let task = URLSession.shared.dataTask(with: iconUrl) { data, _, error in
-                guard let data = data,
-                      let image = UIImage(data: data),
-                      error == nil else {
-                    observer.onNext(nil)
-                    observer.onCompleted()
-                    return
-                }
-
-                RssSourceViewModel.cache.setObject(image, forKey: iconUrl as NSURL)
-                observer.onNext(image)
-                observer.onCompleted()
-            }
-
-            task.resume()
-
-            return Disposables.create {
-                task.cancel()
+        // Load icon asynchronously if available
+        if let iconUrl = source.icon {
+            Task {
+                await loadIcon(from: iconUrl)
             }
         }
-        .asDriver(onErrorJustReturn: nil)
+    }
+
+    @MainActor
+    private func loadIcon(from url: URL) async {
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            if let image = UIImage(data: data) {
+                icon = image
+            }
+        } catch {
+            // Silently fail if icon can't be loaded
+            icon = nil
+        }
     }
 }

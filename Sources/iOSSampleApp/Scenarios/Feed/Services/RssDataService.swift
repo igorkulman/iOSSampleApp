@@ -12,29 +12,25 @@ import OSLog
 import UIKit
 
 final class RssDataService: DataService {
-    func getFeed(source: RssSource, onCompletion: @escaping (RssResult) -> Void) {
-        let parser = FeedParser(URL: source.rss)
-
+    func getFeed(source: RssSource) async throws -> [RssItem] {
         Logger.data.debug("Loading \(source.rss.absoluteString)")
-
-        parser.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { result in
-            switch result {
-            case let .success(feed):
-                if let rss = feed.rssFeed, let items = rss.items {
-                    onCompletion(.success(items.compactMap({ RssItem(item: $0) })))
-                    return
-                }
-
-                if let atom = feed.atomFeed, let items = atom.entries {
-                    onCompletion(.success(items.compactMap({ RssItem(item: $0) })))
-                    return
-                }
-
-                onCompletion(.failure(RssError.emptyResponse))
-            case let .failure(error):
-                Logger.data.error("Loading data failed with \(error)")
-                onCompletion(.failure(RssError.networkError(error)))
+        let feed = try await Feed(url: source.rss)
+        switch feed {
+        case let .atom(feed):
+            guard let entries = feed.entries, !entries.isEmpty else {
+                throw RssError.emptyResponse
             }
+            return entries.compactMap({ RssItem(item: $0) })
+        case let .rss(feed):
+            guard let items = feed.channel?.items, !items.isEmpty else {
+                throw RssError.emptyResponse
+            }
+            return items.compactMap({ RssItem(item: $0) })
+        case let .json(feed):
+            guard let items = feed.items, !items.isEmpty else {
+                throw RssError.emptyResponse
+            }
+            return items.compactMap({ RssItem(item: $0) })
         }
     }
 }

@@ -7,28 +7,28 @@
 //
 
 import Foundation
-import RxCocoa
-import RxSwift
+import Observation
 import UIKit
 
+@Observable
 final class FeedViewModel {
 
     // MARK: - Properties
 
     /**
-     Driver with error from the feed refresh
+     Current feed items
      */
-    let onError: Driver<Error>
+    private(set) var feed: [RssItem] = []
 
     /**
-     Driver with actual data. Does not change when feed refresh errors out
+     Most recent error from feed refresh
      */
-    let feed: Driver<[RssItem]>
+    private(set) var error: Error?
 
-    /*
-     Signal that starts feed loading when called from the VC
+    /**
+     Indicates if feed is currently loading
      */
-    let load = PublishSubject<Void>()
+    private(set) var isLoading = false
 
     /**
      Feed title
@@ -37,49 +37,54 @@ final class FeedViewModel {
 
     // MARK: - Fields
 
-    private var disposeBag = DisposeBag()
+    private let dataService: DataService
+    private let source: RssSource
+    private var foregroundObserver: NSObjectProtocol?
 
     init(dataService: DataService, settingsService: SettingsService) {
         guard let source = settingsService.selectedSource else {
             fatalError("Source not selected, nothing to show in feed")
         }
 
-        // converting callback based data service call to an observable
-        // this observable can error out
-        let loadFeed: Observable<[RssItem]> = Observable.create { observer in
-            dataService.getFeed(source: source) { result in
-                switch result {
-                case let .failure(error):
-                    observer.onError(error)
-                case let .success(items):
-                    observer.onNext(items)
-                    observer.onCompleted()
-                }
-            }
+        self.dataService = dataService
+        self.source = source
+        self.title = source.title
 
-            return Disposables.create {
-                // empty because the data service does not support cancelling requests
+        foregroundObserver = NotificationCenter.default.addObserver(
+            forName: UIApplication.willEnterForegroundNotification,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            Task {
+                await self?.load()
             }
         }
 
-        let response = load
-            .startWith(()) // start loading immediately
-            .flatMapLatest { _ in
-                return loadFeed.materialize() // converting the feed to Observable<Event<[RssItem]>> containing both data and error so the observable does not complete on error
-            }
-            .share()
+        Task {
+            await load()
+        }
+    }
 
-        feed = response.elements()
-            .asDriver(onErrorJustReturn: [])
+    deinit {
+        if let observer = foregroundObserver {
+            NotificationCenter.default.removeObserver(observer)
+        }
+    }
 
-        onError = response.errors()
-            .asDriver(onErrorJustReturn: RssError.emptyResponse)
+    // MARK: - Methods
 
-        title = source.title
+    @MainActor
+    func load() async {
+        isLoading = true
+        error = nil
 
-        // refreshing the feed on app activation
-        NotificationCenter.default.rx.applicationWillEnterForeground().withUnretained(self).bind { owner, _ in
-            owner.load.onNext(())
-        }.disposed(by: disposeBag)
+        do {
+            let items = try await dataService.getFeed(source: source)
+            feed = items
+        } catch {
+            self.error = error
+        }
+
+        isLoading = false
     }
 }

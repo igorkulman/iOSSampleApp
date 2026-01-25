@@ -7,23 +7,29 @@
 //
 
 import Foundation
+import Observation
 import OSLog
-import RxCocoa
-import RxSwift
 
+@Observable
 final class SourceSelectionViewModel {
 
     // MARK: - Properties
 
-    let sources: Driver<[RssSourceViewModel]>
-    let filter = BehaviorRelay<String?>(value: nil)
-    let isValid: Driver<Bool>
+    private(set) var sources: [RssSourceViewModel] = []
+    var filter: String? {
+        didSet {
+            updateFilteredSources()
+        }
+    }
+
+    var isValid: Bool {
+        allSources.filter { $0.isSelected }.count == 1
+    }
 
     // MARK: - Fields
 
-    private let allSources = BehaviorRelay<[RssSourceViewModel]>(value: [])
+    private var allSources: [RssSourceViewModel] = []
     private let settingsService: SettingsService
-    private var disposeBag = DisposeBag()
 
     init(settingsService: SettingsService) {
         self.settingsService = settingsService
@@ -35,57 +41,59 @@ final class SourceSelectionViewModel {
         let jsonDecoder = JSONDecoder()
         let all = (try! jsonDecoder.decode(Array<RssSource>.self, from: jsonData)).map({ RssSourceViewModel(source: $0) })
 
-        sources = Observable.combineLatest(allSources.asObservable(), filter.asObservable()) { (all: [RssSourceViewModel], filter: String?) -> [RssSourceViewModel] in
-            if let filter = filter, !filter.isEmpty {
-                return all.filter({ $0.source.title.lowercased().contains(filter.lowercased()) })
-            } else {
-                return all
-            }
-        }
-        .asDriver(onErrorJustReturn: [])
-
-        isValid = sources.asObservable().flatMap { Observable.combineLatest($0.map { $0.isSelected.asObservable() }) }.map({ $0.filter({ $0 }).count == 1 })
-        .asDriver(onErrorJustReturn: false)
-
-        allSources.accept(all)
+        allSources = all
+        updateFilteredSources()
 
         // selecting again from feed
         if let selected = settingsService.selectedSource {
-            if let index = allSources.value.firstIndex(where: { $0.source == selected }) { // pre-selecting the current source
-                allSources.value[index].isSelected.accept(true)
+            if let index = allSources.firstIndex(where: { $0.source == selected }) { // pre-selecting the current source
+                allSources[index].isSelected = true
             } else { // using a custom source
                 let vm = RssSourceViewModel(source: selected)
-                vm.isSelected.accept(true)
-                allSources.accept(allSources.value.inserting(vm, at: 0))
+                vm.isSelected = true
+                allSources.insert(vm, at: 0)
             }
         }
+
+        updateFilteredSources()
     }
 
     // MARK: - Actions
 
     func toggleSource(source: RssSourceViewModel) {
-        let selected = source.isSelected.value
+        let selected = source.isSelected
 
-        allSources.value.forEach {
-            $0.isSelected.accept(false)
+        allSources.forEach {
+            $0.isSelected = false
         }
 
-        source.isSelected.accept(!selected)
+        source.isSelected = !selected
+        updateFilteredSources()
     }
 
     func addNewSource(source: RssSource) {
         let rssSourceViewModel = RssSourceViewModel(source: source)
-        allSources.accept(allSources.value.inserting(rssSourceViewModel, at: 0))
+        allSources.insert(rssSourceViewModel, at: 0)
         toggleSource(source: rssSourceViewModel)
     }
 
     func saveSelectedSource() -> Bool {
-        guard let selected = allSources.value.first(where: { $0.isSelected.value }) else {
+        guard let selected = allSources.first(where: { $0.isSelected }) else {
             Logger.data.error("Cannot save, no source selected")
             return false
         }
 
         settingsService.selectedSource = selected.source
         return true
+    }
+
+    // MARK: - Private
+
+    private func updateFilteredSources() {
+        if let filter = filter, !filter.isEmpty {
+            sources = allSources.filter({ $0.source.title.lowercased().contains(filter.lowercased()) })
+        } else {
+            sources = allSources
+        }
     }
 }
