@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct RssItem {
+struct RssItem: Hashable {
     let title: String
     let description: String?
     let link: URL

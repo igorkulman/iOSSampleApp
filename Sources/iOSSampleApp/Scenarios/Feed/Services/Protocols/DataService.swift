@@ -15,7 +15,7 @@ enum RssError: Error, CustomStringConvertible {
     var description: String {
         switch self {
         case .emptyResponse:
-            return NSLocalizedString("empty_response", comment: "")
+            return String(localized: .emptyResponse)
         case let .networkError(error):
             return error.localizedDescription
         }
@@ -28,5 +28,5 @@ enum RssResult {
 }
 
 protocol DataService: AnyObject {
-    func getFeed(source: RssSource, onCompletion: @escaping (RssResult) -> Void)
+    func getFeed(source: RssSource) async throws -> [RssItem]
 }

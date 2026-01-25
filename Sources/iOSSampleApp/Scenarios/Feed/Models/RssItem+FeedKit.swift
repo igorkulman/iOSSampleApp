@@ -25,7 +25,7 @@ extension RssItem {
         }
         self.init(
             title: title,
-            description: sanitize(item.content?.value),
+            description: sanitize(item.content?.text),
             link: link,
             pubDate: item.updated
         )
@@ -42,5 +42,13 @@ extension RssItem {
             link: link,
             pubDate: item.pubDate
         )
+    }
+
+    init?(item: JSONFeedItem) {
+        guard let title = item.title,
+              let link = item.url.flatMap({ URL(string: $0) }) else {
+            return nil
+        }
+        self.init(title: title, description: sanitize(item.contentHtml), link: link, pubDate: item.datePublished)
     }
 }

@@ -7,30 +7,29 @@
 //
 
 import Foundation
-import RxCocoa
-import RxSwift
+import Observation
 
+@Observable
 final class CustomSourceViewModel {
 
     // MARK: - Properties
 
-    let title = BehaviorRelay<String?>(value: nil)
-    let url = BehaviorRelay<String?>(value: nil)
-    let logoUrl = BehaviorRelay<String?>(value: nil)
-    let rssUrl = BehaviorRelay<String?>(value: nil)
+    var title: String?
+    var url: String?
+    var logoUrl: String?
+    var rssUrl: String?
 
-    let isValid: Driver<Bool>
-    let source: Driver<RssSource?>
+    var isValid: Bool {
+        source != nil
+    }
 
-    init() {
-        source = Observable.combineLatest(title.asObservable(), url.asObservable(), rssUrl.asObservable(), logoUrl.asObservable()) { title, url, rssUrl, logoUrl in
-            guard let title = title, !title.isEmpty, let url = url, url.isValidURL, let urlValue = URL(string: url), let rssUrl = rssUrl, rssUrl.isValidURL, let rssUrlValue = URL(string: rssUrl) else {
-                return nil
-            }
+    var source: RssSource? {
+        guard let title = title, !title.isEmpty,
+              let url = url, url.isValidURL, let urlValue = URL(string: url),
+              let rssUrl = rssUrl, rssUrl.isValidURL, let rssUrlValue = URL(string: rssUrl) else {
+            return nil
+        }
 
-            return RssSource(title: title, url: urlValue, rss: rssUrlValue, icon: logoUrl.flatMap({ URL(string: $0) }))
-        }.asDriver(onErrorJustReturn: nil)
-
-        isValid = source.map({ $0.isSome }).asDriver(onErrorJustReturn: false)
+        return RssSource(title: title, url: urlValue, rss: rssUrlValue, icon: logoUrl.flatMap({ URL(string: $0) }))
     }
 }

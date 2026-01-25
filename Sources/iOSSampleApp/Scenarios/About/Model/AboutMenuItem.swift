@@ -18,11 +18,11 @@ extension AboutMenuItem {
     var title: String {
         switch self {
         case .libraries:
-            return NSLocalizedString("libraries", comment: "")
+            return String(localized: .libraries)
         case .aboutAuthor:
-            return NSLocalizedString("author", comment: "")
+            return String(localized: .author)
         case .authorsBlog:
-            return NSLocalizedString("blog", comment: "")
+            return String(localized: .blog)
         }
     }
 }
