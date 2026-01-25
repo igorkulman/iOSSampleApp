@@ -6,8 +6,6 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
-import RxCocoa
-import RxSwift
 import UIKit
 
 protocol SourceSelectionViewControllerDelegate: AnyObject {
@@ -23,25 +21,38 @@ protocol SourceSelectionViewControllerDelegate: AnyObject {
 
 final class SourceSelectionViewController: UIViewController {
 
+    private static let cellIdentifier = "SourceCell"
+
     // MARK: - UI
 
     private lazy var tableView = UITableView() &> {
         $0.rowHeight = 60
         $0.tableFooterView = UIView()
+        $0.delegate = self
     }
 
-    private lazy var doneButton = UIBarButtonItem() &> {
-        $0.title = NSLocalizedString("done", comment: "")
-        $0.style = .plain
+    private lazy var doneButton = UIBarButtonItem(
+        title: String(localized: .done),
+        primaryAction: UIAction { [weak self] _ in
+            guard let self = self else { return }
+            if self.viewModel.saveSelectedSource() {
+                self.delegate?.sourceSelectionViewControllerDidFinish()
+            }
+        }
+    ) &> {
         $0.accessibilityIdentifier = "done"
     }
 
-    private lazy var addCustomButton = UIBarButtonItem() &> {
-        $0.title = NSLocalizedString("add_custom", comment: "")
-        $0.style = .plain
-    }
+    private lazy var addCustomButton = UIBarButtonItem(
+        title: String(localized: .addCustom),
+        primaryAction: UIAction { [weak self] _ in
+            self?.delegate?.userDidRequestCustomSource()
+        }
+    )
 
-    private lazy var searchController = UISearchController()
+    private lazy var searchController = UISearchController() &> {
+        $0.searchBar.delegate = self
+    }
 
     // MARK: - Properties
 
@@ -51,7 +62,14 @@ final class SourceSelectionViewController: UIViewController {
 
     // MARK: - Fields
 
-    private var disposeBag = DisposeBag()
+    private typealias DataSource = UITableViewDiffableDataSource<Section, RssSource>
+    private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, RssSource>
+
+    private enum Section {
+        case main
+    }
+
+    private var dataSource: DataSource!
 
     init(viewModel: SourceSelectionViewModel) {
         self.viewModel = viewModel
@@ -76,12 +94,22 @@ final class SourceSelectionViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
-        setupBinding()
         setupData()
     }
 
+    override func updateProperties() {
+        super.updateProperties()
+        
+        var snapshot = Snapshot()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(viewModel.sources.map { $0.source })
+        dataSource.apply(snapshot, animatingDifferences: true)
+
+        doneButton.isEnabled = viewModel.isValid
+    }
+
     private func setupUI() {
-        title = NSLocalizedString("select_source", comment: "")
+        title = String(localized: .selectSource)
         navigationItem.rightBarButtonItem = doneButton
         navigationItem.leftBarButtonItem = addCustomButton
 
@@ -91,44 +119,72 @@ final class SourceSelectionViewController: UIViewController {
         tableView.estimatedRowHeight = 0
     }
 
-    private func setupBinding() {
-        tableView.rx.modelSelected(RssSourceViewModel.self).withUnretained(self).bind { owner, source in owner.viewModel.toggleSource(source: source) }.disposed(by: disposeBag)
-        tableView.rx.itemSelected.withUnretained(self).bind { owner, indexPath in owner.tableView.deselectRow(at: indexPath, animated: true) }.disposed(by: disposeBag)
-        viewModel.isValid.drive(doneButton.rx.isEnabled).disposed(by: disposeBag)
-        doneButton.rx.tap.withUnretained(self).bind { owner, _ in
-            if owner.viewModel.saveSelectedSource() {
-                owner.delegate?.sourceSelectionViewControllerDidFinish()
-            }
-
-        }.disposed(by: disposeBag)
-        addCustomButton.rx.tap.withUnretained(self).bind { owner, _ in owner.delegate?.userDidRequestCustomSource() }.disposed(by: disposeBag)
-
-        searchController.searchBar.rx.text.throttle(RxTimeInterval.milliseconds(100), scheduler: MainScheduler.instance).bind(to: viewModel.filter).disposed(by: disposeBag)
-        searchController.searchBar.rx.textDidBeginEditing.withUnretained(self).bind { owner, _ in owner.searchController.searchBar.setShowsCancelButton(true, animated: true) }.disposed(by: disposeBag)
-        searchController.searchBar.rx.cancelButtonClicked.withUnretained(self).bind { owner, _ in
-            owner.searchController.searchBar.resignFirstResponder()
-            owner.searchController.searchBar.setShowsCancelButton(false, animated: true)
-            owner.viewModel.filter.accept(nil)
-            owner.searchController.searchBar.text = nil
-        }.disposed(by: disposeBag)
-    }
-
     private func setupData() {
-        tableView.register(cellType: RssSourceCell.self)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Self.cellIdentifier)
 
-        viewModel.sources
-            .drive(tableView.rx.items(cellIdentifier: RssSourceCell.reuseIdentifier, cellType: RssSourceCell.self)) { _, element, cell in
-                cell.viewModel = element
+        dataSource = DataSource(tableView: tableView) { [weak self] tableView, indexPath, source in
+            guard let self = self else { return UITableViewCell() }
+
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.cellIdentifier, for: indexPath)
+
+            cell.configurationUpdateHandler = { [weak self] cell, _ in
+                guard let self = self,
+                      let sourceVM = self.viewModel.sources.first(where: { $0.source == source }) else {
+                    return
+                }
+
+                var config = UIListContentConfiguration.subtitleCell() &> {
+                    $0.text = source.title
+                    $0.secondaryText = source.url.absoluteString
+                    $0.secondaryTextProperties.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize: 12))
+                    $0.image = sourceVM.icon  // Automatically updates when icon loads
+                    $0.imageProperties.maximumSize = CGSize(width: 36, height: 36)
+                    $0.imageProperties.reservedLayoutSize = CGSize(width: 36, height: 36)
+                }
+                cell.contentConfiguration = config
+                cell.accessoryType = sourceVM.isSelected ? .checkmark : .none
             }
-            .disposed(by: disposeBag)
+
+            cell.setNeedsUpdateConfiguration()
+
+            return cell
+        }
+    }
+
+}
+
+// MARK: - UITableViewDelegate
+
+extension SourceSelectionViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        if let source = dataSource.itemIdentifier(for: indexPath),
+           let sourceVM = viewModel.sources.first(where: { $0.source == source }) {
+            viewModel.toggleSource(source: sourceVM)
+        }
     }
 }
 
-#if canImport(SwiftUI) && DEBUG
-import SwiftUI
-struct SourceSelectionViewControllerPreview: PreviewProvider {
-    static var previews: some View {
-        UINavigationController(rootViewController: SourceSelectionViewController(viewModel: SourceSelectionViewModel(settingsService: UserDefaultsSettingsService()))).asPreview()
+// MARK: - UISearchBarDelegate
+
+extension SourceSelectionViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.filter = searchText.isEmpty ? nil : searchText
+    }
+
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchBar.setShowsCancelButton(false, animated: true)
+        viewModel.filter = nil
+        searchBar.text = nil
     }
 }
-#endif
+
+#Preview {
+    UINavigationController(rootViewController: SourceSelectionViewController(viewModel: SourceSelectionViewModel(settingsService: UserDefaultsSettingsService())))
+}

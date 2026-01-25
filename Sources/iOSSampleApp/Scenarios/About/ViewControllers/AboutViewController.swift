@@ -6,7 +6,6 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
-import RxSwift
 import UIKit
 
 protocol AboutViewControllerDelegate: AnyObject {
@@ -29,6 +28,8 @@ protocol AboutViewControllerDelegate: AnyObject {
 }
 
 final class AboutViewController: UITableViewController {
+
+    private static let cellIdentifier = "AboutCell"
 
     // MARK: - UI
 
@@ -68,10 +69,6 @@ final class AboutViewController: UITableViewController {
 
     weak var delegate: AboutViewControllerDelegate?
 
-    // MARK: - Fields
-
-    private var disposeBag = DisposeBag()
-
     // MARK: - Setup
 
     init(viewModel: AboutViewModel) {
@@ -88,50 +85,65 @@ final class AboutViewController: UITableViewController {
         super.viewDidLoad()
 
         setupUI()
-        setupBinding()
+        setupData()
     }
 
     private func setupUI() {
-        title = NSLocalizedString("about", comment: "")
+        title = String(localized: .about)
 
         titleLabel.text = viewModel.appName
         versionLabel.text = viewModel.appVersion
     }
 
-    private func setupBinding() {
-        tableView.dataSource = nil
-        tableView.register(cellType: AboutCell.self)
-
-        Observable.just(AboutMenuItem.allCases).bind(to: tableView.rx.items(cellIdentifier: AboutCell.reuseIdentifier, cellType: AboutCell.self)) { _, element, cell in
-            cell.model = element
-        }.disposed(by: disposeBag)
-
-        tableView.rx.modelSelected(AboutMenuItem.self).withUnretained(self).bind { owner, menuItem in
-            switch menuItem {
-            case .libraries:
-                owner.delegate?.userDidRequestLibraries()
-            case .aboutAuthor:
-                owner.delegate?.userDidRequestAuthorsInfo()
-            case .authorsBlog:
-                owner.delegate?.userDidRequestAuthorsBlog()
-            }
-        }.disposed(by: disposeBag)
+    private func setupData() {
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Self.cellIdentifier)
     }
 
-    deinit {
-        delegate?.aboutViewControllerDismissed()
+    // MARK: - UITableViewDataSource
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return AboutMenuItem.allCases.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Self.cellIdentifier, for: indexPath)
+        let menuItem = AboutMenuItem.allCases[indexPath.row]
+
+        cell.contentConfiguration = UIListContentConfiguration.cell() &> {
+            $0.text = menuItem.title
+        }
+        cell.accessoryType = .disclosureIndicator
+
+        return cell
+    }
+
+    // MARK: - UITableViewDelegate
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        let menuItem = AboutMenuItem.allCases[indexPath.row]
+        switch menuItem {
+        case .libraries:
+            delegate?.userDidRequestLibraries()
+        case .aboutAuthor:
+            delegate?.userDidRequestAuthorsInfo()
+        case .authorsBlog:
+            delegate?.userDidRequestAuthorsBlog()
+        }
     }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return headerView
     }
-}
 
-#if canImport(SwiftUI) && DEBUG
-import SwiftUI
-struct AboutViewControllerPreview: PreviewProvider {
-    static var previews: some View {
-        UINavigationController(rootViewController: AboutViewController(viewModel: AboutViewModel())).asPreview()
+    // MARK: - Lifecycle
+
+    deinit {
+        delegate?.aboutViewControllerDismissed()
     }
 }
-#endif
+
+#Preview {
+    AboutViewController(viewModel: AboutViewModel())
+}

@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import RxCocoa
-import RxSwift
 import UIKit
 
 final class FormFieldView: UIView {
@@ -19,7 +17,7 @@ final class FormFieldView: UIView {
         $0.font = UIFont.preferredFont(forTextStyle: .body)
     }
 
-    fileprivate lazy var textField = UITextField() &> {
+    private(set) lazy var textField = UITextField() &> {
         $0.borderStyle = .roundedRect
         $0.font = UIFont.preferredFont(forTextStyle: .body)
     }
@@ -68,19 +66,5 @@ final class FormFieldView: UIView {
             $0.spacing = 6
         }
         stackView.pin(to: self)
-    }
-}
-
-// MARK: - Reactive
-
-extension Reactive where Base: FormFieldView {
-    var isValid: Binder<Bool> {
-        return Binder(base) { view, isValid in
-            view.isValid = isValid
-        }
-    }
-
-    var value: ControlProperty<String?> {
-        return base.textField.rx.text
     }
 }

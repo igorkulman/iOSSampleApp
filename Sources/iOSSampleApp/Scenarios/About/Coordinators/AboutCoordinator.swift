@@ -62,7 +62,7 @@ final class AboutCoordinator: NavigationCoordinator {
      Shows the authors blog in SafariVC
      */
     private func showAuthorsBlog() {
-        showUrl(url: URL(string: "https://nlog.kulman.sk")!)
+        showUrl(url: URL(string: "https://blog.kulman.sk")!)
     }
 
     /**

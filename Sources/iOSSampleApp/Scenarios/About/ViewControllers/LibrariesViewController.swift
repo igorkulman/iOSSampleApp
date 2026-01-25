@@ -6,18 +6,16 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
-import RxSwift
 import UIKit
 
 final class LibrariesViewController: UITableViewController {
+    private static let cellIdentifier = "LibraryCell"
 
     // MARK: - Properties
 
     private let viewModel: LibrariesViewModel
 
     // MARK: - Fields
-
-    private var disposeBag = DisposeBag()
 
     init(viewModel: LibrariesViewModel) {
         self.viewModel = viewModel
@@ -39,25 +37,33 @@ final class LibrariesViewController: UITableViewController {
     }
 
     private func setupUI() {
-        title = NSLocalizedString("libraries", comment: "")
+        title = String(localized: .libraries)
     }
 
     private func setupData() {
-        tableView.dataSource = nil
-        tableView.register(cellType: LibraryCell.self)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Self.cellIdentifier)
         tableView.allowsSelection = false
+    }
 
-        viewModel.libraries.drive(tableView.rx.items(cellIdentifier: LibraryCell.reuseIdentifier, cellType: LibraryCell.self)) { _, element, cell in
-            cell.model = element
-        }.disposed(by: disposeBag)
+    // MARK: - UITableViewDataSource
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.libraries.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Self.cellIdentifier, for: indexPath)
+        let library = viewModel.libraries[indexPath.row]
+
+        cell.contentConfiguration = UIListContentConfiguration.subtitleCell() &> {
+            $0.text = library.title
+            $0.secondaryText = library.license
+        }
+
+        return cell
     }
 }
 
-#if canImport(SwiftUI) && DEBUG
-import SwiftUI
-struct LibrariesViewControllerPreview: PreviewProvider {
-    static var previews: some View {
-        UINavigationController(rootViewController: LibrariesViewController(viewModel: LibrariesViewModel())).asPreview()
-    }
+#Preview {
+    LibrariesViewController(viewModel: LibrariesViewModel())
 }
-#endif

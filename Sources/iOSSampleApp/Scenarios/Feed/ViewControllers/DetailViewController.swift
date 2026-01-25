@@ -6,8 +6,6 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
-import RxCocoa
-import RxSwift
 import UIKit
 import WebKit
 
@@ -22,21 +20,46 @@ final class DetailViewController: UIViewController {
 
     // MARK: - UI
 
-    private lazy var backBarButtonItem = UIBarButtonItem() &> {
-        $0.image = .back
-        $0.style = .plain
-    }
+    private lazy var backBarButtonItem = UIBarButtonItem(
+        image: .back,
+        primaryAction: UIAction { [weak self] _ in
+            self?.webView?.goBack()
+        }
+    )
 
-    private lazy var forwardBarButtonItem = UIBarButtonItem() &> {
-        $0.image = .forward
-        $0.style = .plain
-    }
+    private lazy var forwardBarButtonItem = UIBarButtonItem(
+        image: .forward,
+        primaryAction: UIAction { [weak self] _ in
+            self?.webView?.goForward()
+        }
+    )
 
-    private lazy var reloadBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: nil)
+    private lazy var reloadBarButtonItem = UIBarButtonItem(
+        systemItem: .refresh,
+        primaryAction: UIAction { [weak self] _ in
+            guard let self = self else { return }
+            self.webView?.stopLoading()
+            if self.webView?.url != nil {
+                self.webView?.reload()
+            } else {
+                self.load(self.item.link)
+            }
+        }
+    )
 
-    private lazy var stopBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: nil)
+    private lazy var stopBarButtonItem = UIBarButtonItem(
+        systemItem: .stop,
+        primaryAction: UIAction { [weak self] _ in
+            self?.webView?.stopLoading()
+        }
+    )
 
-    private lazy var doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: nil)
+    private lazy var doneBarButtonItem = UIBarButtonItem(
+        systemItem: .done,
+        primaryAction: UIAction { [weak self] _ in
+            self?.delegate?.detailViewControllerDidFinish()
+        }
+    )
 
     private lazy var flexibleSpaceBarButtonItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
 
@@ -52,7 +75,7 @@ final class DetailViewController: UIViewController {
 
     private let item: RssItem
     private var webView: WKWebView?
-    private var disposeBag = DisposeBag()
+    private var observations: [NSKeyValueObservation] = []
 
     // MARK: - Setup
 
@@ -90,7 +113,7 @@ final class DetailViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
-        setupBinding()
+        setupObservations()
         setupData()
     }
 
@@ -106,54 +129,65 @@ final class DetailViewController: UIViewController {
         load(item.link)
     }
 
-    private func setupBinding() {
-        backBarButtonItem.rx.tap.withUnretained(self).bind { owner, _ in
-            owner.webView?.goBack()
-        }.disposed(by: disposeBag)
-
-        forwardBarButtonItem.rx.tap.withUnretained(self).bind { owner, _ in
-            owner.webView?.goForward()
-        }.disposed(by: disposeBag)
-
-        doneBarButtonItem.rx.tap.withUnretained(self).bind { owner, _ in
-            owner.delegate?.detailViewControllerDidFinish()
-        }.disposed(by: disposeBag)
-
-        reloadBarButtonItem.rx.tap.withUnretained(self).bind { owner, _ in
-            owner.webView?.stopLoading()
-            if owner.webView?.url != nil {
-                owner.webView?.reload()
-            } else {
-                owner.load(owner.item.link)
-            }
-        }.disposed(by: disposeBag)
-
+    private func setupObservations() {
         guard let webView = webView else {
             return
         }
 
-        webView.rx.canGoBack.bind(to: backBarButtonItem.rx.isEnabled).disposed(by: disposeBag)
-        webView.rx.canGoForward.bind(to: forwardBarButtonItem.rx.isEnabled).disposed(by: disposeBag)
-
-        webView.rx.title.bind(to: navigationItem.rx.title).disposed(by: disposeBag)
-        webView.rx.estimatedProgress.withUnretained(self).bind { owner, estimatedProgress in
-            owner.progressView.alpha = 1
-            owner.progressView.setProgress(Float(estimatedProgress), animated: true)
-
-            guard estimatedProgress >= 1.0 else {
-                return
+        observations.append(
+            webView.observe(\.canGoBack, options: [.new]) { [weak self] _, change in
+                self?.backBarButtonItem.isEnabled = change.newValue ?? false
             }
+        )
 
-            owner.animateProgressAlpha()
-        }.disposed(by: disposeBag)
-
-        webView.rx.loading.map { [backBarButtonItem, flexibleSpaceBarButtonItem, forwardBarButtonItem, reloadBarButtonItem, stopBarButtonItem] (isLoading: Bool) -> [UIBarButtonItem] in
-            if isLoading {
-                return [backBarButtonItem, flexibleSpaceBarButtonItem, forwardBarButtonItem, flexibleSpaceBarButtonItem, stopBarButtonItem]
-            } else {
-                return [backBarButtonItem, flexibleSpaceBarButtonItem, forwardBarButtonItem, flexibleSpaceBarButtonItem, reloadBarButtonItem]
+        observations.append(
+            webView.observe(\.canGoForward, options: [.new]) { [weak self] _, change in
+                self?.forwardBarButtonItem.isEnabled = change.newValue ?? false
             }
-        }.bind(to: self.rx.toolbarItems).disposed(by: disposeBag)
+        )
+
+        observations.append(
+            webView.observe(\.title, options: [.new]) { [weak self] _, change in
+                self?.navigationItem.title = change.newValue ?? nil
+            }
+        )
+
+        observations.append(
+            webView.observe(\.estimatedProgress, options: [.new]) { [weak self] _, change in
+                guard let self = self, let progress = change.newValue else { return }
+
+                self.progressView.alpha = 1
+                self.progressView.setProgress(Float(progress), animated: true)
+
+                if progress >= 1.0 {
+                    self.animateProgressAlpha()
+                }
+            }
+        )
+
+        observations.append(
+            webView.observe(\.isLoading, options: [.new]) { [weak self] _, change in
+                guard let self = self, let isLoading = change.newValue else { return }
+
+                if isLoading {
+                    self.toolbarItems = [
+                        self.backBarButtonItem,
+                        self.flexibleSpaceBarButtonItem,
+                        self.forwardBarButtonItem,
+                        self.flexibleSpaceBarButtonItem,
+                        self.stopBarButtonItem
+                    ]
+                } else {
+                    self.toolbarItems = [
+                        self.backBarButtonItem,
+                        self.flexibleSpaceBarButtonItem,
+                        self.forwardBarButtonItem,
+                        self.flexibleSpaceBarButtonItem,
+                        self.reloadBarButtonItem
+                    ]
+                }
+            }
+        )
     }
 
     // MARK: - Internal
@@ -177,11 +211,6 @@ final class DetailViewController: UIViewController {
     }
 }
 
-#if canImport(SwiftUI) && DEBUG
-import SwiftUI
-struct DetailViewControllerPreview: PreviewProvider {
-    static var previews: some View {
-        UINavigationController(rootViewController: DetailViewController(item: RssItem(title: "New post", description: "Some description", link: URL(string: "http://www.github.com/igorkulman/iOSSampleApp")!, pubDate: Date()))).asPreview()
-    }
+#Preview {
+    UINavigationController(rootViewController: DetailViewController(item: RssItem(title: "New post", description: "Some description", link: URL(string: "http://www.github.com/igorkulman/iOSSampleApp")!, pubDate: Date())))
 }
-#endif
