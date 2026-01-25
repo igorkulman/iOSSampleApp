@@ -7,11 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F33474E7244F64220034B1C2 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F33474E6244F64220034B1C2 /* RxSwift */; };
-		F33474E9244F64220034B1C2 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = F33474E8244F64220034B1C2 /* RxCocoa */; };
-		F33474EB244F64220034B1C2 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = F33474EA244F64220034B1C2 /* RxRelay */; };
 		F33474F7244F65050034B1C2 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = F33474F6244F65050034B1C2 /* FeedKit */; };
-		F33474FA244F67270034B1C2 /* RxSwiftExt in Frameworks */ = {isa = PBXBuildFile; productRef = F33474F9244F67270034B1C2 /* RxSwiftExt */; };
 		F35BD6392065111F000AE4E8 /* AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35BD6382065111F000AE4E8 /* AppUITests.swift */; };
 		F3EEA696234A3BE800A2FCB5 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EEA695234A3BE800A2FCB5 /* SnapshotHelper.swift */; };
 /* End PBXBuildFile section */
@@ -57,11 +53,19 @@
 			);
 			target = F3208A791F84E48100B57B0E /* iOSSampleAppTests */;
 		};
+		F32EBF5F2EFC8D02009478FE /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Mocks/DataServiceMock.swift,
+				Mocks/SettingsServiceMock.swift,
+			);
+			target = F3A812B31F83740E00A09AAB /* iOSSampleApp */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		F311CEAD2DE595F6001B8E7A /* iOSSampleApp */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (F311CEE32DE595F6001B8E7A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = iOSSampleApp; sourceTree = "<group>"; };
-		F311CEF12DE595FD001B8E7A /* iOSSampleAppTests */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (F311CEFD2DE595FD001B8E7A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = iOSSampleAppTests; sourceTree = "<group>"; };
+		F311CEF12DE595FD001B8E7A /* iOSSampleAppTests */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (F32EBF5F2EFC8D02009478FE /* PBXFileSystemSynchronizedBuildFileExceptionSet */, F311CEFD2DE595FD001B8E7A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = iOSSampleAppTests; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,10 +87,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F33474EB244F64220034B1C2 /* RxRelay in Frameworks */,
-				F33474FA244F67270034B1C2 /* RxSwiftExt in Frameworks */,
-				F33474E9244F64220034B1C2 /* RxCocoa in Frameworks */,
-				F33474E7244F64220034B1C2 /* RxSwift in Frameworks */,
 				F33474F7244F65050034B1C2 /* FeedKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,11 +196,7 @@
 			);
 			name = iOSSampleApp;
 			packageProductDependencies = (
-				F33474E6244F64220034B1C2 /* RxSwift */,
-				F33474E8244F64220034B1C2 /* RxCocoa */,
-				F33474EA244F64220034B1C2 /* RxRelay */,
 				F33474F6244F65050034B1C2 /* FeedKit */,
-				F33474F9244F67270034B1C2 /* RxSwiftExt */,
 			);
 			productName = iOSSampleApp;
 			productReference = F3A812B41F83740E00A09AAB /* iOSSampleApp.app */;
@@ -214,7 +210,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 1630;
+				LastUpgradeCheck = 2620;
 				ORGANIZATIONNAME = "Igor Kulman";
 				TargetAttributes = {
 					F3208A791F84E48100B57B0E = {
@@ -247,11 +243,8 @@
 			);
 			mainGroup = F3A812AB1F83740E00A09AAB;
 			packageReferences = (
-				F33474E5244F64220034B1C2 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				F33474F5244F65050034B1C2 /* XCRemoteSwiftPackageReference "FeedKit" */,
-				F33474F8244F67270034B1C2 /* XCRemoteSwiftPackageReference "RxSwiftExt" */,
 				F32344CD29D814B900B1886D /* XCRemoteSwiftPackageReference "SwiftLint" */,
-				F3DFFC5C2A4C84E2001F5565 /* XCRemoteSwiftPackageReference "SwiftGenPlugin" */,
 			);
 			productRefGroup = F3A812B51F83740E00A09AAB /* Products */;
 			projectDirPath = "";
@@ -339,6 +332,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = iOSSampleAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -360,6 +354,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = iOSSampleAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -378,6 +373,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = iOSSampleAppUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -396,6 +392,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = iOSSampleAppUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -468,6 +465,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -525,6 +523,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
@@ -537,12 +536,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = iOSSampleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = sk.kulman.iOSSampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -554,12 +555,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = iOSSampleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = sk.kulman.iOSSampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -612,15 +615,7 @@
 			repositoryURL = "https://github.com/realm/SwiftLint";
 			requirement = {
 				kind = exactVersion;
-				version = 0.51.0;
-			};
-		};
-		F33474E5244F64220034B1C2 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift";
-			requirement = {
-				kind = exactVersion;
-				version = 6.6.0;
+				version = 0.62.2;
 			};
 		};
 		F33474F5244F65050034B1C2 /* XCRemoteSwiftPackageReference "FeedKit" */ = {
@@ -628,23 +623,7 @@
 			repositoryURL = "https://github.com/nmdias/FeedKit";
 			requirement = {
 				kind = exactVersion;
-				version = 9.1.2;
-			};
-		};
-		F33474F8244F67270034B1C2 /* XCRemoteSwiftPackageReference "RxSwiftExt" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/RxSwiftCommunity/RxSwiftExt";
-			requirement = {
-				kind = exactVersion;
-				version = 6.2.1;
-			};
-		};
-		F3DFFC5C2A4C84E2001F5565 /* XCRemoteSwiftPackageReference "SwiftGenPlugin" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/BookBeat/SwiftGenPlugin";
-			requirement = {
-				kind = revision;
-				revision = 1228d5a43ca791db0719d42f641c34a00b9c32f3;
+				version = 10.1.3;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -655,30 +634,10 @@
 			package = F32344CD29D814B900B1886D /* XCRemoteSwiftPackageReference "SwiftLint" */;
 			productName = "plugin:SwiftLintPlugin";
 		};
-		F33474E6244F64220034B1C2 /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F33474E5244F64220034B1C2 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
-		};
-		F33474E8244F64220034B1C2 /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F33474E5244F64220034B1C2 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
-		F33474EA244F64220034B1C2 /* RxRelay */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F33474E5244F64220034B1C2 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxRelay;
-		};
 		F33474F6244F65050034B1C2 /* FeedKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F33474F5244F65050034B1C2 /* XCRemoteSwiftPackageReference "FeedKit" */;
 			productName = FeedKit;
-		};
-		F33474F9244F67270034B1C2 /* RxSwiftExt */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F33474F8244F67270034B1C2 /* XCRemoteSwiftPackageReference "RxSwiftExt" */;
-			productName = RxSwiftExt;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
