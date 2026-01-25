@@ -9,7 +9,6 @@
 import Foundation
 @testable import iOSSampleApp
 import Testing
-import RxSwift
 
 struct SourceSelectionViewModelTests {
 
@@ -19,14 +18,11 @@ struct SourceSelectionViewModelTests {
         let settingsService = SettingsServiceMock()
         let vm = SourceSelectionViewModel(settingsService: settingsService)
 
-        // When
-        let sources = try vm.sources.toBlocking().first()!
-
         // Then
-        #expect(sources.count == 4)
-        #expect(sources[0].source.title == "Coding Journal")
-        #expect(sources[1].source.title == "Hacker News")
-        #expect(!sources[0].isSelected.value)
+        #expect(vm.sources.count == 4)
+        #expect(vm.sources[0].source.title == "Coding Journal")
+        #expect(vm.sources[1].source.title == "Hacker News")
+        #expect(!vm.sources[0].isSelected)
     }
 
     @Test("Pre-select feed when already configured")
@@ -41,14 +37,11 @@ struct SourceSelectionViewModelTests {
         )
         let vm = SourceSelectionViewModel(settingsService: settingsService)
 
-        // When
-        let sources = try vm.sources.toBlocking().first()!
-
         // Then
-        #expect(sources.count == 4)
-        #expect(sources[0].source.title == "Coding Journal")
-        #expect(sources[0].isSelected.value)
-        #expect(!sources[1].isSelected.value)
+        #expect(vm.sources.count == 4)
+        #expect(vm.sources[0].source.title == "Coding Journal")
+        #expect(vm.sources[0].isSelected)
+        #expect(!vm.sources[1].isSelected)
     }
 
     @Test("Add new source and make it selected")
@@ -60,17 +53,16 @@ struct SourceSelectionViewModelTests {
         // When
         vm.addNewSource(source: RssSource(
             title: "Example",
-            url: URL(string:"http://example.com")!,
-            rss: URL(string:"http://example.com")!,
+            url: URL(string: "http://example.com")!,
+            rss: URL(string: "http://example.com")!,
             icon: nil
         ))
 
         // Then
-        let sources = try vm.sources.toBlocking().first()!
-        #expect(sources.count == 5)
-        #expect(sources[0].isSelected.value)
-        #expect(sources[0].source.title == "Example")
-        #expect(!sources[1].isSelected.value)
+        #expect(vm.sources.count == 5)
+        #expect(vm.sources[0].isSelected)
+        #expect(vm.sources[0].source.title == "Example")
+        #expect(!vm.sources[1].isSelected)
     }
 
     @Test("Toggle source selection")
@@ -79,21 +71,20 @@ struct SourceSelectionViewModelTests {
         let settingsService = SettingsServiceMock()
         settingsService.selectedSource = RssSource(
             title: "Coding Journal",
-            url: URL(string:"https://blog.kulman.sk")!,
-            rss: URL(string:"https://blog.kulman.sk/index.xml")!,
+            url: URL(string: "https://blog.kulman.sk")!,
+            rss: URL(string: "https://blog.kulman.sk/index.xml")!,
             icon: nil
         )
         let vm = SourceSelectionViewModel(settingsService: settingsService)
-        let sources = try vm.sources.toBlocking().first()!
 
         // When
-        vm.toggleSource(source: sources[2])
+        vm.toggleSource(source: vm.sources[2])
 
         // Then
-        #expect(!sources[0].isSelected.value)
-        #expect(!sources[1].isSelected.value)
-        #expect(sources[2].isSelected.value)
-        #expect(!sources[3].isSelected.value)
+        #expect(!vm.sources[0].isSelected)
+        #expect(!vm.sources[1].isSelected)
+        #expect(vm.sources[2].isSelected)
+        #expect(!vm.sources[3].isSelected)
     }
 
     @Test("Cannot save when no source selected")
@@ -115,14 +106,13 @@ struct SourceSelectionViewModelTests {
         // Given
         let settingsService = SettingsServiceMock()
         let vm = SourceSelectionViewModel(settingsService: settingsService)
-        let sources = try vm.sources.toBlocking().first()!
-        vm.toggleSource(source: sources[2])
+        vm.toggleSource(source: vm.sources[2])
 
         // When
         let result = vm.saveSelectedSource()
 
         // Then
         #expect(result)
-        #expect(settingsService.selectedSource == sources[2].source)
+        #expect(settingsService.selectedSource == vm.sources[2].source)
     }
 }

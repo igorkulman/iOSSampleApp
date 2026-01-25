@@ -29,16 +29,14 @@ class ViewControllerLeakTests: XCTestCase {
     }
 
     func testFeedViewController() {
-        container.settingsService.selectedSource = RssSource(title: "Test", url: URL(string:"https://blog.kulman.sk")!, rss: URL(string:"https://blog.kulman.sk/index.xml")!, icon: nil)
-        let dataService = container.dataService as! DataServiceMock
-        dataService.result = .success([])
+        container.settingsService.selectedSource = RssSource(title: "Test", url: URL(string: "https://blog.kulman.sk")!, rss: URL(string: "https://blog.kulman.sk/index.xml")!, icon: nil)
         let viewController = container.makeFeedViewController()
         assertDeallocatedAfterTest(viewController)
         viewController.loadViewIfNeeded()
     }
 
     func testDetailViewController() {
-        let viewController = DetailViewController(item: RssItem(title: "Test", description: "Test sesc", link: URL(string:"https://blog.kulman.sk")!, pubDate: Date()))
+        let viewController = DetailViewController(item: RssItem(title: "Test", description: "Test sesc", link: URL(string: "https://blog.kulman.sk")!, pubDate: Date()))
         assertDeallocatedAfterTest(viewController)
         viewController.loadViewIfNeeded()
     }
