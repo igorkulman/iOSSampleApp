@@ -6,9 +6,6 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
-import RxCocoa
-import RxSwift
-import RxSwiftExt
 import UIKit
 
 protocol FeedViewControllerDelegeate: AnyObject {
@@ -30,6 +27,8 @@ protocol FeedViewControllerDelegeate: AnyObject {
 
 final class FeedViewController: UIViewController, ToastCapable {
 
+    private static let cellIdentifier = "FeedCell"
+
     // MARK: - UI
 
     private lazy var tableView = UITableView() &> {
@@ -37,20 +36,32 @@ final class FeedViewController: UIViewController, ToastCapable {
         $0.rowHeight = 100
         $0.refreshControl = refreshControl
         $0.tableFooterView = UIView()
+        $0.delegate = self
     }
 
     private lazy var refreshControl = UIRefreshControl() &> {
-        $0.attributedTitle = NSAttributedString(string: NSLocalizedString("pull_to_refresh", comment: ""))
+        $0.attributedTitle = NSAttributedString(string: String(localized: .pullToRefresh))
+        $0.addAction(UIAction { [weak self] _ in
+            self?.loadTask?.cancel()
+            self?.loadTask = Task {
+                await self?.viewModel.load()
+            }
+        }, for: .valueChanged)
     }
 
-    private lazy var setupButton = UIBarButtonItem() &> {
-        $0.image = .settings
-        $0.style = .plain
-    }
+    private lazy var setupButton = UIBarButtonItem(
+        image: .settings,
+        primaryAction: UIAction { [weak self] _ in
+            self?.delegate?.userDidRequestSetup()
+        }
+    )
 
-    private lazy var aboutButton = UIBarButtonItem() &> {
-        $0.image = .about
-        $0.style = .plain
+    private lazy var aboutButton = UIBarButtonItem(
+        image: .about,
+        primaryAction: UIAction { [weak self] _ in
+            self?.delegate?.userDidRequestAbout()
+        }
+    ) &> {
         $0.accessibilityIdentifier = "about"
     }
 
@@ -60,8 +71,16 @@ final class FeedViewController: UIViewController, ToastCapable {
 
     // MARK: - Fields
 
+    private typealias DataSource = UITableViewDiffableDataSource<Section, RssItem>
+    private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, RssItem>
+
+    private enum Section {
+        case main
+    }
+
     private let viewModel: FeedViewModel
-    private var disposeBag = DisposeBag()
+    private var dataSource: DataSource!
+    private var loadTask: Task<Void, Never>?
 
     init(viewModel: FeedViewModel) {
         self.viewModel = viewModel
@@ -71,6 +90,10 @@ final class FeedViewController: UIViewController, ToastCapable {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    deinit {
+        loadTask?.cancel()
     }
 
     // MARK: - Setup
@@ -86,8 +109,29 @@ final class FeedViewController: UIViewController, ToastCapable {
         super.viewDidLoad()
 
         setupUI()
-        setupBinding()
         setupData()
+    }
+
+    override func updateProperties() {
+        super.updateProperties()
+
+        var snapshot = Snapshot()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(viewModel.feed)
+        dataSource.apply(snapshot, animatingDifferences: true)
+
+        if !viewModel.isLoading {
+            refreshControl.endRefreshing()
+        }
+
+        if let error = self.viewModel.error {
+            switch error {
+            case let rssError as RssError:
+                self.showErrorToast(message: rssError.description)
+            default:
+                self.showErrorToast(message: String(localized: .networkProblem))
+            }
+        }
     }
 
     private func setupUI() {
@@ -97,73 +141,45 @@ final class FeedViewController: UIViewController, ToastCapable {
         navigationItem.rightBarButtonItem = aboutButton
     }
 
-    private func setupBinding() {
-        tableView.rx.modelSelected(RssItem.self).withUnretained(self).bind { owner, item in owner.delegate?.userDidRequestItemDetail(item: item) }.disposed(by: disposeBag)
-        tableView.rx.itemSelected.withUnretained(self).bind { owner, indexPath in owner.tableView.deselectRow(at: indexPath, animated: true) }.disposed(by: disposeBag)
-
-        refreshControl.rx.controlEvent(.valueChanged).bind(to: viewModel.load).disposed(by: disposeBag)
-
-        setupButton.rx.tap.withUnretained(self).bind { owner, _ in owner.delegate?.userDidRequestSetup() }.disposed(by: disposeBag)
-        aboutButton.rx.tap.withUnretained(self).bind { owner, _ in owner.delegate?.userDidRequestAbout() }.disposed(by: disposeBag)
-    }
-
     private func setupData() {
-        tableView.register(cellType: FeedCell.self)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Self.cellIdentifier)
 
-        // announcing errors with a toast
-        viewModel.onError.drive(onNext: { [weak self] error in
-            guard let self = self else {
-                return
-            }
-            switch error {
-            case let rssError as RssError:
-                self.showErrorToast(message: rssError.description)
-            default:
-                self.showErrorToast(message: NSLocalizedString("network_problem", comment: ""))
-            }
-        }).disposed(by: disposeBag)
+        dataSource = DataSource(tableView: tableView) { tableView, indexPath, item in
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.cellIdentifier, for: indexPath)
 
-        // refresh is considered finished when new data arrives or when the request fails
-        Driver.merge(
-            viewModel.feed.map({ _ in Void() }),
-            viewModel.onError.map({ _ in Void() })
-        )
-        .drive(onNext: { [weak self] _ in
-            self?.refreshControl.endRefreshing()
-        })
-        .disposed(by: disposeBag)
+            cell.contentConfiguration = UIListContentConfiguration.subtitleCell() &> {
+                $0.text = item.title
+                $0.secondaryText = item.description
 
-        viewModel.feed
-            .drive(tableView.rx.items(cellIdentifier: FeedCell.reuseIdentifier, cellType: FeedCell.self)) { _, element, cell in
-                cell.model = element
+                $0.textProperties.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize: 17, weight: .semibold))
+                $0.secondaryTextProperties.font = UIFont.preferredFont(forTextStyle: .subheadline)
+                $0.secondaryTextProperties.numberOfLines = 3
             }
-            .disposed(by: disposeBag)
+
+            return cell
+        }
     }
 }
 
-#if canImport(SwiftUI) && DEBUG
-import SwiftUI
-final class PreviewDataService: DataService {
-    func getFeed(source: RssSource, onCompletion: @escaping (RssResult) -> Void) {
-        onCompletion(.success([
-            RssItem(title: "Post 1", description: "Description", link: URL(string: "https://news.ycombinator.com")!, pubDate: Date()),
-            RssItem(title: "Post 2", description: "Description", link: URL(string: "https://news.ycombinator.com")!, pubDate: Date()),
-            RssItem(title: "Post 3", description: "Description", link: URL(string: "https://news.ycombinator.com")!, pubDate: Date())
-        ]))
+// MARK: - UITableViewDelegate
+
+extension FeedViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        if let item = dataSource.itemIdentifier(for: indexPath) {
+            delegate?.userDidRequestItemDetail(item: item)
+        }
     }
 }
-final class PreviewSettingsService: SettingsService {
-    var selectedSource: RssSource? = RssSource(
+
+#Preview {
+    let settings = SettingsServiceMock()
+    settings.selectedSource = RssSource(
         title: "Hacker News",
         url: URL(string: "https://news.ycombinator.com")!,
         rss: URL(string: "https://news.ycombinator.com/rss")!,
-        icon: URL("https://upload.wikimedia.org/wikipedia/commons/d/d5/Y_Combinator_Logo_400.gif")!
+        icon: URL(string: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Y_Combinator_Logo_400.gif")!
     )
+    return UINavigationController(rootViewController: FeedViewController(viewModel: FeedViewModel(dataService: DataServiceMock(), settingsService: settings)))
 }
-
-struct FeedViewControllerPreview: PreviewProvider {
-    static var previews: some View {
-        UINavigationController(rootViewController: FeedViewController(viewModel: FeedViewModel(dataService: PreviewDataService(), settingsService: PreviewSettingsService()))).asPreview()
-    }
-}
-#endif

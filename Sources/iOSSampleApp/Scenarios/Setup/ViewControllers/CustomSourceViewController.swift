@@ -6,8 +6,6 @@
 //  Copyright © 2017 Igor Kulman. All rights reserved.
 //
 
-import RxCocoa
-import RxSwift
 import UIKit
 
 protocol CustomSourceViewControllerDelegate: AnyObject {
@@ -23,25 +21,40 @@ final class CustomSourceViewController: UIViewController {
 
     // MARK: - UI
 
-    private lazy var doneButton = UIBarButtonItem() &> {
-        $0.title = NSLocalizedString("done", comment: "")
-        $0.style = .plain
-    }
+    private lazy var doneButton = UIBarButtonItem(
+        title: String(localized: .done),
+        primaryAction: UIAction { [weak self] _ in
+            guard let self = self, let source = self.viewModel.source else { return }
+            self.delegate?.userDidAddCustomSource(source: source)
+        }
+    )
 
     private lazy var rssUrlFormField = FormFieldView() &> {
-        $0.title = NSLocalizedString("rss_url", comment: "")
+        $0.title = String(localized: .rssUrl)
+        $0.textField.addAction(UIAction { [weak self] action in
+            self?.viewModel.rssUrl = (action.sender as? UITextField)?.text
+        }, for: .editingChanged)
     }
 
     private lazy var urlFormField = FormFieldView() &> {
-        $0.title = NSLocalizedString("url", comment: "")
+        $0.title = String(localized: .url)
+        $0.textField.addAction(UIAction { [weak self] action in
+            self?.viewModel.url = (action.sender as? UITextField)?.text
+        }, for: .editingChanged)
     }
 
     private lazy var titleFormField = FormFieldView() &> {
-        $0.title = NSLocalizedString("title", comment: "")
+        $0.title = String(localized: .title)
+        $0.textField.addAction(UIAction { [weak self] action in
+            self?.viewModel.title = (action.sender as? UITextField)?.text
+        }, for: .editingChanged)
     }
 
     private lazy var logoUrlFormField = FormFieldView() &> {
-        $0.title = "\(NSLocalizedString("logo_url", comment: "")) (\(NSLocalizedString("optional", comment: "")))"
+        $0.title = "\(String(localized: .logoUrl)) (\(String(localized: .optional)))"
+        $0.textField.addAction(UIAction { [weak self] action in
+            self?.viewModel.logoUrl = (action.sender as? UITextField)?.text
+        }, for: .editingChanged)
     }
 
     private lazy var scrollView = UIScrollView() &> {
@@ -55,7 +68,7 @@ final class CustomSourceViewController: UIViewController {
     // MARK: - Fields
 
     private let viewModel: CustomSourceViewModel
-    private var disposeBag = DisposeBag()
+    private var keyboardObserver: NSObjectProtocol?
 
     init(viewModel: CustomSourceViewModel) {
         self.viewModel = viewModel
@@ -79,7 +92,7 @@ final class CustomSourceViewController: UIViewController {
         }
 
         let contentView = UIView() &> {
-            stackView.pin(to: $0, guide: $0.layoutMarginsGuide, insets: .init(all: 8))
+            stackView.pin(to: $0, guide: $0.layoutMarginsGuide, insets: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
         }
 
         scrollView.pin(to: view, with: contentView)
@@ -89,36 +102,52 @@ final class CustomSourceViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
-        setupBinding()
+        observeKeyboard()
+    }
+
+    // MARK: - iOS 18+ Observable Support
+
+    override func updateProperties() {
+        super.updateProperties()
+        
+        // UIKit automatically tracks @Observable properties accessed here
+        // Update done button state
+        doneButton.isEnabled = viewModel.isValid
+
+        // Update field validation states
+        rssUrlFormField.isValid = viewModel.rssUrl?.isValidURL ?? false || viewModel.rssUrl?.isEmpty ?? true
+        urlFormField.isValid = viewModel.url?.isValidURL ?? false || viewModel.url?.isEmpty ?? true
+        logoUrlFormField.isValid = viewModel.logoUrl?.isValidURL ?? false || viewModel.logoUrl?.isEmpty ?? true
     }
 
     private func setupUI() {
-        title = NSLocalizedString("add_custom_source", comment: "")
+        title = String(localized: .addCustomSource)
         navigationItem.rightBarButtonItem = doneButton
     }
 
-    private func setupBinding() {
-        viewModel.isValid.drive(doneButton.rx.isEnabled).disposed(by: disposeBag)
-        titleFormField.rx.value.bind(to: viewModel.title).disposed(by: disposeBag)
-        urlFormField.rx.value.bind(to: viewModel.url).disposed(by: disposeBag)
-        rssUrlFormField.rx.value.bind(to: viewModel.rssUrl).disposed(by: disposeBag)
-        logoUrlFormField.rx.value.bind(to: viewModel.logoUrl).disposed(by: disposeBag)
+    private func observeKeyboard() {
+        keyboardObserver = NotificationCenter.default.addObserver(
+            forName: UIResponder.keyboardWillChangeFrameNotification,
+            object: nil,
+            queue: .main
+        ) { [weak self] notification in
+            guard let self = self,
+                  let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
+                return
+            }
 
-        viewModel.rssUrl.map({ $0?.isValidURL == true }).bind(to: rssUrlFormField.rx.isValid).disposed(by: disposeBag)
-        viewModel.url.asObservable().map({ $0?.isValidURL == true }).bind(to: urlFormField.rx.isValid).disposed(by: disposeBag)
-        viewModel.logoUrl.asObservable().map({ $0?.isValidURL == true }).bind(to: logoUrlFormField.rx.isValid).disposed(by: disposeBag)
+            let keyboardHeight = keyboardFrame.origin.y >= UIScreen.main.bounds.height ? 0 : keyboardFrame.height
+            self.scrollView.setBottomInset(height: keyboardHeight)
+        }
+    }
 
-        NotificationCenter.default.rx.keyboardHeightChanged().withUnretained(self).bind { owner, height in owner.scrollView.setBottomInset(height: height) }.disposed(by: disposeBag)
-
-        doneButton.rx.tap.withLatestFrom(viewModel.source.flatMap(ignoreNil)).withUnretained(self).bind { owner, source in owner.delegate?.userDidAddCustomSource(source: source) }.disposed(by: disposeBag)
+    deinit {
+        if let observer = keyboardObserver {
+            NotificationCenter.default.removeObserver(observer)
+        }
     }
 }
 
-#if canImport(SwiftUI) && DEBUG
-import SwiftUI
-struct CustomSourceViewControllerPreview: PreviewProvider {
-    static var previews: some View {
-        UINavigationController(rootViewController: CustomSourceViewController(viewModel: CustomSourceViewModel())).asPreview()
-    }
+#Preview {
+    UINavigationController(rootViewController: CustomSourceViewController(viewModel: CustomSourceViewModel()))
 }
-#endif
