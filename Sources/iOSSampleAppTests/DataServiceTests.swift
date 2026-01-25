@@ -8,6 +8,7 @@
 
 import Foundation
 @testable import iOSSampleApp
+import FeedKit
 import Testing
 
 struct DataServiceTests {
@@ -24,19 +25,10 @@ struct DataServiceTests {
         )
 
         // When
-        let result = await withCheckedContinuation { continuation in
-            service.getFeed(source: source) { result in
-                continuation.resume(returning: result)
-            }
-        }
+        let items = try await service.getFeed(source: source)
 
         // Then
-        switch result {
-        case let .success(items):
-            #expect(!items.isEmpty)
-        case let .failure(error):
-            Issue.record("Failed with error: \(error)")
-        }
+        #expect(!items.isEmpty)
     }
 
     @Test("Fail when fetching from invalid RSS feed")
@@ -50,19 +42,27 @@ struct DataServiceTests {
             icon: nil
         )
 
-        // When
-        let result = await withCheckedContinuation { continuation in
-            service.getFeed(source: source) { result in
-                continuation.resume(returning: result)
-            }
+        await #expect(throws: FeedError.unknownFeedFormat) {
+            try await service.getFeed(source: source)
         }
+    }
+}
 
-        // Then
-        switch result {
-        case .success:
-            Issue.record("Expected failure but got success")
-        case .failure:
-            break
+extension FeedError: @retroactive Equatable {
+    public static func == (lhs: FeedError, rhs: FeedError) -> Bool {
+        switch (lhs, rhs) {
+        case (.invalidURLString, .invalidURLString):
+            return true
+        case (.invalidUtf8String, .invalidUtf8String):
+            return true
+        case (.unknownFeedFormat, .unknownFeedFormat):
+            return true
+        case (.invalidHttpResponse(let lCode), .invalidHttpResponse(let rCode)):
+            return lCode == rCode
+        case (.utf8ConversionFailed, .utf8ConversionFailed):
+            return true
+        default:
+            return true
         }
     }
 }
